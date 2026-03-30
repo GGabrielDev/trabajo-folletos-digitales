@@ -1,0 +1,74 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { Smile, AlertCircle, HeartCrack } from 'lucide-react';
+---
+
+<Layout title="Autoprotección Sísmica - Amigable">
+	<main class="min-h-screen bg-sky-200 text-sky-950 font-inter selection:bg-pink-300 selection:text-pink-900 pb-20 relative overflow-hidden">
+		
+        <!-- Decorative fun shapes -->
+        <div class="absolute -top-10 -right-10 w-40 h-40 bg-pink-400 rounded-full mix-blend-multiply opacity-50 blur-xl"></div>
+        <div class="absolute top-40 -left-10 w-32 h-32 bg-yellow-400 rounded-full mix-blend-multiply opacity-50 blur-xl"></div>
+
+        <div class="max-w-md mx-auto min-h-screen flex flex-col justify-start px-6 pt-10 z-10 relative">
+            
+            <header class="flex justify-between items-center bg-white/70 backdrop-blur-md rounded-full shadow-sm p-2 mb-8 border border-white/50">
+                <div class="w-10 h-10 rounded-full bg-pink-500 text-white flex items-center justify-center font-bold text-[0.5rem] shadow-inner ml-1">
+                    PC
+                </div>
+                <h1 class="text-sm font-bold tracking-wide text-sky-800 mr-4">
+                    Educación <span class="bg-yellow-300 text-sky-900 px-2 py-0.5 rounded-full ml-1 text-xs">¡Vital!</span>
+                </h1>
+            </header>
+
+            <div class="bg-white rounded-[2.5rem] p-6 shadow-xl border-4 border-white mb-6 transform -rotate-2 hover:rotate-0 transition-transform duration-300">
+                <h2 class="text-3xl font-black text-center text-sky-600 mb-1 leading-tight tracking-tight">
+                    ¿Qué hacer si<br/> tiembla?
+                </h2>
+                <div class="w-full aspect-square rounded-3xl mt-4 mb-2 overflow-hidden shadow-inner border-4 border-sky-100 relative bg-sky-50 flex items-center justify-center" style="background-image: url('/assets/earthquake_illustration_1774892678686.png'); background-size: cover; background-position: center;">
+                </div>
+            </div>
+
+            <section class="space-y-4 pt-4">
+                
+                <div class="bg-white/80 backdrop-blur rounded-[2rem] p-5 shadow-sm border border-white flex gap-4 items-center">
+                    <div class="w-14 h-14 bg-yellow-300 rounded-2xl flex items-center justify-center text-yellow-800 flex-shrink-0 shadow-sm transform -rotate-6">
+                        <Smile size={28} />
+                    </div>
+                    <div>
+                        <h3 class="font-bold text-lg text-slate-800 leading-tight">Conserva la Calma</h3>
+                        <p class="text-sm text-slate-600 leading-snug mt-1">
+                            Respira profundo. El miedo es normal, pero debes pensar con claridad para estar seguro.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="bg-white/80 backdrop-blur rounded-[2rem] p-5 shadow-sm border border-white flex gap-4 items-center">
+                    <div class="w-14 h-14 bg-pink-400 rounded-2xl flex items-center justify-center text-white flex-shrink-0 shadow-sm transform rotate-3">
+                        <AlertCircle size={28} strokeWidth={2.5}/>
+                    </div>
+                    <div>
+                        <h3 class="font-bold text-lg text-slate-800 leading-tight">Refugio Seguro</h3>
+                        <p class="text-sm text-slate-600 leading-snug mt-1">
+                            ¡A esconderse! Ponte debajo de una mesa dura y cógete fuerte de las patas.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="bg-white/80 backdrop-blur rounded-[2rem] p-5 shadow-sm border border-white flex gap-4 items-center">
+                   <div class="w-14 h-14 bg-sky-400 rounded-2xl flex items-center justify-center text-white flex-shrink-0 shadow-sm transform -rotate-3">
+                        <HeartCrack size={28} />
+                    </div>
+                    <div>
+                        <h3 class="font-bold text-lg text-slate-800 leading-tight">Zonas de Peligro</h3>
+                        <p class="text-sm text-slate-600 leading-snug mt-1">
+                            Evita los ascensores y los vidrios. No uses las escaleras mientras tiembla.
+                        </p>
+                    </div>
+                </div>
+
+            </section>
+
+        </div>
+	</main>
+</Layout>

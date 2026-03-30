@@ -1,11 +1,86 @@
 ---
-import Welcome from '../components/Welcome.astro';
 import Layout from '../layouts/Layout.astro';
-
-// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
-// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
+import { ShieldAlert, BookOpen, Layers, CheckCircle } from 'lucide-react';
 ---
 
-<Layout>
-	<Welcome />
+<Layout title="Centro de Autoprotección - Protocólos">
+	<main class="min-h-screen bg-neutral-100 flex flex-col items-center py-12 px-4 selection:bg-orange-200">
+		<div class="max-w-md w-full flex flex-col items-center mb-10 text-center">
+			
+            <div class="w-20 h-20 bg-white rounded-full flex items-center justify-center shadow-lg border border-neutral-200 mb-6 relative overflow-hidden">
+                <!-- Placeholder for Official Logo -->
+                <span class="text-[0.6rem] font-bold text-neutral-400 P-2 text-center absolute">LOGO OFICIAL PC REEMPLAZAR</span>
+            </div>
+
+			<h1 class="text-3xl font-extrabold text-neutral-900 tracking-tight leading-tight mb-2">
+				Prototipos de Diseño
+			</h1>
+			<p class="text-neutral-500 text-sm max-w-xs mx-auto mb-8 font-medium">
+				Seleccione un estilo visual para el folleto digital de medidas de autoprotección.
+			</p>
+            
+		</div>
+
+        <ul class="w-full max-w-md space-y-4">
+            <li>
+                <a href="/template-a" class="block w-full bg-white rounded-2xl p-5 shadow-sm hover:shadow-md transition-all border border-neutral-200 group relative overflow-hidden">
+                    <div class="absolute right-0 top-0 bottom-0 w-2 bg-blue-500 opacity-0 group-hover:opacity-100 transition-opacity"></div>
+                    <div class="flex items-center">
+                        <div class="w-12 h-12 bg-blue-50 text-blue-600 rounded-xl flex items-center justify-center mr-4">
+                           <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 2 7 12 12 22 7 12 2"></polygon><polyline points="2 17 12 22 22 17"></polyline><polyline points="2 12 12 17 22 12"></polyline></svg>
+                        </div>
+                        <div>
+                            <h2 class="text-lg font-bold text-neutral-800">A. Glassmorphism</h2>
+                            <p class="text-xs text-neutral-500 mt-1">Estilo Apple/iOS, premium, cristales opacos.</p>
+                        </div>
+                    </div>
+                </a>
+            </li>
+
+            <li>
+                <a href="/template-b" class="block w-full bg-white rounded-2xl p-5 shadow-sm hover:shadow-md transition-all border border-neutral-200 group relative overflow-hidden">
+                    <div class="absolute right-0 top-0 bottom-0 w-2 bg-red-600 opacity-0 group-hover:opacity-100 transition-opacity"></div>
+                    <div class="flex items-center">
+                        <div class="w-12 h-12 bg-red-50 text-red-600 rounded-xl flex items-center justify-center mr-4">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10"></path></svg>
+                        </div>
+                        <div>
+                            <h2 class="text-lg font-bold text-neutral-800">B. Alto Contraste</h2>
+                            <p class="text-xs text-neutral-500 mt-1">Autoritario, urgente, estilo neobruta, claro.</p>
+                        </div>
+                    </div>
+                </a>
+            </li>
+
+            <li>
+                <a href="/template-c" class="block w-full bg-white rounded-2xl p-5 shadow-sm hover:shadow-md transition-all border border-neutral-200 group relative overflow-hidden">
+                    <div class="absolute right-0 top-0 bottom-0 w-2 bg-emerald-500 opacity-0 group-hover:opacity-100 transition-opacity"></div>
+                    <div class="flex items-center">
+                        <div class="w-12 h-12 bg-emerald-50 text-emerald-600 rounded-xl flex items-center justify-center mr-4">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
+                        </div>
+                        <div>
+                            <h2 class="text-lg font-bold text-neutral-800">C. Minimalista Limpio</h2>
+                            <p class="text-xs text-neutral-500 mt-1">Sombras suaves, limpio, espacio en blanco.</p>
+                        </div>
+                    </div>
+                </a>
+            </li>
+
+            <li>
+                <a href="/template-d" class="block w-full bg-white rounded-2xl p-5 shadow-sm hover:shadow-md transition-all border border-neutral-200 group relative overflow-hidden">
+                    <div class="absolute right-0 top-0 bottom-0 w-2 bg-yellow-500 opacity-0 group-hover:opacity-100 transition-opacity"></div>
+                    <div class="flex items-center">
+                        <div class="w-12 h-12 bg-yellow-50 text-yellow-600 rounded-xl flex items-center justify-center mr-4">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 18h20"></path><path d="M12 2v16"></path><path d="m4 9 4-4"></path><path d="m20 9-4-4"></path></svg>
+                        </div>
+                        <div>
+                            <h2 class="text-lg font-bold text-neutral-800">D. Joven & Amigable</h2>
+                            <p class="text-xs text-neutral-500 mt-1">Colores cálidos, fuentes redondeadas, lúdico.</p>
+                        </div>
+                    </div>
+                </a>
+            </li>
+        </ul>
+	</main>
 </Layout>

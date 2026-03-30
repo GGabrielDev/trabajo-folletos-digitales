@@ -1,0 +1,86 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { AlertTriangle, Map, PhoneCall, HandMetal } from 'lucide-react';
+---
+
+<Layout title="Autoprotección Sísmica - Alto Contraste">
+	<main class="min-h-screen bg-yellow-400 text-black font-inter selection:bg-black selection:text-yellow-400">
+		
+        <div class="max-w-md mx-auto min-h-screen flex flex-col justify-start p-6 pb-24 border-x-4 border-black bg-white">
+            
+            <header class="flex justify-between items-center mb-8 border-b-4 border-black pb-4">
+                <div class="flex items-center space-x-3">
+                    <div class="w-14 h-14 bg-black text-white flex items-center justify-center font-black text-xs text-center leading-none">
+                         LOGO<br/>PC
+                    </div>
+                    <div class="flex flex-col">
+                        <span class="font-oswald font-bold uppercase tracking-widest text-lg leading-tight">PREVENCIÓN</span>
+                        <span class="font-bold text-xs bg-red-600 text-white px-1 mt-1 inline-block w-max">OFICIAL</span>
+                    </div>
+                </div>
+            </header>
+
+            <div class="high-contrast-card p-6 mb-8 transform -rotate-1">
+                <h2 class="font-oswald text-5xl font-black uppercase leading-none mb-3 text-red-600">
+                    SISMOS
+                </h2>
+                <h1 class="text-2xl font-black uppercase mb-4 leading-tight bg-black text-white p-2 inline-block">
+                    ¡Agáchate,<br/>Cúbrete y<br/>Agárrate!
+                </h1>
+                
+                <div class="w-full aspect-square border-4 border-black bg-yellow-100 flex items-center justify-center" style="background-image: url('/assets/earthquake_illustration_1774892678686.png'); background-size: cover; background-position: center;">
+                </div>
+            </div>
+
+            <div class="px-2">
+                <h3 class="font-oswald text-3xl font-black uppercase mb-4 border-l-8 border-red-600 pl-3">
+                    Instrucciones
+                </h3>
+
+                <ul class="space-y-6">
+                    <li class="flex gap-4 items-start">
+                        <div class="flex-shrink-0 w-12 h-12 bg-black text-yellow-400 flex items-center justify-center rounded-sm">
+                            <HandMetal size={28} strokeWidth={3} />
+                        </div>
+                        <div>
+                            <h4 class="font-black text-xl uppercase leading-none mb-1">Cúbrete</h4>
+                            <p class="font-bold text-sm text-neutral-800 leading-snug">
+                                Escóndete debajo de una mesa o un escritorio fuerte y sujétate de él. Permanece allí hasta que el temblor cese.
+                            </p>
+                        </div>
+                    </li>
+
+                    <li class="flex gap-4 items-start">
+                        <div class="flex-shrink-0 w-12 h-12 bg-black text-white flex items-center justify-center rounded-sm">
+                            <Map size={28} strokeWidth={3} />
+                        </div>
+                        <div>
+                            <h4 class="font-black text-xl uppercase leading-none mb-1">Rutas</h4>
+                            <p class="font-bold text-sm text-neutral-800 leading-snug">
+                                Identifique una ruta segura y establezca un punto de encuentro con su familia.
+                            </p>
+                        </div>
+                    </li>
+
+                    <li class="flex gap-4 items-start">
+                        <div class="flex-shrink-0 w-12 h-12 bg-red-600 text-white flex items-center justify-center rounded-sm">
+                            <AlertTriangle size={28} strokeWidth={3} />
+                        </div>
+                        <div>
+                            <h4 class="font-black text-xl text-red-600 uppercase leading-none mb-1">Peligro</h4>
+                            <p class="font-bold text-sm text-neutral-800 leading-snug">
+                                aléjese de las ventanas, objetos de cristal y lámparas. NO USE los marcos de las puertas.
+                            </p>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+
+            <footer class="mt-12 bg-black text-white p-6 font-bold text-center border-t-8 border-yellow-400">
+                LÍNEA DE EMERGENCIA<br/>
+                <span class="text-4xl text-yellow-400 font-black">911</span>
+            </footer>
+
+        </div>
+	</main>
+</Layout>

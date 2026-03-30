@@ -1,0 +1,73 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { Home, Phone, ArrowDownToLine, TriangleAlert } from 'lucide-react';
+---
+
+<Layout title="Autoprotección Sísmica - Minimalista">
+	<main class="min-h-screen bg-[#FDFDFD] text-slate-800 font-inter selection:bg-emerald-100 selection:text-emerald-900 pb-20">
+		
+        <div class="max-w-md mx-auto min-h-screen flex flex-col justify-start px-6 pt-12">
+            
+            <header class="flex flex-col items-center justify-center mb-10">
+                <div class="w-16 h-16 rounded-3xl bg-emerald-50 text-emerald-600 flex items-center justify-center font-bold text-xs shadow-sm mb-4 border border-emerald-100">
+                    LOGO
+                </div>
+                <h1 class="text-xs uppercase tracking-[0.2em] text-emerald-600 font-semibold mb-1">
+                    Gestión del Riesgo
+                </h1>
+                <h2 class="text-3xl font-light text-slate-900">Protocolo Sísmico</h2>
+            </header>
+
+            <div class="rounded-[2rem] overflow-hidden bg-white shadow-[0_8px_30px_rgb(0,0,0,0.04)] border border-slate-100 mb-8 aspect-square relative">
+                <div class="absolute inset-x-0 bottom-0 top-1/2 bg-gradient-to-t from-emerald-50/50 to-transparent"></div>
+                <div class="absolute inset-0 flex items-center justify-center p-6" style="background-image: url('/assets/earthquake_illustration_1774892678686.png'); background-size: cover; background-position: center;">
+                </div>
+            </div>
+
+            <section class="mb-10 text-center">
+                <p class="text-xl font-medium text-slate-800 leading-snug tracking-tight">
+                    Agáchate, cúbrete y agárrate. 
+                </p>
+                <p class="text-slate-500 font-light mt-3 px-4">
+                    La mayoría de las lesiones no ocurren por el colapso del edificio, sino por la caída de objetos.
+                </p>
+            </section>
+
+            <div class="space-y-4">
+                <div class="flex p-5 rounded-2xl bg-white shadow-sm border border-slate-100">
+                    <div class="flex-shrink-0 w-10 h-10 rounded-full bg-emerald-100 text-emerald-600 flex items-center justify-center mr-4">
+                        <ArrowDownToLine size={20} />
+                    </div>
+                    <div>
+                        <h4 class="font-medium text-slate-800 mb-1">Bajo la mesa</h4>
+                        <p class="text-sm font-light text-slate-500">Busca refugio bajo un escritorio o mesa resistente y agárrate fuertemente de una de sus patas.</p>
+                    </div>
+                </div>
+
+                <div class="flex p-5 rounded-2xl bg-white shadow-sm border border-slate-100">
+                    <div class="flex-shrink-0 w-10 h-10 rounded-full bg-red-100 text-red-600 flex items-center justify-center mr-4">
+                        <TriangleAlert size={20} />
+                    </div>
+                    <div>
+                        <h4 class="font-medium text-slate-800 mb-1">Cuidado con vidrios</h4>
+                        <p class="text-sm font-light text-slate-500">Aléjate de las ventanas y puertas de vidrio. El riesgo de corte por esquirlas es muy alto.</p>
+                    </div>
+                </div>
+
+                <div class="flex p-5 rounded-2xl bg-white shadow-sm border border-slate-100">
+                    <div class="flex-shrink-0 w-10 h-10 rounded-full bg-blue-100 text-blue-600 flex items-center justify-center mr-4">
+                        <Phone size={20} />
+                    </div>
+                    <div>
+                        <h4 class="font-medium text-slate-800 mb-1">Cierra servicios</h4>
+                        <p class="text-sm font-light text-slate-500">Corta el suministro de agua y gas inmediatamente después del temblor para prevenir siniestros.</p>
+                    </div>
+                </div>
+            </div>
+
+            <button class="w-full mt-10 bg-emerald-600 text-white font-medium py-4 rounded-xl shadow-md hover:bg-emerald-700 transition">
+                Visitar FUNVISIS
+            </button>
+        </div>
+	</main>
+</Layout>

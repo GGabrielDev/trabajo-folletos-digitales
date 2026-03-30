@@ -1,0 +1,621 @@
+Análisis Técnico y Estratégico de la
+Gestión Integral de Riesgos y
+Autoprotección Ciudadana en la
+República Bolivariana de Venezuela
+El presente informe técnico examina con exhaustividad la arquitectura de seguridad ciudadana
+y gestión de riesgos en Venezuela, fundamentada en las directrices del Viceministerio para la
+Gestión de Riesgo y Protección Civil (VGRPC) y sus entes adscritos. La seguridad ciudadana en
+el contexto venezolano ha evolucionado desde un modelo reactivo de atención de
+emergencias hacia una doctrina de gestión integral del riesgo, donde la participación de la
+población civil es un pilar vinculante y obligatorio.1 Esta transformación se sustenta en un
+marco legal robusto que define responsabilidades concurrentes entre el Estado y la ciudadanía,
+con el objetivo de reducir la vulnerabilidad social frente a amenazas socionaturales,
+tecnológicas y eventos de conmoción interna.2 El análisis integra protocolos técnicos de
+organismos especializados como la Dirección Nacional de Protección Civil y Administración de
+Desastres (DNPCAD), la Fundación Venezolana de Investigaciones Sismológicas (FUNVISIS) y el
+Instituto Nacional de Meteorología e Hidrología (INAMEH), proporcionando una visión
+multidimensional de las medidas de seguridad vigentes para los civiles en el territorio nacional.5
+
+Marco Jurídico y Doctrinario de la Protección Civil en
+Venezuela
+La organización del sistema de gestión de riesgos en Venezuela encuentra su génesis
+constitucional en el artículo 332 de la Carta Magna de 1999, el cual estipula la creación de una
+organización de protección civil y administración de desastres, así como un cuerpo de
+bomberos, ambos de carácter civil.4 Esta disposición constitucional no es meramente
+organizativa; establece que los órganos de seguridad ciudadana deben actuar con estricto
+respeto a la dignidad y los derechos humanos, sin discriminación alguna.8 La operatividad de
+este mandato se cristaliza en el Decreto con Fuerza de Ley de la Organización Nacional de
+Protección Civil y Administración de Desastres, publicado en la Gaceta Oficial N° 5.557 el 13 de
+noviembre de 2001.2 Este decreto ley define la Protección Civil como un conjunto de
+disposiciones, medidas y acciones destinadas a la preparación, respuesta y rehabilitación de la
+población ante desastres, integrándola formalmente en el Sistema Nacional de Gestión de
+Riesgo (SNGR).2
+
+Instrumento Legal
+
+Referencia de Gaceta
+Oficial
+
+Ámbito de Aplicación
+
+Constitución de la
+República Bolivariana de
+Venezuela
+
+G.O. Nº 5.908 (19/02/2009)
+
+Fundamento de seguridad y
+derechos fundamentales.8
+
+Ley de la Organización
+Nacional de Protección Civil
+
+G.O. Nº 5.557 (13/11/2001)
+
+Estructura, competencias y
+deberes ciudadanos.2
+
+Ley Orgánica de Seguridad
+de la Nación
+
+G.O. Nº 37.594 (18/12/2002)
+
+Defensa integral y
+preservación del orden
+interno.9
+
+Ley de Gestión Integral de
+Riesgos Socionaturales
+
+G.O. Nº 39.095
+(09/01/2009)
+
+Prevención de riesgos
+tecnológicos y naturales.9
+
+Ley de Coordinación de
+Seguridad Ciudadana
+
+G.O. Nº 37.318 (06/11/2001)
+
+Articulación entre niveles
+de gobierno.3
+
+El sistema opera bajo un esquema de competencias concurrentes, lo que significa que la
+gestión de riesgos no es una responsabilidad exclusiva del gobierno nacional, sino que
+involucra activamente a los estados y municipios.3 Cada entidad político-territorial debe
+estructurar su propio Comité Coordinador de Protección Civil y Administración de Desastres,
+encargados de la promoción y desarrollo de la autoprotección ciudadana en sus respectivas
+jurisdicciones.2 Este enfoque descentralizado permite que los protocolos de seguridad se
+adapten a las realidades geográficas y sociales de cada comunidad, fomentando una cultura
+de riesgo desde lo local hacia lo nacional.2
+
+Gestión del Riesgo Sísmico: Protocolos de
+Autoprotección de FUNVISIS
+Venezuela se caracteriza por una compleja realidad sismológica debido a la interacción de las
+placas tectónicas del Caribe y Sudamérica, lo que genera sistemas de fallas activas como
+Boconó, San Sebastián y El Pilar.6 Ante esta amenaza, FUNVISIS ha desarrollado una guía de
+"Mejores Prácticas" que constituye el estándar de seguridad para la población civil.6 La doctrina
+de autoprotección sísmica se divide en acciones preventivas permanentes, respuestas
+conductuales durante el evento y protocolos de recuperación inmediata.10
+
+Fase de Preparación y Mitigación de Riesgos no Estructurales
+
+La prevención sísmica comienza con el análisis del entorno inmediato, ya sea el hogar, la
+escuela o el lugar de trabajo. FUNVISIS enfatiza que la mayoría de las lesiones durante un
+terremoto no son causadas por el colapso de la estructura, sino por la caída de elementos no
+estructurales y contenidos.12 En consecuencia, el manual de autoprotección exige la
+identificación y fijación de objetos pesados que puedan volcarse, tales como bibliotecas,
+calentadores, tableros y lámparas.11 Se recomienda el uso de anclajes metálicos y pernos para
+asegurar archivadores y gabinetes, manteniendo siempre los objetos más pesados en los
+niveles inferiores para reducir el centro de gravedad.12
+
+Elemento de Riesgo
+
+Medida de Mitigación
+Recomendada
+
+Justificación Técnica
+
+Ventanas y fachadas de
+vidrio
+
+Instalación de mallas
+metálicas o vidrios de
+seguridad.12
+
+Evitar proyecciones de
+fragmentos cortantes
+sobre transeúntes.
+
+Muebles altos y bibliotecas
+
+Anclaje a paredes
+estructurales con pernos.11
+
+Prevenir aplastamiento o
+bloqueo de rutas de
+escape.
+
+Equipos de computación
+
+Fijación con paños
+adherentes o cuerdas a la
+base.12
+
+Evitar daños materiales y
+lesiones por impacto.
+
+Puertas de acceso
+
+Mantenimiento de bisagras
+y retiro de obstáculos.11
+
+Prevenir el atascamiento de
+puertas por deformación
+de marcos.
+
+La planificación familiar es el segundo pilar de la fase preventiva. Cada núcleo debe elaborar un
+plan de contingencia que asigne roles específicos y defina un punto de reunión externo
+seguro.10 Un componente crítico es el kit de suministros de emergencia, el cual debe ser
+accesible y contener agua, comida no perecedera para 72 horas, radio a pilas, linterna, botiquín
+de primeros auxilios y herramientas para cerrar las llaves de paso de gas y agua.9
+
+Protocolos de Actuación durante el Evento Sísmico
+Durante el desarrollo de un sismo, la consigna universal promovida por los organismos de
+seguridad es "¡Agáchate, Cúbrete y Agárrate!".10 Se instruye a los civiles a buscar refugio debajo
+de muebles resistentes como mesas o escritorios, protegiendo siempre la cabeza y el cuello.10
+Se desaconseja categóricamente el uso del marco de la puerta como refugio, ya que esta es
+una creencia errónea que puede exponer a la persona al colapso del dintel o a lesiones por el
+
+vaivén de la puerta.10
+En entornos públicos de alta concurrencia, como cines, estadios o el metro, la prioridad es
+evitar el pánico colectivo. Se recomienda permanecer en el asiento, cubrirse la cabeza y
+esperar a que el movimiento cese antes de iniciar una evacuación ordenada, evitando siempre
+el uso de ascensores o escaleras mecánicas.10 Si el civil se encuentra conduciendo, debe
+reducir la velocidad y estacionar el vehículo en un área despejada, lejos de puentes, postes
+eléctricos o edificios altos, permaneciendo dentro del habitáculo.10 Para las personas con
+discapacidad motriz, se instruye frenar la silla de ruedas, agacharse y cubrirse la cabeza en un
+lugar seguro dentro de la edificación.10
+
+Acciones de Respuesta y Recuperación Post-Sismo
+Una vez finalizado el movimiento telúrico, se inicia la fase de respuesta inmediata. El primer
+paso es interrumpir los servicios básicos de gas, agua y electricidad para prevenir incendios o
+inundaciones secundarias.11 Se prohíbe el uso de fósforos, velas o cualquier llama abierta,
+debido al riesgo latente de fugas de gas.10 La evacuación debe realizarse por las rutas
+previamente establecidas, utilizando calzado resistente para protegerse de escombros y
+vidrios rotos.10
+La comunicación es vital en esta etapa. FUNVISIS y Protección Civil instan a sintonizar la radio
+de baterías para recibir instrucciones oficiales y a utilizar el silbato para alertar a los equipos de
+rescate en caso de quedar atrapado.10 Se recomienda el uso de agua de reserva de tanques
+limpios o calentadores, evitando descargar inodoros hasta confirmar la integridad de las
+tuberías de aguas negras.11 El reingreso a edificaciones dañadas está prohibido hasta que una
+inspección técnica de riesgo sea realizada por funcionarios competentes.9
+
+Vigilancia Hidrometeorológica y Seguridad ante
+Fenómenos Naturales
+El Instituto Nacional de Meteorología e Hidrología (INAMEH) y el SNGR gestionan la respuesta
+ante amenazas climáticas, las cuales se intensifican durante el período lluvioso que transcurre
+generalmente entre mayo y noviembre.14 La variabilidad climática en Venezuela, influenciada
+por fenómenos como "La Niña" u ondas tropicales, exige una vigilancia constante de las
+cuencas hidrográficas y los sistemas costeros.16
+
+Prevención y Respuesta ante Inundaciones
+Las inundaciones en Venezuela se categorizan en súbitas, por desbordamiento de ríos y
+costeras.9 La autoprotección ciudadana ante estos eventos requiere un conocimiento profundo
+del terreno y de los mecanismos de alerta temprana.3 Se instruye a la población a no construir
+viviendas en lechos secos o zonas bajas con historial de anegación, y a mantener la vegetación
+
+cerca de los ríos como barrera natural contra la erosión.9
+
+Nivel de Alerta en Vías
+
+Acción Requerida para
+Conductores
+
+Riesgo Asociado
+
+Color Verde
+
+Pasar con extrema
+precaución.
+
+Flujo bajo pero con
+potencial de arrastre de
+sedimentos.13
+
+Color Amarillo
+
+No intentar pasar en
+vehículos livianos o
+compactos.
+
+Profundidad suficiente para
+comprometer la estabilidad
+del vehículo.13
+
+Color Rojo
+
+Prohibición total de paso.
+No intentar cruzar.
+
+Peligro inminente de
+arrastre y muerte. Corriente
+severa.13
+
+Durante el evento de inundación, la medida primordial es no intentar cruzar corrientes de agua,
+ya que apenas 15 centímetros de profundidad pueden derribar a una persona y 30 centímetros
+pueden arrastrar la mayoría de los vehículos.13 En el hogar, se deben trasladar los objetos de
+valor y documentos a las plantas altas y desconectar la energía eléctrica si el agua penetra en
+la vivienda.13 Post-inundación, es imperativo evitar el contacto con aguas estancadas debido al
+riesgo de enfermedades alérgicas, gastrointestinales y respiratorias, así como a la posible
+presencia de cables eléctricos caídos.13
+
+Protocolos ante Tormentas Eléctricas y Ciclones Tropicales
+Las tormentas eléctricas representan un riesgo significativo de electrocución. INAMEH
+recomienda a los civiles buscar refugio en interiores, cerrar ventanas y alejarse de las mismas
+para evitar corrientes de aire.13 Se debe evitar el uso de equipos electrónicos conectados y el
+contacto con el agua, incluyendo bañarse, durante la actividad eléctrica.13 En el exterior, si no se
+encuentra un refugio sólido, se debe evitar ser el punto más alto, alejándose de árboles
+aislados, torres y cercas metálicas.13
+En cuanto a ciclones y huracanes, aunque Venezuela no se encuentra en la ruta directa
+principal, el paso lateral de estos sistemas puede generar marejadas y vendavales.21 La
+población debe asegurar techos de lámina, retirar objetos que puedan ser proyectados por el
+viento y proteger las ventanas con madera contrachapada.19 Si las autoridades emiten una
+orden de evacuación, esta debe acatarse sin dilación, siguiendo las rutas establecidas hacia los
+refugios oficiales identificados por Protección Civil.18
+
+Seguridad Ciudadana en Situaciones de Crisis Sociales
+y Orden Público
+La gestión de la seguridad en contextos de crisis social y disturbios en Venezuela se rige por
+una doctrina que prioriza la protección de la vida y los derechos humanos, bajo el control de
+órganos de carácter civil.4 La actuación de los cuerpos de seguridad, incluyendo la Fuerza
+Armada Nacional Bolivariana (FANB) en funciones de orden público, está estrictamente
+regulada por resoluciones que limitan el uso de la fuerza.24
+
+Derechos y Deberes en Manifestaciones Públicas
+La Constitución Venezolana, en su artículo 68, garantiza el derecho a la manifestación pacífica
+y sin armas.25 Para el ejercicio de este derecho, los ciudadanos deben cumplir con una
+notificación formal ante la autoridad civil de la jurisdicción con al menos 24 horas de antelación,
+indicando el itinerario, la hora y el objeto de la reunión.25 Es responsabilidad de las autoridades
+garantizar la seguridad de los manifestantes y permitir la cobertura libre de los medios de
+comunicación.25
+
+Principio de Actuación
+
+Descripción del Protocolo
+
+Restricción Aplicable
+
+Uso Progresivo de la
+Fuerza
+
+El empleo de medios físicos
+debe ser proporcional a la
+resistencia.24
+
+Prohibido el uso de armas
+de fuego en
+manifestaciones
+pacíficas.24
+
+Atención Médica
+
+Obligación de auxiliar a
+heridos y establecer
+corredores humanitarios.24
+
+No se puede negar
+asistencia a detenidos o
+manifestantes lesionados.
+
+Control Químico
+
+Uso localizado de agentes
+químicos solo en casos de
+violencia extrema.24
+
+Prohibido su lanzamiento
+cerca de hospitales,
+escuelas o sitios cerrados.24
+
+Identificación de Prensa
+
+Garantía de protección
+para periodistas y su
+equipo de trabajo.25
+
+Prohibida la confiscación de
+equipos o la limitación
+indebida de funciones.
+
+Medidas de Autoprotección ante el Caos Social
+En escenarios de alteración severa del orden público o situaciones de conmoción interna, los
+expertos en seguridad recomiendan a la población civil adoptar una postura de prevención y
+
+autosuficiencia.27 La medida de autoprotección primordial es el alejamiento de los focos de
+conflicto y objetivos militares o gubernamentales que puedan ser centro de hostilidades.27
+Se instruye a los civiles a preparar un refugio doméstico, reforzando cristales con cinta en X
+para evitar proyecciones por ondas expansivas de posibles detonaciones.27 La autosuficiencia
+se garantiza mediante el almacenamiento de suministros básicos para un periodo de 2 a 4
+semanas, incluyendo 3-4 litros de agua por persona al día, alimentos de larga duración y
+medicación crónica para al menos 30 días.27 Ante fallos en las redes eléctricas o de
+telecomunicaciones, se recomienda el uso de radio a pilas para mantenerse informado y
+disponer de mapas físicos para la movilidad en rutas alternativas, evitando la dependencia
+exclusiva del GPS.27 Durante los disturbios, se aconseja permanecer en el hogar, asegurar los
+accesos y coordinarse con vecinos de confianza para la vigilancia colectiva, evitando siempre
+la confrontación directa.27
+
+Riesgos Tecnológicos, Ambientales y Biológicos
+Específicos
+La gestión integral del riesgo en Venezuela también contempla amenazas que, aunque menos
+frecuentes, requieren protocolos de seguridad especializados para la población civil. Estos
+incluyen el manejo de sustancias peligrosas, incendios forestales y riesgos biológicos
+derivados de la fauna local.5
+
+Prevención de Incendios Forestales en Zonas de Interfaz
+Los incendios forestales son una amenaza recurrente en las regiones montañosas y llanas
+durante la temporada de sequía.29 La población civil tiene prohibido realizar quemas de basura
+o residuos agrícolas en áreas boscosas o a menos de 500 metros de estas sin supervisión de
+las autoridades.29 Se recomienda a los propietarios de viviendas en zonas boscosas mantener
+un "espacio defendible" de al menos 9 metros alrededor de la estructura, libre de vegetación
+seca y materiales inflamables como leña o tanques de propano.32
+En caso de verse sorprendido por un incendio forestal, el civil debe caminar en sentido
+contrario a la dirección del viento y hacia zonas ya quemadas o laterales del frente de fuego.30
+Se debe evitar buscar refugio en barrancos o cuevas, donde el humo y el calor se acumulan
+peligrosamente.34 Si la evacuación vehicular es necesaria, se deben encender las luces, cerrar
+todas las ventanillas y el sistema de ventilación para evitar la entrada de brasas y humo.30
+
+Protocolos ante Derrames de Hidrocarburos y Enjambres de Abejas
+Venezuela, como país con una extensa industria petrolera, mantiene protocolos para derrames
+de hidrocarburos. Ante un evento de esta naturaleza, la población civil debe evacuar el área de
+inmediato debido a la toxicidad de los vapores y el riesgo inminente de explosión.9 El contacto
+
+con la sustancia está prohibido, y la limpieza es responsabilidad exclusiva de las operadoras y
+los órganos de seguridad ambiental.9
+En el ámbito biológico, el manejo de abejas, avispas y abejorros es una competencia común de
+Protección Civil. Se instruye a la ciudadanía a no intentar controlar enjambres mediante el uso
+de agua, fuego o insecticidas domésticos, ya que esto provoca una respuesta defensiva de la
+colonia que puede resultar letal.9 Se debe acordonar el área a una distancia segura y notificar a
+los servicios de emergencia.9 En caso de picaduras múltiples, se recomienda retirar el aguijón
+sin presionar el saco de veneno, aplicar hielo y buscar atención médica urgente para evitar
+reacciones anafilácticas.9
+
+Sistemas de Alerta Temprana (SAT) y Formación
+Comunitaria
+La eficacia de la autoprotección ciudadana depende directamente de la calidad de la
+información recibida y de la formación previa del individuo. El Estado venezolano ha invertido
+en la modernización de los Sistemas de Alerta Temprana (SAT) para transformar la respuesta
+reactiva en una acción preventiva.35
+
+Estructura y Funcionamiento de la Alerta Temprana
+Un SAT efectivo en Venezuela se compone de redes de sensores estratégicos, centros de
+procesamiento de datos y canales de difusión masiva.37 La infraestructura técnica incluye
+sismógrafos de FUNVISIS, estaciones meteorológicas de INAMEH y boyas de detección de
+tsunamis integradas en redes internacionales.7
+
+Componente del SAT
+
+Funcionalidad para el
+Ciudadano
+
+Canal de Comunicación
+
+Monitoreo Técnico
+
+Detección en tiempo real
+de sismos o crecidas.
+
+No directo; alimenta las
+centrales de mando.37
+
+Análisis de Riesgo
+
+Comparación de datos con
+umbrales de peligro.
+
+Generación de boletines y
+alertas oficiales.37
+
+Difusión de Alerta
+
+Aviso rápido y masivo sobre
+la amenaza.
+
+Redes sociales, SMS, radio,
+sirenas, apps.37
+
+Activación de Respuesta
+
+Ejecución de planes de
+
+Coordinación con líderes
+
+evacuación o refugio.
+
+de calle y brigadas.16
+
+Para los ciudadanos, es fundamental identificar las sirenas electrónicas locales, las cuales
+cuentan con autonomía energética mediante paneles solares para funcionar incluso durante
+apagones.37 La redundancia en los canales de comunicación asegura que el mensaje llegue
+incluso si falla la red de telefonía celular.37
+
+Educación para la Resiliencia: Catálogo de Formación de Protección
+Civil
+La DNPCAD, a través de su Dirección de Capacitación, ofrece un programa educativo
+jerarquizado para fortalecer la cultura de riesgo en la población.9 Estos cursos están abiertos a
+voluntarios, estudiantes y miembros de la comunidad organizada.5
+1.​ Nivel Operacional: Enfocado en la respuesta inicial. Incluye cursos de Primeros Auxilios,
+Rescate Vehicular, Técnicas de Cuerda y diseño de Planes Locales ante Emergencias.5
+2.​ Nivel Táctico: Orientado a la gestión técnica. Cubre Búsqueda y Rescate en Estructuras
+Colapsadas (BREC), Rescate en Espacios Confinados y la metodología de Evaluación de
+Daños y Análisis de Necesidades (EDAN).5
+3.​ Nivel Estratégico: Dirigido a la toma de decisiones de alto nivel. Implica el estudio del
+Sistema de Comando de Incidentes (SCI), Gerencia Estratégica de Riesgos y la
+planificación de contingencias a largo plazo bajo estándares internacionales como
+INSARAG.5
+Recientemente, el SNGR ha incorporado la formación en "Primeros Auxilios Psicológicos" (PAP)
+para funcionarios y ciudadanos, reconociendo que el soporte emocional en el sitio del suceso
+es tan crítico como la asistencia física para garantizar una recuperación resiliente de las
+comunidades afectadas.5
+
+Conclusiones y Síntesis Estratégica
+La arquitectura de seguridad para los civiles en la República Bolivariana de Venezuela se
+presenta como un sistema integrado que vincula la normativa legal, la vigilancia tecnológica y la
+educación comunitaria. El Viceministerio para la Gestión de Riesgo y Protección Civil ha
+logrado consolidar un cuerpo doctrinario que traslada la responsabilidad de la seguridad desde
+el ente estatal hacia un modelo de corresponsabilidad ciudadana.2 El análisis de los protocolos
+vigentes permite concluir que la autoprotección es el factor determinante para la supervivencia
+ante eventos adversos de gran magnitud.10
+La efectividad de este sistema reside en la capacidad del ciudadano para actuar de manera
+autónoma y coordinada durante los primeros minutos de una crisis, antes de la llegada de los
+cuerpos de socorro profesionales.10 En consecuencia, se recomienda a la población civil
+mantener una vigilancia activa de los canales oficiales de FUNVISIS e INAMEH, actualizar
+
+periódicamente sus kits de emergencia y participar de manera recurrente en los programas de
+formación y simulacros nacionales.9 La gestión del riesgo no es una actividad estacional, sino
+una política de vida necesaria para la preservación de la integridad física, los bienes y el medio
+ambiente en un país con la complejidad geodinámica y climática de Venezuela.17
+
+Works cited
+1.​ Viceministerio para la Gestión de Riesgo y Protección Civil, accessed March 30,
+
+2026, https://www.mpprijp.gob.ve/viceministerios/viceministro/vgrpc
+
+2.​ LEY DE LA ORGANIZACION NACIONAL DE PROTECCIÓN CIVIL Y
+
+ADMINISTRACIÓN DE DESASTRES. - PreventionWeb.net, accessed March 30,
+2026,
+https://www.preventionweb.net/files/9608_LeyProteccionCivilyadministarcionde.
+pdf?startDownload=true
+3.​ ordenanza sobre la organización municipal de protección civil y administración de
+desastres del municipio el hatillo, accessed March 30, 2026,
+https://concejomunicipalelhatillo.gob.ve/wp-content/uploads/2023/12/ORDENANZ
+A-DE-PROTECCION-CIVIL-Y-ADMINISTRACION-DE-DESASTRE.pdf
+4.​ capitulo i marco legal que regula la seguridad ciudadana en venezuela - URBE,
+accessed March 30, 2026, https://virtual.urbe.edu/tesispub/0099205/cap01.pdf
+5.​ Home PC - Protección Civil y Administración de Desastres, accessed March 30,
+2026, https://www.pcivil.gob.ve/
+6.​ FUNVISIS - INICIO, accessed March 30, 2026, http://www.funvisis.gob.ve/
+7.​ INAMEH-Web, accessed March 30, 2026, http://www.inameh.gob.ve/
+8.​ Constitución de la República Bolivariana de Venezuela > Título VII > Capítulo IV,
+accessed March 30, 2026,
+https://venezuela.justia.com/federales/constitucion-de-la-republica-bolivariana-d
+e-venezuela/titulo-vii/capitulo-iv/
+9.​ Gestión del Riesgo - Protección Civil y Administración de Desastres, accessed
+March 30, 2026, https://www.pcivil.gob.ve/gestion-del-riesgo/
+10.​por si iembla - qué hacer antes, durante y después de un terremoto - Funvisis,
+accessed March 30, 2026,
+http://www.funvisis.gob.ve/funvisis_mejores_practicas.pdf
+11.​ Manual de AutoprotecciOn EN CASO DE SISMOS - Funvisis, accessed March 30,
+2026,
+http://www.funvisis.gob.ve/archivos/pdf/MANUAL_DE_AUTOPROTECCION_DE_FU
+NVISIS.pdf
+12.​Manual para la Reducción del Riesgo Sísmico generado por los Elementos No
+Estructurales - FUNVISIS, accessed March 30, 2026,
+http://www.funvisis.gob.ve/old/proyectoescuela/Descargas/Act8/8.Cap%208%20%20Manual%20de%20Componentes%20No%20Estructurales.pdf
+13.​Recomendaciones ante la presencia de lluvias | Gobierno del Estado de Nuevo
+León, accessed March 30, 2026,
+https://www.nl.gob.mx/es/recomendaciones-lluvias
+14.​Reporte del Clima 2024 - Inameh, accessed March 30, 2026,
+
+http://www.inameh.gob.ve/web/PDF/4.pdf
+15.​inameh anuncia inicio de temporada de lluvias entre mayo y junio de este 2025 Reporte individual | Ministerio del Poder Popular para Relaciones Interiores,
+Justicia y Paz, accessed March 30, 2026,
+https://www.mpprijp.gob.ve/prensa/reporte/inameh-anuncia-inicio-de-temporad
+a-de-lluvias-entre-mayo-y-junio-de-este-2025
+16.​8 claves para evitar riesgos durante la temporada de lluvias - Efecto Cocuyo,
+accessed March 30, 2026,
+https://efectococuyo.com/la-humanidad/8-claves-para-evitar-riesgos-durante-la
+-temporada-de-lluvias/
+17.​CIRCULAR 06 DEL 15 DE ENERO DE 2026 - Unidad Nacional para la Gestión del
+Riesgo de Desastres, accessed March 30, 2026,
+https://portal.gestiondelriesgo.gov.co/Documents/Circulares/CIRCULAR-06-DEL15-DE-ENERO-DE-2026.pdf
+18.​Cómo prepararse para un huracán u otra tormenta tropical - CDC, accessed
+March 30, 2026, https://www.cdc.gov/es/disasters/hurricanes/before.html
+19.​Ciclones Tropicales, accessed March 30, 2026,
+https://www.weather.gov/media/owlie/ciclones_tropicales11.pdf
+20.​SGR e Inamhi emiten medidas de prevención ante las lluvias, accessed March 30,
+2026,
+https://www.gestionderiesgos.gob.ec/sgr-e-inamhi-emiten-medidas-de-prevenc
+ion-ante-las-lluvias/
+21.​Servicio Nacional de Meteorología SEGURIDAD ANTE HURACANES, accessed
+March 30, 2026,
+https://www.weather.gov/media/owlie/FLYER-Safety-Tips-HURRICANE-Spanish.pd
+f
+22.​Gestión de Riesgo y medios de comunicación articulan alertas tempranas ante
+ciclo de lluvias - Agencia Venezolana de Noticias, accessed March 30, 2026,
+https://avn.info.ve/gestion-de-riesgo-y-medios-de-comunicacion-articulan-alert
+as-tempranas-ante-ciclo-de-lluvias/
+23.​Medidas preventivas en caso de ciclón, lluvias e inundaciones que afecten a la
+comunidad (para la población) | Secretaría de Salud - Gob MX, accessed March
+30, 2026,
+https://www.gob.mx/salud/acciones-y-programas/medidas-preventivas-en-casode-ciclon-lluvias-e-inundaciones-que-afecten-a-la-comunidad-para-la-poblacio
+n
+24.​gaceta oficial de la república bolivariana de venezuela - Police and Human Rights
+Resources, accessed March 30, 2026,
+https://policehumanrightsresources.org/content/uploads/2016/05/Resolution-008
+610.pdf?x19059
+25.​MANIFESTACIONES PÚBLICAS EN VENEZUELA pacíficas son un Derecho Humano,
+accessed March 30, 2026,
+https://www.civilisac.org/civilis/wp-content/uploads/Gu%C3%ADa-de-Manifestaci
+ones-P%C3%BAblicas-Espacio-P%C3%BAblico-1.pdf
+26.​Modelo de protocolo de intervención e interacción de las fuerzas de seguridad
+
+con periodistas, comunicadores/as y medios de comunicación - UNESCO Digital
+Library, accessed March 30, 2026,
+https://unesdoc.unesco.org/ark:/48223/pf0000384739
+27.​MEDIDAS DE AUTOPROTECCIÓN ANTE UNA INTERVENCIÓN DE ..., accessed
+March 30, 2026,
+https://thepoliticalroom.com/blog/medidas-de-autoproteccion-ante-una-interve
+ncion-de-estados-unidos
+28.​Implementación Del Protocolo Para La Atención De Emergencias En Situaciones
+De Conmoción Interna Para El Cuerpo De Bomberos De Riobamba - Metrópolis |
+Revista de Estudios Universitarios Globales, accessed March 30, 2026,
+https://www.metropolis.metrouni.us/index.php/metropolis/article/download/246/1
+96
+29.​Venezuela se prepara para su época más seca - Inicio | Periódico CiudadCCS,
+accessed March 30, 2026, https://www.ciudadccs.info/publicacion/41030-0
+30.​Manual Buenas Prácticas Prevención de Incendios 2025 - FEMECV, accessed
+March 30, 2026,
+https://www.femecv.com/sites/default/files/2025-09/Manual%20Buenas%20Pr%C
+3%A1cticas%20Prevenci%C3%B3n%20de%20Incendios%202025.pdf
+31.​MANUAL DE BUENAS PRÁCTICAS en Prevención de Incendios Forestales,
+accessed March 30, 2026,
+https://prevencionincendiosgva.es/Documents/PlanesVigilancia/fichas/manual3.p
+df
+32.​en Caso de Incendio Forestal - International Association of Fire Chiefs, accessed
+March 30, 2026,
+https://www.iafc.org/docs/default-source/pdf/spanish_final_v6.pdf
+33.​SEGURIDAD ANTE INCENDIOS, accessed March 30, 2026,
+https://www.weather.gov/media/owlie/FLYER-Safety-Tips-WILDFIRE-Spanish.pdf
+34.​Programa de protección civil para incendios forestales, 2014, accessed March 30,
+2026,
+http://www.proteccioncivil.gob.mx/work/models/ProteccionCivil/swbcalendario_El
+ementoSeccion/265/PPC_20INCENDIOS_202014.PDF
+35.​SNGR realizó encuentro con los Medios de Comunicación Nacional - Protección
+Civil, accessed March 30, 2026,
+https://www.pcivil.gob.ve/2026/03/sngr-realizo-encuentro-con-los-medios-de-c
+omunicacion-nacional/
+36.​Viceministerio para la Gestión de Riesgo y Protección Civil y el PNUD en
+Venezuela desarrollan estrategia para apoyar el abordaje comunicacional de la
+gestión de riesgos - Venezuela (Bolivarian Republic of) | ReliefWeb, accessed
+March 30, 2026,
+https://reliefweb.int/report/venezuela-bolivarian-republic/viceministerio-para-la-g
+esti-n-de-riesgo-y-protecci-n-civil-y
+37.​¿Qué es un sistema de alerta temprana y cómo funciona? - Lafcarr, accessed
+March 30, 2026,
+https://www.lafcarr.com/sistema-alerta-temprana-explicacion-tecnica/
+38.​Venezuela se suma a los 38 países que participarán en el simulacro de tsunami del
+
+Caribe - Fundación Venezolana de Investigaciones Sismológicas, accessed March
+30, 2026, http://www.funvisis.gob.ve/old/noticia.php?id=917
+39.​Caracas, 13 de noviembre de 2022 - Fundación Venezolana de Investigaciones
+Sismológicas, accessed March 30, 2026,
+http://www.funvisis.gob.ve/old/noticia.php?id=2489
+40.​manual - SEGURIDAD CIUDADANA y auto protección - UCE, accessed March 30,
+2026,
+https://repositorio.uce.edu.ec/archivos/jmera/Publicaciones/Publicaciones/MANU
+AL_SEGURIDAD_AUTOPROTECCION_UCE.pdf
+
+
