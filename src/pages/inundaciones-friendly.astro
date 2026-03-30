@@ -12,8 +12,8 @@ import { CloudRain, Navigation, ShieldCheck } from 'lucide-react';
         <div class="max-w-md mx-auto min-h-screen flex flex-col justify-start px-6 pt-10 z-10 relative">
             
             <header class="flex justify-between items-center bg-white/70 backdrop-blur-md rounded-full shadow-sm p-2 mb-8 border border-white/50">
-                <div class="w-10 h-10 rounded-full bg-teal-500 text-white flex items-center justify-center font-bold text-[0.5rem] shadow-inner ml-1">
-                    PC
+                <div class="w-10 h-10 rounded-full bg-white flex items-center justify-center shadow-inner ml-1 p-1 border border-teal-500/20">
+                    <img src="/assets/LOGO-PC-NUEVO-e1754668914257.png" alt="Directorate of Civil Protection Logo" class="w-full h-full object-contain" />
                 </div>
                 <h1 class="text-sm font-bold tracking-wide text-indigo-800 mr-4">
                     Clima <span class="bg-cyan-300 text-indigo-900 px-2 py-0.5 rounded-full ml-1 text-xs">Alerta</span>
@@ -63,6 +63,24 @@ import { CloudRain, Navigation, ShieldCheck } from 'lucide-react';
                         <p class="text-sm text-slate-600 leading-snug mt-1">
                             Limpia todo muy bien. El agua empozada trae enfermedades e insectos.
                         </p>
+                    </div>
+                </div>
+
+                <div class="grid grid-cols-3 gap-2 mt-2">
+                    <div class="bg-white/80 backdrop-blur rounded-[1.5rem] p-3 shadow-sm border border-white flex flex-col items-center justify-center text-center transform -rotate-1">
+                        <div class="w-6 h-6 rounded-full bg-green-400 mb-2 shadow-inner border-2 border-white"></div>
+                        <p class="text-[0.65rem] font-black text-slate-800 uppercase leading-none mb-1">Alerta Verde</p>
+                        <p class="text-[0.55rem] text-slate-600 leading-tight">Pase preventivo</p>
+                    </div>
+                    <div class="bg-white/80 backdrop-blur rounded-[1.5rem] p-3 shadow-sm border border-white flex flex-col items-center justify-center text-center transform rotate-1">
+                        <div class="w-6 h-6 rounded-full bg-yellow-400 mb-2 shadow-inner border-2 border-white"></div>
+                        <p class="text-[0.65rem] font-black text-slate-800 uppercase leading-none mb-1">Amarilla</p>
+                        <p class="text-[0.55rem] text-slate-600 leading-tight">Mucha precaución</p>
+                    </div>
+                    <div class="bg-white/80 backdrop-blur rounded-[1.5rem] p-3 shadow-sm border border-white flex flex-col items-center justify-center text-center transform -rotate-2">
+                        <div class="w-6 h-6 rounded-full bg-red-500 mb-2 shadow-inner border-2 border-white"></div>
+                        <p class="text-[0.65rem] font-black text-slate-800 uppercase leading-none mb-1">Alerta Roja</p>
+                        <p class="text-[0.55rem] text-slate-600 leading-tight">¡No pases!</p>
                     </div>
                 </div>
 

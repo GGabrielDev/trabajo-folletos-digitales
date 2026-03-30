@@ -14,8 +14,8 @@ import { CloudRain, Zap, ShieldAlert, Waves } from 'lucide-react';
             
             <header class="flex justify-between items-center mb-8 glassmorphism-dark rounded-full px-5 py-3">
                 <div class="flex items-center space-x-3">
-                    <div class="w-10 h-10 bg-white/10 rounded-full backdrop-blur-sm flex items-center justify-center border border-white/20">
-                         <span class="text-[0.4rem] font-bold text-white/70 text-center leading-none">LOGO<br/>PC</span>
+                    <div class="w-10 h-10 bg-white/10 rounded-full backdrop-blur-sm flex items-center justify-center border border-white/20 overflow-hidden p-1.5">
+                         <img src="/assets/LOGO-PC-NUEVO-e1754668914257.png" alt="Directorate of Civil Protection Logo" class="w-full h-full object-contain" />
                     </div>
                 </div>
                 <div class="text-xs uppercase tracking-widest font-semibold text-blue-300">
@@ -60,18 +60,18 @@ import { CloudRain, Zap, ShieldAlert, Waves } from 'lucide-react';
                     </div>
                </div>
 
-               <div class="glassmorphism-dark rounded-2xl p-5 flex items-center gap-4 transition-all hover:bg-white/10">
-                    <div class="bg-green-500/20 p-3 flex-1 rounded-xl border border-green-400/30 text-center">
-                        <p class="text-xs text-green-300 font-bold uppercase mb-1">Alerta Verde</p>
-                        <p class="text-[0.6rem] text-slate-400">Pase con precaución</p>
+               <div class="grid grid-cols-3 gap-2 transition-all">
+                    <div class="glassmorphism-dark bg-green-500/20 p-2 rounded-xl border border-green-400/30 text-center flex flex-col justify-start">
+                        <p class="text-[0.6rem] sm:text-xs text-green-300 font-bold uppercase mb-1">Alerta Verde</p>
+                        <p class="text-[0.55rem] sm:text-[0.6rem] text-slate-300 leading-tight">Pase con precaución</p>
                     </div>
-                    <div class="bg-yellow-500/20 p-3 flex-1 rounded-xl border border-yellow-400/30 text-center">
-                         <p class="text-xs text-yellow-300 font-bold uppercase mb-1">Alerta Amarilla</p>
-                        <p class="text-[0.6rem] text-slate-400">Evite vehículos livianos</p>
+                    <div class="glassmorphism-dark bg-yellow-500/20 p-2 rounded-xl border border-yellow-400/30 text-center flex flex-col justify-start">
+                         <p class="text-[0.6rem] sm:text-xs text-yellow-300 font-bold uppercase mb-1">Alerta Amarilla</p>
+                        <p class="text-[0.55rem] sm:text-[0.6rem] text-slate-300 leading-tight">Evite vehículos livianos</p>
                     </div>
-                    <div class="bg-red-500/20 p-3 flex-1 rounded-xl border border-red-400/30 text-center">
-                         <p class="text-xs text-red-300 font-bold uppercase mb-1">Alerta Roja</p>
-                        <p class="text-[0.6rem] text-slate-400">Prohibición de paso</p>
+                    <div class="glassmorphism-dark bg-red-500/20 p-2 rounded-xl border border-red-400/30 text-center flex flex-col justify-start">
+                         <p class="text-[0.6rem] sm:text-xs text-red-300 font-bold uppercase mb-1">Alerta Roja</p>
+                        <p class="text-[0.55rem] sm:text-[0.6rem] text-slate-300 leading-tight">Prohibición de paso</p>
                     </div>
                </div>
             </div>
