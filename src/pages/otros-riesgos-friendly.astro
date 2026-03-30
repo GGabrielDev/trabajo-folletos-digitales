@@ -1,0 +1,73 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { Flame, Activity, Bug } from 'lucide-react';
+---
+
+<Layout title="Otros Riesgos - Amigable">
+	<main class="min-h-screen bg-green-200 text-green-950 font-inter selection:bg-yellow-300 selection:text-yellow-900 pb-20 relative overflow-hidden">
+		
+        <div class="absolute -top-10 -right-10 w-40 h-40 bg-yellow-400 rounded-full mix-blend-multiply opacity-50 blur-xl"></div>
+        <div class="absolute top-40 -left-10 w-32 h-32 bg-orange-400 rounded-full mix-blend-multiply opacity-50 blur-xl"></div>
+
+        <div class="max-w-md mx-auto min-h-screen flex flex-col justify-start px-6 pt-10 z-10 relative">
+            
+            <header class="flex justify-between items-center bg-white/70 backdrop-blur-md rounded-full shadow-sm p-2 mb-8 border border-white/50">
+                <div class="w-10 h-10 rounded-full bg-green-500 text-white flex items-center justify-center font-bold text-[0.5rem] shadow-inner ml-1">
+                    PC
+                </div>
+                <h1 class="text-sm font-bold tracking-wide text-green-800 mr-4">
+                    Naturaleza <span class="bg-yellow-300 text-green-900 px-2 py-0.5 rounded-full ml-1 text-xs">Protegida</span>
+                </h1>
+            </header>
+
+            <div class="bg-white rounded-[2.5rem] p-6 shadow-xl border-4 border-white mb-6 transform rotate-2 hover:-rotate-0 transition-transform duration-300">
+                <h2 class="text-3xl font-black text-center text-green-600 mb-1 leading-tight tracking-tight">
+                    Cuidado en el<br/> Exterior
+                </h2>
+                <div class="w-full aspect-square rounded-3xl mt-4 mb-2 overflow-hidden shadow-inner border-4 border-green-100 relative bg-green-50 flex items-center justify-center" style="background-image: url('/assets/fire_safety_illustration_1774910229007.png'); background-size: cover; background-position: center;">
+                </div>
+            </div>
+
+            <section class="space-y-4 pt-4">
+                
+                <div class="bg-white/80 backdrop-blur rounded-[2rem] p-5 shadow-sm border border-white flex gap-4 items-center">
+                    <div class="w-14 h-14 bg-orange-400 rounded-2xl flex items-center justify-center text-white flex-shrink-0 shadow-sm transform -rotate-4">
+                        <Flame size={28} />
+                    </div>
+                    <div>
+                        <h3 class="font-bold text-lg text-slate-800 leading-tight">Mucha Candela</h3>
+                        <p class="text-sm text-slate-600 leading-snug mt-1">
+                            Si ves fuego en el monte, camina rapidito al lado contrario de donde sopla el viento.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="bg-white/80 backdrop-blur rounded-[2rem] p-5 shadow-sm border border-white flex gap-4 items-center">
+                    <div class="w-14 h-14 bg-green-400 rounded-2xl flex items-center justify-center text-white flex-shrink-0 shadow-sm transform rotate-3">
+                        <Bug size={28} strokeWidth={2.5}/>
+                    </div>
+                    <div>
+                        <h3 class="font-bold text-lg text-slate-800 leading-tight">Abejitas Enojadas</h3>
+                        <p class="text-sm text-slate-600 leading-snug mt-1">
+                            Si hay un panal muy grande, no le eches agua ni insecticida. ¡Llama a un rescatista!
+                        </p>
+                    </div>
+                </div>
+
+                <div class="bg-white/80 backdrop-blur rounded-[2rem] p-5 shadow-sm border border-white flex gap-4 items-center">
+                   <div class="w-14 h-14 bg-yellow-400 rounded-2xl flex items-center justify-center text-yellow-900 flex-shrink-0 shadow-sm transform rotate-2">
+                        <Activity size={28} />
+                    </div>
+                    <div>
+                        <h3 class="font-bold text-lg text-slate-800 leading-tight">Manchas Negras</h3>
+                        <p class="text-sm text-slate-600 leading-snug mt-1">
+                            Si hay un derrame de petróleo o algo químico, aléjate mucho porque puede hacer ¡PUM!
+                        </p>
+                    </div>
+                </div>
+
+            </section>
+
+        </div>
+	</main>
+</Layout>

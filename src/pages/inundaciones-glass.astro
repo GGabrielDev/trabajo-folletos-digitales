@@ -1,0 +1,81 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { CloudRain, Zap, ShieldAlert, Waves } from 'lucide-react';
+---
+
+<Layout title="Lluvias e Inundaciones - Glassmorphism">
+	<main class="relative min-h-screen bg-[#0f172a] overflow-hidden text-slate-100 font-inter font-light">
+		
+        <div class="absolute top-[-10%] left-[-10%] w-[500px] h-[500px] bg-blue-600 rounded-full mix-blend-multiply filter blur-[120px] opacity-70 animate-blob"></div>
+        <div class="absolute top-[20%] right-[-10%] w-[400px] h-[400px] bg-sky-500 rounded-full mix-blend-multiply filter blur-[120px] opacity-70 animate-blob animation-delay-2000"></div>
+        <div class="absolute bottom-[-10%] left-[20%] w-[600px] h-[600px] bg-teal-600 rounded-full mix-blend-multiply filter blur-[120px] opacity-70 animate-blob animation-delay-4000"></div>
+
+        <div class="relative z-10 p-6 max-w-lg mx-auto min-h-screen flex flex-col justify-start pb-24">
+            
+            <header class="flex justify-between items-center mb-8 glassmorphism-dark rounded-full px-5 py-3">
+                <div class="flex items-center space-x-3">
+                    <div class="w-10 h-10 bg-white/10 rounded-full backdrop-blur-sm flex items-center justify-center border border-white/20">
+                         <span class="text-[0.4rem] font-bold text-white/70 text-center leading-none">LOGO<br/>PC</span>
+                    </div>
+                </div>
+                <div class="text-xs uppercase tracking-widest font-semibold text-blue-300">
+                    Hidrometeorología
+                </div>
+            </header>
+
+            <div class="glassmorphism-dark rounded-3xl p-8 mb-6 relative overflow-hidden">
+                <div class="absolute inset-0 bg-gradient-to-br from-white/5 to-transparent"></div>
+                
+                <h1 class="text-4xl font-black text-transparent bg-clip-text bg-gradient-to-r from-blue-200 to-sky-200 mb-2 mt-4 tracking-tighter">
+                    Prevención de Inundaciones
+                </h1>
+                <p class="text-slate-300 text-sm mb-6 leading-relaxed">
+                    Protocolo oficial básico de autoprotección ante eventos de lluvias severas según el INAMEH.
+                </p>
+
+                <div class="w-full aspect-video rounded-2xl overflow-hidden shadow-2xl mb-2 flex items-center justify-center backdrop-blur-md bg-white/5 border border-white/10" style="background-image: url('/assets/floods_illustration_1774910201216.png'); background-size: cover; background-position: center;">
+                </div>
+            </div>
+
+            <h2 class="text-lg font-bold mb-4 ml-2 mt-2 text-white/90">Gestión de Riesgo</h2>
+
+            <div class="space-y-4">
+               <div class="glassmorphism-dark rounded-2xl p-5 flex items-start gap-4 transition-all hover:bg-white/10">
+                    <div class="bg-blue-500/20 p-3 rounded-xl border border-blue-400/30 text-blue-300 flex-shrink-0">
+                        <Waves size={24} />
+                    </div>
+                    <div>
+                        <h3 class="font-bold text-lg mb-1">Peligro de Corrientes</h3>
+                        <p class="text-xs text-slate-400">Nunca intente cruzar corrientes de agua. Apenas 15 cm pueden derribar a una persona y 30 cm pueden arrastrar un vehículo.</p>
+                    </div>
+               </div>
+
+               <div class="glassmorphism-dark rounded-2xl p-5 flex items-start gap-4 transition-all hover:bg-white/10">
+                    <div class="bg-sky-500/20 p-3 rounded-xl border border-sky-400/30 text-sky-300 flex-shrink-0">
+                        <Zap size={24} />
+                    </div>
+                    <div>
+                        <h3 class="font-bold text-lg mb-1">Protección Eléctrica</h3>
+                        <p class="text-xs text-slate-400">Desconecte la energía eléctrica general si el agua penetra en la vivienda. Evite refugiarse bajo árboles durante tormentas eléctricas.</p>
+                    </div>
+               </div>
+
+               <div class="glassmorphism-dark rounded-2xl p-5 flex items-center gap-4 transition-all hover:bg-white/10">
+                    <div class="bg-green-500/20 p-3 flex-1 rounded-xl border border-green-400/30 text-center">
+                        <p class="text-xs text-green-300 font-bold uppercase mb-1">Alerta Verde</p>
+                        <p class="text-[0.6rem] text-slate-400">Pase con precaución</p>
+                    </div>
+                    <div class="bg-yellow-500/20 p-3 flex-1 rounded-xl border border-yellow-400/30 text-center">
+                         <p class="text-xs text-yellow-300 font-bold uppercase mb-1">Alerta Amarilla</p>
+                        <p class="text-[0.6rem] text-slate-400">Evite vehículos livianos</p>
+                    </div>
+                    <div class="bg-red-500/20 p-3 flex-1 rounded-xl border border-red-400/30 text-center">
+                         <p class="text-xs text-red-300 font-bold uppercase mb-1">Alerta Roja</p>
+                        <p class="text-[0.6rem] text-slate-400">Prohibición de paso</p>
+                    </div>
+               </div>
+            </div>
+
+        </div>
+	</main>
+</Layout>
