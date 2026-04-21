@@ -10,15 +10,15 @@ import { brochures } from '../data/brochures';
             <div class="pc-dot-grid absolute inset-0 opacity-70"></div>
             <div class="absolute inset-0" style="background-image: var(--gradient-overlay), url('/assets/civil_safety_illustration_1774910214897.png'); background-size: cover; background-position: center;"></div>
 
-            <div class="relative z-10 mx-auto max-w-6xl px-4 py-8 sm:px-6 lg:px-8">
-                <div class="mb-8 flex flex-wrap items-center justify-between gap-4 border-b border-white/15 pb-4">
-                    <div class="flex items-center gap-4">
-                        <div class="h-16 w-16 overflow-hidden rounded-full border-2 border-white/50 bg-white p-1.5">
+            <div class="relative z-10 mx-auto max-w-6xl px-4 py-6 sm:px-6 sm:py-8 lg:px-8">
+                <div class="mb-6 flex flex-col gap-4 border-b border-white/15 pb-4 sm:mb-8 lg:flex-row lg:items-center lg:justify-between">
+                    <div class="flex items-center gap-3 sm:gap-4">
+                        <div class="h-12 w-12 overflow-hidden rounded-full border-2 border-white/50 bg-white p-1.5 sm:h-16 sm:w-16">
                             <img src="/assets/LOGO-PC-NUEVO-e1754668914257.png" alt="Logo Protección Civil" class="h-full w-full object-contain" />
                         </div>
                         <div>
-                            <p class="mb-2 text-sm font-semibold uppercase tracking-[0.2em] text-white/75">Sistema informativo</p>
-                            <h1 class="text-3xl font-black sm:text-5xl">Protocolos de autoproteccion</h1>
+                            <p class="mb-2 text-[0.72rem] font-semibold uppercase tracking-[0.16em] text-white/75 sm:text-sm sm:tracking-[0.2em]">Sistema informativo</p>
+                            <h1 class="text-2xl font-black sm:text-5xl">Protocolos de autoproteccion</h1>
                         </div>
                     </div>
 
@@ -28,24 +28,24 @@ import { brochures } from '../data/brochures';
                     </div>
                 </div>
 
-                <div class="grid gap-8 lg:grid-cols-[minmax(0,1.1fr)_minmax(20rem,24rem)] lg:items-end">
+                <div class="grid gap-6 sm:gap-8 lg:grid-cols-[minmax(0,1.1fr)_minmax(20rem,24rem)] lg:items-end">
                     <div class="max-w-3xl">
                         <div class="pc-ribbon mb-5 inline-flex items-center gap-2 px-4 py-2 text-xs font-bold uppercase tracking-[0.14em]">
                             <AlertTriangle size={14} strokeWidth={2.75} />
                             <span>Panel central de respuesta y prevencion</span>
                         </div>
-                        <p class="mb-4 text-sm font-semibold uppercase tracking-[0.24em] text-white/70">Proteccion Civil Venezuela</p>
-                        <h2 class="text-5xl font-black sm:text-6xl">Seleccione tema y cambie entre variante oscura o clara dentro de cada folleto</h2>
-                        <p class="mt-5 max-w-2xl text-base leading-7 text-white/85">
+                        <p class="mb-3 text-[0.72rem] font-semibold uppercase tracking-[0.18em] text-white/70 sm:mb-4 sm:text-sm sm:tracking-[0.24em]">Proteccion Civil Venezuela</p>
+                        <h2 class="text-3xl font-black sm:text-5xl lg:text-6xl">Seleccione tema y cambie entre variante oscura o clara dentro de cada folleto</h2>
+                        <p class="mt-4 max-w-2xl text-sm leading-6 text-white/85 sm:mt-5 sm:text-base sm:leading-7">
                             Misma base informativa. Misma identidad institucional. Dos superficies de lectura para consulta rapida en contexto operativo.
                         </p>
                     </div>
 
-                    <div class="pc-card pc-diagonal pc-hard-shadow relative min-h-[18rem] overflow-hidden">
+                    <div class="pc-card pc-diagonal pc-hard-shadow relative min-h-[14rem] overflow-hidden sm:min-h-[18rem]">
                         <div class="pc-card-image absolute inset-0" style="background-image: url('/assets/LOGO-PC-NUEVO-e1754668914257.png'); background-size: contain; background-repeat: no-repeat; background-position: center;"></div>
-                        <div class="relative z-10 flex h-full flex-col justify-end p-6">
+                        <div class="relative z-10 flex h-full flex-col justify-end p-4 sm:p-6">
                             <span class="pc-tag pc-tag-primary mb-3 w-fit">Base institucional</span>
-                            <h2 class="text-2xl font-black text-white">PC-Venezuela</h2>
+                            <h2 class="text-xl font-black text-white sm:text-2xl">PC-Venezuela</h2>
                             <p class="mt-3 max-w-sm text-sm leading-6 text-white/85">
                                 Paleta oficial, titulos en mayusculas, sombras duras, diagonales y lenguaje visual de alerta.
                             </p>
@@ -56,12 +56,12 @@ import { brochures } from '../data/brochures';
         </section>
 
         <section class="bg-white">
-            <div class="mx-auto max-w-6xl px-4 py-10 sm:px-6 lg:px-8">
-                <div class="pc-hazard-stripe mb-8 h-2 w-full"></div>
-                <div class="mb-8 flex flex-wrap items-end justify-between gap-4">
+            <div class="mx-auto max-w-6xl px-4 py-8 sm:px-6 sm:py-10 lg:px-8">
+                <div class="pc-hazard-stripe mb-6 h-2 w-full sm:mb-8"></div>
+                <div class="mb-6 flex flex-col items-start gap-3 sm:mb-8 sm:flex-wrap sm:items-end sm:justify-between sm:gap-4 lg:flex-row">
                     <div>
-                        <p class="mb-2 text-sm font-semibold uppercase tracking-[0.2em] text-[var(--color-primary)]">Temario disponible</p>
-                        <h2 class="text-3xl font-black text-[var(--color-secondary)]">Folletos operativos</h2>
+                        <p class="mb-2 text-[0.72rem] font-semibold uppercase tracking-[0.16em] text-[var(--color-primary)] sm:text-sm sm:tracking-[0.2em]">Temario disponible</p>
+                        <h2 class="text-2xl font-black text-[var(--color-secondary)] sm:text-3xl">Folletos operativos</h2>
                     </div>
                     <p class="max-w-xl text-sm leading-6 text-[var(--color-text-dark)]/80">
                         Cada tarjeta abre primero variante oscura. Desde cabecera puede cambiar a variante clara sin salir del tema.
@@ -70,11 +70,11 @@ import { brochures } from '../data/brochures';
 
                 <div class="grid gap-6 md:grid-cols-2 xl:grid-cols-4">
                     {brochures.map((brochure) => (
-                        <a href={brochure.darkHref} class="pc-card pc-diagonal pc-hard-shadow group relative min-h-[24rem] overflow-hidden transition-transform hover:translate-y-[-4px]">
+                        <a href={brochure.darkHref} class="pc-card pc-diagonal pc-hard-shadow group relative min-h-[19rem] overflow-hidden transition-transform hover:translate-y-[-4px] sm:min-h-[24rem]">
                             <div class="pc-card-image absolute inset-0" style={`background-image: url('${brochure.image}'); background-size: cover; background-position: center;`}></div>
-                            <div class="relative z-10 flex h-full flex-col justify-end p-6">
+                            <div class="relative z-10 flex h-full flex-col justify-end p-4 sm:p-6">
                                 <span class="pc-tag pc-tag-primary mb-3 w-fit">{brochure.topicNumber}</span>
-                                <h3 class="text-2xl font-black text-white">{brochure.topicLabel}</h3>
+                                <h3 class="text-xl font-black text-white sm:text-2xl">{brochure.topicLabel}</h3>
                                 <p class="mt-3 text-sm leading-6 text-white/85">{brochure.dashboardSummary}</p>
                                 <div class="mt-5 flex flex-wrap gap-2">
                                     <span class="pc-tag pc-tag-secondary">Oscuro</span>

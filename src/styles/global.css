@@ -107,6 +107,13 @@
     pointer-events: none;
   }
 
+  @media (max-width: 640px) {
+    .pc-watermark::after {
+      background-size: 84px;
+      background-position: right 10px bottom 10px;
+    }
+  }
+
   .pc-card {
     position: relative;
     overflow: hidden;
