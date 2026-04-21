@@ -1,5 +1,6 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import ThemeSwitch from '../components/ThemeSwitch.astro';
 import { Smile, AlertCircle, HeartCrack } from 'lucide-react';
 ---
 
@@ -12,9 +13,16 @@ import { Smile, AlertCircle, HeartCrack } from 'lucide-react';
 
         <div class="max-w-md mx-auto min-h-screen flex flex-col justify-start px-6 pt-10 z-10 relative">
             
-            <header class="flex justify-between items-center bg-white/70 backdrop-blur-md rounded-full shadow-sm p-2 mb-8 border border-white/50">
-                <div class="w-10 h-10 rounded-full bg-white flex items-center justify-center shadow-inner ml-1 p-1 border border-pink-500/20">
-                    <img src="/assets/LOGO-PC-NUEVO-e1754668914257.png" alt="Directorate of Civil Protection Logo" class="w-full h-full object-contain" />
+            <header class="flex justify-between items-center gap-3 bg-white/70 backdrop-blur-md rounded-full shadow-sm p-2 mb-8 border border-white/50">
+                <div class="flex items-center gap-3 min-w-0">
+                    <div class="w-10 h-10 rounded-full bg-white flex items-center justify-center shadow-inner ml-1 p-1 border border-pink-500/20">
+                        <img src="/assets/LOGO-PC-NUEVO-e1754668914257.png" alt="Directorate of Civil Protection Logo" class="w-full h-full object-contain" />
+                    </div>
+                    <ThemeSwitch
+                        currentTheme="friendly"
+                        glassHref="/sismos-glass"
+                        friendlyHref="/sismos-friendly"
+                    />
                 </div>
                 <h1 class="text-sm font-bold tracking-wide text-sky-800 mr-4">
                     Educación <span class="bg-yellow-300 text-sky-900 px-2 py-0.5 rounded-full ml-1 text-xs">¡Vital!</span>
