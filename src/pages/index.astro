@@ -1,65 +1,90 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import { AlertTriangle } from 'lucide-react';
+import { brochures } from '../data/brochures';
 ---
 
-<Layout title="Centro de Autoprotección - Protocólos">
-	<main class="min-h-screen bg-neutral-100 flex flex-col items-center py-12 px-4 selection:bg-orange-200">
-		<div class="max-w-md w-full flex flex-col items-center mb-8 text-center">
-			
-            <div class="w-20 h-20 bg-white rounded-full flex items-center justify-center shadow-lg border border-neutral-200 mb-6 relative overflow-hidden p-2">
-                <img src="/assets/LOGO-PC-NUEVO-e1754668914257.png" alt="Logo Protección Civil" class="object-contain w-full h-full" onerror="this.src='/assets/safety_shield_icon_1774892711246.png'" />
+<Layout title="Centro de Autoproteccion - Protocolos">
+	<main class="min-h-screen bg-[var(--color-bg-light)]">
+        <section class="relative overflow-hidden bg-[var(--color-secondary)] text-white">
+            <div class="pc-dot-grid absolute inset-0 opacity-70"></div>
+            <div class="absolute inset-0" style="background-image: var(--gradient-overlay), url('/assets/civil_safety_illustration_1774910214897.png'); background-size: cover; background-position: center;"></div>
+
+            <div class="relative z-10 mx-auto max-w-6xl px-4 py-8 sm:px-6 lg:px-8">
+                <div class="mb-8 flex flex-wrap items-center justify-between gap-4 border-b border-white/15 pb-4">
+                    <div class="flex items-center gap-4">
+                        <div class="h-16 w-16 overflow-hidden rounded-full border-2 border-white/50 bg-white p-1.5">
+                            <img src="/assets/LOGO-PC-NUEVO-e1754668914257.png" alt="Logo Protección Civil" class="h-full w-full object-contain" />
+                        </div>
+                        <div>
+                            <p class="mb-2 text-sm font-semibold uppercase tracking-[0.2em] text-white/75">Sistema informativo</p>
+                            <h1 class="text-3xl font-black sm:text-5xl">Protocolos de autoproteccion</h1>
+                        </div>
+                    </div>
+
+                    <div class="flex flex-wrap gap-2">
+                        <span class="pc-tag pc-tag-primary">Modo oscuro</span>
+                        <span class="pc-tag bg-[var(--color-tertiary)] text-[var(--color-secondary)]">Modo claro</span>
+                    </div>
+                </div>
+
+                <div class="grid gap-8 lg:grid-cols-[minmax(0,1.1fr)_minmax(20rem,24rem)] lg:items-end">
+                    <div class="max-w-3xl">
+                        <div class="pc-ribbon mb-5 inline-flex items-center gap-2 px-4 py-2 text-xs font-bold uppercase tracking-[0.14em]">
+                            <AlertTriangle size={14} strokeWidth={2.75} />
+                            <span>Panel central de respuesta y prevencion</span>
+                        </div>
+                        <p class="mb-4 text-sm font-semibold uppercase tracking-[0.24em] text-white/70">Proteccion Civil Venezuela</p>
+                        <h2 class="text-5xl font-black sm:text-6xl">Seleccione tema y cambie entre variante oscura o clara dentro de cada folleto</h2>
+                        <p class="mt-5 max-w-2xl text-base leading-7 text-white/85">
+                            Misma base informativa. Misma identidad institucional. Dos superficies de lectura para consulta rapida en contexto operativo.
+                        </p>
+                    </div>
+
+                    <div class="pc-card pc-diagonal pc-hard-shadow relative min-h-[18rem] overflow-hidden">
+                        <div class="pc-card-image absolute inset-0" style="background-image: url('/assets/LOGO-PC-NUEVO-e1754668914257.png'); background-size: contain; background-repeat: no-repeat; background-position: center;"></div>
+                        <div class="relative z-10 flex h-full flex-col justify-end p-6">
+                            <span class="pc-tag pc-tag-primary mb-3 w-fit">Base institucional</span>
+                            <h2 class="text-2xl font-black text-white">PC-Venezuela</h2>
+                            <p class="mt-3 max-w-sm text-sm leading-6 text-white/85">
+                                Paleta oficial, titulos en mayusculas, sombras duras, diagonales y lenguaje visual de alerta.
+                            </p>
+                        </div>
+                    </div>
+                </div>
             </div>
+        </section>
 
-			<h1 class="text-3xl font-extrabold text-neutral-900 tracking-tight leading-tight mb-2">
-				Protocolos de Autoprotección
-			</h1>
-			<p class="text-neutral-500 text-sm max-w-xs mx-auto mb-8 font-medium">
-				Seleccione un tema. Dentro de cada folleto podrá cambiar entre los temas Glass y Friendly.
-			</p>
-            
-		</div>
+        <section class="bg-white">
+            <div class="mx-auto max-w-6xl px-4 py-10 sm:px-6 lg:px-8">
+                <div class="pc-hazard-stripe mb-8 h-2 w-full"></div>
+                <div class="mb-8 flex flex-wrap items-end justify-between gap-4">
+                    <div>
+                        <p class="mb-2 text-sm font-semibold uppercase tracking-[0.2em] text-[var(--color-primary)]">Temario disponible</p>
+                        <h2 class="text-3xl font-black text-[var(--color-secondary)]">Folletos operativos</h2>
+                    </div>
+                    <p class="max-w-xl text-sm leading-6 text-[var(--color-text-dark)]/80">
+                        Cada tarjeta abre primero variante oscura. Desde cabecera puede cambiar a variante clara sin salir del tema.
+                    </p>
+                </div>
 
-        <div class="w-full max-w-md space-y-4">
-            <div class="flex items-center justify-center gap-3 text-[0.7rem] font-semibold uppercase tracking-[0.2em] text-neutral-400 mb-2">
-                <span class="inline-flex items-center gap-2"><span class="w-3 h-3 rounded-full bg-blue-500"></span>Glass</span>
-                <span class="inline-flex items-center gap-2"><span class="w-3 h-3 rounded-full bg-yellow-400"></span>Friendly</span>
+                <div class="grid gap-6 md:grid-cols-2 xl:grid-cols-4">
+                    {brochures.map((brochure) => (
+                        <a href={brochure.darkHref} class="pc-card pc-diagonal pc-hard-shadow group relative min-h-[24rem] overflow-hidden transition-transform hover:translate-y-[-4px]">
+                            <div class="pc-card-image absolute inset-0" style={`background-image: url('${brochure.image}'); background-size: cover; background-position: center;`}></div>
+                            <div class="relative z-10 flex h-full flex-col justify-end p-6">
+                                <span class="pc-tag pc-tag-primary mb-3 w-fit">{brochure.topicNumber}</span>
+                                <h3 class="text-2xl font-black text-white">{brochure.topicLabel}</h3>
+                                <p class="mt-3 text-sm leading-6 text-white/85">{brochure.dashboardSummary}</p>
+                                <div class="mt-5 flex flex-wrap gap-2">
+                                    <span class="pc-tag pc-tag-secondary">Oscuro</span>
+                                    <span class="pc-tag bg-[var(--color-tertiary)] text-[var(--color-secondary)]">Claro</span>
+                                </div>
+                            </div>
+                        </a>
+                    ))}
+                </div>
             </div>
-
-            <a href="/sismos-glass" class="block w-full bg-white rounded-2xl p-5 shadow-sm hover:shadow-md transition-all border border-neutral-200 group relative overflow-hidden">
-                <div class="absolute inset-x-0 top-0 h-1 bg-gradient-to-r from-blue-500 to-yellow-400 opacity-70"></div>
-                <div>
-                    <p class="text-[0.65rem] font-bold uppercase tracking-[0.2em] text-neutral-400 mb-2">Tema 1</p>
-                    <h2 class="text-lg font-bold text-neutral-900">Sismos y Terremotos</h2>
-                    <p class="text-sm text-neutral-500 mt-2">Protocolo inmediato, refugio seguro y acciones posteriores.</p>
-                </div>
-            </a>
-
-            <a href="/inundaciones-glass" class="block w-full bg-white rounded-2xl p-5 shadow-sm hover:shadow-md transition-all border border-neutral-200 group relative overflow-hidden">
-                <div class="absolute inset-x-0 top-0 h-1 bg-gradient-to-r from-blue-500 to-yellow-400 opacity-70"></div>
-                <div>
-                    <p class="text-[0.65rem] font-bold uppercase tracking-[0.2em] text-neutral-400 mb-2">Tema 2</p>
-                    <h2 class="text-lg font-bold text-neutral-900">Lluvias e Inundaciones</h2>
-                    <p class="text-sm text-neutral-500 mt-2">Prevención, desplazamiento seguro y niveles de alerta.</p>
-                </div>
-            </a>
-
-            <a href="/orden-publico-glass" class="block w-full bg-white rounded-2xl p-5 shadow-sm hover:shadow-md transition-all border border-neutral-200 group relative overflow-hidden">
-                <div class="absolute inset-x-0 top-0 h-1 bg-gradient-to-r from-blue-500 to-yellow-400 opacity-70"></div>
-                <div>
-                    <p class="text-[0.65rem] font-bold uppercase tracking-[0.2em] text-neutral-400 mb-2">Tema 3</p>
-                    <h2 class="text-lg font-bold text-neutral-900">Orden Público y Crisis</h2>
-                    <p class="text-sm text-neutral-500 mt-2">Refugio doméstico, suministros y coordinación comunitaria.</p>
-                </div>
-            </a>
-
-            <a href="/otros-riesgos-glass" class="block w-full bg-white rounded-2xl p-5 shadow-sm hover:shadow-md transition-all border border-neutral-200 group relative overflow-hidden">
-                <div class="absolute inset-x-0 top-0 h-1 bg-gradient-to-r from-blue-500 to-yellow-400 opacity-70"></div>
-                <div>
-                    <p class="text-[0.65rem] font-bold uppercase tracking-[0.2em] text-neutral-400 mb-2">Tema 4</p>
-                    <h2 class="text-lg font-bold text-neutral-900">Riesgos Específicos</h2>
-                    <p class="text-sm text-neutral-500 mt-2">Incendios, derrames y otros eventos puntuales de riesgo.</p>
-                </div>
-            </a>
-        </div>
+        </section>
 	</main>
 </Layout>

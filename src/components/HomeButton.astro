@@ -10,17 +10,17 @@ const { href = '/', tone = 'light' } = Astro.props;
 
 const buttonClass =
   tone === 'dark'
-    ? 'bg-white/10 border-white/15 text-slate-100 hover:bg-white/18'
-    : 'bg-white/70 border-white/60 text-slate-700 hover:bg-white';
+    ? 'bg-[var(--color-primary)] text-white shadow-[4px_4px_0px_rgba(255,184,28,0.35)] hover:translate-y-[-2px]'
+    : 'bg-[var(--color-primary)] text-white shadow-[4px_4px_0px_var(--color-secondary)] hover:translate-y-[-2px]';
 ---
 
 <a
   href={href}
   class:list={[
-    'inline-flex items-center gap-1.5 rounded-full border px-3 py-2 text-[0.7rem] font-semibold transition-colors',
+    'inline-flex items-center gap-1.5 px-3 py-2 text-[0.7rem] font-bold uppercase tracking-[0.12em] transition-transform',
     buttonClass,
   ]}
 >
-  <House size={14} />
-  <span>Inicio</span>
+  <House size={14} strokeWidth={2.75} />
+  <span>Tablero</span>
 </a>

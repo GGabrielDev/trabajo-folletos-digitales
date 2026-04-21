@@ -1,0 +1,39 @@
+---
+interface Props {
+  currentMode: 'dark' | 'light';
+  darkHref: string;
+  lightHref: string;
+}
+
+const { currentMode, darkHref, lightHref } = Astro.props;
+---
+
+<nav
+  aria-label="Selector de modo"
+  class="inline-flex items-center border border-white/10 bg-[var(--color-secondary)]/96 p-1 text-[0.65rem] font-bold uppercase tracking-[0.12em] text-white"
+>
+  <a
+    href={darkHref}
+    aria-current={currentMode === 'dark' ? 'page' : undefined}
+    class:list={[
+      'px-3 py-2 transition-colors',
+      currentMode === 'dark'
+        ? 'bg-[var(--color-primary)] text-white shadow-[4px_4px_0px_rgba(255,184,28,0.28)]'
+        : 'text-white/80 hover:bg-white/8',
+    ]}
+  >
+    Oscuro
+  </a>
+  <a
+    href={lightHref}
+    aria-current={currentMode === 'light' ? 'page' : undefined}
+    class:list={[
+      'px-3 py-2 transition-colors',
+      currentMode === 'light'
+        ? 'bg-[var(--color-tertiary)] text-[var(--color-secondary)] shadow-[4px_4px_0px_rgba(15,33,71,0.22)]'
+        : 'text-white/80 hover:bg-white/8',
+    ]}
+  >
+    Claro
+  </a>
+</nav>
