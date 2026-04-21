@@ -1,5 +1,6 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import HomeButton from '../components/HomeButton.astro';
 import ThemeSwitch from '../components/ThemeSwitch.astro';
 import { ShieldCheck, House, BatteryMedium, Layers } from 'lucide-react';
 ---
@@ -25,8 +26,11 @@ import { ShieldCheck, House, BatteryMedium, Layers } from 'lucide-react';
                         tone="dark"
                     />
                 </div>
-                <div class="text-xs uppercase tracking-widest font-semibold text-purple-300">
-                    Seguridad
+                <div class="flex items-center gap-2 shrink-0">
+                    <div class="hidden text-xs uppercase tracking-widest font-semibold text-purple-300 sm:block">
+                        Seguridad
+                    </div>
+                    <HomeButton tone="dark" />
                 </div>
             </header>
 

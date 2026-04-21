@@ -1,5 +1,6 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import HomeButton from '../components/HomeButton.astro';
 import ThemeSwitch from '../components/ThemeSwitch.astro';
 import { Home, PackageCheck, Users } from 'lucide-react';
 ---
@@ -23,9 +24,12 @@ import { Home, PackageCheck, Users } from 'lucide-react';
                         friendlyHref="/orden-publico-friendly"
                     />
                 </div>
-                <h1 class="text-sm font-bold tracking-wide text-rose-800 mr-4">
-                    Prevención <span class="bg-orange-300 text-rose-900 px-2 py-0.5 rounded-full ml-1 text-xs">Familiar</span>
-                </h1>
+                <div class="flex items-center gap-2 shrink-0">
+                    <h1 class="hidden text-sm font-bold tracking-wide text-rose-800 sm:block">
+                        Prevención <span class="bg-orange-300 text-rose-900 px-2 py-0.5 rounded-full ml-1 text-xs">Familiar</span>
+                    </h1>
+                    <HomeButton />
+                </div>
             </header>
 
             <div class="bg-white rounded-[2.5rem] p-6 shadow-xl border-4 border-white mb-6 transform -rotate-1 hover:rotate-1 transition-transform duration-300">
