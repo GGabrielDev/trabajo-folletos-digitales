@@ -1,4 +1,6 @@
 ---
+import { MoonStar, SunMedium } from 'lucide-react';
+
 interface Props {
   currentMode: 'dark' | 'light';
   darkHref: string;
@@ -14,26 +16,28 @@ const { currentMode, darkHref, lightHref } = Astro.props;
 >
   <a
     href={darkHref}
+    aria-label="Abrir variante oscura"
     aria-current={currentMode === 'dark' ? 'page' : undefined}
     class:list={[
-      'flex-1 px-3 py-2 text-center transition-colors sm:flex-none',
+      'flex min-h-11 flex-1 items-center justify-center px-3 py-2 text-center transition-colors sm:flex-none',
       currentMode === 'dark'
         ? 'bg-[var(--color-primary)] text-white shadow-[4px_4px_0px_rgba(255,184,28,0.28)]'
         : 'text-white/80 hover:bg-white/8',
     ]}
   >
-    Oscuro
+    <MoonStar size={16} strokeWidth={2.5} />
   </a>
   <a
     href={lightHref}
+    aria-label="Abrir variante clara"
     aria-current={currentMode === 'light' ? 'page' : undefined}
     class:list={[
-      'flex-1 px-3 py-2 text-center transition-colors sm:flex-none',
+      'flex min-h-11 flex-1 items-center justify-center px-3 py-2 text-center transition-colors sm:flex-none',
       currentMode === 'light'
         ? 'bg-[var(--color-tertiary)] text-[var(--color-secondary)] shadow-[4px_4px_0px_rgba(15,33,71,0.22)]'
         : 'text-white/80 hover:bg-white/8',
     ]}
   >
-    Claro
+    <SunMedium size={16} strokeWidth={2.5} />
   </a>
 </nav>
