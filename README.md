@@ -1,46 +1,91 @@
-# Astro Starter Kit: Basics
+# Folletos Digitales
 
-```sh
-npm create astro@latest -- --template basics
-```
+Static Astro site that publishes digital self-protection brochures for civil protection topics in Venezuela. The home page works as a selector and links to eight brochure pages: four topics, each available in two visual styles.
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
+## Purpose
 
-## 🚀 Project Structure
+The project turns summarized emergency guidance into mobile-first brochure pages that are easy to open, review, and compare by design style.
 
-Inside of your Astro project, you'll see the following folders and files:
+**Current topics**
+
+| Topic | Styles |
+| --- | --- |
+| Sismos y terremotos | Glassmorphism, Friendly |
+| Lluvias e inundaciones | Glassmorphism, Friendly |
+| Orden publico y crisis | Glassmorphism, Friendly |
+| Riesgos especificos | Glassmorphism, Friendly |
+
+## Stack
+
+| Area | Choice |
+| --- | --- |
+| Framework | Astro 6 |
+| UI runtime | Static Astro pages |
+| Styling | Tailwind CSS 4 via `@tailwindcss/vite` |
+| Icons | `lucide-react` |
+| Language | TypeScript-compatible Astro project |
+| Node.js | `>=22.12.0` |
+
+Although React support is configured, the current site is implemented with `.astro` pages only.
+
+## Routes
+
+| Route | Description |
+| --- | --- |
+| `/` | Selector page for all brochures |
+| `/sismos-glass` | Earthquake brochure, glassmorphism style |
+| `/sismos-friendly` | Earthquake brochure, friendly style |
+| `/inundaciones-glass` | Flood brochure, glassmorphism style |
+| `/inundaciones-friendly` | Flood brochure, friendly style |
+| `/orden-publico-glass` | Public order brochure, glassmorphism style |
+| `/orden-publico-friendly` | Public order brochure, friendly style |
+| `/otros-riesgos-glass` | Specific risks brochure, glassmorphism style |
+| `/otros-riesgos-friendly` | Specific risks brochure, friendly style |
+
+Detailed route inventory: [`docs/routes.md`](docs/routes.md)
+
+## Project structure
 
 ```text
-/
+.
 ├── public/
-│   └── favicon.svg
-├── src
-│   ├── assets
-│   │   └── astro.svg
-│   ├── components
-│   │   └── Welcome.astro
-│   ├── layouts
-│   │   └── Layout.astro
-│   └── pages
-│       └── index.astro
-└── package.json
+│   ├── assets/            # Logo and brochure illustrations
+│   └── favicon.*
+├── src/
+│   ├── layouts/
+│   │   └── Layout.astro   # Shared HTML shell and font loading
+│   ├── pages/
+│   │   ├── index.astro    # Selector page
+│   │   └── *.astro        # Individual brochure pages
+│   └── styles/
+│       └── global.css     # Tailwind import and custom utilities
+├── pdf_content.txt        # Source summary extracted from the reference PDF
+└── astro.config.mjs
 ```
 
-To learn more about the folder structure of an Astro project, refer to [our guide on project structure](https://docs.astro.build/en/basics/project-structure/).
+## Local development
 
-## 🧞 Commands
+```bash
+npm install
+npm run dev
+```
 
-All commands are run from the root of the project, from a terminal:
+Other available commands:
 
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `npm install`             | Installs dependencies                            |
-| `npm run dev`             | Starts local dev server at `localhost:4321`      |
-| `npm run build`           | Build your production site to `./dist/`          |
-| `npm run preview`         | Preview your build locally, before deploying     |
-| `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `npm run astro -- --help` | Get help using the Astro CLI                     |
+```bash
+npm run build
+npm run preview
+```
 
-## 👀 Want to learn more?
+## Content source
 
-Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+The brochure copy appears to be derived from the technical reference material summarized in `pdf_content.txt`, which in turn references Venezuelan civil protection and risk-management guidance such as FUNVISIS and INAMEH material.
+
+This repository currently contains curated static copy. There is no CMS, API, database, or automated content ingestion pipeline.
+
+## Notes for maintainers
+
+- Shared page chrome lives in `src/layouts/Layout.astro`.
+- Shared visual utilities such as `.glassmorphism-dark` live in `src/styles/global.css`.
+- Each topic currently has two separate page files rather than a shared data-driven template.
+- The repository does not define lint or test scripts at the moment; `npm run build` is the main project health check.
