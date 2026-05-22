@@ -1,0 +1,86 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { AlertTriangle, ChevronLeft } from 'lucide-react';
+import { brochures } from '../data/brochures';
+import HomeButton from '../components/HomeButton.astro';
+
+// Filtrar solo los folletos de autoprotección general (originales)
+const generalBrochures = brochures.filter(b => 
+  ['sismos', 'inundaciones', 'orden-publico', 'otros-riesgos'].includes(b.slug)
+);
+---
+
+<Layout title="Autoprotección Civil - Protocolos Generales">
+	<main class="min-h-screen bg-[var(--color-bg-light)]">
+        <section class="relative overflow-hidden bg-[var(--color-secondary)] text-white">
+            <div class="pc-dot-grid absolute inset-0 opacity-70"></div>
+            <div class="absolute inset-0" style="background-image: var(--gradient-overlay), url('/assets/civil_safety_illustration_1774910214897.png'); background-size: cover; background-position: center;"></div>
+
+            <div class="relative z-10 mx-auto max-w-6xl px-4 py-6 sm:px-6 sm:py-8 lg:px-8">
+                <div class="mb-6 flex flex-col gap-4 border-b border-white/15 pb-4 sm:mb-8 lg:flex-row lg:items-center lg:justify-between">
+                    <div class="flex items-center gap-3 sm:gap-4">
+                        <div class="h-12 w-12 overflow-hidden rounded-full border-2 border-white/50 bg-white p-1.5 sm:h-16 sm:w-16">
+                            <img src="/assets/LOGO-PC-NUEVO-e1754668914257.png" alt="Logo Protección Civil" class="h-full w-full object-contain" />
+                        </div>
+                        <div>
+                            <p class="mb-2 text-[0.72rem] font-semibold uppercase tracking-[0.16em] text-white/75 sm:text-sm sm:tracking-[0.2em]">Menú de Autoprotección Civil</p>
+                            <h1 class="text-2xl font-black sm:text-5xl">Protocolos de Emergencia</h1>
+                        </div>
+                    </div>
+                    <div class="flex items-center gap-3 self-start lg:self-auto">
+                        <a href="/" class="inline-flex min-h-11 items-center justify-center gap-1.5 px-4 py-2 border border-white/20 bg-white/5 hover:bg-white/10 text-white text-xs font-bold uppercase tracking-[0.12em] transition-colors">
+                            <ChevronLeft size={16} strokeWidth={2.75} />
+                            <span>Volver al Tablero</span>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="grid gap-6 sm:gap-8 lg:grid-cols-[minmax(0,1.1fr)_minmax(20rem,24rem)] lg:items-end">
+                    <div class="max-w-3xl">
+                        <div class="pc-ribbon mb-5 inline-flex items-center gap-2 px-4 py-2 text-xs font-bold uppercase tracking-[0.14em]">
+                            <AlertTriangle size={14} strokeWidth={2.75} />
+                            <span>Módulo de Respuesta y Prevención General</span>
+                        </div>
+                        <p class="mb-3 text-[0.72rem] font-semibold uppercase tracking-[0.18em] text-white/70 sm:mb-4 sm:text-sm sm:tracking-[0.24em]">Protección Civil Venezuela</p>
+                        <h2 class="text-3xl font-black sm:text-5xl lg:text-6xl">Planes de Autoprotección</h2>
+                        <p class="mt-4 max-w-2xl text-sm leading-6 text-white/85 sm:mt-5 sm:text-base sm:leading-7">
+                            Consulte y descargue guías operativas oficiales sobre cómo reaccionar ante sismos, lluvias intensas, contingencias de orden público u otras amenazas específicas.
+                        </p>
+                    </div>
+
+                    <div class="pc-card pc-diagonal pc-hard-shadow relative min-h-[14rem] overflow-hidden sm:min-h-[18rem]">
+                        <div class="pc-card-image absolute inset-0" style="background-image: url('/assets/LOGO-PC-NUEVO-e1754668914257.png'); background-size: contain; background-repeat: no-repeat; background-position: center;"></div>
+                        <div class="relative z-10 flex h-full flex-col justify-end p-4 sm:p-6">
+                            <h2 class="text-xl font-black text-white sm:text-2xl">PC-Venezuela</h2>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="bg-white">
+            <div class="mx-auto max-w-6xl px-4 py-8 sm:px-6 sm:py-10 lg:px-8">
+                <div class="pc-hazard-stripe mb-6 h-2 w-full sm:mb-8"></div>
+                <div class="mb-6 flex flex-col items-start gap-3 sm:mb-8 sm:flex-wrap sm:items-end sm:justify-between sm:gap-4 lg:flex-row">
+                    <div>
+                        <p class="mb-2 text-[0.72rem] font-semibold uppercase tracking-[0.16em] text-[var(--color-primary)] sm:text-sm sm:tracking-[0.2em]">Módulos Disponibles</p>
+                        <h2 class="text-2xl font-black text-[var(--color-secondary)] sm:text-3xl">Folletos Operativos</h2>
+                    </div>
+                </div>
+
+                <div class="grid gap-6 md:grid-cols-2 lg:grid-cols-4">
+                    {generalBrochures.map((brochure) => (
+                        <a href={brochure.darkHref} class="pc-card pc-diagonal pc-hard-shadow group relative flex flex-col min-h-[15rem] sm:min-h-[19rem] overflow-hidden transition-transform hover:translate-y-[-4px]">
+                            <div class="pc-card-image absolute inset-0" style={`background-image: url('${brochure.image}'); background-size: cover; background-position: center;`}></div>
+                            <div class="relative z-10 flex flex-1 flex-col justify-end p-4 sm:p-5">
+                                <span class="pc-tag pc-tag-primary mb-2 w-fit">{brochure.topicNumber}</span>
+                                <h3 class="text-lg font-black text-white sm:text-xl leading-tight">{brochure.topicLabel}</h3>
+                                <p class="mt-2 text-xs leading-relaxed text-white/80">{brochure.dashboardSummary}</p>
+                            </div>
+                        </a>
+                    ))}
+                </div>
+            </div>
+        </section>
+	</main>
+</Layout>

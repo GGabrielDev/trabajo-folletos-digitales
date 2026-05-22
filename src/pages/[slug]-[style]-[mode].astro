@@ -1,0 +1,32 @@
+---
+import BrochurePage from '../components/BrochurePage.astro';
+import { brochures } from '../data/brochures';
+
+export function getStaticPaths() {
+  const schoolSlugs = ['brigadas-escolares', 'plan-escolar-pegir', 'evacuacion-simulacros', 'senales-seguridad'];
+  const styles = ['default', 'rounded-glass', 'timeline-step'];
+  const modes = ['dark', 'light'];
+
+  const paths = [];
+
+  for (const slug of schoolSlugs) {
+    const brochure = brochures.find(b => b.slug === slug);
+    if (!brochure) continue;
+
+    for (const style of styles) {
+      for (const mode of modes) {
+        paths.push({
+          params: { slug, style, mode },
+          props: { brochure, mode, styleVariant: style }
+        });
+      }
+    }
+  }
+
+  return paths;
+}
+
+const { brochure, mode, styleVariant } = Astro.props;
+---
+
+<BrochurePage brochure={brochure} mode={mode} styleVariant={styleVariant} />

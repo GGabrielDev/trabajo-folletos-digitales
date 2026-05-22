@@ -1,0 +1,87 @@
+---
+interface Props {
+  mode?: 'dark' | 'light';
+}
+
+const { mode = 'light' } = Astro.props;
+const isDark = mode === 'dark';
+---
+
+<footer class:list={[
+  'w-full border-t py-8 px-4 transition-colors duration-200',
+  isDark 
+    ? 'bg-[var(--color-bg-dark)] border-white/10 text-white/60' 
+    : 'bg-[var(--color-bg-light)] border-black/10 text-[var(--color-secondary)]/60'
+]}>
+  <div class="mx-auto max-w-6xl">
+    <div class="flex flex-col items-center gap-6">
+      <div class="text-center">
+        <p class:list={[
+          'text-[0.62rem] font-bold uppercase tracking-[0.2em]',
+          isDark ? 'text-white/50' : 'text-[var(--color-secondary)]/50'
+        ]}>
+          Organizaciones e Instituciones Co-patrocinantes
+        </p>
+        <p class:list={[
+          'mt-1 text-[0.8rem] font-medium tracking-tight max-w-lg mx-auto leading-relaxed',
+          isDark ? 'text-white/80' : 'text-[var(--color-secondary)]/80'
+        ]}>
+          Alianza Nacional para la Autoprotección y Prevención de Desastres en Unidades Educativas
+        </p>
+      </div>
+
+      <!-- Grid de Logotipos -->
+      <div class="flex flex-wrap items-center justify-center gap-6 md:gap-10 py-4">
+        <!-- Ministerio de Educación -->
+        <div class="h-12 w-28 md:h-14 md:w-32 flex items-center justify-center p-1 rounded-sm bg-white/5 backdrop-blur-sm border border-white/5">
+          <img 
+            src={isDark ? '/assets/Logo_Ministerio_Educacion_Blanco.png' : '/assets/Logo_Ministerio_Educacion.png'} 
+            alt="Ministerio del Poder Popular para la Educación" 
+            class="max-h-full max-w-full object-contain"
+          />
+        </div>
+
+        <!-- Protección Civil -->
+        <div class="h-12 w-12 md:h-14 md:w-14 flex items-center justify-center p-1 rounded-full bg-white/10 border border-white/10">
+          <img 
+            src="/assets/LOGO-PC-NUEVO-e1754668914257.png" 
+            alt="Protección Civil y Administración de Desastres" 
+            class="max-h-full max-w-full object-contain"
+          />
+        </div>
+
+        <!-- Cruz Roja Venezolana -->
+        <div class="h-12 w-12 md:h-14 md:w-14 flex items-center justify-center p-1 rounded-full bg-white/10 border border-white/10">
+          <img 
+            src="/assets/Logo_Cruz_Roja.png" 
+            alt="Cruz Roja Venezolana" 
+            class="max-h-full max-w-full object-contain"
+          />
+        </div>
+
+        <!-- MPPRIJP -->
+        <div class="h-12 w-12 md:h-14 md:w-14 flex items-center justify-center p-1 rounded-full bg-white/10 border border-white/10 overflow-hidden">
+          <img 
+            src="/assets/Logo_Ministerio_MPPRIJP.jpg" 
+            alt="Ministerio del Poder Popular para Relaciones Interiores, Justicia y Paz" 
+            class="max-h-full max-w-full object-cover scale-110"
+          />
+        </div>
+
+        <!-- Juntos por la Vida y la Paz -->
+        <div class="h-12 w-28 md:h-14 md:w-32 flex items-center justify-center p-1 rounded-sm bg-white/5 backdrop-blur-sm border border-white/5">
+          <img 
+            src={isDark ? '/assets/Logo_Juntos_por_la_Vida_y_la_Paz_Blanco.png' : '/assets/Logo_Juntos_por_la_Vida_y_la_Paz.jpg'} 
+            alt="Juntos por la Vida y la Paz" 
+            class="max-h-full max-w-full object-contain"
+          />
+        </div>
+      </div>
+
+      <div class="text-center text-[0.65rem] max-w-2xl leading-relaxed border-t border-black/5 dark:border-white/5 pt-4 w-full">
+        <p>Este material es de distribución gratuita para la formación y preparación de comunidades educativas en la República Bolivariana de Venezuela.</p>
+        <p class="mt-1 font-semibold">© {new Date().getFullYear()} - Gestión de Riesgos Socionaturales y Tecnológicos en Instituciones Educativas.</p>
+      </div>
+    </div>
+  </div>
+</footer>

@@ -34,7 +34,7 @@ export type BrochureVariant = {
 };
 
 export type Brochure = {
-  slug: 'sismos' | 'inundaciones' | 'orden-publico' | 'otros-riesgos';
+  slug: 'sismos' | 'inundaciones' | 'orden-publico' | 'otros-riesgos' | 'brigadas-escolares' | 'plan-escolar-pegir' | 'evacuacion-simulacros' | 'senales-seguridad';
   topicNumber: string;
   topicLabel: string;
   badge: string;
@@ -44,6 +44,7 @@ export type Brochure = {
   dashboardSummary: string;
   dark: BrochureVariant;
   light: BrochureVariant;
+  styleVariant?: 'default' | 'rounded-glass' | 'timeline-step';
 };
 
 export const brochures: Brochure[] = [
@@ -299,6 +300,244 @@ export const brochures: Brochure[] = [
             'Si ve petroleo o quimicos, alejese de inmediato por riesgo de incendio, intoxicacion o explosion.',
         },
       ],
+    },
+  },
+  {
+    slug: 'brigadas-escolares',
+    topicNumber: 'Escuela 01',
+    topicLabel: 'Brigadas y Comités',
+    badge: 'Gestión Escolar',
+    image: '/assets/1_classroom_2_students_3_teacher_4.jpg',
+    darkHref: '/brigadas-escolares-dark',
+    lightHref: '/brigadas-escolares-light',
+    dashboardSummary: 'Estructura del comité de riesgo, responsabilidades de la comunidad y brigadas.',
+    styleVariant: 'default',
+    dark: {
+      title: 'Comités y Brigadas Escolares de Gestión del Riesgo',
+      summary: 'Capacitación y organización de la comunidad educativa para fortalecer la capacidad de respuesta y resiliencia ante eventos adversos.',
+      ribbon: 'ORGANIZACIÓN | La prevención escolar es compromiso de directivos, docentes, alumnos y representantes',
+      cards: [
+        {
+          icon: 'community',
+          title: 'El Comité Escolar (Directivos)',
+          description: 'Liderar el Plan de Gestión de Riesgos, identificar peligros, elaborar mapas de riesgo y organizar simulacros periódicos.',
+        },
+        {
+          icon: 'warning',
+          title: 'Docentes y Personal',
+          description: 'Capacitarse en gestión del riesgo, integrar la prevención en las clases y guiar activamente a los alumnos durante las emergencias.',
+        },
+        {
+          icon: 'shelter',
+          title: 'Alumnos y Representantes',
+          description: 'Los estudiantes participan en brigadas y respetan las señalizaciones. Los padres apoyan las acciones escolares y crean sus planes familiares de emergencia.',
+        },
+      ],
+      footer: 'La juramentación de brigadas es un acto solemne apoyado por Protección Civil para sellar el compromiso con la cultura preventiva escolar.',
+    },
+    light: {
+      title: 'Comités y Brigadas Escolares de Gestión del Riesgo',
+      summary: 'Capacitación y organización de la comunidad educativa para fortalecer la capacidad de respuesta y resiliencia ante eventos adversos.',
+      ribbon: 'ORGANIZACIÓN | La prevención escolar es compromiso de directivos, docentes, alumnos y representantes',
+      cards: [
+        {
+          icon: 'community',
+          title: 'El Comité Escolar (Directivos)',
+          description: 'Liderar el Plan de Gestión de Riesgos, identificar peligros, elaborar mapas de riesgo y organizar simulacros periódicos.',
+        },
+        {
+          icon: 'warning',
+          title: 'Docentes y Personal',
+          description: 'Capacitarse en gestión del riesgo, integrar la prevención en las clases y guiar activamente a los alumnos durante las emergencias.',
+        },
+        {
+          icon: 'shelter',
+          title: 'Alumnos y Representantes',
+          description: 'Los estudiantes participan en brigadas y respetan las señalizaciones. Los padres apoyan las acciones escolares y crean sus planes familiares de emergencia.',
+        },
+      ],
+      footer: 'La juramentación de brigadas es un acto solemne apoyado por Protección Civil para sellar el compromiso con la cultura preventiva escolar.',
+    },
+  },
+  {
+    slug: 'plan-escolar-pegir',
+    topicNumber: 'Escuela 02',
+    topicLabel: 'Plan de Riesgos (PEGIR)',
+    badge: 'Planificación',
+    image: '/assets/a_group_of_students_in_white_shirts_and_navy_blue.jpg',
+    darkHref: '/plan-escolar-pegir-dark',
+    lightHref: '/plan-escolar-pegir-light',
+    dashboardSummary: 'Elaboración del Plan Escolar de Gestión Integral del Riesgo (PEGIR) y mapa de recursos.',
+    styleVariant: 'rounded-glass',
+    dark: {
+      title: 'Plan Escolar de Gestión de Riesgos (PEGIR)',
+      summary: 'Hoja de ruta dinámica para identificar amenazas, reducir la vulnerabilidad y optimizar los recursos internos y externos de la institución.',
+      ribbon: 'PLANIFICACIÓN | El mapa de riesgos escolar debe ser participativo y actualizarse cada año',
+      cards: [
+        {
+          icon: 'supply',
+          title: 'Componentes de Planificación',
+          description: 'Evaluación de amenazas, medidas de reducción (infraestructura, ordenamiento) y planes de contingencia para la continuidad educativa.',
+        },
+        {
+          icon: 'warning',
+          title: 'Mapa de Riesgos (Amenazas)',
+          description: 'Señala amenazas naturales (inundaciones, sismos) e internas (cables sueltos, laboratorios, escaleras deterioradas) con colores estándar.',
+        },
+        {
+          icon: 'community',
+          title: 'Recursos y Capacidades',
+          description: 'Identificar extintores, botiquines, líderes capacitados y zonas seguras o puntos de encuentro libres de obstáculos.',
+        },
+      ],
+      alertLevels: [
+        { label: 'Rojo (Peligro)', description: 'Zonas de alto peligro o riesgo inmediato en la infraestructura.', tone: 'red' },
+        { label: 'Amarillo (Precaución)', description: 'Riesgo medio o áreas de precaución que requieren mantenimiento.', tone: 'yellow' },
+        { label: 'Verde (Seguridad)', description: 'Zonas seguras de reunión, rutas despejadas y recursos de auxilio.', tone: 'green' },
+      ],
+      footer: 'El PEGIR y el mapa son herramientas visuales de concientización y planificación para decidir dónde priorizar esfuerzos y recursos.',
+    },
+    light: {
+      title: 'Plan Escolar de Gestión de Riesgos (PEGIR)',
+      summary: 'Hoja de ruta dinámica para identificar amenazas, reducir la vulnerabilidad y optimizar los recursos internos y externos de la institución.',
+      ribbon: 'PLANIFICACIÓN | El mapa de riesgos escolar debe ser participativo y actualizarse cada año',
+      cards: [
+        {
+          icon: 'supply',
+          title: 'Componentes de Planificación',
+          description: 'Evaluación de amenazas, medidas de reducción (infraestructura, ordenamiento) y planes de contingencia para la continuidad educativa.',
+        },
+        {
+          icon: 'warning',
+          title: 'Mapa de Riesgos (Amenazas)',
+          description: 'Señala amenazas naturales (inundaciones, sismos) e internas (cables sueltos, laboratorios, escaleras deterioradas) con colores estándar.',
+        },
+        {
+          icon: 'community',
+          title: 'Recursos y Capacidades',
+          description: 'Identificar extintores, botiquines, líderes capacitados y zonas seguras o puntos de encuentro libres de obstáculos.',
+        },
+      ],
+      alertLevels: [
+        { label: 'Rojo (Peligro)', description: 'Zonas de alto peligro o riesgo inmediato en la infraestructura.', tone: 'red' },
+        { label: 'Amarillo (Precaución)', description: 'Riesgo medio o áreas de precaución que requieren mantenimiento.', tone: 'yellow' },
+        { label: 'Verde (Seguridad)', description: 'Zonas seguras de reunión, rutas despejadas y recursos de auxilio.', tone: 'green' },
+      ],
+      footer: 'El PEGIR y el mapa son herramientas visuales de concientización y planificación para decidir dónde priorizar esfuerzos y recursos.',
+    },
+  },
+  {
+    slug: 'evacuacion-simulacros',
+    topicNumber: 'Escuela 03',
+    topicLabel: 'Evacuación y Simulacros',
+    badge: 'Ejecución y Práctica',
+    image: '/assets/title_children_under_a_table_description_two_children_sitting_under.jpg',
+    darkHref: '/evacuacion-simulacros-dark',
+    lightHref: '/evacuacion-simulacros-light',
+    dashboardSummary: 'Sistema de evacuación escolar, fases de desalojo y entrenamiento práctico.',
+    styleVariant: 'timeline-step',
+    dark: {
+      title: 'Sistema de Evacuación Escolar y Simulacros',
+      summary: 'Protocolo coordinado para desalojar las aulas de forma rápida, ordenada y segura. Ensayos prácticos para salvar vidas.',
+      ribbon: 'SIMULACRO | El simulacro escolar genera memoria muscular para actuar por instinto y evitar el pánico',
+      cards: [
+        {
+          icon: 'route',
+          title: 'Evacuación en 5 Fases',
+          description: '1. Detección (peligro). 2. Alarma (señal). 3. Preparación (formación). 4. Salida (ruta establecida). 5. Conteo (pasar lista).',
+        },
+        {
+          icon: 'warning',
+          title: 'Las 3 Reglas de Oro',
+          description: 'No Corro (evita caídas), No Grito (para escuchar instrucciones), No Empujo (mantiene la fila y evita accidentes).',
+        },
+        {
+          icon: 'radio',
+          title: 'Tipos de Ensayos',
+          description: 'Simulacros Avisados (aprender la ruta), Sorpresa (evaluar respuesta real) y Con Lesionados (para primeros auxilios).',
+        },
+      ],
+      footer: 'El SEE debe ser lúdico, visual y adaptado a las edades de los niños. La prioridad absoluta son las personas con discapacidad o movilidad reducida.',
+    },
+    light: {
+      title: 'Sistema de Evacuación Escolar y Simulacros',
+      summary: 'Protocolo coordinado para desalojar las aulas de forma rápida, ordenada y segura. Ensayos prácticos para salvar vidas.',
+      ribbon: 'SIMULACRO | El simulacro escolar genera memoria muscular para actuar por instinto y evitar el pánico',
+      cards: [
+        {
+          icon: 'route',
+          title: 'Evacuación en 5 Fases',
+          description: '1. Detección (peligro). 2. Alarma (señal). 3. Preparación (formación). 4. Salida (ruta establecida). 5. Conteo (pasar lista).',
+        },
+        {
+          icon: 'warning',
+          title: 'Las 3 Reglas de Oro',
+          description: 'No Corro (evita caídas), No Grito (para escuchar instrucciones), No Empujo (mantiene la fila y evita accidentes).',
+        },
+        {
+          icon: 'radio',
+          title: 'Tipos de Ensayos',
+          description: 'Simulacros Avisados (aprender la ruta), Sorpresa (evaluar respuesta real) y Con Lesionados (para primeros auxilios).',
+        },
+      ],
+      footer: 'El SEE debe ser lúdico, visual y adaptado a las edades de los niños. La prioridad absoluta son las personas con discapacidad o movilidad reducida.',
+    },
+  },
+  {
+    slug: 'senales-seguridad',
+    topicNumber: 'Escuela 04',
+    topicLabel: 'Señales de Seguridad',
+    badge: 'Prevención',
+    image: '/assets/senales-seguridad.jpg',
+    darkHref: '/senales-seguridad-default-dark',
+    lightHref: '/senales-seguridad-default-light',
+    dashboardSummary: 'Simbología universal, colores de seguridad y letreros informativos para evacuación escolar.',
+    styleVariant: 'default',
+    dark: {
+      title: 'Señales de Seguridad y Salvamento',
+      summary: 'Identificación y comprensión de símbolos, colores y formas universales diseñados para guiar a la comunidad escolar en desalojos y emergencias sin necesidad de palabras.',
+      ribbon: 'PREVENCIÓN | Las señales salvan vidas al guiar de forma rápida y universal en contingencias',
+      cards: [
+        {
+          icon: 'warning',
+          title: 'Colores Normativos',
+          description: 'Rojo (prohibición y extinción de incendios), Amarillo (advertencia de riesgo), Azul (obligación/acción requerida) y Verde (salvamento/vías de evacuación).',
+        },
+        {
+          icon: 'route',
+          title: 'Señalización de Ruta',
+          description: 'Uso de flechas de dirección verdes y letreros de Salida de Emergencia colocados en pasillos y escaleras para guiar hacia zonas seguras.',
+        },
+        {
+          icon: 'radio',
+          title: 'Sistemas de Alerta',
+          description: 'Alarmas sonoras (sirenas, timbres específicos o silbatos) con códigos conocidos por toda la institución escolar para alertar en simulacros y emergencias.',
+        },
+      ],
+      footer: 'Toda señalización de seguridad escolar debe ser visible, estar a la altura reglamentaria y libre de obstáculos en todo momento.',
+    },
+    light: {
+      title: 'Señales de Seguridad y Salvamento',
+      summary: 'Identificación y comprensión de símbolos, colores y formas universales diseñados para guiar a la comunidad escolar en desalojos y emergencias sin necesidad de palabras.',
+      ribbon: 'PREVENCIÓN | Las señales salvan vidas al guiar de forma rápida y universal en contingencias',
+      cards: [
+        {
+          icon: 'warning',
+          title: 'Colores Normativos',
+          description: 'Rojo (prohibición y extinción de incendios), Amarillo (advertencia de riesgo), Azul (obligación/acción requerida) y Verde (salvamento/vías de evacuación).',
+        },
+        {
+          icon: 'route',
+          title: 'Señalización de Ruta',
+          description: 'Uso de flechas de dirección verdes y letreros de Salida de Emergencia colocados en pasillos y escaleras para guiar hacia zonas seguras.',
+        },
+        {
+          icon: 'radio',
+          title: 'Sistemas de Alerta',
+          description: 'Alarmas sonoras (sirenas, timbres específicos o silbatos) con códigos conocidos por toda la institución escolar para alertar en simulacros y emergencias.',
+        },
+      ],
+      footer: 'Toda señalización de seguridad escolar debe ser visible, estar a la altura reglamentaria y libre de obstáculos en todo momento.',
     },
   },
 ];
