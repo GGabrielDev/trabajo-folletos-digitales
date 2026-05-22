@@ -1,45 +1,86 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import { AlertTriangle } from 'lucide-react';
-import { brochures } from '../data/brochures';
+
+const menuOptions = [
+  {
+    href: '/general',
+    topicNumber: 'Menú 01',
+    topicLabel: 'Autoprotección General',
+    badge: 'Temario General',
+    image: '/assets/civil_safety_illustration_1774910214897.png',
+    dashboardSummary: 'Acceso a los folletos originales de autoprotección ante sismos, lluvias, orden público y otros riesgos físicos.',
+  },
+  {
+    href: '/brigadas-escolares-default-dark',
+    topicNumber: 'Escuela 01',
+    topicLabel: 'Brigadas y Comités',
+    badge: 'Gestión Escolar',
+    image: '/assets/1_classroom_2_students_3_teacher_4.jpg',
+    dashboardSummary: 'Organización de comités escolares, brigadas de riesgo y roles de la comunidad educativa.',
+  },
+  {
+    href: '/plan-escolar-pegir-rounded-glass-dark',
+    topicNumber: 'Escuela 02',
+    topicLabel: 'Plan de Riesgos (PEGIR)',
+    badge: 'Planificación',
+    image: '/assets/a_group_of_students_in_white_shirts_and_navy_blue.jpg',
+    dashboardSummary: 'Elaboración del Plan Escolar de Gestión Integral del Riesgo (PEGIR) y diseño de mapas de recursos.',
+  },
+  {
+    href: '/evacuacion-simulacros-timeline-step-dark',
+    topicNumber: 'Escuela 03',
+    topicLabel: 'Evacuación y Simulacros',
+    badge: 'Ejecución y Práctica',
+    image: '/assets/title_children_under_a_table_description_two_children_sitting_under.jpg',
+    dashboardSummary: 'Sistema de evacuación escolar, fases de desalojo, reglas de oro y simulacros prácticos.',
+  },
+  {
+    href: '/senales-seguridad-default-dark',
+    topicNumber: 'Escuela 04',
+    topicLabel: 'Señales de Seguridad',
+    badge: 'Prevención',
+    image: '/assets/senales-seguridad.jpg',
+    dashboardSummary: 'Simbología universal, colores de seguridad y letreros informativos para evacuación escolar.',
+  },
+];
 ---
 
-<Layout title="Centro de Autoproteccion - Protocolos">
+<Layout title="Centro de Autoprotección - Gestión de Riesgos">
 	<main class="min-h-screen bg-[var(--color-bg-light)]">
         <section class="relative overflow-hidden bg-[var(--color-secondary)] text-white">
             <div class="pc-dot-grid absolute inset-0 opacity-70"></div>
             <div class="absolute inset-0" style="background-image: var(--gradient-overlay), url('/assets/civil_safety_illustration_1774910214897.png'); background-size: cover; background-position: center;"></div>
 
-            <div class="relative z-10 mx-auto max-w-6xl px-4 py-6 sm:px-6 sm:py-8 lg:px-8">
-                <div class="mb-6 flex flex-col gap-4 border-b border-white/15 pb-4 sm:mb-8">
+            <div class="relative z-10 mx-auto max-w-6xl px-4 py-5 sm:px-6 sm:py-8 lg:px-8">
+                <div class="mb-5 flex flex-col gap-3 border-b border-white/15 pb-4 sm:mb-8">
                     <div class="flex items-center gap-3 sm:gap-4">
-                        <div class="h-12 w-12 overflow-hidden rounded-full border-2 border-white/50 bg-white p-1.5 sm:h-16 sm:w-16">
+                        <div class="h-10 w-10 overflow-hidden rounded-full border border-white/30 bg-white p-1 sm:h-16 sm:w-16 sm:border-2 sm:p-1.5 shrink-0">
                             <img src="/assets/LOGO-PC-NUEVO-e1754668914257.png" alt="Logo Protección Civil" class="h-full w-full object-contain" />
                         </div>
                         <div>
-                            <p class="mb-2 text-[0.72rem] font-semibold uppercase tracking-[0.16em] text-white/75 sm:text-sm sm:tracking-[0.2em]">Sistema informativo</p>
-                            <h1 class="text-2xl font-black sm:text-5xl">Protocolos de autoproteccion</h1>
+                            <p class="mb-1 text-[0.62rem] font-semibold uppercase tracking-[0.12em] text-white/75 sm:text-sm sm:tracking-[0.2em]">Sistema de Autoprotección y Prevención</p>
+                            <h1 class="text-xl font-black sm:text-4xl lg:text-5xl leading-tight">Seguridad y Gestión del Riesgo</h1>
                         </div>
                     </div>
                 </div>
 
                 <div class="grid gap-6 sm:gap-8 lg:grid-cols-[minmax(0,1.1fr)_minmax(20rem,24rem)] lg:items-end">
                     <div class="max-w-3xl">
-                        <div class="pc-ribbon mb-5 inline-flex items-center gap-2 px-4 py-2 text-xs font-bold uppercase tracking-[0.14em]">
-                            <AlertTriangle size={14} strokeWidth={2.75} />
-                            <span>Panel central de respuesta y prevencion</span>
+                        <div class="pc-ribbon mb-4 inline-flex items-center gap-2 px-3 py-1.5 text-[0.65rem] font-bold uppercase tracking-[0.12em] sm:px-4 sm:py-2 sm:text-xs">
+                            <AlertTriangle size={12} strokeWidth={2.75} class="shrink-0" />
+                            <span>Panel de Respuesta, Autoprotección y Prevención Escolar</span>
                         </div>
-                        <p class="mb-3 text-[0.72rem] font-semibold uppercase tracking-[0.18em] text-white/70 sm:mb-4 sm:text-sm sm:tracking-[0.24em]">Proteccion Civil Venezuela</p>
-                        <h2 class="text-3xl font-black sm:text-5xl lg:text-6xl">Seleccione tema y abra folleto</h2>
-                        <p class="mt-4 max-w-2xl text-sm leading-6 text-white/85 sm:mt-5 sm:text-base sm:leading-7">
-                            Acceso directo a protocolos oficiales de consulta rapida en contexto operativo.
+                        <h2 class="text-2xl font-black sm:text-4xl lg:text-5xl leading-tight">Seleccione un módulo operativo</h2>
+                        <p class="mt-3 max-w-2xl text-xs leading-relaxed text-white/85 sm:text-base sm:leading-7">
+                            Acceso directo a protocolos de autoprotección civil general y la nueva sección de seguridad en instituciones educativas.
                         </p>
                     </div>
 
-                    <div class="pc-card pc-diagonal pc-hard-shadow relative min-h-[14rem] overflow-hidden sm:min-h-[18rem]">
-                        <div class="pc-card-image absolute inset-0" style="background-image: url('/assets/LOGO-PC-NUEVO-e1754668914257.png'); background-size: contain; background-repeat: no-repeat; background-position: center;"></div>
-                        <div class="relative z-10 flex h-full flex-col justify-end p-4 sm:p-6">
-                            <h2 class="text-xl font-black text-white sm:text-2xl">PC-Venezuela</h2>
+                    <div class="pc-card pc-diagonal pc-hard-shadow relative hidden md:flex min-h-[10rem] lg:min-h-[12rem] overflow-hidden flex-col justify-end p-4 sm:p-6">
+                        <div class="pc-card-image absolute inset-0" style="background-image: url('/assets/LOGO-PC-NUEVO-e1754668914257.png'); background-size: contain; background-repeat: no-repeat; background-position: center; opacity: 0.12;"></div>
+                        <div class="relative z-10">
+                            <h2 class="text-lg font-black text-white sm:text-xl">Módulos de Formación</h2>
                         </div>
                     </div>
                 </div>
@@ -51,19 +92,20 @@ import { brochures } from '../data/brochures';
                 <div class="pc-hazard-stripe mb-6 h-2 w-full sm:mb-8"></div>
                 <div class="mb-6 flex flex-col items-start gap-3 sm:mb-8 sm:flex-wrap sm:items-end sm:justify-between sm:gap-4 lg:flex-row">
                     <div>
-                        <p class="mb-2 text-[0.72rem] font-semibold uppercase tracking-[0.16em] text-[var(--color-primary)] sm:text-sm sm:tracking-[0.2em]">Temario disponible</p>
-                        <h2 class="text-2xl font-black text-[var(--color-secondary)] sm:text-3xl">Folletos operativos</h2>
+                        <p class="mb-2 text-[0.72rem] font-semibold uppercase tracking-[0.16em] text-[var(--color-primary)] sm:text-sm sm:tracking-[0.2em]">Módulos Disponibles</p>
+                        <h2 class="text-2xl font-black text-[var(--color-secondary)] sm:text-3xl">Guías e Instructivos de Seguridad</h2>
                     </div>
                 </div>
 
-                <div class="grid gap-6 md:grid-cols-2 xl:grid-cols-4">
-                    {brochures.map((brochure) => (
-                        <a href={brochure.darkHref} class="pc-card pc-diagonal pc-hard-shadow group relative min-h-[19rem] overflow-hidden transition-transform hover:translate-y-[-4px] sm:min-h-[24rem]">
-                            <div class="pc-card-image absolute inset-0" style={`background-image: url('${brochure.image}'); background-size: cover; background-position: center;`}></div>
-                            <div class="relative z-10 flex h-full flex-col justify-end p-4 sm:p-6">
-                                <span class="pc-tag pc-tag-primary mb-3 w-fit">{brochure.topicNumber}</span>
-                                <h3 class="text-xl font-black text-white sm:text-2xl">{brochure.topicLabel}</h3>
-                                <p class="mt-3 text-sm leading-6 text-white/85">{brochure.dashboardSummary}</p>
+                <div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-5">
+                    {menuOptions.map((option) => (
+                        <a href={option.href} class="pc-card pc-diagonal pc-hard-shadow group relative flex flex-col min-h-[15rem] sm:min-h-[19rem] overflow-hidden transition-transform hover:translate-y-[-4px]">
+                            <div class="pc-card-image absolute inset-0" style={`background-image: url('${option.image}'); background-size: cover; background-position: center;`}></div>
+                            <div class="relative z-10 flex flex-1 flex-col justify-end p-4 sm:p-5">
+                                <span class="pc-tag pc-tag-primary mb-2 w-fit">{option.badge}</span>
+                                <span class="text-[0.72rem] font-semibold uppercase tracking-[0.12em] text-white/60 mb-1">{option.topicNumber}</span>
+                                <h3 class="text-lg font-black text-white sm:text-xl leading-tight">{option.topicLabel}</h3>
+                                <p class="mt-2 text-xs leading-relaxed text-white/80">{option.dashboardSummary}</p>
                             </div>
                         </a>
                     ))}

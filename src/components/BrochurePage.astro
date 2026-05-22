@@ -17,15 +17,92 @@ import type { Brochure, BrochureMode } from '../data/brochures';
 import Layout from '../layouts/Layout.astro';
 import HomeButton from './HomeButton.astro';
 import ModeSwitch from './ModeSwitch.astro';
+import StyleSwitch from './StyleSwitch.astro';
 
 interface Props {
   brochure: Brochure;
   mode: BrochureMode;
+  styleVariant?: 'default' | 'rounded-glass' | 'timeline-step';
 }
 
-const { brochure, mode } = Astro.props;
+const { brochure, mode, styleVariant: propStyleVariant } = Astro.props;
 const variant = brochure[mode];
 const isDark = mode === 'dark';
+const styleVariant = propStyleVariant || brochure.styleVariant || 'default';
+const isGlass = styleVariant === 'rounded-glass';
+const isTimeline = styleVariant === 'timeline-step';
+
+const isSchool = ['brigadas-escolares', 'plan-escolar-pegir', 'evacuacion-simulacros', 'senales-seguridad'].includes(brochure.slug);
+const darkHref = isSchool ? `/${brochure.slug}-${styleVariant}-dark` : brochure.darkHref;
+const lightHref = isSchool ? `/${brochure.slug}-${styleVariant}-light` : brochure.lightHref;
+
+const alertCardClass = isGlass
+  ? (isDark ? 'pc-rounded border border-white/10 bg-white/5 backdrop-blur-sm shadow-none' : 'pc-rounded border border-black/10 bg-white/40 backdrop-blur-sm shadow-none')
+  : isTimeline
+    ? (isDark ? 'pc-brutalist-card bg-amber-950/20 text-white border-white' : 'pc-brutalist-card bg-slate-50 text-[var(--color-secondary)] border-black')
+    : (isDark ? 'pc-card pc-hard-shadow-light bg-[var(--color-bg-dark)] border border-white/10' : 'pc-card pc-hard-shadow-light bg-[var(--color-bg-light)] border border-black/10');
+
+const alertTextClass = isDark ? 'text-white/85' : 'text-[var(--color-text-dark)]';
+
+const imagesBySlug: Record<string, string[]> = {
+  sismos: [
+    '/assets/title_children_under_a_table_description_two_children_sitting_under.jpg',
+    '/assets/a_pile_of_rubble_with_various_objects_scattered_throughout.jpg',
+    '/assets/1_girl_bending_over_2_girl_b.jpg',
+    '/assets/que_hacen_los_animales_de_un_terremoto.jpg',
+    '/assets/a_dilapidated_room_with_a_wooden_floor_and_a_concrete.jpg'
+  ],
+  inundaciones: [
+    '/assets/1_rain_falling_from_sky_2_tree.jpg',
+    '/assets/the_image_captures_a_dramatic_scene_of_a_wave_crashing_against.jpg',
+    '/assets/the_image_captures_a_scene_of_a_city_submerged_in_flo.jpg'
+  ],
+  'orden-publico': [
+    '/assets/1_white_van_2_white_tires_3.jpg',
+    '/assets/1_man_walking_with_helmet_2.jpg',
+    '/assets/the_image_captures_a_dynamic_scene_of_a_group_of_people_running_on.jpg'
+  ],
+  'otros-riesgos': [
+    '/assets/the_image_captures_a_dramatic_scene_of_a_forest_fire_the.jpg',
+    '/assets/the_image_captures_a_dramatic_scene_of_a_wildfire_raging.jpg',
+    '/assets/the_image_captures_a_serene_scene_of_a_rocky_cliff.jpg'
+  ],
+  'brigadas-escolares': [
+    '/assets/comite_y_brigada_de_la.jpg',
+    '/assets/a_group_of_people_wearing_white_shirts_with_red_cross.jpg',
+    '/assets/1_man_in_orange_jacket_standing_2_man_in_blue.jpg',
+    '/assets/a_group_of_people_gathered_around_a_large_map_the.jpg'
+  ],
+  'plan-escolar-pegir': [
+    '/assets/1_plan_comunidad_de_nios_2.jpg',
+    '/assets/1_classroom_2_students_3_teacher_4.jpg',
+    '/assets/the_group_of_people_are_gathered_around_a_large_map.jpg',
+    '/assets/1_a_group_of_people_gathered_around_a_table_2.jpg'
+  ],
+  'evacuacion-simulacros': [
+    '/assets/a_group_of_children_and_adults_gathered_on_a_basketball_court.jpg',
+    '/assets/in_the_image_a_group_of_people_are_gathered_in_a_courty.jpg',
+    '/assets/1_boy_walking_in_front_of_group.jpg',
+    '/assets/ru_de_evacuacion.jpg'
+  ],
+  'senales-seguridad': [
+    '/assets/walking_man_sign.jpg',
+    '/assets/a_green_sign_with_white_symbols_and_arrows_the.jpg',
+    '/assets/simbologia_alarma_restoro.jpg',
+    '/assets/the_image_features_a_green_sign_with_white_symbols_the_sign_is_rect.jpg'
+  ]
+};
+
+const defaultCardImages = [
+  '/assets/rescue_team_orange.png',
+  '/assets/1_man_in_orange_jacket_standing_2_man_in_blue.jpg',
+  '/assets/firefighters_rescue.png',
+  '/assets/a_group_of_people_wearing_white_shirts_with_red_cross.jpg',
+  '/assets/paramedics_first_aid.png',
+  '/assets/a_woman_in_a_white_medical_uniform_with_a_red_cross_on_it.jpg'
+];
+
+const cardImages = imagesBySlug[brochure.slug] || defaultCardImages;
 
 const iconMap = {
   shelter: ShieldAlert,
@@ -49,10 +126,10 @@ const levelClasses = {
 } as const;
 ---
 
-<Layout title={`${brochure.topicLabel} - ${isDark ? 'Oscuro' : 'Claro'}`}>
+<Layout title={`${brochure.topicLabel} - ${isDark ? 'Oscuro' : 'Claro'}`} mode={mode}>
   <main
     class:list={[
-      'min-h-screen',
+      'min-h-screen transition-colors duration-200',
       isDark
         ? 'bg-[var(--color-bg-dark)] text-[var(--color-text-light)]'
         : 'bg-[var(--color-bg-light)] text-[var(--color-text-dark)]',
@@ -67,36 +144,53 @@ const levelClasses = {
     <section class="relative overflow-hidden">
       <div class="pc-dot-grid absolute inset-0 opacity-70"></div>
       <div class="absolute inset-0 bg-[var(--color-secondary)]"></div>
-      <div class:list={['absolute inset-0', isDark ? 'opacity-90' : 'opacity-80']} style={`background-image: var(--gradient-overlay), url('${brochure.image}'); background-size: cover; background-position: center;`}></div>
+      <div class:list={['absolute inset-0', isDark ? 'opacity-90' : 'opacity-80']} style={`background-image: ${isGlass ? 'var(--gradient-overlay-cyan)' : 'var(--gradient-overlay)'}, url('${brochure.image}'); background-size: cover; background-position: center;`}></div>
 
       <div class="relative z-10 mx-auto flex min-h-[30rem] max-w-6xl flex-col px-4 py-5 sm:min-h-[36rem] sm:px-6 sm:py-6 lg:px-8">
-        <header class="mb-6 flex flex-col gap-4 border-b border-white/15 pb-4 sm:mb-8 lg:flex-row lg:items-start lg:justify-between">
-          <div class="flex flex-col gap-3 sm:flex-row sm:items-center">
-            <div class="h-12 w-12 overflow-hidden rounded-full border-2 border-white/50 bg-white p-1.5 sm:h-14 sm:w-14">
-              <img src="/assets/LOGO-PC-NUEVO-e1754668914257.png" alt="Logo Protección Civil" class="h-full w-full object-contain" />
+        <header class="mb-6 flex flex-col gap-4 border-b border-white/15 pb-4 sm:mb-8">
+          <div class="flex w-full items-center justify-between gap-3">
+            <div class="flex items-center gap-3">
+              <div class="h-11 w-11 shrink-0 overflow-hidden rounded-full border-2 border-white/50 bg-white p-1 sm:h-14 sm:w-14 sm:p-1.5">
+                <img src="/assets/LOGO-PC-NUEVO-e1754668914257.png" alt="Logo Protección Civil" class="h-full w-full object-contain" />
+              </div>
+              <ModeSwitch currentMode={mode} darkHref={darkHref} lightHref={lightHref} />
             </div>
-            <ModeSwitch currentMode={mode} darkHref={brochure.darkHref} lightHref={brochure.lightHref} />
+
+            <div class="flex items-center gap-3 shrink-0">
+              {isSchool && (
+                <div class="hidden md:block">
+                  <StyleSwitch currentStyle={styleVariant} slug={brochure.slug} mode={mode} />
+                </div>
+              )}
+              <HomeButton tone="dark" />
+            </div>
           </div>
 
-          <div class="flex flex-wrap items-center gap-2 sm:gap-3">
-            <HomeButton tone="dark" />
-          </div>
+          {isSchool && (
+            <div class="block md:hidden w-full">
+              <StyleSwitch currentStyle={styleVariant} slug={brochure.slug} mode={mode} />
+            </div>
+          )}
         </header>
 
-        <div class="grid flex-1 items-end gap-6 sm:gap-8 lg:grid-cols-[minmax(0,1.1fr)_minmax(20rem,24rem)]">
-          <div class="max-w-3xl">
-            <p class="mb-3 text-[0.72rem] font-semibold uppercase tracking-[0.18em] text-white/75 sm:mb-4 sm:text-sm sm:tracking-[0.22em]">{brochure.topicNumber}</p>
-            <h1 class="mb-4 max-w-4xl text-3xl font-black text-white sm:text-5xl lg:text-6xl">{variant.title}</h1>
-            <p class="max-w-2xl text-sm leading-6 text-white/85 sm:text-base sm:leading-7 lg:text-lg">{variant.summary}</p>
+        <div class="flex-1 flex flex-col justify-end max-w-4xl mt-6">
+          <div class="mb-4 flex flex-wrap gap-2 items-center">
+            <span class="pc-tag pc-tag-primary text-[0.62rem] sm:text-xs">{brochure.badge}</span>
+            <span class="text-[0.65rem] font-semibold uppercase tracking-[0.18em] text-white/80 sm:text-xs">
+              {brochure.topicNumber} &bull; {brochure.topicLabel}
+            </span>
           </div>
-
-          <aside class="pc-card pc-diagonal pc-hard-shadow relative min-h-[14rem] overflow-hidden sm:min-h-[18rem]">
-            <div class="pc-card-image absolute inset-0" style={`background-image: url('${brochure.image}'); background-size: cover; background-position: center;`}></div>
-            <div class="relative z-10 flex h-full flex-col justify-end p-4 sm:p-6">
-              <span class="pc-tag pc-tag-primary mb-3 w-fit">{brochure.badge}</span>
-              <h2 class="text-xl font-black text-white sm:text-2xl">{brochure.topicLabel}</h2>
-            </div>
-          </aside>
+          <h1 class="mb-4 text-3xl font-black text-white sm:text-5xl lg:text-6xl leading-tight">
+            {variant.title}
+          </h1>
+          <div class="max-w-3xl border-l-4 border-[var(--color-primary)] pl-4 py-1.5 bg-black/10 backdrop-blur-xs rounded-r-sm">
+            <p class="text-sm font-bold leading-relaxed text-white sm:text-base">
+              {brochure.dashboardSummary}
+            </p>
+            <p class="mt-2 text-xs leading-relaxed text-white/80 sm:text-sm">
+              {variant.summary}
+            </p>
+          </div>
         </div>
       </div>
     </section>
@@ -111,35 +205,170 @@ const levelClasses = {
           </div>
         </div>
 
-        <div class="grid gap-6 lg:grid-cols-3">
-          {variant.cards.map((card) => {
-            const Icon = iconMap[card.icon];
+        {isTimeline ? (
+          <div class="grid gap-8 lg:grid-cols-3">
+            {variant.cards.map((card, idx) => {
+              const Icon = iconMap[card.icon];
+              const cardImage = cardImages[idx % cardImages.length];
 
-            return (
-              <article class:list={[
-                'pc-card pc-hard-shadow-light pc-diagonal relative overflow-hidden p-5 sm:p-6',
-                isDark ? 'pc-surface-dark pc-outline-panel' : 'pc-surface-light pc-outline-panel-light',
-              ]}>
-                <div class="mb-4 inline-flex h-12 w-12 items-center justify-center bg-[var(--color-primary)] text-white sm:mb-5 sm:h-14 sm:w-14">
-                  <Icon size={26} strokeWidth={2.75} />
-                </div>
-                <h3 class:list={['mb-3 text-lg font-black sm:text-xl', isDark ? 'text-white' : 'text-[var(--color-secondary)]']}>{card.title}</h3>
-                <p class:list={['text-sm leading-6', isDark ? 'text-white/82' : 'text-[var(--color-text-dark)]/82']}>{card.description}</p>
-              </article>
-            );
-          })}
-        </div>
+              if (card.icon === 'route') {
+                const phases = card.description.split(/\d+\.\s*/).filter(Boolean);
+                return (
+                  <article class:list={[
+                    'pc-brutalist-card p-5 sm:p-6 flex flex-col h-full relative overflow-hidden',
+                    isDark ? 'bg-amber-950/20 text-white border-white' : 'bg-orange-50/50 text-[var(--color-secondary)] border-black'
+                  ]}>
+                    {cardImage && (
+                      <div class="absolute inset-0 opacity-[0.06] pointer-events-none">
+                        <img src={cardImage} alt="" class="h-full w-full object-cover" />
+                      </div>
+                    )}
+                    <div class="mb-4 inline-flex h-12 w-12 items-center justify-center bg-[var(--color-primary)] text-white rounded-sm sm:mb-5 relative z-10">
+                      <Icon size={26} strokeWidth={2.75} />
+                    </div>
+                    <h3 class="mb-5 text-xl font-black relative z-10">{card.title}</h3>
+                    
+                    <div class="flex-1 flex flex-col gap-4 mt-2 relative z-10">
+                      {phases.map((phase, phaseIdx) => {
+                        const parts = phase.split(/[\(\)]/).filter(Boolean);
+                        const title = parts[0]?.trim();
+                        const desc = parts[1]?.trim();
+                        return (
+                          <div class="pc-timeline-item">
+                            <div class="pc-timeline-dot"></div>
+                            <h4 class="text-xs font-bold uppercase tracking-wide text-[var(--color-primary)]">
+                              Paso {phaseIdx + 1}: {title}
+                            </h4>
+                            {desc && <p class="text-xs mt-0.5 opacity-80 leading-relaxed">{desc}</p>}
+                          </div>
+                        );
+                      })}
+                    </div>
+                  </article>
+                );
+              }
+
+              if (card.icon === 'warning') {
+                const rules = [
+                  { text: 'No Corro', color: 'bg-red-600 text-white', desc: 'Evita tropezones y amontonamiento en pasillos o escaleras.' },
+                  { text: 'No Grito', color: 'bg-amber-500 text-[var(--color-secondary)]', desc: 'Permite escuchar con claridad las instrucciones de los guías.' },
+                  { text: 'No Empujo', color: 'bg-orange-500 text-white', desc: 'Mantiene la fila ordenada y fluida para evacuar con rapidez.' }
+                ];
+                return (
+                  <article class:list={[
+                    'pc-brutalist-card p-5 sm:p-6 flex flex-col h-full relative overflow-hidden',
+                    isDark ? 'bg-amber-950/20 text-white border-white' : 'bg-amber-50/50 text-[var(--color-secondary)] border-black'
+                  ]}>
+                    {cardImage && (
+                      <div class="absolute inset-0 opacity-[0.06] pointer-events-none">
+                        <img src={cardImage} alt="" class="h-full w-full object-cover" />
+                      </div>
+                    )}
+                    <div class="mb-4 inline-flex h-12 w-12 items-center justify-center bg-[var(--color-primary)] text-white rounded-sm sm:mb-5 relative z-10">
+                      <Icon size={26} strokeWidth={2.75} />
+                    </div>
+                    <h3 class="mb-5 text-xl font-black relative z-10">{card.title}</h3>
+                    
+                    <div class="flex-1 flex flex-col gap-3 relative z-10">
+                      {rules.map((rule) => (
+                        <div class="flex flex-col gap-1 p-3 border border-black/10 dark:border-white/10 rounded-sm bg-white/5">
+                          <div class:list={['pc-rule-badge w-fit text-[0.68rem] py-1 px-2.5', rule.color]}>
+                            {rule.text}
+                          </div>
+                          <p class="text-xs leading-relaxed opacity-85 mt-1">{rule.desc}</p>
+                        </div>
+                      ))}
+                    </div>
+                  </article>
+                );
+              }
+
+              return (
+                <article class:list={[
+                  'pc-brutalist-card p-5 sm:p-6 h-full flex flex-col relative overflow-hidden',
+                  isDark ? 'bg-amber-950/20 text-white border-white' : 'bg-slate-50 text-[var(--color-secondary)] border-black'
+                ]}>
+                  {cardImage && (
+                    <div class="absolute inset-0 opacity-[0.06] pointer-events-none">
+                      <img src={cardImage} alt="" class="h-full w-full object-cover" />
+                    </div>
+                  )}
+                  <div class="mb-4 inline-flex h-12 w-12 items-center justify-center bg-[var(--color-primary)] text-white rounded-sm sm:mb-5 relative z-10">
+                    <Icon size={26} strokeWidth={2.75} />
+                  </div>
+                  <h3 class="mb-3 text-lg font-black sm:text-xl relative z-10">{card.title}</h3>
+                  <p class="text-sm leading-6 opacity-82 flex-1 relative z-10">{card.description}</p>
+                </article>
+              );
+            })}
+          </div>
+        ) : isGlass ? (
+          <div class="grid gap-6 lg:grid-cols-3">
+            {variant.cards.map((card, idx) => {
+              const Icon = iconMap[card.icon];
+              const cardImage = cardImages[idx % cardImages.length];
+
+              return (
+                <article class:list={[
+                  'pc-rounded p-5 sm:p-6 flex flex-col h-full pc-shadow-glow-cyan transition-all hover:scale-[1.02] border relative overflow-hidden',
+                  isDark 
+                    ? 'pc-glass-dark text-white border-white/10' 
+                    : 'pc-glass-light text-[var(--color-secondary)] border-black/10'
+                ]}>
+                  {cardImage && (
+                    <div class="absolute inset-0 opacity-[0.09] pointer-events-none">
+                      <img src={cardImage} alt="" class="h-full w-full object-cover" />
+                    </div>
+                  )}
+                  <div class="mb-4 inline-flex h-12 w-12 items-center justify-center bg-[var(--color-primary)] text-white rounded-full sm:mb-5 sm:h-14 sm:w-14 relative z-10">
+                    <Icon size={26} strokeWidth={2.75} />
+                  </div>
+                  <h3 class="mb-3 text-lg font-black sm:text-xl relative z-10">{card.title}</h3>
+                  <p class="text-sm leading-6 opacity-85 flex-1 relative z-10">{card.description}</p>
+                </article>
+              );
+            })}
+          </div>
+        ) : (
+          <div class="grid gap-6 lg:grid-cols-3">
+            {variant.cards.map((card, idx) => {
+              const Icon = iconMap[card.icon];
+              const cardImage = cardImages[idx % cardImages.length];
+
+              return (
+                <article class:list={[
+                  'pc-card pc-hard-shadow-light pc-diagonal relative overflow-hidden p-5 sm:p-6',
+                  isDark ? 'pc-surface-dark pc-outline-panel' : 'pc-surface-light pc-outline-panel-light',
+                ]}>
+                  {cardImage && (
+                    <div class="absolute inset-0 opacity-[0.09] pointer-events-none">
+                      <img src={cardImage} alt="" class="h-full w-full object-cover" />
+                    </div>
+                  )}
+                  <div class="mb-4 inline-flex h-12 w-12 items-center justify-center bg-[var(--color-primary)] text-white sm:mb-5 sm:h-14 sm:w-14 relative z-10">
+                    <Icon size={26} strokeWidth={2.75} />
+                  </div>
+                  <h3 class:list={['mb-3 text-lg font-black sm:text-xl relative z-10', isDark ? 'text-white' : 'text-[var(--color-secondary)]']}>{card.title}</h3>
+                  <p class:list={['text-sm leading-6', isDark ? 'text-white/82' : 'text-[var(--color-text-dark)]/82']}>{card.description}</p>
+                </article>
+              );
+            })}
+          </div>
+        )}
 
         {variant.alertLevels && (
-          <div class="mt-8 sm:mt-10">
+          <div class="mt-8 sm:mt-10 animate-[fadeIn_0.5s_ease-out]">
             <h3 class:list={['mb-4 text-xl font-black sm:text-2xl', isDark ? 'text-white' : 'text-[var(--color-secondary)]']}>Niveles de alerta</h3>
             <div class="grid gap-4 md:grid-cols-3">
               {variant.alertLevels.map((level) => (
-                <div class="pc-hard-shadow-light border border-black/10 bg-white p-4 sm:p-5">
-                  <div class:list={['mb-3 inline-flex px-3 py-2 text-xs font-bold uppercase tracking-[0.12em]', levelClasses[level.tone]]}>
+                <div class:list={[
+                  'p-4 sm:p-5',
+                  alertCardClass
+                ]}>
+                  <div class:list={['mb-3 inline-flex px-3 py-2 text-xs font-bold uppercase tracking-[0.12em]', isGlass ? 'rounded-md' : '', levelClasses[level.tone]]}>
                     {level.label}
                   </div>
-                  <p class="text-sm leading-6 text-[var(--color-text-dark)]">{level.description}</p>
+                  <p class:list={['text-sm leading-6', alertTextClass]}>{level.description}</p>
                 </div>
               ))}
             </div>
@@ -148,7 +377,8 @@ const levelClasses = {
 
         {variant.footer && (
           <div class:list={[
-            'mt-8 pc-hard-shadow border-l-[8px] border-[var(--color-primary)] p-5 sm:mt-10 sm:p-6',
+            'mt-8 border-l-[8px] border-[var(--color-primary)] p-5 sm:mt-10 sm:p-6',
+            isGlass ? 'pc-rounded border border-black/5 dark:border-white/5 bg-white/5 backdrop-blur-sm shadow-none' : 'pc-hard-shadow border border-black/10',
             isDark ? 'bg-[var(--color-bg-dark)] text-white border-white/10' : 'bg-[var(--color-bg-light)] text-[var(--color-secondary)] border-black/10',
           ]}>
             <p class="text-sm font-medium uppercase tracking-[0.14em] text-[var(--color-primary)]">Nota operativa</p>

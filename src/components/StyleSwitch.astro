@@ -1,0 +1,40 @@
+---
+interface Props {
+  currentStyle: 'default' | 'rounded-glass' | 'timeline-step';
+  slug: string;
+  mode: 'dark' | 'light';
+}
+
+const { currentStyle, slug, mode } = Astro.props;
+
+const stylesList = [
+  { id: 'default', label: 'Clásico' },
+  { id: 'rounded-glass', label: 'Vidrio' },
+  { id: 'timeline-step', label: 'Cronología' }
+] as const;
+---
+
+<nav
+  aria-label="Selector de estilo"
+  class="inline-flex w-full items-center border border-white/10 bg-[var(--color-secondary)]/96 p-1 text-[0.65rem] font-bold uppercase tracking-[0.12em] text-white sm:w-auto"
+>
+  {stylesList.map((style) => {
+    const isActive = currentStyle === style.id;
+    const href = `/${slug}-${style.id}-${mode}`;
+    return (
+      <a
+        href={href}
+        aria-label={`Cambiar a estilo ${style.label}`}
+        aria-current={isActive ? 'page' : undefined}
+        class:list={[
+          'flex min-h-11 flex-1 items-center justify-center px-3.5 py-2 text-center transition-colors sm:flex-none whitespace-nowrap',
+          isActive
+            ? 'bg-[var(--color-primary)] text-white shadow-[4px_4px_0px_rgba(255,184,28,0.28)]'
+            : 'text-white/80 hover:bg-white/8',
+        ]}
+      >
+        <span>{style.label}</span>
+      </a>
+    );
+  })}
+</nav>
