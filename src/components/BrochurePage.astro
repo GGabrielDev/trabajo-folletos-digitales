@@ -44,11 +44,23 @@ const alertCardClass = isGlass
 
 const alertTextClass = isDark ? 'text-white/85' : 'text-[var(--color-text-dark)]';
 
-const cardImages = [
-  '/assets/rescue_team_orange.png',
-  '/assets/firefighters_rescue.png',
-  '/assets/paramedics_first_aid.png'
-];
+const cardImages = isSchool
+  ? [
+      '/assets/title_children_under_a_table_description_two_children_sitting_under.jpg',
+      '/assets/1_classroom_2_students_3_teacher_4.jpg',
+      '/assets/a_group_of_students_in_white_shirts_and_navy_blue.jpg',
+      '/assets/1_girl_bending_over_2_girl_b.jpg',
+      '/assets/a_group_of_children_and_adults_gathered_on_a_basketball_court.jpg',
+      '/assets/1_boy_walking_in_front_of_group.jpg'
+    ]
+  : [
+      '/assets/rescue_team_orange.png',
+      '/assets/1_man_in_orange_jacket_standing_2_man_in_blue.jpg',
+      '/assets/firefighters_rescue.png',
+      '/assets/a_group_of_people_wearing_white_shirts_with_red_cross.jpg',
+      '/assets/paramedics_first_aid.png',
+      '/assets/a_woman_in_a_white_medical_uniform_with_a_red_cross_on_it.jpg'
+    ];
 
 const iconMap = {
   shelter: ShieldAlert,
