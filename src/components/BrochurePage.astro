@@ -44,23 +44,65 @@ const alertCardClass = isGlass
 
 const alertTextClass = isDark ? 'text-white/85' : 'text-[var(--color-text-dark)]';
 
-const cardImages = isSchool
-  ? [
-      '/assets/title_children_under_a_table_description_two_children_sitting_under.jpg',
-      '/assets/1_classroom_2_students_3_teacher_4.jpg',
-      '/assets/a_group_of_students_in_white_shirts_and_navy_blue.jpg',
-      '/assets/1_girl_bending_over_2_girl_b.jpg',
-      '/assets/a_group_of_children_and_adults_gathered_on_a_basketball_court.jpg',
-      '/assets/1_boy_walking_in_front_of_group.jpg'
-    ]
-  : [
-      '/assets/rescue_team_orange.png',
-      '/assets/1_man_in_orange_jacket_standing_2_man_in_blue.jpg',
-      '/assets/firefighters_rescue.png',
-      '/assets/a_group_of_people_wearing_white_shirts_with_red_cross.jpg',
-      '/assets/paramedics_first_aid.png',
-      '/assets/a_woman_in_a_white_medical_uniform_with_a_red_cross_on_it.jpg'
-    ];
+const imagesBySlug: Record<string, string[]> = {
+  sismos: [
+    '/assets/title_children_under_a_table_description_two_children_sitting_under.jpg',
+    '/assets/a_pile_of_rubble_with_various_objects_scattered_throughout.jpg',
+    '/assets/1_girl_bending_over_2_girl_b.jpg',
+    '/assets/que_hacen_los_animales_de_un_terremoto.jpg',
+    '/assets/a_dilapidated_room_with_a_wooden_floor_and_a_concrete.jpg'
+  ],
+  inundaciones: [
+    '/assets/1_rain_falling_from_sky_2_tree.jpg',
+    '/assets/the_image_captures_a_dramatic_scene_of_a_wave_crashing_against.jpg',
+    '/assets/the_image_captures_a_scene_of_a_city_submerged_in_flo.jpg'
+  ],
+  'orden-publico': [
+    '/assets/1_white_van_2_white_tires_3.jpg',
+    '/assets/1_man_walking_with_helmet_2.jpg',
+    '/assets/the_image_captures_a_dynamic_scene_of_a_group_of_people_running_on.jpg'
+  ],
+  'otros-riesgos': [
+    '/assets/the_image_captures_a_dramatic_scene_of_a_forest_fire_the.jpg',
+    '/assets/the_image_captures_a_dramatic_scene_of_a_wildfire_raging.jpg',
+    '/assets/the_image_captures_a_serene_scene_of_a_rocky_cliff.jpg'
+  ],
+  'brigadas-escolares': [
+    '/assets/comite_y_brigada_de_la.jpg',
+    '/assets/a_group_of_people_wearing_white_shirts_with_red_cross.jpg',
+    '/assets/1_man_in_orange_jacket_standing_2_man_in_blue.jpg',
+    '/assets/a_group_of_people_gathered_around_a_large_map_the.jpg'
+  ],
+  'plan-escolar-pegir': [
+    '/assets/1_plan_comunidad_de_nios_2.jpg',
+    '/assets/1_classroom_2_students_3_teacher_4.jpg',
+    '/assets/the_group_of_people_are_gathered_around_a_large_map.jpg',
+    '/assets/1_a_group_of_people_gathered_around_a_table_2.jpg'
+  ],
+  'evacuacion-simulacros': [
+    '/assets/a_group_of_children_and_adults_gathered_on_a_basketball_court.jpg',
+    '/assets/in_the_image_a_group_of_people_are_gathered_in_a_courty.jpg',
+    '/assets/1_boy_walking_in_front_of_group.jpg',
+    '/assets/ru_de_evacuacion.jpg'
+  ],
+  'senales-seguridad': [
+    '/assets/walking_man_sign.jpg',
+    '/assets/a_green_sign_with_white_symbols_and_arrows_the.jpg',
+    '/assets/simbologia_alarma_restoro.jpg',
+    '/assets/the_image_features_a_green_sign_with_white_symbols_the_sign_is_rect.jpg'
+  ]
+};
+
+const defaultCardImages = [
+  '/assets/rescue_team_orange.png',
+  '/assets/1_man_in_orange_jacket_standing_2_man_in_blue.jpg',
+  '/assets/firefighters_rescue.png',
+  '/assets/a_group_of_people_wearing_white_shirts_with_red_cross.jpg',
+  '/assets/paramedics_first_aid.png',
+  '/assets/a_woman_in_a_white_medical_uniform_with_a_red_cross_on_it.jpg'
+];
+
+const cardImages = imagesBySlug[brochure.slug] || defaultCardImages;
 
 const iconMap = {
   shelter: ShieldAlert,
