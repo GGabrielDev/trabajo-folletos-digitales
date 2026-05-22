@@ -44,6 +44,12 @@ const alertCardClass = isGlass
 
 const alertTextClass = isDark ? 'text-white/85' : 'text-[var(--color-text-dark)]';
 
+const cardImages = [
+  '/assets/rescue_team_orange.png',
+  '/assets/firefighters_rescue.png',
+  '/assets/paramedics_first_aid.png'
+];
+
 const iconMap = {
   shelter: ShieldAlert,
   warning: AlertTriangle,
@@ -149,23 +155,29 @@ const levelClasses = {
 
         {isTimeline ? (
           <div class="grid gap-8 lg:grid-cols-3">
-            {variant.cards.map((card) => {
+            {variant.cards.map((card, idx) => {
               const Icon = iconMap[card.icon];
+              const cardImage = cardImages[idx % cardImages.length];
 
               if (card.icon === 'route') {
                 const phases = card.description.split(/\d+\.\s*/).filter(Boolean);
                 return (
                   <article class:list={[
-                    'pc-brutalist-card p-5 sm:p-6 flex flex-col h-full',
+                    'pc-brutalist-card p-5 sm:p-6 flex flex-col h-full relative overflow-hidden',
                     isDark ? 'bg-amber-950/20 text-white border-white' : 'bg-orange-50/50 text-[var(--color-secondary)] border-black'
                   ]}>
-                    <div class="mb-4 inline-flex h-12 w-12 items-center justify-center bg-[var(--color-primary)] text-white rounded-sm sm:mb-5">
+                    {cardImage && (
+                      <div class="absolute inset-0 opacity-[0.06] pointer-events-none">
+                        <img src={cardImage} alt="" class="h-full w-full object-cover" />
+                      </div>
+                    )}
+                    <div class="mb-4 inline-flex h-12 w-12 items-center justify-center bg-[var(--color-primary)] text-white rounded-sm sm:mb-5 relative z-10">
                       <Icon size={26} strokeWidth={2.75} />
                     </div>
-                    <h3 class="mb-5 text-xl font-black">{card.title}</h3>
+                    <h3 class="mb-5 text-xl font-black relative z-10">{card.title}</h3>
                     
-                    <div class="flex-1 flex flex-col gap-4 mt-2">
-                      {phases.map((phase, idx) => {
+                    <div class="flex-1 flex flex-col gap-4 mt-2 relative z-10">
+                      {phases.map((phase, phaseIdx) => {
                         const parts = phase.split(/[\(\)]/).filter(Boolean);
                         const title = parts[0]?.trim();
                         const desc = parts[1]?.trim();
@@ -173,7 +185,7 @@ const levelClasses = {
                           <div class="pc-timeline-item">
                             <div class="pc-timeline-dot"></div>
                             <h4 class="text-xs font-bold uppercase tracking-wide text-[var(--color-primary)]">
-                              Paso {idx + 1}: {title}
+                              Paso {phaseIdx + 1}: {title}
                             </h4>
                             {desc && <p class="text-xs mt-0.5 opacity-80 leading-relaxed">{desc}</p>}
                           </div>
@@ -192,15 +204,20 @@ const levelClasses = {
                 ];
                 return (
                   <article class:list={[
-                    'pc-brutalist-card p-5 sm:p-6 flex flex-col h-full',
+                    'pc-brutalist-card p-5 sm:p-6 flex flex-col h-full relative overflow-hidden',
                     isDark ? 'bg-amber-950/20 text-white border-white' : 'bg-amber-50/50 text-[var(--color-secondary)] border-black'
                   ]}>
-                    <div class="mb-4 inline-flex h-12 w-12 items-center justify-center bg-[var(--color-primary)] text-white rounded-sm sm:mb-5">
+                    {cardImage && (
+                      <div class="absolute inset-0 opacity-[0.06] pointer-events-none">
+                        <img src={cardImage} alt="" class="h-full w-full object-cover" />
+                      </div>
+                    )}
+                    <div class="mb-4 inline-flex h-12 w-12 items-center justify-center bg-[var(--color-primary)] text-white rounded-sm sm:mb-5 relative z-10">
                       <Icon size={26} strokeWidth={2.75} />
                     </div>
-                    <h3 class="mb-5 text-xl font-black">{card.title}</h3>
+                    <h3 class="mb-5 text-xl font-black relative z-10">{card.title}</h3>
                     
-                    <div class="flex-1 flex flex-col gap-3">
+                    <div class="flex-1 flex flex-col gap-3 relative z-10">
                       {rules.map((rule) => (
                         <div class="flex flex-col gap-1 p-3 border border-black/10 dark:border-white/10 rounded-sm bg-white/5">
                           <div class:list={['pc-rule-badge w-fit text-[0.68rem] py-1 px-2.5', rule.color]}>
@@ -216,53 +233,70 @@ const levelClasses = {
 
               return (
                 <article class:list={[
-                  'pc-brutalist-card p-5 sm:p-6 h-full flex flex-col',
+                  'pc-brutalist-card p-5 sm:p-6 h-full flex flex-col relative overflow-hidden',
                   isDark ? 'bg-amber-950/20 text-white border-white' : 'bg-slate-50 text-[var(--color-secondary)] border-black'
                 ]}>
-                  <div class="mb-4 inline-flex h-12 w-12 items-center justify-center bg-[var(--color-primary)] text-white rounded-sm sm:mb-5">
+                  {cardImage && (
+                    <div class="absolute inset-0 opacity-[0.06] pointer-events-none">
+                      <img src={cardImage} alt="" class="h-full w-full object-cover" />
+                    </div>
+                  )}
+                  <div class="mb-4 inline-flex h-12 w-12 items-center justify-center bg-[var(--color-primary)] text-white rounded-sm sm:mb-5 relative z-10">
                     <Icon size={26} strokeWidth={2.75} />
                   </div>
-                  <h3 class="mb-3 text-lg font-black sm:text-xl">{card.title}</h3>
-                  <p class="text-sm leading-6 opacity-82 flex-1">{card.description}</p>
+                  <h3 class="mb-3 text-lg font-black sm:text-xl relative z-10">{card.title}</h3>
+                  <p class="text-sm leading-6 opacity-82 flex-1 relative z-10">{card.description}</p>
                 </article>
               );
             })}
           </div>
         ) : isGlass ? (
           <div class="grid gap-6 lg:grid-cols-3">
-            {variant.cards.map((card) => {
+            {variant.cards.map((card, idx) => {
               const Icon = iconMap[card.icon];
+              const cardImage = cardImages[idx % cardImages.length];
 
               return (
                 <article class:list={[
-                  'pc-rounded p-5 sm:p-6 flex flex-col h-full pc-shadow-glow-cyan transition-all hover:scale-[1.02] border',
+                  'pc-rounded p-5 sm:p-6 flex flex-col h-full pc-shadow-glow-cyan transition-all hover:scale-[1.02] border relative overflow-hidden',
                   isDark 
                     ? 'pc-glass-dark text-white border-white/10' 
                     : 'pc-glass-light text-[var(--color-secondary)] border-black/10'
                 ]}>
-                  <div class="mb-4 inline-flex h-12 w-12 items-center justify-center bg-[var(--color-primary)] text-white rounded-full sm:mb-5 sm:h-14 sm:w-14">
+                  {cardImage && (
+                    <div class="absolute inset-0 opacity-[0.09] pointer-events-none">
+                      <img src={cardImage} alt="" class="h-full w-full object-cover" />
+                    </div>
+                  )}
+                  <div class="mb-4 inline-flex h-12 w-12 items-center justify-center bg-[var(--color-primary)] text-white rounded-full sm:mb-5 sm:h-14 sm:w-14 relative z-10">
                     <Icon size={26} strokeWidth={2.75} />
                   </div>
-                  <h3 class="mb-3 text-lg font-black sm:text-xl">{card.title}</h3>
-                  <p class="text-sm leading-6 opacity-85 flex-1">{card.description}</p>
+                  <h3 class="mb-3 text-lg font-black sm:text-xl relative z-10">{card.title}</h3>
+                  <p class="text-sm leading-6 opacity-85 flex-1 relative z-10">{card.description}</p>
                 </article>
               );
             })}
           </div>
         ) : (
           <div class="grid gap-6 lg:grid-cols-3">
-            {variant.cards.map((card) => {
+            {variant.cards.map((card, idx) => {
               const Icon = iconMap[card.icon];
+              const cardImage = cardImages[idx % cardImages.length];
 
               return (
                 <article class:list={[
                   'pc-card pc-hard-shadow-light pc-diagonal relative overflow-hidden p-5 sm:p-6',
                   isDark ? 'pc-surface-dark pc-outline-panel' : 'pc-surface-light pc-outline-panel-light',
                 ]}>
-                  <div class="mb-4 inline-flex h-12 w-12 items-center justify-center bg-[var(--color-primary)] text-white sm:mb-5 sm:h-14 sm:w-14">
+                  {cardImage && (
+                    <div class="absolute inset-0 opacity-[0.09] pointer-events-none">
+                      <img src={cardImage} alt="" class="h-full w-full object-cover" />
+                    </div>
+                  )}
+                  <div class="mb-4 inline-flex h-12 w-12 items-center justify-center bg-[var(--color-primary)] text-white sm:mb-5 sm:h-14 sm:w-14 relative z-10">
                     <Icon size={26} strokeWidth={2.75} />
                   </div>
-                  <h3 class:list={['mb-3 text-lg font-black sm:text-xl', isDark ? 'text-white' : 'text-[var(--color-secondary)]']}>{card.title}</h3>
+                  <h3 class:list={['mb-3 text-lg font-black sm:text-xl relative z-10', isDark ? 'text-white' : 'text-[var(--color-secondary)]']}>{card.title}</h3>
                   <p class:list={['text-sm leading-6', isDark ? 'text-white/82' : 'text-[var(--color-text-dark)]/82']}>{card.description}</p>
                 </article>
               );
