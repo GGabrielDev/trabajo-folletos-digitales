@@ -1,6 +1,7 @@
 ---
 import '../styles/global.css';
 import SponsorsFooter from '../components/SponsorsFooter.astro';
+import SpeedInsights from '@vercel/speed-insights/astro';
 
 interface Props {
 	title: string;
@@ -25,5 +26,10 @@ const { title, mode = 'light' } = Astro.props;
 	<body class="antialiased font-inter tracking-tight selection:bg-[var(--color-tertiary)] selection:text-[var(--color-secondary)] overflow-x-hidden w-full">
 		<slot />
 		<SponsorsFooter mode={mode} />
+		<SpeedInsights />
+		<script>
+			import { inject } from '@vercel/analytics';
+			inject();
+		</script>
 	</body>
 </html>
