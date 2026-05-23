@@ -26,15 +26,14 @@ interface Props {
 }
 
 const { brochure, mode, styleVariant: propStyleVariant } = Astro.props;
-const variant = brochure[mode];
 const isDark = mode === 'dark';
 const styleVariant = propStyleVariant || brochure.styleVariant || 'default';
 const isGlass = styleVariant === 'rounded-glass';
 const isTimeline = styleVariant === 'timeline-step';
 
 const isSchool = ['brigadas-escolares', 'plan-escolar-pegir', 'evacuacion-simulacros', 'senales-seguridad'].includes(brochure.slug);
-const darkHref = isSchool ? `/${brochure.slug}-${styleVariant}-dark` : brochure.darkHref;
-const lightHref = isSchool ? `/${brochure.slug}-${styleVariant}-light` : brochure.lightHref;
+const darkHref = isSchool ? `/${brochure.slug}-${styleVariant}-dark` : `/${brochure.slug}-dark`;
+const lightHref = isSchool ? `/${brochure.slug}-${styleVariant}-light` : `/${brochure.slug}-light`;
 
 const alertCardClass = isGlass
   ? (isDark ? 'pc-rounded border border-white/10 bg-white/5 backdrop-blur-sm shadow-none' : 'pc-rounded border border-black/10 bg-white/40 backdrop-blur-sm shadow-none')
@@ -137,7 +136,7 @@ const levelClasses = {
   >
     <div class="pc-ribbon flex items-center justify-center px-3 py-2 text-center text-[0.62rem] font-bold uppercase tracking-[0.12em] sm:px-4 sm:py-3 sm:text-[0.72rem] sm:tracking-[0.14em]">
       <AlertTriangle size={14} strokeWidth={2.75} class="mr-2 shrink-0" />
-      <span>{variant.ribbon}</span>
+      <span>{brochure.ribbon}</span>
       <AlertTriangle size={14} strokeWidth={2.75} class="ml-2 shrink-0" />
     </div>
 
@@ -181,14 +180,14 @@ const levelClasses = {
             </span>
           </div>
           <h1 class="mb-4 text-3xl font-black text-white sm:text-5xl lg:text-6xl leading-tight">
-            {variant.title}
+            {brochure.title}
           </h1>
           <div class="max-w-3xl border-l-4 border-[var(--color-primary)] pl-4 py-1.5 bg-black/10 backdrop-blur-xs rounded-r-sm">
             <p class="text-sm font-bold leading-relaxed text-white sm:text-base">
               {brochure.dashboardSummary}
             </p>
             <p class="mt-2 text-xs leading-relaxed text-white/80 sm:text-sm">
-              {variant.summary}
+              {brochure.summary}
             </p>
           </div>
         </div>
@@ -207,7 +206,7 @@ const levelClasses = {
 
         {isTimeline ? (
           <div class="grid gap-8 lg:grid-cols-3">
-            {variant.cards.map((card, idx) => {
+            {brochure.cards.map((card, idx) => {
               const Icon = iconMap[card.icon];
               const cardImage = cardImages[idx % cardImages.length];
 
@@ -304,7 +303,7 @@ const levelClasses = {
           </div>
         ) : isGlass ? (
           <div class="grid gap-6 lg:grid-cols-3">
-            {variant.cards.map((card, idx) => {
+            {brochure.cards.map((card, idx) => {
               const Icon = iconMap[card.icon];
               const cardImage = cardImages[idx % cardImages.length];
 
@@ -331,7 +330,7 @@ const levelClasses = {
           </div>
         ) : (
           <div class="grid gap-6 lg:grid-cols-3">
-            {variant.cards.map((card, idx) => {
+            {brochure.cards.map((card, idx) => {
               const Icon = iconMap[card.icon];
               const cardImage = cardImages[idx % cardImages.length];
 
@@ -356,11 +355,11 @@ const levelClasses = {
           </div>
         )}
 
-        {variant.alertLevels && (
+        {brochure.alertLevels && (
           <div class="mt-8 sm:mt-10 animate-[fadeIn_0.5s_ease-out]">
             <h3 class:list={['mb-4 text-xl font-black sm:text-2xl', isDark ? 'text-white' : 'text-[var(--color-secondary)]']}>Niveles de alerta</h3>
             <div class="grid gap-4 md:grid-cols-3">
-              {variant.alertLevels.map((level) => (
+              {brochure.alertLevels.map((level) => (
                 <div class:list={[
                   'p-4 sm:p-5',
                   alertCardClass
@@ -375,14 +374,14 @@ const levelClasses = {
           </div>
         )}
 
-        {variant.footer && (
+        {brochure.footer && (
           <div class:list={[
             'mt-8 border-l-[8px] border-[var(--color-primary)] p-5 sm:mt-10 sm:p-6',
             isGlass ? 'pc-rounded border border-black/5 dark:border-white/5 bg-white/5 backdrop-blur-sm shadow-none' : 'pc-hard-shadow border border-black/10',
             isDark ? 'bg-[var(--color-bg-dark)] text-white border-white/10' : 'bg-[var(--color-bg-light)] text-[var(--color-secondary)] border-black/10',
           ]}>
             <p class="text-sm font-medium uppercase tracking-[0.14em] text-[var(--color-primary)]">Nota operativa</p>
-            <p class:list={['mt-3 max-w-3xl text-sm leading-6', isDark ? 'text-white/84' : 'text-[var(--color-text-dark)]/84']}>{variant.footer}</p>
+            <p class:list={['mt-3 max-w-3xl text-sm leading-6', isDark ? 'text-white/84' : 'text-[var(--color-text-dark)]/84']}>{brochure.footer}</p>
           </div>
         )}
       </div>

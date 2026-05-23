@@ -1,0 +1,29 @@
+---
+import BrochurePage from '../components/BrochurePage.astro';
+import { brochures } from '../data/brochures';
+
+export function getStaticPaths() {
+  const generalSlugs = ['sismos', 'inundaciones', 'orden-publico', 'otros-riesgos'];
+  const modes = ['dark', 'light'];
+
+  const paths = [];
+
+  for (const slug of generalSlugs) {
+    const brochure = brochures.find(b => b.slug === slug);
+    if (!brochure) continue;
+
+    for (const mode of modes) {
+      paths.push({
+        params: { slug, mode },
+        props: { brochure, mode }
+      });
+    }
+  }
+
+  return paths;
+}
+
+const { brochure, mode } = Astro.props;
+---
+
+<BrochurePage brochure={brochure} mode={mode} styleVariant="default" />
