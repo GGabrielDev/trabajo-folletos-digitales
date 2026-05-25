@@ -12,36 +12,28 @@ const menuOptions = [
     dashboardSummary: 'Acceso a los folletos originales de autoprotección ante sismos, lluvias, orden público y otros riesgos físicos.',
   },
   {
-    href: '/brigadas-escolares-default-dark',
-    topicNumber: 'Escuela 01',
-    topicLabel: 'Brigadas y Comités',
-    badge: 'Gestión Escolar',
+    href: '/menu-escolar',
+    topicNumber: 'Menú 02',
+    topicLabel: 'Menú Escolar (4 submenús)',
+    badge: 'Seguridad Escolar',
     image: '/assets/1_classroom_2_students_3_teacher_4.jpg',
-    dashboardSummary: 'Organización de comités escolares, brigadas de riesgo y roles de la comunidad educativa.',
+    dashboardSummary: 'Acceso agrupado a los cuatro módulos escolares: brigadas, PEGIR, evacuación/simulacros y señales de seguridad.',
   },
   {
-    href: '/plan-escolar-pegir-rounded-glass-dark',
-    topicNumber: 'Escuela 02',
-    topicLabel: 'Plan de Riesgos (PEGIR)',
-    badge: 'Planificación',
-    image: '/assets/a_group_of_students_in_white_shirts_and_navy_blue.jpg',
-    dashboardSummary: 'Elaboración del Plan Escolar de Gestión Integral del Riesgo (PEGIR) y diseño de mapas de recursos.',
+    href: '/nuevo-contenido-submenus',
+    topicNumber: 'Menú 03',
+    topicLabel: 'Nueva Información (4 submenús)',
+    badge: 'Nuevo Contenido',
+    image: '/assets/the_group_of_people_are_gathered_around_a_large_map.jpg',
+    dashboardSummary: 'Nueva base de información organizada en cuatro submenús independientes con el mismo contenido del modo integral.',
   },
   {
-    href: '/evacuacion-simulacros-timeline-step-dark',
-    topicNumber: 'Escuela 03',
-    topicLabel: 'Evacuación y Simulacros',
-    badge: 'Ejecución y Práctica',
-    image: '/assets/title_children_under_a_table_description_two_children_sitting_under.jpg',
-    dashboardSummary: 'Sistema de evacuación escolar, fases de desalojo, reglas de oro y simulacros prácticos.',
-  },
-  {
-    href: '/senales-seguridad-default-dark',
-    topicNumber: 'Escuela 04',
-    topicLabel: 'Señales de Seguridad',
-    badge: 'Prevención',
-    image: '/assets/senales-seguridad.jpg',
-    dashboardSummary: 'Simbología universal, colores de seguridad y letreros informativos para evacuación escolar.',
+    href: '/nuevo-contenido-completo',
+    topicNumber: 'Menú 04',
+    topicLabel: 'Nueva Información (todo en uno)',
+    badge: 'Nuevo Contenido',
+    image: '/assets/a_group_of_people_gathered_around_a_large_map_the.jpg',
+    dashboardSummary: 'La misma nueva información, consolidada en una sola vista para consulta completa en un único módulo.',
   },
 ];
 ---
@@ -97,7 +89,7 @@ const menuOptions = [
                     </div>
                 </div>
 
-                <div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-5">
+                <div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
                     {menuOptions.map((option) => (
                         <a href={option.href} class="pc-card pc-diagonal pc-hard-shadow group relative flex flex-col min-h-[15rem] sm:min-h-[19rem] overflow-hidden transition-transform hover:translate-y-[-4px]">
                             <div class="pc-card-image absolute inset-0" style={`background-image: url('${option.image}'); background-size: cover; background-position: center;`}></div>
