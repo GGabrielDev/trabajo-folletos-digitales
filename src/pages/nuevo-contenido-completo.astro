@@ -44,12 +44,12 @@ import { newInformationItems } from '../data/newInformation';
         <div class="pc-hazard-stripe mb-6 h-2 w-full sm:mb-8"></div>
         <div class="grid gap-6 lg:grid-cols-2">
           {newInformationItems.map((item, index) => (
-            <article class="pc-card pc-diagonal pc-hard-shadow relative overflow-hidden p-5 sm:p-6">
+            <article class="pc-card pc-diagonal pc-hard-shadow relative overflow-hidden p-5 sm:p-6 bg-[var(--color-bg-light)] border border-black/10">
               <div class="pc-card-image absolute inset-0" style={`background-image: url('${item.image}'); background-size: cover; background-position: center; opacity: 0.12;`}></div>
               <div class="relative z-10 flex flex-col gap-3">
                 <span class="pc-tag pc-tag-primary w-fit">Bloque {index + 1}</span>
-                <h2 class="text-lg font-black text-white sm:text-xl">{item.title}</h2>
-                <p class="text-sm leading-6 text-white/85">{item.summary}</p>
+                <h2 class="text-lg font-black text-[var(--color-secondary)] sm:text-xl">{item.title}</h2>
+                <p class="text-sm leading-6 text-[var(--color-text-dark)]">{item.summary}</p>
               </div>
             </article>
           ))}

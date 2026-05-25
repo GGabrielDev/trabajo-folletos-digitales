@@ -7,6 +7,9 @@ This document lists the public pages currently exposed by the site and the conte
 | Route | Topic | Variant | Notes |
 | --- | --- | --- | --- |
 | `/` | Index | Dashboard | Central panel linking to all topics |
+| `/menu-escolar` | Menú Escolar | Dashboard | Entry menu exposing the 4 school-themed brochures |
+| `/nuevo-contenido-submenus` | Nueva Información | Submenús | Base page with the new information split into 4 submenus |
+| `/nuevo-contenido-completo` | Nueva Información | Integral | Base page with the same new information in a single all-in-one view |
 | `/sismos-dark` | Sismos y terremotos | Dark | Institutional dark surface with formal protocol emphasis |
 | `/sismos-light` | Sismos y terremotos | Light | Institutional light surface with simplified guidance emphasis |
 | `/inundaciones-dark` | Lluvias e inundaciones | Dark | Formal flood-response guidance and alert levels |
