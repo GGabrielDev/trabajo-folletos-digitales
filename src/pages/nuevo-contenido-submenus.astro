@@ -1,6 +1,5 @@
 ---
 import EmergencyHeader from '../components/EmergencyHeader.astro';
-import EmergencyTopicSection from '../components/EmergencyTopicSection.astro';
 import Layout from '../layouts/Layout.astro';
 import { emergencyTopics } from '../data/emergencyTopics';
 ---
@@ -19,17 +18,17 @@ import { emergencyTopics } from '../data/emergencyTopics';
           <p class="mb-2 text-[0.72rem] font-semibold uppercase tracking-[0.16em] text-[var(--color-primary)] sm:text-sm">
             Acceso por botones
           </p>
-          <h2 class="text-2xl font-black text-[var(--color-secondary)] sm:text-3xl">Cuatro submenus, un mismo contenido</h2>
+          <h2 class="text-2xl font-black text-[var(--color-secondary)] sm:text-3xl">Cuatro submenus, cuatro paginas</h2>
           <p class="mt-3 text-sm leading-6 text-[var(--color-text-dark)] sm:text-base sm:leading-7">
-            Toca un boton para saltar a cada tema. Debajo encontraras el mismo paquete de informacion estructurado en antes, durante y despues.
+            Cada boton abre su propio submenu. Dentro de esos submenus aparece el boton flotante para volver a esta pantalla.
           </p>
         </div>
 
         <div class="space-y-3 sm:space-y-4">
           {emergencyTopics.map((topic) => (
             <a
-              href={`#${topic.id}`}
-              class="group relative block w-full max-w-5xl overflow-hidden border border-black/10 bg-[var(--color-secondary)] text-white shadow-[4px_4px_0_0_var(--color-secondary)] transition-transform hover:-translate-y-1 mx-auto"
+              href={`/nuevo-contenido-submenus/${topic.id}`}
+              class="group relative mx-auto block w-full max-w-5xl overflow-hidden border border-black/10 bg-[var(--color-secondary)] text-white shadow-[4px_4px_0_0_var(--color-secondary)] transition-transform hover:-translate-y-1"
             >
               <div
                 class="absolute inset-0 bg-no-repeat opacity-90 transition-transform duration-300 group-hover:scale-[1.04]"
@@ -42,14 +41,6 @@ import { emergencyTopics } from '../data/emergencyTopics';
             </a>
           ))}
         </div>
-      </div>
-    </section>
-
-    <section class="bg-[var(--color-bg-light)]">
-      <div class="mx-auto max-w-6xl space-y-8 px-4 py-6 sm:px-6 sm:py-8 lg:px-8">
-        {emergencyTopics.map((topic, index) => (
-          <EmergencyTopicSection topic={topic} index={index} />
-        ))}
       </div>
     </section>
   </main>

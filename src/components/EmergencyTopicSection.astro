@@ -1,15 +1,27 @@
 ---
 import type { EmergencyTopic } from '../data/emergencyTopics';
+import { ChevronLeft } from 'lucide-react';
 
 interface Props {
   topic: EmergencyTopic;
   index: number;
+  showFloatingBackButton?: boolean;
+  backHref?: string;
 }
 
-const { topic, index } = Astro.props;
+const { topic, index, showFloatingBackButton = false, backHref = '/nuevo-contenido-submenus' } = Astro.props;
 ---
 
 <section id={topic.id} class="scroll-mt-28">
+  {showFloatingBackButton && (
+    <a
+      href={backHref}
+      class="fixed left-4 top-4 z-50 inline-flex min-h-11 items-center justify-center gap-1.5 border border-white/10 bg-[var(--color-secondary)] px-3 py-2 text-[0.68rem] font-bold uppercase tracking-[0.12em] text-white shadow-[4px_4px_0px_var(--color-secondary)] transition-transform hover:-translate-y-1 sm:left-6 sm:top-6 sm:text-[0.72rem]"
+    >
+      <ChevronLeft size={14} strokeWidth={2.75} />
+      <span>Volver</span>
+    </a>
+  )}
   <article class="pc-card pc-hard-shadow-light overflow-hidden border border-black/10 bg-white">
     <div
       class="relative flex min-h-[16rem] items-end overflow-hidden bg-[var(--color-secondary)] text-white sm:min-h-[18rem]"
