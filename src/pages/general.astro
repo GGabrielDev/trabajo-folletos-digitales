@@ -70,7 +70,13 @@ const generalBrochures = brochures.filter(b =>
 
                 <div class="grid gap-6 md:grid-cols-2 lg:grid-cols-4">
                     {generalBrochures.map((brochure) => (
-                        <a href={`/${brochure.slug}-dark`} class="pc-card pc-diagonal pc-hard-shadow group relative flex flex-col min-h-[15rem] sm:min-h-[19rem] overflow-hidden transition-transform hover:translate-y-[-4px]">
+                        <a
+                            href={`/${brochure.slug}-light`}
+                            data-theme-link="auto"
+                            data-light-href={`/${brochure.slug}-light`}
+                            data-dark-href={`/${brochure.slug}-dark`}
+                            class="pc-card pc-diagonal pc-hard-shadow group relative flex flex-col min-h-[15rem] sm:min-h-[19rem] overflow-hidden transition-transform hover:translate-y-[-4px]"
+                        >
                             <div class="pc-card-image absolute inset-0" style={`background-image: url('${brochure.image}'); background-size: cover; background-position: center;`}></div>
                             <div class="relative z-10 flex flex-1 flex-col justify-end p-4 sm:p-5">
                                 <span class="pc-tag pc-tag-primary mb-2 w-fit">{brochure.topicNumber}</span>
@@ -82,5 +88,15 @@ const generalBrochures = brochures.filter(b =>
                 </div>
             </div>
         </section>
+
+        <script is:inline>
+            (() => {
+                if (!window.matchMedia || !window.matchMedia('(prefers-color-scheme: dark)').matches) return;
+                document.querySelectorAll('a[data-theme-link="auto"]').forEach((link) => {
+                    const darkHref = link.getAttribute('data-dark-href');
+                    if (darkHref) link.setAttribute('href', darkHref);
+                });
+            })();
+        </script>
 	</main>
 </Layout>
