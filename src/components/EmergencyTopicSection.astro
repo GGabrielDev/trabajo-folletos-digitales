@@ -10,13 +10,18 @@ interface Props {
 }
 
 const { topic, index, showFloatingBackButton = false, backHref = '/nuevo-contenido-submenus' } = Astro.props;
+const phaseBackgroundByLabel: Record<'Antes' | 'Durante' | 'Después', string> = {
+  Antes: '/assets/phase-antes-bg.jpg',
+  Durante: '/assets/phase-durante-bg.jpg',
+  Después: '/assets/phase-despues-bg.jpg',
+};
 ---
 
 <section id={topic.id} class="scroll-mt-28">
   {showFloatingBackButton && (
     <a
       href={backHref}
-      class="fixed left-4 top-4 z-50 inline-flex min-h-11 items-center justify-center gap-1.5 border border-white/10 bg-[var(--color-secondary)] px-3 py-2 text-[0.68rem] font-bold uppercase tracking-[0.12em] text-white shadow-[4px_4px_0px_var(--color-secondary)] transition-transform hover:-translate-y-1 sm:left-6 sm:top-6 sm:text-[0.72rem]"
+      class="fixed bottom-4 right-4 z-50 inline-flex min-h-11 items-center justify-center gap-1.5 border border-white/10 bg-[var(--color-secondary)] px-3 py-2 text-[0.68rem] font-bold uppercase tracking-[0.12em] text-white shadow-[4px_4px_0px_var(--color-secondary)] transition-transform hover:-translate-y-1 sm:bottom-6 sm:right-6 sm:text-[0.72rem]"
     >
       <ChevronLeft size={14} strokeWidth={2.75} />
       <span>Volver</span>
@@ -55,21 +60,26 @@ const { topic, index, showFloatingBackButton = false, backHref = '/nuevo-conteni
     <div class="space-y-8 px-4 py-5 sm:px-6 sm:py-6">
       <div class="grid gap-4 lg:grid-cols-3">
         {topic.phases.map((phase) => (
-          <section class="pc-brutalist-card flex h-full flex-col overflow-hidden bg-[var(--color-bg-light)] p-4 sm:p-5">
-            <div class="mb-4 flex items-center gap-3">
+          <section class="pc-brutalist-card relative flex h-full flex-col overflow-hidden bg-[var(--color-secondary)] p-4 text-white sm:p-5">
+            <div
+              class="pointer-events-none absolute inset-x-0 bottom-0 h-[56%] opacity-[0.17]"
+              style={`background-image: url('${phaseBackgroundByLabel[phase.label]}'); background-size: cover; background-position: center bottom;`}
+            ></div>
+            <div class="pointer-events-none absolute inset-0 bg-[linear-gradient(180deg,rgba(15,33,71,0.96)_0%,rgba(15,33,71,0.88)_52%,rgba(15,33,71,0.38)_100%)]"></div>
+            <div class="relative z-10 mb-4 flex items-center gap-3">
               <div class="inline-flex h-11 w-11 shrink-0 items-center justify-center bg-[var(--color-primary)] text-xl text-white">
                 {phase.label === 'Antes' ? '1' : phase.label === 'Durante' ? '2' : '3'}
               </div>
               <div>
-                <p class="text-[0.68rem] font-bold uppercase tracking-[0.18em] text-[var(--color-primary)]">
+                <p class="text-[0.68rem] font-bold uppercase tracking-[0.18em] text-[var(--color-tertiary)]">
                   {phase.label}
                 </p>
-                <h3 class="text-lg font-black leading-tight text-[var(--color-secondary)]">{phase.lead}</h3>
+                <h3 class="text-lg font-black leading-tight text-white">{phase.lead}</h3>
               </div>
             </div>
-            <ul class="flex flex-1 flex-col gap-3">
+            <ul class="relative z-10 flex flex-1 flex-col gap-3">
               {phase.points.map((point) => (
-                <li class="pc-timeline-item text-sm leading-6 text-[var(--color-text-dark)]">
+                <li class="pc-timeline-item text-sm leading-6 text-white/92">
                   <span class="pc-timeline-dot"></span>
                   {point}
                 </li>
@@ -85,7 +95,7 @@ const { topic, index, showFloatingBackButton = false, backHref = '/nuevo-conteni
             <p class="mb-2 text-[0.72rem] font-semibold uppercase tracking-[0.16em] text-[var(--color-primary)] sm:text-sm">
               {topic.mapTitle}
             </p>
-            <h3 class="text-2xl font-black text-[var(--color-secondary)]">Mapa mental de respuesta</h3>
+            <h3 class="text-2xl font-black text-[var(--color-secondary)]">Puntos clave</h3>
           </div>
 
           <div class="grid gap-3 sm:grid-cols-2">
@@ -110,7 +120,7 @@ const { topic, index, showFloatingBackButton = false, backHref = '/nuevo-conteni
             <p class="mb-2 text-[0.72rem] font-semibold uppercase tracking-[0.16em] text-[var(--color-primary)] sm:text-sm">
               {topic.infographicTitle}
             </p>
-            <h3 class="text-2xl font-black text-[var(--color-secondary)]">Infografía en claves</h3>
+            <h3 class="text-2xl font-black text-[var(--color-secondary)]">Acciones clave</h3>
           </div>
 
           <div class="grid gap-3">
