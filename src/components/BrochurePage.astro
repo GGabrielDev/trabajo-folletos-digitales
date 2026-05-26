@@ -30,6 +30,7 @@ const isDark = mode === 'dark';
 const styleVariant = propStyleVariant || brochure.styleVariant || 'default';
 const isGlass = styleVariant === 'rounded-glass';
 const isTimeline = styleVariant === 'timeline-step';
+const showStyleSelector = process.env.VERCEL_ENV === 'preview';
 
 const isSchool = ['brigadas-escolares', 'plan-escolar-pegir', 'evacuacion-simulacros', 'senales-seguridad'].includes(brochure.slug);
 const darkHref = isSchool ? `/${brochure.slug}-${styleVariant}-dark` : `/${brochure.slug}-dark`;
@@ -156,7 +157,7 @@ const levelClasses = {
             </div>
 
             <div class="flex items-center gap-3 shrink-0">
-              {isSchool && (
+              {isSchool && showStyleSelector && (
                 <div class="hidden md:block">
                   <StyleSwitch currentStyle={styleVariant} slug={brochure.slug} mode={mode} />
                 </div>
@@ -165,7 +166,7 @@ const levelClasses = {
             </div>
           </div>
 
-          {isSchool && (
+          {isSchool && showStyleSelector && (
             <div class="block md:hidden w-full">
               <StyleSwitch currentStyle={styleVariant} slug={brochure.slug} mode={mode} />
             </div>
