@@ -31,217 +31,285 @@ export type EmergencyTopic = {
 
 export const emergencyTopics: EmergencyTopic[] = [
   {
-    id: 'sismos-tsunamis-terremotos',
-    title: 'Sismos, Tsunamis y Terremotos',
+    id: 'sismos',
+    title: 'Sismos',
     emoji: '🫨',
-    image: '/assets/earthquake_illustration_1774892678686.png',
-    ribbon: 'Prioridad: agacharse, cubrirse, sujetarse y evacuar la costa si el mar se retira',
+    image: '/assets/a_pile_of_rubble_with_various_objects_scattered_throughout.jpg',
+    ribbon: 'ALERTA | Conserve la calma, protéjase de objetos que caigan y use escaleras',
     summary:
-      'La clave es proteger la cabeza, ordenar la evacuacion y reconocer la senal de tsunami: sismo fuerte, retiro brusco del mar y alerta inmediata.',
+      'Guía oficial de autoprotección sísmica basada en FUNVISIS. Prepare un plan de contingencia familiar, escolar o empresarial, identifique zonas seguras y aprenda medidas específicas para personas con discapacidad.',
     phases: [
       {
         label: 'Antes',
-        lead: 'Prepara la casa y la ruta de salida.',
+        lead: 'Organice su plan de contingencia y kit de emergencias.',
         points: [
-          'Fija muebles, lamparas y objetos pesados que puedan caer.',
-          'Define zonas seguras, rutas libres y un punto de reunion familiar.',
-          'Ten a mano kit, pito, linterna, radio y contactos de emergencia.',
-        ],
+          'Elabore un plan de contingencia en caso de desastres (familiar, escolar o empresarial) y practíquelo regularmente.',
+          'Ubique el lugar más seguro y accesible; disponga de un botiquín de primeros auxilios, agua, comida, linterna, baterías, extintor y un pito.',
+          'Asegure o reubique objetos pesados que puedan caer: lámparas, bibliotecas, tableros o calentadores.',
+          'Identifique herramientas para cerrar gas/agua y asigne un lugar fijo a las llaves.',
+          'Personas con discapacidad: elabore una ficha personal de salud y lleve siempre consigo un pito y teléfono móvil.'
+        ]
       },
       {
         label: 'Durante',
-        lead: 'Protegete del golpe de objetos y mantente en calma.',
+        lead: 'Proteja su vida manteniéndose calmado y a resguardo.',
         points: [
-          'Agachate, cubrete y agarrate debajo de una mesa o junto a una pared interior.',
-          'Alejate de vidrios, escaleras, ascensores, postes y cables.',
-          'Si estas en la costa y sientes un sismo fuerte o ves que el mar se recoge, sube de inmediato a una zona alta.',
-        ],
+          'Mantenga la calma, reaccione con serenidad y ponga en marcha su plan. ¡No corra!',
+          'Ubíquese debajo de mesas, escritorios, camas o resguárdese al lado de una viga o columna de la edificación.',
+          'Aléjese de ventanas, espejos, puertas de vidrio, balcones y pendientes cercanas.',
+          'Use sólo las escaleras para evacuar; nunca use los ascensores ya que podría quedar atrapado.',
+          'Sillas de ruedas: coloque frenos en zonas seguras, cubra la cabeza con los brazos o inclínese hacia adelante.'
+        ]
       },
       {
         label: 'Después',
-        lead: 'Corta riesgos y sigue la informacion oficial.',
+        lead: 'Corte riesgos inmediatos y proceda con precaución.',
         points: [
-          'Cierra gas, agua y electricidad si hay fugas o danos.',
-          'Escucha radio o avisos oficiales y no regreses hasta el all clear.',
-          'Alejate del mar hasta que se cancele la alerta; las olas del tsunami llegan en serie.',
-        ],
-      },
+          'Interrumpa los servicios de gas, agua y electricidad. No encienda fósforos ni velas si sospecha de fugas.',
+          'Encienda la radio a baterías para escuchar las recomendaciones de las autoridades.',
+          'Luego de desalojar, no se devuelva por ningún motivo y evite caminar descalzo entre escombros.',
+          'Aléjese de construcciones que se puedan derrumbar y de la costa, ya que pueden ocurrir réplicas o marejadas.',
+          'Si queda atrapado, mantenga la calma y pida auxilio usando un pito o generando ruidos con objetos.'
+        ]
+      }
     ],
-    mapTitle: 'Coordinación',
+    mapTitle: 'Puntos clave',
     mapNodes: [
-      { label: 'Proteccion', detail: 'Cabeza y cuello cubiertos, refugio interior estable.' },
-      { label: 'Ruta', detail: 'Salida despejada y punto de reunion definido.' },
-      { label: 'Costa', detail: 'Sube a terreno alto si el mar se retira o ruge.' },
-      { label: 'Informacion', detail: 'Radio a baterias y canales oficiales primero.' },
+      { label: 'Plan Familiar', detail: 'Precise la conducta y acciones de cada miembro y ensaye las rutas de escape.' },
+      { label: 'Zonas Seguras', detail: 'Bajo mesas resistentes, marcos estructurales o áreas libres exteriores.' },
+      { label: 'Inclusión', detail: 'Evite estanterías cerca de personas con movilidad reducida y dote de silbatos.' },
+      { label: 'Cierre de Servicios', detail: 'Corte el suministro de gas y agua para evitar incendios o inundaciones secundarias.' }
     ],
-    infographicTitle: 'Checklist',
+    infographicTitle: 'Acciones clave',
     infographicItems: [
-      { label: 'Señal de tsunami', detail: 'Sismo fuerte + mar se recoge + alerta inmediata.' },
-      { label: 'Zonas seguras', detail: 'Bajo mesa resistente, pared interior o terreno alto.' },
-      { label: 'Nunca hagas', detail: 'Ir a la playa a mirar la ola o usar ascensores.' },
+      { label: 'No corra', detail: 'El pánico y las caídas causan la mayoría de las lesiones durante el movimiento.' },
+      { label: 'Sin ascensores', detail: 'Una falla eléctrica común tras el sismo lo dejará atrapado indefinidamente.' },
+      { label: 'Desarrolle conciencia', detail: 'Estudie minuciosamente teatros, estadios y cines al ingresar para ubicar salidas.' }
     ],
-    footer:
-      'Mantente atento a replicas, revisa danos estructurales y protege a personas con movilidad reducida primero.',
+    footer: 'Aula Sísmica "Madeleilis Guzmán" - FUNVISIS. Emergencias: 0800-TEMBLOR (0800-8362567)'
+  },
+  {
+    id: 'tsunamis',
+    title: 'Tsunamis',
+    emoji: '🌊',
+    image: '/assets/the_image_captures_a_dramatic_scene_of_a_wave_crashing_against.jpg',
+    ribbon: 'EVACUACIÓN | Si siente un sismo en la costa o el mar se retira, corra a zona alta',
+    summary:
+      'Protocolo oficial de autoprotección ante maremotos y tsunamis. Aprenda a reconocer las alertas naturales, las señales de ruta de evacuación y los requisitos de altura para un resguardo efectivo.',
+    phases: [
+      {
+        label: 'Antes',
+        lead: 'Conozca su zona y ubique rutas de escape.',
+        points: [
+          'Identifique si su zona de vivienda, trabajo o estudio es inundable por tsunami.',
+          'Ubique y siga las señales oficiales de "Ruta de Evacuación" hacia terrenos elevados.',
+          'Aprenda a reconocer las señales naturales: un sismo fuerte o el retiro brusco del agua de la playa.',
+          'Mantenga preparado el bolso de emergencia con agua potable, radio y documentos protegidos.'
+        ]
+      },
+      {
+        label: 'Durante',
+        lead: 'Evacue de inmediato sin esperar alertas oficiales.',
+        points: [
+          'Si siente un sismo fuerte en la costa o ve que el mar se recoge, evacue de inmediato a pie.',
+          'Diríjase rápidamente a una zona alta, a por lo menos 30 metros sobre el nivel del mar.',
+          'Si no puede llegar a terreno alto, suba a los pisos superiores (3er piso o más) de un edificio de concreto reforzado.',
+          'Nunca vaya a la playa a observar o tomar fotografías del tsunami; cuando la ola sea visible estará demasiado cerca.'
+        ]
+      },
+      {
+        label: 'Después',
+        lead: 'Permanezca en terreno seguro hasta la cancelación oficial.',
+        points: [
+          'Manténgase alejado de la costa hasta que las autoridades de Protección Civil cancelen formalmente la alerta.',
+          'Recuerde que el tsunami es una serie de olas sucesivas; la primera ola no suele ser la más grande.',
+          'Use mensajes de texto para comunicarse para no saturar las redes telefónicas de emergencia.',
+          'Esté atento a las recomendaciones oficiales transmitidas por la radio de baterías.'
+        ]
+      }
+    ],
+    mapTitle: 'Puntos clave',
+    mapNodes: [
+      { label: 'Señal Natural', detail: 'Sismo fuerte + mar que se recoge o ruge con fuerza en la playa.' },
+      { label: 'Zona Elevada', detail: 'Busque colinas o elevaciones de al menos 30 metros de altura.' },
+      { label: 'Refugio Vertical', detail: 'Pisos 3 o superiores en estructuras sólidas de concreto armado.' },
+      { label: 'Olas Sucesivas', detail: 'La amenaza puede durar horas; las olas llegan con intervalos de tiempo.' }
+    ],
+    infographicTitle: 'Acciones clave',
+    infographicItems: [
+      { label: 'No use vehículos', detail: 'Evacue a pie. Los autos causan embotellamientos y atrapan a las personas.' },
+      { label: 'Evite la costa', detail: 'No baje a curiosear; la velocidad de la ola de tsunami es insuperable.' },
+      { label: 'Mensajes de texto', detail: 'Conserve las líneas libres para coordinaciones de rescate médico.' }
+    ],
+    footer: 'Sistema Nacional de Gestión de Riesgo. Reporte emergencias al 911.'
   },
   {
     id: 'lluvias-inundaciones-deslizamientos',
-    title: 'Lluvias, Inundaciones y Deslizamientos',
+    title: 'Lluvias e Inundaciones',
     emoji: '🌧️',
-    image: '/assets/floods_illustration_1774910201216.png',
-    ribbon: 'Mantente fuera del agua en movimiento y sube a zonas altas antes de que el nivel crezca',
+    image: '/assets/the_image_captures_a_scene_of_a_city_submerged_in_flo.jpg',
+    ribbon: 'PREVENCIÓN | Evite cruzar corrientes de agua y trasládese a zonas elevadas',
     summary:
-      'Las lluvias intensas exigen vigilar drenajes, laderas y rutas de evacuacion; el objetivo es no quedar atrapado por agua, barro o cables caidos.',
+      'Plan de actuación ante inundaciones, crecidas de ríos y deslizamientos. Aprenda a evaluar la vulnerabilidad de su vivienda, limpiar drenajes y desinfectar su hogar tras la emergencia.',
     phases: [
       {
         label: 'Antes',
-        lead: 'Reduce la exposicion al agua y a las pendientes.',
+        lead: 'Prepare su vivienda y reduzca riesgos locales.',
         points: [
-          'Limpia canales, bajantes y desagues; identifica zonas altas cercanas.',
-          'Evita estacionar o caminar por quebradas, cunetas y vias de escurrimiento.',
-          'Prepara documentos, radio, agua y una ruta de evacuacion familiar.',
-        ],
+          'Conozca la vulnerabilidad de su sector; evite construir en márgenes o cauces de cursos de agua.',
+          'No arroje desechos sólidos al cauce de ríos o desagües para impedir represamientos o inundaciones.',
+          'Elabore y ejecute planes de emergencia en casa, escuela y trabajo; identifique zonas altas y rutas de escape.',
+          'Mantenga reservas de agua potable, alimentos, linterna, radio a pilas y botiquín a la mano.',
+          'Observe ruidos extraños o grietas en taludes y laderas húmedas que avisen de movimientos en masa.'
+        ]
       },
       {
         label: 'Durante',
-        lead: 'Sube, no cruces y corta la energia si entra agua.',
+        lead: 'Evacue a zonas altas y no se arriesgue.',
         points: [
-          'Muévete a terreno alto y no intentes cruzar corrientes, calles inundadas ni puentes fragiles.',
-          'Si el agua entra en la vivienda, corta la electricidad desde el punto seguro.',
-          'Si hay grietas, ruidos o movimiento en una ladera, aléjate de inmediato por posible deslizamiento.',
-        ],
+          'Diríjase con su familia a una zona alta y segura. No intente cruzar corrientes de agua bajo ninguna circunstancia.',
+          'Si está en un vehículo, no cruce puentes. Si se apaga en zona anegada, abandónelo y camine a zona segura.',
+          'Corte la electricidad general de la vivienda si nota que el nivel del agua empieza a subir.',
+          'Aléjese de postes de luz, tendidos eléctricos caídos y laderas empinadas.'
+        ]
       },
       {
         label: 'Después',
-        lead: 'Regresa despacio y desinfecta todo lo afectado.',
+        lead: 'Regrese de forma segura y desinfecte el hogar.',
         points: [
-          'No regreses hasta que autoridades indiquen que es seguro.',
-          'Revisa paredes, cables y tuberias antes de reactivar servicios.',
-          'Limpia y desinfecta superficies, ropa y agua almacenada que haya tocado la inundacion.',
-        ],
-      },
+          'No regrese a su vivienda inundada antes de que sea inspeccionada por Protección Civil o Bomberos.',
+          'Dé salida a las aguas represadas para evitar criaderos de plagas, contaminación y epidemias.',
+          'Limpie y desinfecte minuciosamente su vivienda (especialmente con cloro) antes de habitarla de nuevo.',
+          'Evite salir a recorrer zonas afectadas y use el teléfono solo para emergencias reales.'
+        ]
+      }
     ],
-    mapTitle: 'Riesgos',
+    mapTitle: 'Puntos clave',
     mapNodes: [
-      { label: 'Agua', detail: 'Si corre, no se cruza; si sube, se evacua.' },
-      { label: 'Electricidad', detail: 'Corta el servicio si el agua alcanza la instalacion.' },
-      { label: 'Pendiente', detail: 'Grietas o ruidos = alejarse de la ladera.' },
-      { label: 'Salud', detail: 'Desinfectar y vigilar sintomas tras la exposicion.' },
+      { label: 'Fuerza del Agua', detail: 'Pocos centímetros de corriente bastan para arrastrar a una persona o vehículo.' },
+      { label: 'Basura cero', detail: 'Mantenga desagües limpios para evitar inundaciones repentinas por obstrucción.' },
+      { label: 'Deslizamientos', detail: 'Taludes saturados pueden fallar horas o días después de cesar las lluvias.' },
+      { label: 'Higiene Post-Inundación', detail: 'Desinfecte cisternas y agua para consumo para prevenir brotes infecciosos.' }
     ],
-    infographicTitle: 'Checklist',
+    infographicTitle: 'Acciones clave',
     infographicItems: [
-      { label: 'Regla 1', detail: 'No caminar ni conducir por agua en movimiento.' },
-      { label: 'Regla 2', detail: 'Subir a zonas altas antes de quedar aislado.' },
-      { label: 'Regla 3', detail: 'No tocar cables caidos ni barro inestable.' },
+      { label: 'Terreno alto', detail: 'Suba inmediatamente si nota un aumento rápido del caudal del río.' },
+      { label: 'Vehículos apagados', detail: 'El agua en movimiento puede flotar y arrastrar vehículos rápidamente.' },
+      { label: 'Electricidad', detail: 'Corte el disyuntor principal para evitar descargas letales por conducción de agua.' }
     ],
-    footer:
-      'Una ladera mojada puede fallar horas despues; mantente lejos de taludes, barrancos y cauces.',
+    footer: 'Plan de autoprotección escolar y comunitario ante lluvias e inundaciones. Alerta temprana: INAMEH.'
   },
   {
     id: 'prevencion-sustancias-quimicas',
-    title: 'Prevención con Sustancias Químicas',
+    title: 'Prevención y Mapa de Riesgos',
     emoji: '🧪',
     image: '/assets/fire_safety_illustration_1774910229007.png',
-    ribbon: 'Aisla el area, evita mezclar productos y evita cualquier fuente de calor o chispa',
+    ribbon: 'ORGANIZACIÓN | Identifique amenazas comunales mediante colores de riesgo',
     summary:
-      'Ante derrames o vapores, la prioridad es identificar el producto, ventilar si es seguro, alejar personas y notificar sin tocar el material.',
+      'Guía para la elaboración de mapas de riesgos comunitarios y prevención química. Aprenda a clasificar peligros con colores normalizados, hacer inventarios de recursos y responder ante incidentes químicos.',
     phases: [
       {
         label: 'Antes',
-        lead: 'Ordena, etiqueta y separa los productos.',
+        lead: 'Organice a su comunidad y elabore el mapa.',
         points: [
-          'Guarda sustancias en envases originales, cerrados y etiquetados.',
-          'No mezcles cloro con amoniaco, acidos ni otros limpiadores.',
-          'Ten guantes, lentes, mascarilla y la ruta para reportar incidentes.',
-        ],
+          'Identifique amenazas locales y recursos humanos/materiales reuniéndose con líderes y profesionales de la salud.',
+          'Dibuje el croquis o mapa colectivamente utilizando los colores normalizados: Rojo (alto), Amarillo (medio), Verde (bajo).',
+          'Almacene sustancias químicas en envases originales cerrados, debidamente etiquetados y alejados de fuentes de calor.',
+          'Evite mezclar productos de limpieza peligrosos, como cloro con amoníaco o ácidos fuertes.'
+        ]
       },
       {
         label: 'Durante',
-        lead: 'Aisla el area y reduce la exposicion.',
+        lead: 'Actúe de forma coordinada según los puntos de riesgo.',
         points: [
-          'Evacua si hay humo, olor fuerte o salpicadura desconocida.',
-          'No enciendas luces, motores ni interruptores si sospechas vapores inflamables.',
-          'Si es seguro, ventila el area y aleja a todos del derrame por la ruta de salida.',
-        ],
+          'Frente a incidentes químicos, aísle el área de inmediato, ventile si es seguro y evacue a favor del viento.',
+          'No encienda fósforos, interruptores ni motores si sospecha la presencia de vapores inflamables.',
+          'Consulte el mapa de riesgos de la edificación o comunidad para identificar las salidas y zonas seguras.',
+          'Use equipo de protección personal (mascarilla, lentes) si maneja sustancias irritantes.'
+        ]
       },
       {
         label: 'Después',
-        lead: 'Descontamina y reporta cualquier sintoma.',
+        lead: 'Descontamine y evalúe las lecciones aprendidas.',
         points: [
-          'Espera la autorizacion oficial antes de reingresar.',
-          'Lava piel y ropa expuesta con abundante agua; busca atencion si hubo contacto.',
-          'Reporta el incidente y conserva el envase o nombre del producto para los equipos de respuesta.',
-        ],
-      },
+          'Lave exhaustivamente con abundante agua la piel y la ropa expuesta a cualquier sustancia nociva.',
+          'Espere el cese de la emergencia y el visto bueno de las autoridades antes de retornar al área afectada.',
+          'Actualice el mapa de riesgos comunitario registrando los eventos recientes y reevalúe las vulnerabilidades.',
+          'Identifique fallas en la respuesta comunitaria y aplique correcciones inmediatas.'
+        ]
+      }
     ],
-    mapTitle: 'Control',
+    mapTitle: 'Puntos clave',
     mapNodes: [
-      { label: 'Identifica', detail: 'Nombre del producto, simbolos y peligros.' },
-      { label: 'Aisla', detail: 'Cierra accesos y separa a las personas.' },
-      { label: 'Ventila', detail: 'Solo si no hay riesgo de explosion o incendio.' },
-      { label: 'Reporta', detail: 'Notifica a emergencias y sigue instrucciones.' },
+      { label: 'Color Rojo', detail: 'Identifica zonas de alto riesgo de desastres o colapsos estructurales.' },
+      { label: 'Color Amarillo', detail: 'Señala áreas de mediano riesgo o zonas que requieren precaución.' },
+      { label: 'Color Verde', detail: 'Indica zonas seguras, puntos de encuentro y áreas de bajo riesgo.' },
+      { label: 'Inventario de Recursos', detail: 'Registre herramientas, vehículos y personal de salud/rescate disponible.' }
     ],
-    infographicTitle: 'Checklist',
+    infographicTitle: 'Acciones clave',
     infographicItems: [
-      { label: 'Nunca mezcles', detail: 'Cloro + amoniaco = gases toxicos.' },
-      { label: 'Evita chispas', detail: 'Cualquier fuente de ignicion puede empeorar el incidente.' },
-      { label: 'Si hubo contacto', detail: 'Agua abundante y ayuda medica inmediata.' },
+      { label: 'Comité de PC', detail: 'Organice comités y brigadas locales para guiar a la comunidad.' },
+      { label: 'Sin mezclas', detail: 'Cloro + amoníaco produce vapores de cloramina altamente tóxicos.' },
+      { label: 'Monitoreo', detail: 'Recorra la comunidad periódicamente para identificar nuevas amenazas.' }
     ],
-    footer:
-      'Si el derrame huele fuerte, arde la garganta o irrita los ojos, sal del area y pide apoyo especializado.',
+    footer: 'La organización comunitaria es el primer recurso de respuesta en las primeras 72 horas.'
   },
   {
     id: 'incendios',
-    title: 'Incendios',
+    title: 'Incendios y Extintores',
     emoji: '🔥',
     image: '/assets/the_image_captures_a_dramatic_scene_of_a_forest_fire_the.jpg',
-    ribbon: 'La salida ordenada y el cierre de puertas frenan humo, calor y propagacion',
+    ribbon: 'SEGURIDAD | Use el extintor correcto y agáchese para evitar el humo denso',
     summary:
-      'En incendios la meta es evacuar rapido, no inhalar humo y evitar reingresar hasta que bomberos o proteccion civil den la autorizacion.',
+      'Uso adecuado de extintores y autoprotección ante incendios. Conozca las clases de fuego, cómo accionar un extintor portátil y las pautas para evacuar un recinto con presencia de humo.',
     phases: [
       {
         label: 'Antes',
-        lead: 'Reduce las causas mas comunes de fuego.',
+        lead: 'Prevenga cortocircuitos y equipe extintores.',
         points: [
-          'Revisa cables, enchufes, gas y sobrecarga electrica con frecuencia.',
-          'Ten extintor, detectores de humo y un plan de evacuacion practicado.',
-          'Mantén salidas despejadas y materiales combustibles lejos de calor.',
-        ],
+          'Revise periódicamente instalaciones eléctricas, cables, enchufes y conexiones de gas doméstico.',
+          'Disponga de extintores portátiles según las clases de fuego: Polvo Químico Seco (P.Q.S.) o Dióxido de Carbono (CO2).',
+          'Evite almacenar líquidos inflamables y corrosivos en áreas de tránsito o cerca del calor.',
+          'Mantenga rutas de evacuación libres de obstáculos y defina un punto de reunión exterior claro.'
+        ]
       },
       {
         label: 'Durante',
-        lead: 'Evacua, baja el humo y usa ayuda inmediata.',
+        lead: 'Evacue ordenadamente y controle focos pequeños.',
         points: [
-          'Sal de inmediato; si hay humo, agachate y avanza por debajo de la capa mas densa.',
-          'Cierra puertas al salir si puedes hacerlo sin retrasarte.',
-          'Si tu ropa se enciende, detente, tirate al suelo y rueda.',
-        ],
+          'Si el fuego es incipiente y cuenta con extintor, úselo retirando el pasador, apuntando a la base y presionando.',
+          'Si hay presencia de humo, agáchese y avance a gatas a ras del suelo para evitar respirar gases tóxicos.',
+          'Cierre las puertas al salir sin echar llave para contener el fuego y restringir el flujo de oxígeno.',
+          'Si su ropa se enciende: deténgase, tírese al suelo y ruede para sofocar las llamas. ¡No corra!',
+          'Llamar de inmediato a los bomberos (911) y activar el sistema de alarmas.'
+        ]
       },
       {
         label: 'Después',
-        lead: 'No regreses hasta que el area sea segura.',
+        lead: 'Espere la aprobación de bomberos para reingresar.',
         points: [
-          'No entres a estructuras con brasas, cables o olor a gas.',
-          'Busca atencion si inhalaste humo o sufriste quemaduras.',
-          'Reporta puntos calientes y confirma que todos esten ubicados.',
-        ],
-      },
+          'No ingrese a la edificación afectada hasta recibir el visto bueno formal de bomberos y Protección Civil.',
+          'Preste atención a cables sueltos, estructuras calientes y fugas residuales de gas.',
+          'Busque atención médica inmediata si inhaló gases calientes o sufrió quemaduras.',
+          'Confirme que todo el personal o miembros del hogar estén localizados en el punto de encuentro.'
+        ]
+      }
     ],
-    mapTitle: 'Mapa de accion inmediata',
+    mapTitle: 'Puntos clave',
     mapNodes: [
-      { label: 'Alarma', detail: 'Activa aviso y llama a emergencias.' },
-      { label: 'Ruta', detail: 'Sal por la via mas corta y despejada.' },
-      { label: 'Humo', detail: 'Agachate y cubre nariz y boca.' },
-      { label: 'Punto de encuentro', detail: 'Cuenta personas y espera instrucciones.' },
+      { label: 'Clase A', detail: 'Fuegos originados en sólidos comunes (madera, papel, textiles, desperdicios).' },
+      { label: 'Clase B / C', detail: 'Clase B (líquidos inflamables/grasas) y Clase C (equipos eléctricos energizados).' },
+      { label: 'CO2', detail: 'Extintor de Dióxido de Carbono: preferible para fuegos eléctricos ya que no es conductor.' },
+      { label: 'P.Q.S.', detail: 'Polvo Químico Seco: apto para fuegos A, B y C. Excelente extintor multipropósito.' }
     ],
-    infographicTitle: 'Checklist',
+    infographicTitle: 'Acciones clave',
     infographicItems: [
-      { label: 'Regla 1', detail: 'No usar ascensor ni volver por objetos.' },
-      { label: 'Regla 2', detail: 'Cerrar puertas ayuda a frenar el fuego.' },
-      { label: 'Regla 3', detail: 'Si la ropa arde: detenerse, tirarse y rodar.' },
+      { label: 'Línea de Aire', detail: 'El aire más respirable se encuentra a ras del suelo; muévase agachado.' },
+      { label: 'Sin ascensores', detail: 'Pueden fallar repentinamente por el incendio dejándolo atrapado por el humo.' },
+      { label: 'Ruede en el suelo', detail: 'Correr aviva el fuego de su ropa; rodar detiene la entrada de oxígeno.' }
     ],
-    footer:
-      'La mayor amenaza en un incendio es el humo; evacua temprano y protege a ninos, mayores y personas con discapacidad primero.',
-  },
+    footer: 'El humo y los gases tóxicos representan la principal amenaza para la vida en un incendio.'
+  }
 ];
 
 export const emergencyTopicById = Object.fromEntries(
