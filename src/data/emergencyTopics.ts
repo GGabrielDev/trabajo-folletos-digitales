@@ -201,12 +201,12 @@ export const emergencyTopics: EmergencyTopic[] = [
   },
   {
     id: 'prevencion-sustancias-quimicas',
-    title: 'Prevención y Mapa de Riesgos',
+    title: 'Prevención y Derrames Químicos',
     emoji: '🧪',
-    image: '/assets/fire_safety_illustration_1774910229007.png',
-    ribbon: 'ORGANIZACIÓN | Identifique amenazas comunales mediante colores de riesgo',
+    image: '/assets/chemical_spill_scene.png',
+    ribbon: 'ALERTA | Identifique el producto, evite contacto directo y evacue a favor del viento',
     summary:
-      'Guía para la elaboración de mapas de riesgos comunitarios y prevención química. Aprenda a clasificar peligros con colores normalizados, hacer inventarios de recursos y responder ante incidentes químicos.',
+      'Protocolos de seguridad y respuesta ante derrames químicos, fugas de sustancias nocivas y manipulación de productos peligrosos. Aprenda a reconocer etiquetas de seguridad, ventilar zonas de riesgo y aplicar primeros auxilios de descontaminación.',
     phases: [
       {
         label: 'Antes',

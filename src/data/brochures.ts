@@ -144,7 +144,7 @@ export const brochures: Brochure[] = [
     topicNumber: 'Tema 04',
     topicLabel: 'Riesgos especificos',
     badge: 'Otras amenazas',
-    image: '/assets/fire_safety_illustration_1774910229007.png',
+    image: '/assets/chemical_spill_scene.png',
     dashboardSummary: 'Incendios, derrames and otros eventos puntuales de riesgo.',
     title: 'Riesgos Especificos y Amenazas Ambientales',
     summary: 'Medidas de prevencion y reaccion ante incendios forestales, derrames de hidrocarburos o sustancias quimicas y enjambres peligrosos en el territorio nacional.',
