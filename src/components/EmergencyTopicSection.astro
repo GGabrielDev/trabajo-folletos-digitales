@@ -52,7 +52,7 @@ const phaseBackgroundByLabel: Record<'Antes' | 'Durante' | 'Después', string> =
         </div>
 
         <div class="pc-ribbon max-w-xl px-4 py-3 text-xs font-bold uppercase tracking-[0.12em] sm:text-sm">
-          {topic.ribbon}
+          Emergencias: 911 | Protección Civil: 0800-7248451
         </div>
       </div>
     </div>
@@ -140,8 +140,7 @@ const phaseBackgroundByLabel: Record<'Antes' | 'Durante' | 'Después', string> =
       </div>
 
       <div class="pc-ribbon flex flex-col gap-2 px-4 py-3 text-xs font-bold uppercase tracking-[0.12em] sm:flex-row sm:items-center sm:justify-between sm:text-sm">
-        <span>Emergencias: 911</span>
-        <span>Protección Civil: 0800-7248451</span>
+        <span>{topic.ribbon}</span>
         <span>{topic.footer}</span>
       </div>
     </div>
