@@ -33,7 +33,7 @@ export const emergencyTopics: EmergencyTopic[] = [
   {
     id: 'sismos',
     title: 'Sismos',
-    emoji: '🫨',
+    emoji: '🏚️',
     image: '/assets/a_pile_of_rubble_with_various_objects_scattered_throughout.jpg',
     ribbon: 'ALERTA | Conserve la calma, protéjase de objetos que caigan y use escaleras',
     summary:
