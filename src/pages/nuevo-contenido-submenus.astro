@@ -161,7 +161,7 @@ const topicDetails = {
                 <!-- Action Button -->
                 <div class="relative z-10 mt-4">
                   <div 
-                    class="w-full py-2 px-3 bg-white hover:bg-gray-100 text-[var(--color-secondary)] font-extrabold text-[0.7rem] uppercase tracking-wider rounded flex items-center justify-center gap-1.5 transition-colors shadow-sm"
+                    class={`w-full py-2 px-3 ${detail.bgColor} ${detail.hoverBgColor} text-white font-extrabold text-[0.7rem] uppercase tracking-wider rounded flex items-center justify-center gap-1.5 transition-colors shadow-sm`}
                   >
                     <span>Ver Información</span>
                     <ChevronRight size={12} strokeWidth={3} />
