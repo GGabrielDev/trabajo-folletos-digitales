@@ -29,7 +29,7 @@ const phaseBackgroundByLabel: Record<'Antes' | 'Durante' | 'Después', string> =
   )}
   {/* Full Width Content Header Section */}
   <div
-    class="relative flex min-h-[18rem] items-end overflow-hidden bg-[var(--color-secondary)] text-white sm:min-h-[22rem]"
+    class="relative overflow-hidden bg-[var(--color-secondary)] text-white"
     style={`background-image: var(--gradient-overlay), url('${topic.image}'); background-size: cover; background-position: center;`}
   >
     <div class="pc-dot-grid absolute inset-0 opacity-50"></div>
@@ -37,7 +37,7 @@ const phaseBackgroundByLabel: Record<'Antes' | 'Durante' | 'Después', string> =
       class="absolute inset-0 bg-no-repeat opacity-10"
       style="background-image: url('/assets/LOGO-PC-NUEVO-e1754668914257.png'); background-size: min(42vw, 18rem); background-position: right -1rem top -1rem;"
     ></div>
-    <div class="relative z-10 mx-auto w-full max-w-6xl px-4 py-5 sm:px-6 sm:py-6 lg:px-8 flex flex-col gap-4 lg:flex-row lg:items-end lg:justify-between">
+    <div class="relative z-10 mx-auto w-full max-w-6xl px-4 py-8 sm:px-6 sm:py-10 lg:px-8 flex flex-col gap-6 md:flex-row md:items-center md:justify-between">
       <div class="max-w-3xl">
         <div class="mb-3 flex flex-wrap items-center gap-2">
           <span class="pc-tag pc-tag-primary">Tema {index + 1}</span>
