@@ -53,6 +53,16 @@ const topicDetails = {
     textClass: 'text-emerald-600',
     description: 'Conoce los riesgos de deslizamientos y cómo protegerte.',
     icon: '⛰️'
+  },
+  'prevencion-sustancias-quimicas': {
+    number: '06',
+    colorClass: 'amber',
+    bgColor: 'bg-amber-600',
+    hoverBgColor: 'hover:bg-amber-700',
+    borderColor: 'border-amber-600',
+    textClass: 'text-amber-600',
+    description: 'Guía de mapas de riesgo y prevención química comunitaria.',
+    icon: '🧪'
   }
 };
 ---
@@ -105,9 +115,9 @@ const topicDetails = {
           </p>
         </div>
 
-        <!-- 5 Cards Layout (Desktop: Big Cards, Mobile: Slim Cards) -->
+        <!-- 6 Cards Layout (Desktop: Big Cards, Mobile: Slim Cards) -->
         <!-- Desktop Grid -->
-        <div class="hidden md:grid md:grid-cols-5 gap-4 lg:gap-6 mb-12">
+        <div class="hidden md:grid md:grid-cols-3 lg:grid-cols-6 gap-4 mb-12">
           {emergencyTopics.map((topic) => {
             const detail = topicDetails[topic.id as keyof typeof topicDetails] || {
               number: '00',

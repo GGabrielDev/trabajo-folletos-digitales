@@ -307,6 +307,61 @@ export const emergencyTopics: EmergencyTopic[] = [
       { label: 'Líneas de servicio', detail: 'Reporte fugas de agua en taludes, ya que la infiltración acelera el colapso del terreno.' }
     ],
     footer: 'Plan de prevención y mitigación ante deslizamientos de tierra. Protección Civil.'
+  },
+  {
+    id: 'prevencion-sustancias-quimicas',
+    title: 'Prevención y Mapa de Riesgos',
+    emoji: '🧪',
+    image: '/assets/fire_safety_illustration_1774910229007.png',
+    ribbon: 'ORGANIZACIÓN | Identifique amenazas comunales mediante colores de riesgo',
+    summary:
+      'Guía para la elaboración de mapas de riesgos comunitarios y prevención química. Aprenda a clasificar peligros con colores normalizados, hacer inventarios de recursos y responder ante incidentes químicos.',
+    phases: [
+      {
+        label: 'Antes',
+        lead: 'Organice a su comunidad y elabore el mapa.',
+        points: [
+          'Identifique amenazas locales y recursos humanos/materiales reuniéndose con líderes y profesionales de la salud.',
+          'Dibuje el croquis o mapa colectivamente utilizando los colores normalizados: Rojo (alto), Amarillo (medio), Verde (bajo).',
+          'Almacene sustancias químicas en envases originales cerrados, debidamente etiquetados y alejados de fuentes de calor.',
+          'Evite mezclar productos de limpieza peligrosos, como cloro con amoníaco o ácidos fuertes.'
+        ]
+      },
+      {
+        label: 'Durante',
+        lead: 'Actúe de forma coordinada según los puntos de riesgo.',
+        points: [
+          'Frente a incidentes químicos, aísle el área de inmediato, ventile si es seguro y evacue a favor del viento.',
+          'No encienda fósforos, interruptores ni motores si sospecha la presencia de vapores inflamables.',
+          'Consulte el mapa de riesgos de la edificación o comunidad para identificar las salidas y zonas seguras.',
+          'Use equipo de protección personal (mascarilla, lentes) si maneja sustancias irritantes.'
+        ]
+      },
+      {
+        label: 'Después',
+        lead: 'Descontamine y evalúe las lecciones aprendidas.',
+        points: [
+          'Lave exhaustivamente con abundante agua la piel y la ropa expuesta a cualquier sustancia nociva.',
+          'Espere el cese de la emergencia y el visto bueno de las autoridades antes de retornar al área afectada.',
+          'Actualice el mapa de riesgos comunitario registrando los eventos recientes y reevalúe las vulnerabilidades.',
+          'Identifique fallas en la respuesta comunitaria y aplique correcciones inmediatas.'
+        ]
+      }
+    ],
+    mapTitle: 'Puntos clave',
+    mapNodes: [
+      { label: 'Color Rojo', detail: 'Identifica zonas de alto riesgo de desastres o colapsos estructurales.' },
+      { label: 'Color Amarillo', detail: 'Señala áreas de mediano riesgo o zonas que requieren precaución.' },
+      { label: 'Color Verde', detail: 'Indica zonas seguras, puntos de encuentro y áreas de bajo riesgo.' },
+      { label: 'Inventario de Recursos', detail: 'Registre herramientas, vehículos y personal de salud/rescate disponible.' }
+    ],
+    infographicTitle: 'Acciones clave',
+    infographicItems: [
+      { label: 'Comité de PC', detail: 'Organice comités y brigadas locales para guiar a la comunidad.' },
+      { label: 'Sin mezclas', detail: 'Cloro + amoníaco produce vapores de cloramina altamente tóxicos.' },
+      { label: 'Monitoreo', detail: 'Recorra la comunidad periódicamente para identificar nuevas amenazas.' }
+    ],
+    footer: 'La organización comunitaria es el primer recurso de respuesta en las primeras 72 horas.'
   }
 ];
 
