@@ -33,7 +33,7 @@ export const emergencyTopics: EmergencyTopic[] = [
   {
     id: 'sismos',
     title: 'Sismos',
-    emoji: '🫨',
+    emoji: '🏚️',
     image: '/assets/a_pile_of_rubble_with_various_objects_scattered_throughout.jpg',
     ribbon: 'ALERTA | Conserve la calma, protéjase de objetos que caigan y use escaleras',
     summary:
@@ -144,13 +144,13 @@ export const emergencyTopics: EmergencyTopic[] = [
     footer: 'Sistema Nacional de Gestión de Riesgo. Reporte emergencias al 911.'
   },
   {
-    id: 'lluvias-inundaciones-deslizamientos',
-    title: 'Lluvias e Inundaciones',
+    id: 'inundaciones',
+    title: 'Inundaciones',
     emoji: '🌧️',
     image: '/assets/the_image_captures_a_scene_of_a_city_submerged_in_flo.jpg',
     ribbon: 'PREVENCIÓN | Evite cruzar corrientes de agua y trasládese a zonas elevadas',
     summary:
-      'Plan de actuación ante inundaciones, crecidas de ríos y deslizamientos. Aprenda a evaluar la vulnerabilidad de su vivienda, limpiar drenajes y desinfectar su hogar tras la emergencia.',
+      'Plan de actuación ante inundaciones, crecidas de ríos y lluvias intensas. Aprenda a evaluar la vulnerabilidad de su vivienda, limpiar drenajes y desinfectar su hogar tras la emergencia.',
     phases: [
       {
         label: 'Antes',
@@ -159,8 +159,7 @@ export const emergencyTopics: EmergencyTopic[] = [
           'Conozca la vulnerabilidad de su sector; evite construir en márgenes o cauces de cursos de agua.',
           'No arroje desechos sólidos al cauce de ríos o desagües para impedir represamientos o inundaciones.',
           'Elabore y ejecute planes de emergencia en casa, escuela y trabajo; identifique zonas altas y rutas de escape.',
-          'Mantenga reservas de agua potable, alimentos, linterna, radio a pilas y botiquín a la mano.',
-          'Observe ruidos extraños o grietas en taludes y laderas húmedas que avisen de movimientos en masa.'
+          'Mantenga reservas de agua potable, alimentos, linterna, radio a pilas y botiquín a la mano.'
         ]
       },
       {
@@ -170,7 +169,7 @@ export const emergencyTopics: EmergencyTopic[] = [
           'Diríjase con su familia a una zona alta y segura. No intente cruzar corrientes de agua bajo ninguna circunstancia.',
           'Si está en un vehículo, no cruce puentes. Si se apaga en zona anegada, abandónelo y camine a zona segura.',
           'Corte la electricidad general de la vivienda si nota que el nivel del agua empieza a subir.',
-          'Aléjese de postes de luz, tendidos eléctricos caídos y laderas empinadas.'
+          'Aléjese de postes de luz y tendidos eléctricos caídos.'
         ]
       },
       {
@@ -188,7 +187,6 @@ export const emergencyTopics: EmergencyTopic[] = [
     mapNodes: [
       { label: 'Fuerza del Agua', detail: 'Pocos centímetros de corriente bastan para arrastrar a una persona o vehículo.' },
       { label: 'Basura cero', detail: 'Mantenga desagües limpios para evitar inundaciones repentinas por obstrucción.' },
-      { label: 'Deslizamientos', detail: 'Taludes saturados pueden fallar horas o días después de cesar las lluvias.' },
       { label: 'Higiene Post-Inundación', detail: 'Desinfecte cisternas y agua para consumo para prevenir brotes infecciosos.' }
     ],
     infographicTitle: 'Acciones clave',
@@ -200,63 +198,8 @@ export const emergencyTopics: EmergencyTopic[] = [
     footer: 'Plan de autoprotección escolar y comunitario ante lluvias e inundaciones. Alerta temprana: INAMEH.'
   },
   {
-    id: 'prevencion-sustancias-quimicas',
-    title: 'Prevención y Mapa de Riesgos',
-    emoji: '🧪',
-    image: '/assets/fire_safety_illustration_1774910229007.png',
-    ribbon: 'ORGANIZACIÓN | Identifique amenazas comunales mediante colores de riesgo',
-    summary:
-      'Guía para la elaboración de mapas de riesgos comunitarios y prevención química. Aprenda a clasificar peligros con colores normalizados, hacer inventarios de recursos y responder ante incidentes químicos.',
-    phases: [
-      {
-        label: 'Antes',
-        lead: 'Organice a su comunidad y elabore el mapa.',
-        points: [
-          'Identifique amenazas locales y recursos humanos/materiales reuniéndose con líderes y profesionales de la salud.',
-          'Dibuje el croquis o mapa colectivamente utilizando los colores normalizados: Rojo (alto), Amarillo (medio), Verde (bajo).',
-          'Almacene sustancias químicas en envases originales cerrados, debidamente etiquetados y alejados de fuentes de calor.',
-          'Evite mezclar productos de limpieza peligrosos, como cloro con amoníaco o ácidos fuertes.'
-        ]
-      },
-      {
-        label: 'Durante',
-        lead: 'Actúe de forma coordinada según los puntos de riesgo.',
-        points: [
-          'Frente a incidentes químicos, aísle el área de inmediato, ventile si es seguro y evacue a favor del viento.',
-          'No encienda fósforos, interruptores ni motores si sospecha la presencia de vapores inflamables.',
-          'Consulte el mapa de riesgos de la edificación o comunidad para identificar las salidas y zonas seguras.',
-          'Use equipo de protección personal (mascarilla, lentes) si maneja sustancias irritantes.'
-        ]
-      },
-      {
-        label: 'Después',
-        lead: 'Descontamine y evalúe las lecciones aprendidas.',
-        points: [
-          'Lave exhaustivamente con abundante agua la piel y la ropa expuesta a cualquier sustancia nociva.',
-          'Espere el cese de la emergencia y el visto bueno de las autoridades antes de retornar al área afectada.',
-          'Actualice el mapa de riesgos comunitario registrando los eventos recientes y reevalúe las vulnerabilidades.',
-          'Identifique fallas en la respuesta comunitaria y aplique correcciones inmediatas.'
-        ]
-      }
-    ],
-    mapTitle: 'Puntos clave',
-    mapNodes: [
-      { label: 'Color Rojo', detail: 'Identifica zonas de alto riesgo de desastres o colapsos estructurales.' },
-      { label: 'Color Amarillo', detail: 'Señala áreas de mediano riesgo o zonas que requieren precaución.' },
-      { label: 'Color Verde', detail: 'Indica zonas seguras, puntos de encuentro y áreas de bajo riesgo.' },
-      { label: 'Inventario de Recursos', detail: 'Registre herramientas, vehículos y personal de salud/rescate disponible.' }
-    ],
-    infographicTitle: 'Acciones clave',
-    infographicItems: [
-      { label: 'Comité de PC', detail: 'Organice comités y brigadas locales para guiar a la comunidad.' },
-      { label: 'Sin mezclas', detail: 'Cloro + amoníaco produce vapores de cloramina altamente tóxicos.' },
-      { label: 'Monitoreo', detail: 'Recorra la comunidad periódicamente para identificar nuevas amenazas.' }
-    ],
-    footer: 'La organización comunitaria es el primer recurso de respuesta en las primeras 72 horas.'
-  },
-  {
     id: 'incendios',
-    title: 'Incendios y Extintores',
+    title: 'Incendios',
     emoji: '🔥',
     image: '/assets/the_image_captures_a_dramatic_scene_of_a_forest_fire_the.jpg',
     ribbon: 'SEGURIDAD | Use el extintor correcto y agáchese para evitar el humo denso',
@@ -309,6 +252,116 @@ export const emergencyTopics: EmergencyTopic[] = [
       { label: 'Ruede en el suelo', detail: 'Correr aviva el fuego de su ropa; rodar detiene la entrada de oxígeno.' }
     ],
     footer: 'El humo y los gases tóxicos representan la principal amenaza para la vida en un incendio.'
+  },
+  {
+    id: 'deslizamientos',
+    title: 'Deslizamientos',
+    emoji: '⛰️',
+    image: '/assets/the_image_captures_a_serene_scene_of_a_rocky_cliff.jpg',
+    ribbon: 'ALERTA | Observe grietas en el suelo, inclinación de árboles y flujo de lodo',
+    summary:
+      'Guía de prevención y respuesta ante deslizamientos de tierra y flujos de lodo. Aprenda a reconocer señales de inestabilidad en pendientes y cómo evacuar de forma segura.',
+    phases: [
+      {
+        label: 'Antes',
+        lead: 'Prepare su terreno y identifique señales.',
+        points: [
+          'Evite construir en laderas empinadas o áreas con antecedentes de deslizamientos de tierra.',
+          'Observe si hay grietas nuevas en las laderas, cercas inclinadas o deformaciones en la base de taludes.',
+          'Siembre plantas de raíces profundas que ayuden a compactar el suelo y prevenir la erosión.',
+          'Canalice el agua de lluvia mediante cunetas y drenajes para evitar la saturación del terreno.'
+        ]
+      },
+      {
+        label: 'Durante',
+        lead: 'Evacue lateralmente de inmediato.',
+        points: [
+          'Si escucha un estruendo o ve movimiento de tierra, evacue lateralmente y busque terreno firme.',
+          'Aléjese de la trayectoria del deslizamiento; no intente cruzar zonas de flujo de lodo o escombros.',
+          'Si no puede evacuar, resguárdese debajo de un mueble resistente y proteja su cabeza.',
+          'Manténgase atento a ruidos inusuales como árboles crujiendo o piedras chocando.'
+        ]
+      },
+      {
+        label: 'Después',
+        lead: 'Evite el área afectada por inestabilidad.',
+        points: [
+          'No regrese al área del deslizamiento; el terreno puede seguir inestable y generar nuevos derrumbes.',
+          'Revise si hay personas atrapadas o heridas sin entrar directamente al área de peligro.',
+          'Informe a Protección Civil sobre daños en vías públicas, postes caídos o represamientos de ríos.',
+          'Manténgase informado y siga las indicaciones de los equipos de rescate.'
+        ]
+      }
+    ],
+    mapTitle: 'Puntos clave',
+    mapNodes: [
+      { label: 'Talud Saturado', detail: 'Las lluvias prolongadas saturan la tierra, reduciendo su resistencia y provocando fallas.' },
+      { label: 'Evacuación Lateral', detail: 'Desplácese hacia los lados de la trayectoria del alud, nunca en su misma dirección.' },
+      { label: 'Señal de Alerta', detail: 'La inclinación de árboles, postes o cercas indica un movimiento lento pero activo.' },
+      { label: 'Zonas de Riesgo', detail: 'Identifique si su comunidad está ubicada al pie de laderas o en valles estrechos.' }
+    ],
+    infographicTitle: 'Acciones clave',
+    infographicItems: [
+      { label: 'Monitoreo', detail: 'Preste atención a las grietas en paredes o pisos de su vivienda durante la época de lluvias.' },
+      { label: 'Estruendo', detail: 'Un ruido sordo o crujidos intensos son señales de un deslizamiento inminente.' },
+      { label: 'Líneas de servicio', detail: 'Reporte fugas de agua en taludes, ya que la infiltración acelera el colapso del terreno.' }
+    ],
+    footer: 'Plan de prevención y mitigación ante deslizamientos de tierra. Protección Civil.'
+  },
+  {
+    id: 'prevencion-sustancias-quimicas',
+    title: 'Riesgos Químicos',
+    emoji: '🧪',
+    image: '/assets/fire_safety_illustration_1774910229007.png',
+    ribbon: 'ORGANIZACIÓN | Identifique amenazas comunales mediante colores de riesgo',
+    summary:
+      'Guía para la elaboración de mapas de riesgos comunitarios y prevención química. Aprenda a clasificar peligros con colores normalizados, hacer inventarios de recursos y responder ante incidentes químicos.',
+    phases: [
+      {
+        label: 'Antes',
+        lead: 'Organice a su comunidad y elabore el mapa.',
+        points: [
+          'Identifique amenazas locales y recursos humanos/materiales reuniéndose con líderes y profesionales de la salud.',
+          'Dibuje el croquis o mapa colectivamente utilizando los colores normalizados: Rojo (alto), Amarillo (medio), Verde (bajo).',
+          'Almacene sustancias químicas en envases originales cerrados, debidamente etiquetados y alejados de fuentes de calor.',
+          'Evite mezclar productos de limpieza peligrosos, como cloro con amoníaco o ácidos fuertes.'
+        ]
+      },
+      {
+        label: 'Durante',
+        lead: 'Actúe de forma coordinada según los puntos de riesgo.',
+        points: [
+          'Frente a incidentes químicos, aísle el área de inmediato, ventile si es seguro y evacue a favor del viento.',
+          'No encienda fósforos, interruptores ni motores si sospecha la presencia de vapores inflamables.',
+          'Consulte el mapa de riesgos de la edificación o comunidad para identificar las salidas y zonas seguras.',
+          'Use equipo de protección personal (mascarilla, lentes) si maneja sustancias irritantes.'
+        ]
+      },
+      {
+        label: 'Después',
+        lead: 'Descontamine y evalúe las lecciones aprendidas.',
+        points: [
+          'Lave exhaustivamente con abundante agua la piel y la ropa expuesta a cualquier sustancia nociva.',
+          'Espere el cese de la emergencia y el visto bueno de las autoridades antes de retornar al área afectada.',
+          'Actualice el mapa de riesgos comunitario registrando los eventos recientes y reevalúe las vulnerabilidades.',
+          'Identifique fallas en la respuesta comunitaria y aplique correcciones inmediatas.'
+        ]
+      }
+    ],
+    mapTitle: 'Puntos clave',
+    mapNodes: [
+      { label: 'Color Rojo', detail: 'Identifica zonas de alto riesgo de desastres o colapsos estructurales.' },
+      { label: 'Color Amarillo', detail: 'Señala áreas de mediano riesgo o zonas que requieren precaución.' },
+      { label: 'Color Verde', detail: 'Indica zonas seguras, puntos de encuentro y áreas de bajo riesgo.' },
+      { label: 'Inventario de Recursos', detail: 'Registre herramientas, vehículos y personal de salud/rescate disponible.' }
+    ],
+    infographicTitle: 'Acciones clave',
+    infographicItems: [
+      { label: 'Comité de PC', detail: 'Organice comités y brigadas locales para guiar a la comunidad.' },
+      { label: 'Sin mezclas', detail: 'Cloro + amoníaco produce vapores de cloramina altamente tóxicos.' },
+      { label: 'Monitoreo', detail: 'Recorra la comunidad periódicamente para identificar nuevas amenazas.' }
+    ],
+    footer: 'La organización comunitaria es el primer recurso de respuesta en las primeras 72 horas.'
   }
 ];
 

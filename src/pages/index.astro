@@ -22,18 +22,10 @@ const menuOptions = [
   {
     href: '/nuevo-contenido-submenus',
     topicNumber: 'Menú 03',
-    topicLabel: 'Seguridad y Gestión del Riesgo (5 submenús)',
+    topicLabel: 'Seguridad y Gestión del Riesgo (6 submenús)',
     badge: 'Gestión de Riesgo',
     image: '/assets/firefighters_rescue.png',
-    dashboardSummary: 'Cinco temas de emergencia con acceso por botones y contenido organizado en Antes, Durante y Después.',
-  },
-  {
-    href: '/nuevo-contenido-completo',
-    topicNumber: 'Menú 04',
-    topicLabel: 'Seguridad y Gestión del Riesgo (vista continua)',
-    badge: 'Gestión de Riesgo',
-    image: '/assets/rescue_team_orange.png',
-    dashboardSummary: 'El mismo contenido en una sola lectura larga, con timelines y resúmenes visuales.',
+    dashboardSummary: 'Seis temas de emergencia con acceso por botones y contenido organizado en Antes, Durante y Después.',
   },
 ];
 ---
@@ -89,7 +81,7 @@ const menuOptions = [
                     </div>
                 </div>
 
-                <div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+                <div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
                     {menuOptions.map((option) => (
                         <a href={option.href} class="pc-card pc-diagonal pc-hard-shadow group relative flex flex-col min-h-[15rem] sm:min-h-[19rem] overflow-hidden transition-transform hover:translate-y-[-4px]">
                             <div class="pc-card-image absolute inset-0" style={`background-image: url('${option.image}'); background-size: cover; background-position: center;`}></div>

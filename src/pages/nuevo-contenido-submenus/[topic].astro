@@ -1,5 +1,4 @@
 ---
-import EmergencyHeader from '../../components/EmergencyHeader.astro';
 import EmergencyTopicSection from '../../components/EmergencyTopicSection.astro';
 import Layout from '../../layouts/Layout.astro';
 import { emergencyTopics } from '../../data/emergencyTopics';
@@ -14,17 +13,8 @@ export function getStaticPaths() {
 const { topic, index } = Astro.props;
 ---
 
-<Layout title={`Seguridad y Gestion de Riesgo - ${topic.title}`}>
+<Layout title={`Seguridad y Gestión de Riesgo - ${topic.title}`}>
   <main class="min-h-screen bg-[var(--color-bg-light)]">
-    <EmergencyHeader
-      title="Seguridad y Gestion de Riesgo"
-      subtitle="En caso de emergencia, contactar a los numeros de emergencia: 911 y 0800-7248451"
-    />
-
-    <section class="bg-[var(--color-bg-light)]">
-      <div class="mx-auto max-w-6xl px-4 py-6 sm:px-6 sm:py-8 lg:px-8">
-        <EmergencyTopicSection topic={topic} index={index} showFloatingBackButton backHref="/nuevo-contenido-submenus" />
-      </div>
-    </section>
+    <EmergencyTopicSection topic={topic} index={index} showFloatingBackButton backHref="/nuevo-contenido-submenus" />
   </main>
 </Layout>
