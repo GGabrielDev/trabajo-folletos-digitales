@@ -86,7 +86,7 @@ const topicDetails = {
             </div>
             <div>
               <p class="text-[0.65rem] uppercase tracking-wider text-white/70 font-semibold">En caso de emergencia</p>
-              <p class="text-sm font-bold text-white sm:text-base">Call 911 | 0800-7248451</p>
+              <p class="text-sm font-bold text-white sm:text-base">Llama 911 | 0800-7248451</p>
             </div>
           </div>
         </div>
@@ -119,40 +119,45 @@ const topicDetails = {
               icon: '🚨'
             };
             return (
-              <div class={`flex flex-col bg-white rounded-xl border border-gray-150 overflow-hidden shadow-sm hover:shadow-md transition-all duration-300 transform hover:-translate-y-1 justify-between`}>
-                <div class="p-5 flex-1 flex flex-col items-center text-center">
+              <a 
+                href={`/nuevo-contenido-submenus/${topic.id}`}
+                class={`group relative flex flex-col min-h-[17rem] rounded-xl overflow-hidden shadow-sm hover:shadow-md transition-all duration-300 transform hover:-translate-y-1 justify-between p-5 border-l-4 ${detail.borderColor} text-white`}
+              >
+                <!-- Background Image with Overlay -->
+                <div class="absolute inset-0 bg-cover bg-center transition-transform duration-300 group-hover:scale-[1.04]" style={`background-image: var(--gradient-overlay), url('${topic.image}');`}></div>
+                
+                <div class="relative z-10 flex-1 flex flex-col items-center text-center">
                   <!-- Number Circle Badge -->
-                  <div class={`w-8 h-8 rounded-full ${detail.bgColor} flex items-center justify-center text-white text-xs font-black mb-4 shadow-sm`}>
+                  <div class={`w-8 h-8 rounded-full ${detail.bgColor} flex items-center justify-center text-white text-xs font-black mb-3 shadow-md`}>
                     {detail.number}
                   </div>
                   
                   <!-- Icon -->
-                  <div class="text-4xl mb-3 filter drop-shadow-sm select-none">
+                  <div class="text-3xl mb-2 filter drop-shadow-md select-none">
                     {detail.icon}
                   </div>
 
                   <!-- Title -->
-                  <h3 class="text-sm font-black tracking-wider text-[var(--color-secondary)] uppercase mb-2">
+                  <h3 class="text-sm font-black tracking-wider text-white uppercase mb-2">
                     {topic.title}
                   </h3>
 
                   <!-- Description -->
-                  <p class="text-[0.72rem] leading-relaxed text-gray-500 font-medium">
+                  <p class="text-[0.72rem] leading-relaxed text-white/80 font-medium">
                     {detail.description}
                   </p>
                 </div>
 
                 <!-- Action Button -->
-                <div class="p-4 pt-0">
-                  <a 
-                    href={`/nuevo-contenido-submenus/${topic.id}`} 
-                    class={`w-full py-2 px-3 ${detail.bgColor} ${detail.hoverBgColor} text-white font-extrabold text-[0.7rem] uppercase tracking-wider rounded flex items-center justify-center gap-1.5 transition-colors`}
+                <div class="relative z-10 mt-4">
+                  <div 
+                    class={`w-full py-2 px-3 ${detail.bgColor} ${detail.hoverBgColor} text-white font-extrabold text-[0.7rem] uppercase tracking-wider rounded flex items-center justify-center gap-1.5 transition-colors shadow-sm`}
                   >
                     <span>Ver Información</span>
                     <ChevronRight size={12} strokeWidth={3} />
-                  </a>
+                  </div>
                 </div>
-              </div>
+              </a>
             );
           })}
         </div>
@@ -170,30 +175,33 @@ const topicDetails = {
             return (
               <a 
                 href={`/nuevo-contenido-submenus/${topic.id}`} 
-                class="group relative flex items-center gap-4 p-4 rounded-lg border border-gray-150 bg-white shadow-sm overflow-hidden active:scale-[0.98] transition-transform"
+                class="group relative flex items-center gap-4 p-4 rounded-lg overflow-hidden active:scale-[0.98] transition-transform text-white min-h-[4.5rem]"
               >
+                <!-- Background Image with Overlay -->
+                <div class="absolute inset-0 bg-cover bg-center transition-transform duration-300 group-hover:scale-[1.03]" style={`background-image: var(--gradient-overlay), url('${topic.image}');`}></div>
+                
                 <!-- Color Indicator Bar on Left -->
-                <div class={`absolute left-0 top-0 bottom-0 w-2 ${detail.bgColor}`}></div>
+                <div class={`absolute left-0 top-0 bottom-0 w-2.5 ${detail.bgColor}`}></div>
                 
                 <!-- Number -->
-                <span class={`text-[0.7rem] font-black uppercase tracking-wider ${detail.textClass} shrink-0`}>
+                <span class={`relative z-10 text-[0.75rem] font-black uppercase tracking-wider text-white bg-black/35 px-2 py-0.5 rounded shrink-0`}>
                   {detail.number}
                 </span>
 
                 <!-- Emoji Icon -->
-                <span class="text-2xl shrink-0 select-none">
+                <span class="relative z-10 text-2xl shrink-0 select-none">
                   {detail.icon}
                 </span>
 
                 <!-- Title and Link Info -->
-                <div class="flex-1 min-w-0">
-                  <h3 class="text-sm font-black text-[var(--color-secondary)] uppercase truncate">
+                <div class="relative z-10 flex-1 min-w-0">
+                  <h3 class="text-sm font-black text-white uppercase truncate">
                     {topic.title}
                   </h3>
                 </div>
 
                 <!-- Chevron -->
-                <ChevronRight size={16} class={`${detail.textClass} shrink-0`} strokeWidth={2.5} />
+                <ChevronRight size={18} class="relative z-10 text-white shrink-0" strokeWidth={2.5} />
               </a>
             );
           })}
@@ -274,7 +282,7 @@ const topicDetails = {
 
 <!-- Modal Dialogs for Acceso Rápido -->
 <!-- Modal 1: Numbers -->
-<dialog id="emergency-numbers-modal" class="backdrop:bg-black/60 p-0 rounded-xl max-w-lg w-[calc(100%-2rem)] bg-white shadow-2xl border border-gray-100 outline-none">
+<dialog id="emergency-numbers-modal" class="fixed inset-0 m-auto backdrop:bg-black/60 p-0 rounded-xl max-w-lg w-[calc(100%-2rem)] h-fit bg-white shadow-2xl border border-gray-150 outline-none">
   <div class="p-5 border-b border-gray-150 flex justify-between items-center bg-gray-50 rounded-t-xl">
     <div class="flex items-center gap-2.5 text-red-600">
       <Siren size={18} />
@@ -320,7 +328,7 @@ const topicDetails = {
 </dialog>
 
 <!-- Modal 2: Backpack -->
-<dialog id="emergency-backpack-modal" class="backdrop:bg-black/60 p-0 rounded-xl max-w-lg w-[calc(100%-2rem)] bg-white shadow-2xl border border-gray-100 outline-none">
+<dialog id="emergency-backpack-modal" class="fixed inset-0 m-auto backdrop:bg-black/60 p-0 rounded-xl max-w-lg w-[calc(100%-2rem)] h-fit bg-white shadow-2xl border border-gray-100 outline-none">
   <div class="p-5 border-b border-gray-150 flex justify-between items-center bg-gray-50 rounded-t-xl">
     <div class="flex items-center gap-2.5 text-emerald-600">
       <Briefcase size={18} />
@@ -376,7 +384,7 @@ const topicDetails = {
 </dialog>
 
 <!-- Modal 3: What to do first -->
-<dialog id="what-first-modal" class="backdrop:bg-black/60 p-0 rounded-xl max-w-lg w-[calc(100%-2rem)] bg-white shadow-2xl border border-gray-100 outline-none">
+<dialog id="what-first-modal" class="fixed inset-0 m-auto backdrop:bg-black/60 p-0 rounded-xl max-w-lg w-[calc(100%-2rem)] h-fit bg-white shadow-2xl border border-gray-150 outline-none">
   <div class="p-5 border-b border-gray-150 flex justify-between items-center bg-gray-50 rounded-t-xl">
     <div class="flex items-center gap-2.5 text-amber-600">
       <ClipboardList size={18} />
