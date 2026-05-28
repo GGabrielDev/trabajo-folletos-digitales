@@ -10,11 +10,6 @@ interface Props {
 }
 
 const { topic, index, showFloatingBackButton = false, backHref = '/nuevo-contenido-submenus' } = Astro.props;
-const phaseBackgroundByLabel: Record<'Antes' | 'Durante' | 'Después', string> = {
-  Antes: '/assets/phase-antes-bg.jpg',
-  Durante: '/assets/phase-durante-bg.jpg',
-  Después: '/assets/phase-despues-bg.jpg',
-};
 ---
 
 <section id={topic.id} class="scroll-mt-28">
@@ -64,26 +59,21 @@ const phaseBackgroundByLabel: Record<'Antes' | 'Durante' | 'Después', string> =
       <div class="space-y-8 px-4 py-5 sm:px-6 sm:py-6">
       <div class="grid gap-4 lg:grid-cols-3">
         {topic.phases.map((phase) => (
-          <section class="pc-brutalist-card relative flex h-full flex-col overflow-hidden bg-[var(--color-secondary)] p-4 text-white sm:p-5">
-            <div
-              class="pointer-events-none absolute inset-x-0 bottom-0 h-[56%] opacity-[0.17]"
-              style={`background-image: url('${phaseBackgroundByLabel[phase.label]}'); background-size: cover; background-position: center bottom;`}
-            ></div>
-            <div class="pointer-events-none absolute inset-0 bg-[linear-gradient(180deg,rgba(15,33,71,0.96)_0%,rgba(15,33,71,0.88)_52%,rgba(15,33,71,0.38)_100%)]"></div>
+          <section class="pc-brutalist-card relative flex h-full flex-col overflow-hidden bg-white p-4 text-[var(--color-text-dark)] sm:p-5">
             <div class="relative z-10 mb-4 flex items-center gap-3">
               <div class="inline-flex h-11 w-11 shrink-0 items-center justify-center bg-[var(--color-primary)] text-xl text-white">
                 {phase.label === 'Antes' ? '1' : phase.label === 'Durante' ? '2' : '3'}
               </div>
               <div>
-                <p class="text-[0.68rem] font-bold uppercase tracking-[0.18em] text-[var(--color-tertiary)]">
+                <p class="text-[0.68rem] font-bold uppercase tracking-[0.18em] text-[var(--color-primary)]">
                   {phase.label}
                 </p>
-                <h3 class="text-lg font-black leading-tight text-white">{phase.lead}</h3>
+                <h3 class="text-lg font-black leading-tight text-[var(--color-secondary)]">{phase.lead}</h3>
               </div>
             </div>
             <ul class="relative z-10 flex flex-1 flex-col gap-3">
               {phase.points.map((point) => (
-                <li class="pc-timeline-item text-sm leading-6 text-white/92">
+                <li class="pc-timeline-item text-sm leading-6 text-[var(--color-text-dark)]">
                   <span class="pc-timeline-dot"></span>
                   {point}
                 </li>
