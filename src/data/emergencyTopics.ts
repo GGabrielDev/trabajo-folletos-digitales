@@ -310,7 +310,7 @@ export const emergencyTopics: EmergencyTopic[] = [
   },
   {
     id: 'prevencion-sustancias-quimicas',
-    title: 'Prevención y Mapa de Riesgos',
+    title: 'Riesgos Químicos',
     emoji: '🧪',
     image: '/assets/fire_safety_illustration_1774910229007.png',
     ribbon: 'ORGANIZACIÓN | Identifique amenazas comunales mediante colores de riesgo',
