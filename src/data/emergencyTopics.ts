@@ -120,7 +120,7 @@ export const emergencyTopics: EmergencyTopic[] = [
         step: '04',
         title: 'Protegerse',
         detail: 'En caso de sismo: ¡Agáchate, cúbrete y sujétate!',
-        image: '/assets/sismos_agachate_cubrete_sujetese.png'
+        image: '/assets/cropped_graphics/char_cubrete.png'
       },
       {
         step: '05',
