@@ -14,6 +14,13 @@ export type EmergencyInfographicItem = {
   detail: string;
 };
 
+export type EmergencyVisualStep = {
+  step: string;
+  title: string;
+  detail: string;
+  image: string;
+};
+
 export type EmergencyTopic = {
   id: string;
   title: string;
@@ -28,6 +35,7 @@ export type EmergencyTopic = {
   infographicItems: EmergencyInfographicItem[];
   footer: string;
   infographicImage?: string;
+  visualSteps?: EmergencyVisualStep[];
 };
 
 export const emergencyTopics: EmergencyTopic[] = [
@@ -89,6 +97,44 @@ export const emergencyTopics: EmergencyTopic[] = [
       { label: 'Desarrolle conciencia', detail: 'Estudie minuciosamente teatros, estadios y cines al ingresar para ubicar salidas.' }
     ],
     infographicImage: '/assets/sismos_infografia_agachate_cubrete.png',
+    visualSteps: [
+      {
+        step: '01',
+        title: 'Organizar Kit',
+        detail: 'Prepare agua, botiquín, linterna y radio a baterías.',
+        image: '/assets/sismos_kit_emergencias.png'
+      },
+      {
+        step: '02',
+        title: 'Asegurar Objetos',
+        detail: 'Fije bibliotecas, lámparas y estantes para evitar que caigan.',
+        image: '/assets/sismos_fijar_estanteria.png'
+      },
+      {
+        step: '03',
+        title: 'Identificar Llaves',
+        detail: 'Ubique las válvulas de gas, agua y tablero eléctrico.',
+        image: '/assets/sismos_llaves.png'
+      },
+      {
+        step: '04',
+        title: 'Protegerse',
+        detail: 'En caso de sismo: ¡Agáchate, cúbrete y sujétate!',
+        image: '/assets/sismos_agachate_cubrete_sujetese.png'
+      },
+      {
+        step: '05',
+        title: 'Evacuación',
+        detail: 'Use las escaleras y siga las rutas señalizadas.',
+        image: '/assets/sismos_ruta_evacuacion.png'
+      },
+      {
+        step: '06',
+        title: 'Zona Segura',
+        detail: 'Reúnase en el patio o zona de seguridad libre de obstáculos.',
+        image: '/assets/sismos_zona_segura_ninos.png'
+      }
+    ],
     footer: 'Aula Sísmica "Madeleilis Guzmán" - FUNVISIS. Emergencias: 0800-TEMBLOR (0800-8362567)'
   },
   {
