@@ -14,6 +14,13 @@ export type EmergencyInfographicItem = {
   detail: string;
 };
 
+export type EmergencyVisualStep = {
+  step: string;
+  title: string;
+  detail: string;
+  image: string;
+};
+
 export type EmergencyTopic = {
   id: string;
   title: string;
@@ -27,6 +34,8 @@ export type EmergencyTopic = {
   infographicTitle: string;
   infographicItems: EmergencyInfographicItem[];
   footer: string;
+  infographicImage?: string;
+  visualSteps?: EmergencyVisualStep[];
 };
 
 export const emergencyTopics: EmergencyTopic[] = [
@@ -37,38 +46,39 @@ export const emergencyTopics: EmergencyTopic[] = [
     image: '/assets/a_pile_of_rubble_with_various_objects_scattered_throughout.jpg',
     ribbon: 'ALERTA | Conserve la calma, protéjase de objetos que caigan y use escaleras',
     summary:
-      'Guía oficial de autoprotección sísmica basada en FUNVISIS. Prepare un plan de contingencia familiar, escolar o empresarial, identifique zonas seguras y aprenda medidas específicas para personas con discapacidad.',
+      'Puede suceder de un momento a otro. Incluso podría pasar mientras estamos en el colegio; por ello, te invitamos a prepararte y saber cómo actuar si esto sucede. Descubre qué hacer en caso de sismo en la escuela: antes, durante, después.',
     phases: [
       {
         label: 'Antes',
-        lead: 'Organice su plan de contingencia y kit de emergencias.',
+        lead: 'Organiza tu kit de emergencias',
         points: [
-          'Elabore un plan de contingencia en caso de desastres (familiar, escolar o empresarial) y practíquelo regularmente.',
-          'Ubique el lugar más seguro y accesible; disponga de un botiquín de primeros auxilios, agua, comida, linterna, baterías, extintor y un pito.',
-          'Asegure o reubique objetos pesados que puedan caer: lámparas, bibliotecas, tableros o calentadores.',
-          'Identifique herramientas para cerrar gas/agua y asigne un lugar fijo a las llaves.',
-          'Personas con discapacidad: elabore una ficha personal de salud y lleve siempre consigo un pito y teléfono móvil.'
+          'Elabore un plan de contingencia escolar en caso de desastres y practíquelo regularmente.',
+          'Señalice las rutas de evacuación y el lugar más seguro libre de obstáculos.',
+          'Asegure o reubique objetos pesados que puedan caer: lámparas, bibliotecas, ventiladores de techo, entre otros.',
+          'Conozca la ubicación de las llaves para cerrar gas/agua y los fusibles de electricidad.',
+          'Personas con discapacidad: deben llevar siempre consigo un pito.',
+          'Realice simulacros de autoprotección y evacuación periódicamente.'
         ]
       },
       {
         label: 'Durante',
-        lead: 'Proteja su vida manteniéndose calmado y a resguardo.',
+        lead: 'Agáchate, cúbrete y sujétate',
         points: [
-          'Mantenga la calma, reaccione con serenidad y ponga en marcha su plan. ¡No corra!',
+          'Mantenga la calma, reaccione con serenidad y proteja su vida. ¡No corra!',
           'Ubíquese debajo de mesas, escritorios, camas o resguárdese al lado de una viga o columna de la edificación.',
-          'Aléjese de ventanas, espejos, puertas de vidrio, balcones y pendientes cercanas.',
-          'Use sólo las escaleras para evacuar; nunca use los ascensores ya que podría quedar atrapado.',
+          'Aléjese de peligros y mantenga la distancia de ventanas, espejos, puertas de vidrio y pendientes cercanas.',
+          'Use sólo las escaleras para evacuar; nunca use los ascensores.',
           'Sillas de ruedas: coloque frenos en zonas seguras, cubra la cabeza con los brazos o inclínese hacia adelante.'
         ]
       },
       {
         label: 'Después',
-        lead: 'Corte riesgos inmediatos y proceda con precaución.',
+        lead: 'Corte riesgos inmediatos y proceda con precaución',
         points: [
-          'Interrumpa los servicios de gas, agua y electricidad. No encienda fósforos ni velas si sospecha de fugas.',
+          'Diríjase a las zonas de protección ya establecidas, sin perder la calma y sin alejarse del grupo.',
+          'Cada profesor debe asegurarse de que se encuentren todos los alumnos del curso a su cargo.',
+          'Interrumpa los servicios de gas, agua y electricidad hasta tanto no se cerciore de que no haya incendios ni escapes de agua o gas.',
           'Encienda la radio a baterías para escuchar las recomendaciones de las autoridades.',
-          'Luego de desalojar, no se devuelva por ningún motivo y evite caminar descalzo entre escombros.',
-          'Aléjese de construcciones que se puedan derrumbar y de la costa, ya que pueden ocurrir réplicas o marejadas.',
           'Si queda atrapado, mantenga la calma y pida auxilio usando un pito o generando ruidos con objetos.'
         ]
       }
@@ -80,11 +90,50 @@ export const emergencyTopics: EmergencyTopic[] = [
       { label: 'Inclusión', detail: 'Evite estanterías cerca de personas con movilidad reducida y dote de silbatos.' },
       { label: 'Cierre de Servicios', detail: 'Corte el suministro de gas y agua para evitar incendios o inundaciones secundarias.' }
     ],
-    infographicTitle: 'Acciones clave',
+    infographicTitle: 'Infografía Oficial',
     infographicItems: [
       { label: 'No corra', detail: 'El pánico y las caídas causan la mayoría de las lesiones durante el movimiento.' },
       { label: 'Sin ascensores', detail: 'Una falla eléctrica común tras el sismo lo dejará atrapado indefinidamente.' },
       { label: 'Desarrolle conciencia', detail: 'Estudie minuciosamente teatros, estadios y cines al ingresar para ubicar salidas.' }
+    ],
+    infographicImage: '/assets/sismos_infografia_agachate_cubrete.png',
+    visualSteps: [
+      {
+        step: '01',
+        title: 'Organizar Kit',
+        detail: 'Prepare agua, botiquín, linterna y radio a baterías.',
+        image: '/assets/sismos_kit_emergencias.png'
+      },
+      {
+        step: '02',
+        title: 'Asegurar Objetos',
+        detail: 'Fije bibliotecas, lámparas y estantes para evitar que caigan.',
+        image: '/assets/sismos_fijar_estanteria.png'
+      },
+      {
+        step: '03',
+        title: 'Identificar Llaves',
+        detail: 'Ubique las válvulas de gas, agua y tablero eléctrico.',
+        image: '/assets/sismos_llaves.png'
+      },
+      {
+        step: '04',
+        title: 'Protegerse',
+        detail: 'En caso de sismo: ¡Agáchate, cúbrete y sujétate!',
+        image: '/assets/sismos_agachate_cubrete_sujetese.png'
+      },
+      {
+        step: '05',
+        title: 'Evacuación',
+        detail: 'Use las escaleras y siga las rutas señalizadas.',
+        image: '/assets/sismos_ruta_evacuacion.png'
+      },
+      {
+        step: '06',
+        title: 'Zona Segura',
+        detail: 'Reúnase en el patio o zona de seguridad libre de obstáculos.',
+        image: '/assets/sismos_zona_segura_ninos.png'
+      }
     ],
     footer: 'Aula Sísmica "Madeleilis Guzmán" - FUNVISIS. Emergencias: 0800-TEMBLOR (0800-8362567)'
   },
