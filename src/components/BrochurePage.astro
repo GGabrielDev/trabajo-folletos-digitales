@@ -102,7 +102,11 @@ const defaultCardImages = [
   '/assets/a_woman_in_a_white_medical_uniform_with_a_red_cross_on_it.jpg'
 ];
 
-const resolveAsset = (path: string) => path.startsWith('/') ? `${import.meta.env.BASE_URL}${path.slice(1)}` : path;
+const resolveAsset = (path: string) => {
+  const base = import.meta.env.BASE_URL;
+  const normalizedBase = base.endsWith('/') ? base : `${base}/`;
+  return path.startsWith('/') ? `${normalizedBase}${path.slice(1)}` : path;
+};
 const cardImages = (imagesBySlug[brochure.slug] || defaultCardImages).map(resolveAsset);
 
 const iconMap = {

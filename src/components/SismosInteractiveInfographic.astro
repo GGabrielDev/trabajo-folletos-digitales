@@ -1,7 +1,11 @@
 ---
 import { AlertTriangle, Home, School, Compass, HelpCircle, CheckCircle, Footprints, ArrowUpDown, Grid, Boxes, PhoneOff } from 'lucide-react';
 
-const resolveAsset = (path: string) => path.startsWith('/') ? `${import.meta.env.BASE_URL}${path.slice(1)}` : path;
+const resolveAsset = (path: string) => {
+  const base = import.meta.env.BASE_URL;
+  const normalizedBase = base.endsWith('/') ? base : `${base}/`;
+  return path.startsWith('/') ? `${normalizedBase}${path.slice(1)}` : path;
+};
 ---
 
 <div class="pc-brutalist-card overflow-hidden border border-black/10 bg-white dark:bg-[#0d1628] dark:border-white/10 p-4 sm:p-6 md:p-8 flex flex-col gap-8 shadow-sm">

@@ -4,7 +4,11 @@ import { AlertTriangle, ChevronLeft } from 'lucide-react';
 import { brochures } from '../data/brochures';
 import HomeButton from '../components/HomeButton.astro';
 
-const resolvePath = (path: string) => path.startsWith('/') ? `${import.meta.env.BASE_URL}${path.slice(1)}` : path;
+const resolvePath = (path: string) => {
+  const base = import.meta.env.BASE_URL;
+  const normalizedBase = base.endsWith('/') ? base : `${base}/`;
+  return path.startsWith('/') ? `${normalizedBase}${path.slice(1)}` : path;
+};
 
 // Filtrar solo los folletos de autoprotección general (originales)
 const generalBrochures = brochures.filter(b => 
