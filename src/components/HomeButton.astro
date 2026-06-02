@@ -8,6 +8,8 @@ interface Props {
 
 const { href = '/', tone = 'light' } = Astro.props;
 
+const resolvedHref = href.startsWith('/') ? `${import.meta.env.BASE_URL}${href.slice(1)}` : href;
+
 const buttonClass =
   tone === 'dark'
     ? 'bg-[var(--color-primary)] text-white shadow-[4px_4px_0px_rgba(255,184,28,0.35)] hover:translate-y-[-2px]'
@@ -15,7 +17,7 @@ const buttonClass =
 ---
 
 <a
-  href={href}
+  href={resolvedHref}
   class:list={[
     'inline-flex min-h-11 items-center justify-center gap-1.5 px-3 py-2 text-[0.68rem] font-bold uppercase tracking-[0.12em] transition-transform sm:text-[0.7rem]',
     buttonClass,

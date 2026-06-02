@@ -65,6 +65,8 @@ const topicDetails = {
     icon: '🧪'
   }
 };
+
+const resolvePath = (path: string) => path.startsWith('/') ? `${import.meta.env.BASE_URL}${path.slice(1)}` : path;
 ---
 
 <Layout title="Prevención y Gestión de Riesgo - PC Venezuela">
@@ -74,7 +76,7 @@ const topicDetails = {
       <div class="pc-dot-grid absolute inset-0 opacity-70"></div>
       <div 
         class="absolute inset-0 bg-cover bg-center opacity-25" 
-        style="background-image: url('/assets/civil_safety_illustration_1774910214897.png');"
+        style={`background-image: url('${resolvePath('/assets/civil_safety_illustration_1774910214897.png')}');`}
       ></div>
       <div class="absolute inset-0 bg-[linear-gradient(180deg,rgba(15,33,71,0.5)_0%,rgba(15,33,71,0.95)_100%)]"></div>
 
@@ -82,7 +84,7 @@ const topicDetails = {
         <div class="flex flex-col gap-6 md:flex-row md:items-center md:justify-between">
           <div class="flex items-center gap-4">
             <div class="h-16 w-16 overflow-hidden rounded-full border-2 border-white/30 bg-white p-1.5 shrink-0 shadow-lg">
-              <img src="/assets/LOGO-PC-NUEVO-e1754668914257.png" alt="Logo Protección Civil" class="h-full w-full object-contain" />
+              <img src={resolvePath('/assets/LOGO-PC-NUEVO-e1754668914257.png')} alt="Logo Protección Civil" class="h-full w-full object-contain" />
             </div>
             <div>
               <p class="mb-1 text-[0.62rem] font-semibold uppercase tracking-[0.15em] text-[var(--color-tertiary)] sm:text-xs">Protección Civil y Administración de Desastres</p>
@@ -130,11 +132,11 @@ const topicDetails = {
             };
             return (
               <a 
-                href={`/nuevo-contenido-submenus/${topic.id}`}
+                href={resolvePath(`/nuevo-contenido-submenus/${topic.id}`)}
                 class={`group relative flex flex-col min-h-[17rem] rounded-xl overflow-hidden shadow-sm hover:shadow-md transition-all duration-300 transform hover:-translate-y-1 justify-between p-5 border-l-4 ${detail.borderColor} text-white`}
               >
                 <!-- Background Image with Overlay -->
-                <div class="absolute inset-0 bg-cover bg-center transition-transform duration-300 group-hover:scale-[1.04]" style={`background-image: var(--gradient-overlay), url('${topic.image}');`}></div>
+                <div class="absolute inset-0 bg-cover bg-center transition-transform duration-300 group-hover:scale-[1.04]" style={`background-image: var(--gradient-overlay), url('${resolvePath(topic.image)}');`}></div>
                 
                 <div class="relative z-10 flex-1 flex flex-col items-center text-center">
                   <!-- Number Circle Badge -->
@@ -184,11 +186,11 @@ const topicDetails = {
             };
             return (
               <a 
-                href={`/nuevo-contenido-submenus/${topic.id}`} 
+                href={resolvePath(`/nuevo-contenido-submenus/${topic.id}`)} 
                 class="group relative flex items-center gap-4 p-4 rounded-lg overflow-hidden active:scale-[0.98] transition-transform text-white min-h-[4.5rem]"
               >
                 <!-- Background Image with Overlay -->
-                <div class="absolute inset-0 bg-cover bg-center transition-transform duration-300 group-hover:scale-[1.03]" style={`background-image: var(--gradient-overlay), url('${topic.image}');`}></div>
+                <div class="absolute inset-0 bg-cover bg-center transition-transform duration-300 group-hover:scale-[1.03]" style={`background-image: var(--gradient-overlay), url('${resolvePath(topic.image)}');`}></div>
                 
                 <!-- Color Indicator Bar on Left -->
                 <div class={`absolute left-0 top-0 bottom-0 w-2.5 ${detail.bgColor}`}></div>
@@ -282,7 +284,7 @@ const topicDetails = {
           </div>
 
           <div class="relative z-10 hidden lg:block shrink-0 opacity-20">
-            <img src="/assets/LOGO-PC-NUEVO-e1754668914257.png" alt="PC Venezuela watermark" class="h-20 w-auto" />
+            <img src={resolvePath('/assets/LOGO-PC-NUEVO-e1754668914257.png')} alt="PC Venezuela watermark" class="h-20 w-auto" />
           </div>
         </div>
       </div>
