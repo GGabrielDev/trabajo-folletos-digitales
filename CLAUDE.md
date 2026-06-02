@@ -3,8 +3,9 @@
 ## Comandos Útiles
 
 ```bash
-npm run dev      # Iniciar servidor de desarrollo local
-npm run build    # Compilar sitio estático (genera dist/)
+npm run dev                      # Iniciar servidor de desarrollo local
+npm run build                    # Compilar sitio estático (genera dist/)
+BASE_PATH=/folleto npm run build # Compilar con ruta base personalizada
 ```
 
 ## Reglas de Desarrollo y Estilo
