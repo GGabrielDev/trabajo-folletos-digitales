@@ -6,7 +6,7 @@ import tailwindcss from '@tailwindcss/vite';
 
 // https://astro.build/config
 export default defineConfig({
-  base: '/folleto',
+  base: process.env.BASE_PATH || '/',
   integrations: [react()],
 
   vite: {
