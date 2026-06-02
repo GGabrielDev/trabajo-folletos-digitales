@@ -3,6 +3,8 @@ import Layout from '../layouts/Layout.astro';
 import { ChevronLeft, School } from 'lucide-react';
 import { brochures } from '../data/brochures';
 
+const resolvePath = (path: string) => path.startsWith('/') ? `${import.meta.env.BASE_URL}${path.slice(1)}` : path;
+
 const schoolBrochures = brochures.filter((brochure) =>
   ['brigadas-escolares', 'plan-escolar-pegir', 'evacuacion-simulacros', 'senales-seguridad'].includes(brochure.slug)
 );
@@ -12,20 +14,20 @@ const schoolBrochures = brochures.filter((brochure) =>
   <main class="min-h-screen bg-[var(--color-bg-light)]">
     <section class="relative overflow-hidden bg-[var(--color-secondary)] text-white">
       <div class="pc-dot-grid absolute inset-0 opacity-70"></div>
-      <div class="absolute inset-0" style="background-image: var(--gradient-overlay), url('/assets/1_classroom_2_students_3_teacher_4.jpg'); background-size: cover; background-position: center;"></div>
+      <div class="absolute inset-0" style={`background-image: var(--gradient-overlay), url('${resolvePath('/assets/1_classroom_2_students_3_teacher_4.jpg')}'); background-size: cover; background-position: center;`}></div>
 
       <div class="relative z-10 mx-auto max-w-6xl px-4 py-6 sm:px-6 sm:py-8 lg:px-8">
         <div class="mb-6 flex flex-col gap-4 border-b border-white/15 pb-4 sm:mb-8 lg:flex-row lg:items-center lg:justify-between">
           <div class="flex items-center gap-3 sm:gap-4">
             <div class="h-12 w-12 overflow-hidden rounded-full border-2 border-white/50 bg-white p-1.5 sm:h-16 sm:w-16">
-              <img src="/assets/LOGO-PC-NUEVO-e1754668914257.png" alt="Logo Protección Civil" class="h-full w-full object-contain" />
+              <img src={resolvePath('/assets/LOGO-PC-NUEVO-e1754668914257.png')} alt="Logo Protección Civil" class="h-full w-full object-contain" />
             </div>
             <div>
               <p class="mb-2 text-[0.72rem] font-semibold uppercase tracking-[0.16em] text-white/75 sm:text-sm sm:tracking-[0.2em]">Menú Escolar</p>
               <h1 class="text-2xl font-black sm:text-5xl">Submenús de Seguridad Escolar</h1>
             </div>
           </div>
-          <a href="/" class="inline-flex min-h-11 items-center justify-center gap-1.5 px-4 py-2 border border-white/20 bg-white/5 hover:bg-white/10 text-white text-xs font-bold uppercase tracking-[0.12em] transition-colors self-start lg:self-auto">
+          <a href={resolvePath('/')} class="inline-flex min-h-11 items-center justify-center gap-1.5 px-4 py-2 border border-white/20 bg-white/5 hover:bg-white/10 text-white text-xs font-bold uppercase tracking-[0.12em] transition-colors self-start lg:self-auto">
             <ChevronLeft size={16} strokeWidth={2.75} />
             <span>Volver al Tablero</span>
           </a>
@@ -49,13 +51,13 @@ const schoolBrochures = brochures.filter((brochure) =>
         <div class="grid gap-6 md:grid-cols-2 lg:grid-cols-4">
           {schoolBrochures.map((brochure) => (
             <a
-              href={`/${brochure.slug}-${brochure.styleVariant || 'default'}-light`}
+              href={resolvePath(`/${brochure.slug}-${brochure.styleVariant || 'default'}-light`)}
               data-theme-link="auto"
-              data-light-href={`/${brochure.slug}-${brochure.styleVariant || 'default'}-light`}
-              data-dark-href={`/${brochure.slug}-${brochure.styleVariant || 'default'}-dark`}
+              data-light-href={resolvePath(`/${brochure.slug}-${brochure.styleVariant || 'default'}-light`)}
+              data-dark-href={resolvePath(`/${brochure.slug}-${brochure.styleVariant || 'default'}-dark`)}
               class="pc-card pc-diagonal pc-hard-shadow group relative flex flex-col min-h-[15rem] sm:min-h-[19rem] overflow-hidden transition-transform hover:translate-y-[-4px]"
             >
-              <div class="pc-card-image absolute inset-0" style={`background-image: url('${brochure.image}'); background-size: cover; background-position: center;`}></div>
+              <div class="pc-card-image absolute inset-0" style={`background-image: url('${resolvePath(brochure.image)}'); background-size: cover; background-position: center;`}></div>
               <div class="relative z-10 flex flex-1 flex-col justify-end p-4 sm:p-5">
                 <span class="pc-tag pc-tag-primary mb-2 w-fit">{brochure.badge}</span>
                 <span class="text-[0.72rem] font-semibold uppercase tracking-[0.12em] text-white/60 mb-1">{brochure.topicNumber}</span>

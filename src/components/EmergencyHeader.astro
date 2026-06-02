@@ -11,7 +11,7 @@ const { title, subtitle } = Astro.props;
   <div class="pc-dot-grid absolute inset-0 opacity-70"></div>
   <div
     class="absolute inset-0 bg-no-repeat opacity-12"
-    style="background-image: url('/assets/LOGO-PC-NUEVO-e1754668914257.png'); background-size: min(54vw, 22rem); background-position: right -1.5rem top -1.5rem;"
+    style={`background-image: url('${import.meta.env.BASE_URL}assets/LOGO-PC-NUEVO-e1754668914257.png'); background-size: min(54vw, 22rem); background-position: right -1.5rem top -1.5rem;`}
   ></div>
   <div class="absolute inset-0 bg-[linear-gradient(180deg,rgba(15,33,71,0.18)_0%,rgba(15,33,71,0.94)_100%)]"></div>
 

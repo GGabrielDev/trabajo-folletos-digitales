@@ -20,7 +20,7 @@ const stylesList = [
 >
   {stylesList.map((style) => {
     const isActive = currentStyle === style.id;
-    const href = `/${slug}-${style.id}-${mode}`;
+    const href = `${import.meta.env.BASE_URL}${slug}-${style.id}-${mode}`;
     return (
       <a
         href={href}

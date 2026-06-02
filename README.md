@@ -93,6 +93,24 @@ npm run build
 npm run preview
 ```
 
+### Configuración de Ruta Base (Despliegue tras Proxy Reverso)
+
+Si necesitas desplegar el sitio bajo una subruta o directorio específico (por ejemplo, `/folleto` usando un proxy reverso de Apache/Nginx), puedes configurar la ruta base en tiempo de ejecución utilizando la variable de entorno `BASE_PATH`.
+
+- **Desarrollo local con subruta**:
+  ```bash
+  BASE_PATH=/folleto npm run dev
+  ```
+  *(El sitio estará disponible en `http://localhost:4321/folleto/`)*
+
+- **Compilación para producción con subruta**:
+  ```bash
+  BASE_PATH=/folleto npm run build
+  ```
+  *(Todos los recursos, estilos y enlaces internos se compilarán prefijados con `/folleto`)*
+
+- **Comportamiento por defecto**: Si no defines la variable de entorno `BASE_PATH`, el sistema utilizará `/` por defecto, sirviendo el contenido desde la raíz del dominio.
+
 ## Content source
 
 The brochure copy appears to be derived from the technical reference material summarized in `pdf_content.txt`, which in turn references Venezuelan civil protection and risk-management guidance such as FUNVISIS and INAMEH material.

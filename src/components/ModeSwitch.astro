@@ -8,6 +8,10 @@ interface Props {
 }
 
 const { currentMode, darkHref, lightHref } = Astro.props;
+
+const resolvePath = (path: string) => path.startsWith('/') ? `${import.meta.env.BASE_URL}${path.slice(1)}` : path;
+const resolvedDarkHref = resolvePath(darkHref);
+const resolvedLightHref = resolvePath(lightHref);
 ---
 
 <nav
@@ -15,7 +19,7 @@ const { currentMode, darkHref, lightHref } = Astro.props;
   class="inline-flex w-full items-center border border-white/10 bg-[var(--color-secondary)]/96 p-1 text-[0.65rem] font-bold uppercase tracking-[0.12em] text-white sm:w-auto"
 >
   <a
-    href={darkHref}
+    href={resolvedDarkHref}
     aria-label="Abrir variante oscura"
     aria-current={currentMode === 'dark' ? 'page' : undefined}
     class:list={[
@@ -28,7 +32,7 @@ const { currentMode, darkHref, lightHref } = Astro.props;
     <MoonStar size={16} strokeWidth={2.5} />
   </a>
   <a
-    href={lightHref}
+    href={resolvedLightHref}
     aria-label="Abrir variante clara"
     aria-current={currentMode === 'light' ? 'page' : undefined}
     class:list={[

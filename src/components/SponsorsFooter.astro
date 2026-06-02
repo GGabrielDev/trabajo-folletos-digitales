@@ -5,6 +5,8 @@ interface Props {
 
 const { mode = 'light' } = Astro.props;
 const isDark = mode === 'dark';
+
+const resolveAsset = (path: string) => path.startsWith('/') ? `${import.meta.env.BASE_URL}${path.slice(1)}` : path;
 ---
 
 <footer class:list={[
@@ -35,7 +37,7 @@ const isDark = mode === 'dark';
         <!-- Ministerio de Educación -->
         <div class="h-12 w-28 md:h-14 md:w-32 flex items-center justify-center p-1 rounded-sm bg-white/5 backdrop-blur-sm border border-white/5">
           <img 
-            src={isDark ? '/assets/Logo_Ministerio_Educacion_Blanco.png' : '/assets/Logo_Ministerio_Educacion.png'} 
+            src={resolveAsset(isDark ? '/assets/Logo_Ministerio_Educacion_Blanco.png' : '/assets/Logo_Ministerio_Educacion.png')} 
             alt="Ministerio del Poder Popular para la Educación" 
             class="max-h-full max-w-full object-contain"
           />
@@ -44,7 +46,7 @@ const isDark = mode === 'dark';
         <!-- Protección Civil -->
         <div class="h-12 w-12 md:h-14 md:w-14 flex items-center justify-center p-1 rounded-full bg-white/10 border border-white/10">
           <img 
-            src="/assets/LOGO-PC-NUEVO-e1754668914257.png" 
+            src={resolveAsset('/assets/LOGO-PC-NUEVO-e1754668914257.png')} 
             alt="Protección Civil y Administración de Desastres" 
             class="max-h-full max-w-full object-contain"
           />
@@ -53,7 +55,7 @@ const isDark = mode === 'dark';
         <!-- Cruz Roja Venezolana -->
         <div class="h-12 w-12 md:h-14 md:w-14 flex items-center justify-center p-1 rounded-full bg-white/10 border border-white/10">
           <img 
-            src="/assets/Logo_Cruz_Roja.png" 
+            src={resolveAsset('/assets/Logo_Cruz_Roja.png')} 
             alt="Cruz Roja Venezolana" 
             class="max-h-full max-w-full object-contain"
           />
@@ -62,7 +64,7 @@ const isDark = mode === 'dark';
         <!-- MPPRIJP -->
         <div class="h-12 w-12 md:h-14 md:w-14 flex items-center justify-center p-1 rounded-full bg-white/10 border border-white/10 overflow-hidden">
           <img 
-            src="/assets/Logo_Ministerio_MPPRIJP.jpg" 
+            src={resolveAsset('/assets/Logo_Ministerio_MPPRIJP.jpg')} 
             alt="Ministerio del Poder Popular para Relaciones Interiores, Justicia y Paz" 
             class="max-h-full max-w-full object-cover scale-110"
           />
@@ -71,7 +73,7 @@ const isDark = mode === 'dark';
         <!-- Juntos por la Vida y la Paz -->
         <div class="h-12 w-28 md:h-14 md:w-32 flex items-center justify-center p-1 rounded-sm bg-white/5 backdrop-blur-sm border border-white/5">
           <img 
-            src={isDark ? '/assets/Logo_Juntos_por_la_Vida_y_la_Paz_Blanco.png' : '/assets/Logo_Juntos_por_la_Vida_y_la_Paz.jpg'} 
+            src={resolveAsset(isDark ? '/assets/Logo_Juntos_por_la_Vida_y_la_Paz_Blanco.png' : '/assets/Logo_Juntos_por_la_Vida_y_la_Paz.jpg')} 
             alt="Juntos por la Vida y la Paz" 
             class="max-h-full max-w-full object-contain"
           />
@@ -79,8 +81,8 @@ const isDark = mode === 'dark';
       </div>
 
       <div class="text-center text-[0.65rem] max-w-2xl leading-relaxed border-t border-black/5 dark:border-white/5 pt-4 w-full">
-        <p>Este material es de distribución gratuita para la formación y preparación de comunidades educativas en la República Bolivariana de Venezuela.</p>
-        <p class="mt-1 font-semibold">© {new Date().getFullYear()} - Gestión de Riesgos Socionaturales y Tecnológicos en Instituciones Educativas.</p>
+        <p>Viceministerio para la Gestión de Riesgo y Protección Civil - Gobierno Bolivariano de Venezuela</p>
+        <p class="mt-1 font-semibold">© 2026 - Protección Civil y Administración de Desastres de Venezuela. Todos los derechos de prevención reservados.</p>
       </div>
     </div>
   </div>
