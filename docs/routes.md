@@ -8,8 +8,8 @@ This document lists the public pages currently exposed by the site and the conte
 | --- | --- | --- | --- |
 | `/` | Index | Dashboard | Central panel linking to all topics |
 | `/menu-escolar` | Menú Escolar | Dashboard | Entry menu exposing the 4 school-themed brochures |
-| `/nuevo-contenido-submenus` | Seguridad y Gestión del Riesgo | Submenús | Landing page with 4 compact buttons to dedicated topic subpages |
-| `/nuevo-contenido-submenus/:topic` | Seguridad y Gestión del Riesgo | Subpage | One emergency topic at a time with floating back button |
+| `/prevencion-y-gestion-de-riesgo` | Seguridad y Gestión del Riesgo | Submenús | Landing page with 4 compact buttons to dedicated topic subpages |
+| `/prevencion-y-gestion-de-riesgo/:topic` | Seguridad y Gestión del Riesgo | Subpage | One emergency topic at a time with floating back button |
 | `/nuevo-contenido-completo` | Seguridad y Gestión del Riesgo | Integral | Base page with the same emergency content in one long scroll |
 | `/sismos-dark` | Sismos y terremotos | Dark | Institutional dark surface with formal protocol emphasis |
 | `/sismos-light` | Sismos y terremotos | Light | Institutional light surface with simplified guidance emphasis |
