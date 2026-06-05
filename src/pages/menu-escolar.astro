@@ -1,87 +1,719 @@
 ---
 import Layout from '../layouts/Layout.astro';
-import { ChevronLeft, School } from 'lucide-react';
+import { emergencyTopics } from '../data/emergencyTopics';
 import { brochures } from '../data/brochures';
+import { Phone, Siren, Briefcase, ClipboardList, Shield, ChevronRight, X, ChevronLeft, School, ShieldAlert, Radio, Waves, Zap, Navigation, Home, PackageCheck, Users, Flame, Droplets, Bug, AlertTriangle } from 'lucide-react';
+
+const iconMap = {
+  shelter: ShieldAlert,
+  warning: AlertTriangle,
+  radio: Radio,
+  water: Waves,
+  electric: Zap,
+  route: Navigation,
+  home: Home,
+  supply: PackageCheck,
+  community: Users,
+  fire: Flame,
+  spill: Droplets,
+  swarm: Bug,
+};
+
+const topicDetails = {
+  sismos: {
+    number: '01',
+    colorClass: 'cyan',
+    bgColor: 'bg-cyan-600',
+    hoverBgColor: 'hover:bg-cyan-700',
+    borderColor: 'border-cyan-600',
+    textClass: 'text-cyan-600',
+    description: 'Conoce qué hacer antes, durante y después de un terremoto.',
+    icon: '🏚️'
+  },
+  tsunamis: {
+    number: '02',
+    colorClass: 'blue',
+    bgColor: 'bg-blue-600',
+    hoverBgColor: 'hover:bg-blue-700',
+    borderColor: 'border-blue-600',
+    textClass: 'text-blue-600',
+    description: 'Medidas de prevención y actuación ante la amenaza de tsunamis.',
+    icon: '🌊'
+  },
+  inundaciones: {
+    number: '03',
+    colorClass: 'purple',
+    bgColor: 'bg-purple-600',
+    hoverBgColor: 'hover:bg-purple-700',
+    borderColor: 'border-purple-600',
+    textClass: 'text-purple-600',
+    description: 'Aprende a prevenir inundaciones y cómo actuar durante y después.',
+    icon: '🌧️'
+  },
+  incendios: {
+    number: '04',
+    colorClass: 'red',
+    bgColor: 'bg-red-600',
+    hoverBgColor: 'hover:bg-red-700',
+    borderColor: 'border-red-600',
+    textClass: 'text-red-600',
+    description: 'Recomendaciones para prevenir incendios y actuar con seguridad.',
+    icon: '🔥'
+  },
+  deslizamientos: {
+    number: '05',
+    colorClass: 'green',
+    bgColor: 'bg-emerald-600',
+    hoverBgColor: 'hover:bg-emerald-700',
+    borderColor: 'border-emerald-600',
+    textClass: 'text-emerald-600',
+    description: 'Conoce los riesgos de deslizamientos y cómo protegerte.',
+    icon: '⛰️'
+  },
+  'prevencion-sustancias-quimicas': {
+    number: '06',
+    colorClass: 'amber',
+    bgColor: 'bg-amber-600',
+    hoverBgColor: 'hover:bg-amber-700',
+    borderColor: 'border-amber-600',
+    textClass: 'text-amber-600',
+    description: 'Aprende a prevenir y actuar ante fugas o derrames de sustancias químicas.',
+    icon: '🧪'
+  }
+};
+
+const schoolBrochures = brochures.filter((brochure) =>
+  ['brigadas-escolares', 'plan-escolar-pegir', 'evacuacion-simulacros', 'senales-seguridad'].includes(brochure.slug)
+);
 
 const resolvePath = (path: string) => {
   const base = import.meta.env.BASE_URL;
   const normalizedBase = base.endsWith('/') ? base : `${base}/`;
   return path.startsWith('/') ? `${normalizedBase}${path.slice(1)}` : path;
 };
-
-const schoolBrochures = brochures.filter((brochure) =>
-  ['brigadas-escolares', 'plan-escolar-pegir', 'evacuacion-simulacros', 'senales-seguridad'].includes(brochure.slug)
-);
 ---
 
-<Layout title="Menú Escolar - Seguridad y Gestión del Riesgo">
+<Layout title="Menú Escolar - Prevención y Gestión de Riesgo">
   <main class="min-h-screen bg-[var(--color-bg-light)]">
+    <!-- Header Section -->
     <section class="relative overflow-hidden bg-[var(--color-secondary)] text-white">
       <div class="pc-dot-grid absolute inset-0 opacity-70"></div>
-      <div class="absolute inset-0" style={`background-image: var(--gradient-overlay), url('${resolvePath('/assets/1_classroom_2_students_3_teacher_4.jpg')}'); background-size: cover; background-position: center;`}></div>
+      <div 
+        class="absolute inset-0 bg-cover bg-center opacity-25" 
+        style={`background-image: url('${resolvePath('/assets/1_classroom_2_students_3_teacher_4.jpg')}');`}
+      ></div>
+      <div class="absolute inset-0 bg-[linear-gradient(180deg,rgba(15,33,71,0.5)_0%,rgba(15,33,71,0.95)_100%)]"></div>
 
-      <div class="relative z-10 mx-auto max-w-6xl px-4 py-6 sm:px-6 sm:py-8 lg:px-8">
-        <div class="mb-6 flex flex-col gap-4 border-b border-white/15 pb-4 sm:mb-8 lg:flex-row lg:items-center lg:justify-between">
-          <div class="flex items-center gap-3 sm:gap-4">
-            <div class="h-12 w-12 overflow-hidden rounded-full border-2 border-white/50 bg-white p-1.5 sm:h-16 sm:w-16">
+      <div class="relative z-10 mx-auto max-w-6xl px-4 py-8 sm:px-6 sm:py-10 lg:px-8">
+        <div class="flex flex-col gap-6 md:flex-row md:items-center md:justify-between">
+          <div class="flex items-center gap-4">
+            <div class="h-16 w-16 overflow-hidden rounded-full border-2 border-white/30 bg-white p-1.5 shrink-0 shadow-lg">
               <img src={resolvePath('/assets/LOGO-PC-NUEVO-e1754668914257.png')} alt="Logo Protección Civil" class="h-full w-full object-contain" />
             </div>
             <div>
-              <p class="mb-2 text-[0.72rem] font-semibold uppercase tracking-[0.16em] text-white/75 sm:text-sm sm:tracking-[0.2em]">Menú Escolar</p>
-              <h1 class="text-2xl font-black sm:text-5xl">Submenús de Seguridad Escolar</h1>
+              <p class="mb-1 text-[0.62rem] font-semibold uppercase tracking-[0.15em] text-[var(--color-tertiary)] sm:text-xs">Sistema de Autoprotección y Prevención Escolar</p>
+              <h1 class="text-2xl font-black sm:text-4xl lg:text-5xl leading-tight tracking-wide">Menú Escolar y Autoprotección</h1>
             </div>
           </div>
-          <a href={resolvePath('/')} class="inline-flex min-h-11 items-center justify-center gap-1.5 px-4 py-2 border border-white/20 bg-white/5 hover:bg-white/10 text-white text-xs font-bold uppercase tracking-[0.12em] transition-colors self-start lg:self-auto">
-            <ChevronLeft size={16} strokeWidth={2.75} />
-            <span>Volver al Tablero</span>
-          </a>
-        </div>
-
-        <div class="max-w-3xl">
-          <div class="pc-ribbon mb-5 inline-flex items-center gap-2 px-4 py-2 text-xs font-bold uppercase tracking-[0.14em]">
-            <School size={14} strokeWidth={2.75} />
-            <span>4 submenús temáticos</span>
+          
+          <div class="flex flex-col sm:flex-row gap-3 items-start sm:items-center shrink-0">
+            <div class="flex items-center gap-3 bg-white text-[var(--color-primary)] border-2 border-[var(--color-primary)] px-4 py-3 shadow-[4px_4px_0px_var(--color-primary)] rounded">
+              <div class="bg-[var(--color-primary)] text-white p-2 rounded-full">
+                <Phone size={18} class="animate-pulse" />
+              </div>
+              <div>
+                <p class="text-[0.65rem] uppercase tracking-wider text-[var(--color-primary)]/80 font-black">En caso de emergencia</p>
+                <p class="text-sm font-black sm:text-base">Llama 911 | 0800-7248451</p>
+              </div>
+            </div>
           </div>
-          <p class="text-sm leading-6 text-white/85 sm:text-base sm:leading-7">
-            Este menú concentra los cuatro módulos escolares existentes para navegar por el contenido de forma segmentada.
+        </div>
+      </div>
+    </section>
+
+    <!-- Main Content Section -->
+    <section class="bg-white py-8 sm:py-12">
+      <div class="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
+        <!-- Subtitle and Intro -->
+        <div class="mb-8 border-l-4 border-[var(--color-primary)] pl-4">
+          <h2 class="text-2xl font-black text-[var(--color-secondary)] sm:text-3xl tracking-tight">PREVENCIÓN Y SEGURIDAD ESCOLAR</h2>
+          <p class="text-sm font-bold uppercase tracking-wider text-[var(--color-primary)] mt-1">Conoce la P.P.M. y organízate en tu comunidad educativa.</p>
+          <p class="mt-2 text-sm leading-relaxed text-gray-600 sm:text-base">
+            La Prevención, Preparación y Mitigación (P.P.M) ante diferentes riesgos es fundamental para salvar vidas en el entorno escolar. Protección Civil te invita a explorar cómo actuar ante emergencias Antes, Durante y Después del evento, y a consultar las guías de planificación escolar de abajo.
           </p>
         </div>
-      </div>
-    </section>
 
-    <section class="bg-white">
-      <div class="mx-auto max-w-6xl px-4 py-8 sm:px-6 sm:py-10 lg:px-8">
-        <div class="pc-hazard-stripe mb-6 h-2 w-full sm:mb-8"></div>
-        <div class="grid gap-6 md:grid-cols-2 lg:grid-cols-4">
-          {schoolBrochures.map((brochure) => (
-            <a
-              href={resolvePath(`/${brochure.slug}-${brochure.styleVariant || 'default'}-light`)}
-              data-theme-link="auto"
-              data-light-href={resolvePath(`/${brochure.slug}-${brochure.styleVariant || 'default'}-light`)}
-              data-dark-href={resolvePath(`/${brochure.slug}-${brochure.styleVariant || 'default'}-dark`)}
-              class="pc-card pc-diagonal pc-hard-shadow group relative flex flex-col min-h-[15rem] sm:min-h-[19rem] overflow-hidden transition-transform hover:translate-y-[-4px]"
-            >
-              <div class="pc-card-image absolute inset-0" style={`background-image: url('${resolvePath(brochure.image)}'); background-size: cover; background-position: center;`}></div>
-              <div class="relative z-10 flex flex-1 flex-col justify-end p-4 sm:p-5">
-                <span class="pc-tag pc-tag-primary mb-2 w-fit">{brochure.badge}</span>
-                <span class="text-[0.72rem] font-semibold uppercase tracking-[0.12em] text-white/60 mb-1">{brochure.topicNumber}</span>
-                <h2 class="text-lg font-black text-white sm:text-xl leading-tight">{brochure.topicLabel}</h2>
-                <p class="mt-2 text-xs leading-relaxed text-white/80">{brochure.dashboardSummary}</p>
+        <!-- 6 Cards Layout (Desktop: Big Cards, Mobile: Slim Cards) -->
+        <!-- Desktop Grid -->
+        <div class="hidden md:grid md:grid-cols-3 lg:grid-cols-6 gap-4 mb-12">
+          {emergencyTopics.map((topic) => {
+            const detail = topicDetails[topic.id as keyof typeof topicDetails] || {
+              number: '00',
+              bgColor: 'bg-gray-600',
+              hoverBgColor: 'hover:bg-gray-700',
+              borderColor: 'border-gray-600',
+              textClass: 'text-gray-600',
+              description: topic.summary,
+              icon: '🚨'
+            };
+            return (
+              <a 
+                href={resolvePath(`/menu-escolar/${topic.id}`)}
+                class={`group relative flex flex-col min-h-[17rem] rounded-xl overflow-hidden shadow-sm hover:shadow-md transition-all duration-300 transform hover:-translate-y-1 justify-between p-5 border-l-4 ${detail.borderColor} text-white`}
+              >
+                <!-- Background Image with Overlay -->
+                <div class="absolute inset-0 bg-cover bg-center transition-transform duration-300 group-hover:scale-[1.04]" style={`background-image: var(--gradient-overlay), url('${resolvePath(topic.image)}');`}></div>
+                
+                <div class="relative z-10 flex-1 flex flex-col items-center text-center">
+                  <!-- Number Circle Badge -->
+                  <div class={`w-8 h-8 rounded-full ${detail.bgColor} flex items-center justify-center text-white text-xs font-black mb-3 shadow-md`}>
+                    {detail.number}
+                  </div>
+                  
+                  <!-- Icon -->
+                  <div class="text-3xl mb-2 filter drop-shadow-md select-none">
+                    {detail.icon}
+                  </div>
+
+                  <!-- Title -->
+                  <h3 class="text-sm font-black tracking-wider text-white uppercase mb-2">
+                    {topic.title}
+                  </h3>
+
+                  <!-- Description -->
+                  <p class="text-[0.72rem] leading-relaxed text-white/80 font-medium">
+                    {detail.description}
+                  </p>
+                </div>
+
+                <!-- Action Button -->
+                <div class="relative z-10 mt-4">
+                  <div 
+                    class={`w-full py-2 px-3 ${detail.bgColor} ${detail.hoverBgColor} text-white font-extrabold text-[0.7rem] uppercase tracking-wider rounded flex items-center justify-center gap-1.5 transition-colors shadow-sm`}
+                  >
+                    <span>Ver Información</span>
+                    <ChevronRight size={12} strokeWidth={3} />
+                  </div>
+                </div>
+              </a>
+            );
+          })}
+        </div>
+
+        <!-- Mobile Slim Cards List -->
+        <div class="grid md:hidden gap-3 mb-10">
+          {emergencyTopics.map((topic) => {
+            const detail = topicDetails[topic.id as keyof typeof topicDetails] || {
+              number: '00',
+              bgColor: 'bg-gray-600',
+              borderColor: 'border-gray-600',
+              textClass: 'text-gray-600',
+              icon: '🚨'
+            };
+            return (
+              <a 
+                href={resolvePath(`/menu-escolar/${topic.id}`)} 
+                class="group relative flex items-center gap-4 p-4 rounded-lg overflow-hidden active:scale-[0.98] transition-transform text-white min-h-[4.5rem]"
+              >
+                <!-- Background Image with Overlay -->
+                <div class="absolute inset-0 bg-cover bg-center transition-transform duration-300 group-hover:scale-[1.03]" style={`background-image: var(--gradient-overlay), url('${resolvePath(topic.image)}');`}></div>
+                
+                <!-- Color Indicator Bar on Left -->
+                <div class={`absolute left-0 top-0 bottom-0 w-2.5 ${detail.bgColor}`}></div>
+                
+                <!-- Number -->
+                <span class={`relative z-10 text-[0.75rem] font-black uppercase tracking-wider text-white bg-black/35 px-2 py-0.5 rounded shrink-0`}>
+                  {detail.number}
+                </span>
+
+                <!-- Emoji Icon -->
+                <span class="relative z-10 text-2xl shrink-0 select-none">
+                  {detail.icon}
+                </span>
+
+                <!-- Title and Link Info -->
+                <div class="relative z-10 flex-1 min-w-0">
+                  <h3 class="text-sm font-black text-white uppercase truncate">
+                    {topic.title}
+                  </h3>
+                </div>
+
+                <!-- Chevron -->
+                <ChevronRight size={18} class="relative z-10 text-white shrink-0" strokeWidth={2.5} />
+              </a>
+            );
+          })}
+        </div>
+
+        <!-- Seguridad Escolar Section (Distilled content from old second menu) -->
+        <div class="mt-12 pt-10 border-t-2 border-dashed border-gray-200">
+          <div class="mb-8 border-l-4 border-[var(--color-primary)] pl-4">
+            <div class="pc-ribbon mb-3 inline-flex items-center gap-2 px-3 py-1.5 text-[0.65rem] font-bold uppercase tracking-[0.12em] rounded">
+              <School size={12} strokeWidth={2.75} class="shrink-0" />
+              <span>4 Módulos de Planificación Escolar</span>
+            </div>
+            <h2 class="text-xl font-black text-[var(--color-secondary)] sm:text-3xl uppercase tracking-tight">Organización y Planificación Escolar</h2>
+            <p class="text-xs font-bold uppercase tracking-wider text-[var(--color-primary)] mt-1">Herramientas organizativas para directivos, docentes, alumnos y representantes.</p>
+          </div>
+
+          <div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+            {schoolBrochures.map((brochure) => (
+              <div class="pc-card pc-hard-shadow-light bg-white border border-gray-200 rounded-xl overflow-hidden transition-all duration-300 flex flex-col justify-between">
+                {/* Header background with image */}
+                <div class="relative h-36 w-full overflow-hidden">
+                  <div class="absolute inset-0 bg-cover bg-center" style={`background-image: url('${resolvePath(brochure.image)}');`}></div>
+                  <div class="absolute inset-0 bg-gradient-to-t from-black/85 via-black/35 to-transparent"></div>
+                  <div class="absolute bottom-3 left-4 right-4 text-white">
+                    <span class="text-[0.62rem] font-bold uppercase tracking-widest text-[var(--color-tertiary)] bg-[var(--color-secondary)]/90 px-2 py-0.5 rounded">{brochure.topicNumber}</span>
+                    <h3 class="text-base font-black uppercase mt-1 leading-tight">{brochure.topicLabel}</h3>
+                  </div>
+                </div>
+
+                {/* Content Body with detailed point distillation */}
+                <div class="p-4 sm:p-5 flex-1 flex flex-col justify-between gap-4">
+                  <div class="space-y-3">
+                    <p class="text-xs text-gray-500 font-medium leading-relaxed">{brochure.dashboardSummary}</p>
+                    
+                    {/* Distilled details so no context is lost */}
+                    <div class="border-t border-gray-100 pt-3 space-y-2">
+                      <p class="text-[0.68rem] font-black uppercase tracking-wider text-[var(--color-secondary)]">Secciones clave:</p>
+                      <ul class="space-y-2 text-[0.72rem] text-gray-600">
+                        {brochure.cards.map((card) => (
+                          <li class="flex items-start gap-1.5">
+                            <span class="text-[var(--color-primary)] font-bold shrink-0">•</span>
+                            <span>
+                              <strong class="font-bold text-gray-800">{card.title}:</strong> {card.description}
+                            </span>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                  </div>
+
+                  {/* Trigger modal popup instead of link */}
+                  <button
+                    data-target={`modal-${brochure.slug}`}
+                    class="open-modal-btn w-full py-2.5 px-4 bg-[var(--color-primary)] hover:bg-[var(--color-primary)]/90 text-white text-center font-extrabold text-xs uppercase tracking-wider rounded transition-colors shadow-sm flex items-center justify-center gap-1.5 cursor-pointer"
+                  >
+                    <span>Abrir Guía Interactiva</span>
+                    <ChevronRight size={14} strokeWidth={2.5} />
+                  </button>
+                </div>
               </div>
-            </a>
-          ))}
+            ))}
+          </div>
+        </div>
+
+        <!-- ACCESO RÁPIDO Section -->
+        <div class="mt-12 bg-gray-50 border border-gray-200 rounded-xl p-5 sm:p-6 mb-10">
+          <h3 class="text-xs font-black uppercase tracking-[0.15em] text-gray-400 mb-4 text-center sm:text-left">ACCESO RÁPIDO</h3>
+          
+          <div class="grid gap-4 sm:grid-cols-3">
+            <!-- Item 1: Numbers -->
+            <button 
+              data-target="emergency-numbers-modal"
+              class="open-modal-btn flex items-start gap-4 p-4 rounded-lg bg-white border border-gray-200 shadow-sm hover:shadow-md hover:border-gray-300 transition-all text-left w-full cursor-pointer group"
+            >
+              <div class="bg-red-50 text-red-600 p-2.5 rounded-lg shrink-0 group-hover:scale-105 transition-transform">
+                <Siren size={20} />
+              </div>
+              <div>
+                <h4 class="text-xs font-black text-[var(--color-secondary)] uppercase tracking-wider mb-1">Números de Emergencia</h4>
+                <p class="text-[0.72rem] leading-relaxed text-gray-500 font-medium">Contactos importantes para tu seguridad.</p>
+              </div>
+            </button>
+
+            <!-- Item 2: Backpack -->
+            <button 
+              data-target="emergency-backpack-modal"
+              class="open-modal-btn flex items-start gap-4 p-4 rounded-lg bg-white border border-gray-200 shadow-sm hover:shadow-md hover:border-gray-300 transition-all text-left w-full cursor-pointer group"
+            >
+              <div class="bg-emerald-50 text-emerald-600 p-2.5 rounded-lg shrink-0 group-hover:scale-105 transition-transform">
+                <Briefcase size={20} />
+              </div>
+              <div>
+                <h4 class="text-xs font-black text-[var(--color-secondary)] uppercase tracking-wider mb-1">Mochila de Emergencia</h4>
+                <p class="text-[0.72rem] leading-relaxed text-gray-500 font-medium">Elementos esenciales que puedes necesitar.</p>
+              </div>
+            </button>
+
+            <!-- Item 3: What to do first -->
+            <button 
+              data-target="what-first-modal"
+              class="open-modal-btn flex items-start gap-4 p-4 rounded-lg bg-white border border-gray-200 shadow-sm hover:shadow-md hover:border-gray-300 transition-all text-left w-full cursor-pointer group"
+            >
+              <div class="bg-amber-50 text-amber-600 p-2.5 rounded-lg shrink-0 group-hover:scale-105 transition-transform">
+                <ClipboardList size={20} />
+              </div>
+              <div>
+                <h4 class="text-xs font-black text-[var(--color-secondary)] uppercase tracking-wider mb-1">¿Qué hacer primero?</h4>
+                <p class="text-[0.72rem] leading-relaxed text-gray-500 font-medium">Pasos clave ante cualquier emergencia.</p>
+              </div>
+            </button>
+          </div>
+        </div>
+
+        <!-- Brand Banner (La prevencion salva vidas) -->
+        <div class="relative overflow-hidden bg-[var(--color-secondary)] text-white rounded-xl p-6 sm:p-8 flex flex-col sm:flex-row items-center justify-between gap-6 shadow-md border-l-8 border-[var(--color-primary)]">
+          <!-- Background grids and effects -->
+          <div class="pc-dot-grid absolute inset-0 opacity-40"></div>
+          
+          <div class="relative z-10 flex items-center gap-4 text-center sm:text-left flex-col sm:flex-row">
+            <div class="bg-white/10 backdrop-blur-md p-3 rounded-full border border-white/20 shrink-0 text-[var(--color-tertiary)]">
+              <Shield size={32} />
+            </div>
+            <div>
+              <h3 class="text-lg font-black tracking-wider text-white uppercase">La Prevención Salva Vidas</h3>
+              <p class="text-[0.75rem] text-white/80 font-medium mt-1">Infórmate, prepárate y comparte esta información con tu familia y comunidad escolar.</p>
+            </div>
+          </div>
+
+          <div class="relative z-10 hidden lg:block shrink-0 opacity-20">
+            <img src={resolvePath('/assets/LOGO-PC-NUEVO-e1754668914257.png')} alt="PC Venezuela watermark" class="h-20 w-auto" />
+          </div>
         </div>
       </div>
     </section>
-
-    <script is:inline>
-      (() => {
-        if (!window.matchMedia || !window.matchMedia('(prefers-color-scheme: dark)').matches) return;
-        document.querySelectorAll('a[data-theme-link="auto"]').forEach((link) => {
-          const darkHref = link.getAttribute('data-dark-href');
-          if (darkHref) link.setAttribute('href', darkHref);
-        });
-      })();
-    </script>
   </main>
 </Layout>
+
+<!-- Modal Dialogs for Acceso Rápido -->
+<!-- Modal 1: Numbers -->
+<dialog id="emergency-numbers-modal" class="fixed inset-0 m-auto backdrop:bg-black/60 p-0 rounded-xl max-w-lg w-[calc(100%-2rem)] h-fit bg-white shadow-2xl border border-gray-150 outline-none">
+  <div class="p-5 border-b border-gray-150 flex justify-between items-center bg-gray-50 rounded-t-xl">
+    <div class="flex items-center gap-2.5 text-red-600">
+      <Siren size={18} />
+      <h3 class="text-sm font-black uppercase tracking-wider text-[var(--color-secondary)]">Números de Emergencia</h3>
+    </div>
+    <button class="close-modal text-gray-400 hover:text-gray-600 cursor-pointer" data-target="emergency-numbers-modal">
+      <X size={20} />
+    </button>
+  </div>
+  <div class="p-6 space-y-4">
+    <p class="text-xs text-gray-500 font-medium">Guarda estos números en tu celular y compártelos con tus seres queridos:</p>
+    <div class="space-y-3">
+      <a href="tel:911" class="flex items-center justify-between p-3 bg-red-50/50 hover:bg-red-50 border border-red-100 rounded-lg group transition-colors">
+        <div>
+          <h4 class="text-xs font-black text-red-700 uppercase">Emergencias Nacionales</h4>
+          <p class="text-[0.72rem] text-gray-500">Servicio de atención unificado de emergencias.</p>
+        </div>
+        <span class="text-sm font-black text-red-600 bg-white border border-red-200 px-3 py-1.5 rounded-full group-hover:scale-105 transition-transform">911</span>
+      </a>
+      
+      <a href="tel:08007248451" class="flex items-center justify-between p-3 bg-blue-50/50 hover:bg-blue-50 border border-blue-100 rounded-lg group transition-colors">
+        <div>
+          <h4 class="text-xs font-black text-blue-700 uppercase">Protección Civil</h4>
+          <p class="text-[0.72rem] text-gray-500">Dirección Nacional de Protección Civil y Administración de Desastres.</p>
+        </div>
+        <span class="text-sm font-black text-blue-600 bg-white border border-blue-200 px-3 py-1.5 rounded-full group-hover:scale-105 transition-transform">0800-7248451</span>
+      </a>
+
+      <div class="flex items-center justify-between p-3 bg-gray-50 border border-gray-150 rounded-lg">
+        <div>
+          <h4 class="text-xs font-black text-[var(--color-secondary)] uppercase">Aula Sísmica Funvisis</h4>
+          <p class="text-[0.72rem] text-gray-500">Información de eventos y prevención sísmica.</p>
+        </div>
+        <span class="text-sm font-black text-[var(--color-secondary)] bg-white border border-gray-200 px-3 py-1.5 rounded-full">0800-TEMBLOR</span>
+      </div>
+    </div>
+  </div>
+  <div class="px-6 py-4 bg-gray-50 border-t border-gray-150 flex justify-end rounded-b-xl">
+    <button class="close-modal px-4 py-2 bg-gray-200 hover:bg-gray-300 text-gray-700 text-xs font-black uppercase tracking-wider rounded transition-colors cursor-pointer" data-target="emergency-numbers-modal">
+      Cerrar
+    </button>
+  </div>
+</dialog>
+
+<!-- Modal 2: Backpack -->
+<dialog id="emergency-backpack-modal" class="fixed inset-0 m-auto backdrop:bg-black/60 p-0 rounded-xl max-w-lg w-[calc(100%-2rem)] h-fit bg-white shadow-2xl border border-gray-100 outline-none">
+  <div class="p-5 border-b border-gray-150 flex justify-between items-center bg-gray-50 rounded-t-xl">
+    <div class="flex items-center gap-2.5 text-emerald-600">
+      <Briefcase size={18} />
+      <h3 class="text-sm font-black uppercase tracking-wider text-[var(--color-secondary)]">Mochila de Emergencia</h3>
+    </div>
+    <button class="close-modal text-gray-400 hover:text-gray-600 cursor-pointer" data-target="emergency-backpack-modal">
+      <X size={20} />
+    </button>
+  </div>
+  <div class="p-6 space-y-4">
+    <p class="text-xs text-gray-500 font-medium">Una mochila de emergencia debe estar lista para usar en caso de evacuación inmediata. Debe contener:</p>
+    
+    <div class="grid grid-cols-2 gap-3">
+      <label class="flex items-start gap-2.5 p-2 bg-gray-50 rounded border border-gray-100 cursor-pointer select-none">
+        <input type="checkbox" class="mt-0.5 rounded text-emerald-600 focus:ring-emerald-500" />
+        <span class="text-[0.72rem] text-gray-700 font-medium">Agua embotellada (2 litros por persona al día)</span>
+      </label>
+      <label class="flex items-start gap-2.5 p-2 bg-gray-50 rounded border border-gray-100 cursor-pointer select-none">
+        <input type="checkbox" class="mt-0.5 rounded text-emerald-600 focus:ring-emerald-500" />
+        <span class="text-[0.72rem] text-gray-700 font-medium">Comida enlatada y abrelatas manual</span>
+      </label>
+      <label class="flex items-start gap-2.5 p-2 bg-gray-50 rounded border border-gray-100 cursor-pointer select-none">
+        <input type="checkbox" class="mt-0.5 rounded text-emerald-600 focus:ring-emerald-500" />
+        <span class="text-[0.72rem] text-gray-700 font-medium">Botiquín de primeros auxilios y medicinas</span>
+      </label>
+      <label class="flex items-start gap-2.5 p-2 bg-gray-50 rounded border border-gray-100 cursor-pointer select-none">
+        <input type="checkbox" class="mt-0.5 rounded text-emerald-600 focus:ring-emerald-500" />
+        <span class="text-[0.72rem] text-gray-700 font-medium">Linterna de pilas y pilas de repuesto</span>
+      </label>
+      <label class="flex items-start gap-2.5 p-2 bg-gray-50 rounded border border-gray-100 cursor-pointer select-none">
+        <input type="checkbox" class="mt-0.5 rounded text-emerald-600 focus:ring-emerald-500" />
+        <span class="text-[0.72rem] text-gray-700 font-medium">Radio portátil de pilas</span>
+      </label>
+      <label class="flex items-start gap-2.5 p-2 bg-gray-50 rounded border border-gray-100 cursor-pointer select-none">
+        <input type="checkbox" class="mt-0.5 rounded text-emerald-600 focus:ring-emerald-500" />
+        <span class="text-[0.72rem] text-gray-700 font-medium">Pito (silbato) para pedir auxilio</span>
+      </label>
+      <label class="flex items-start gap-2.5 p-2 bg-gray-50 rounded border border-gray-100 cursor-pointer select-none">
+        <input type="checkbox" class="mt-0.5 rounded text-emerald-600 focus:ring-emerald-500" />
+        <span class="text-[0.72rem] text-gray-700 font-medium">Copia de documentos en bolsa impermeable</span>
+      </label>
+      <label class="flex items-start gap-2.5 p-2 bg-gray-50 rounded border border-gray-100 cursor-pointer select-none">
+        <input type="checkbox" class="mt-0.5 rounded text-emerald-600 focus:ring-emerald-500" />
+        <span class="text-[0.72rem] text-gray-700 font-medium">Manta térmica o ropa de cambio</span>
+      </label>
+    </div>
+  </div>
+  <div class="px-6 py-4 bg-gray-50 border-t border-gray-150 flex justify-end rounded-b-xl">
+    <button class="close-modal px-4 py-2 bg-gray-200 hover:bg-gray-300 text-gray-700 text-xs font-black uppercase tracking-wider rounded transition-colors cursor-pointer" data-target="emergency-backpack-modal">
+      Cerrar
+    </button>
+  </div>
+</dialog>
+
+<!-- Modal 3: What to do first -->
+<dialog id="what-first-modal" class="fixed inset-0 m-auto backdrop:bg-black/60 p-0 rounded-xl max-w-lg w-[calc(100%-2rem)] h-fit bg-white shadow-2xl border border-gray-150 outline-none">
+  <div class="p-5 border-b border-gray-150 flex justify-between items-center bg-gray-50 rounded-t-xl">
+    <div class="flex items-center gap-2.5 text-amber-600">
+      <ClipboardList size={18} />
+      <h3 class="text-sm font-black uppercase tracking-wider text-[var(--color-secondary)]">¿Qué hacer primero?</h3>
+    </div>
+    <button class="close-modal text-gray-400 hover:text-gray-600 cursor-pointer" data-target="what-first-modal">
+      <X size={20} />
+    </button>
+  </div>
+  <div class="p-6 space-y-4">
+    <p class="text-xs text-gray-500 font-medium">Ante cualquier situación de riesgo o emergencia imprevista, sigue estos 5 pasos fundamentales:</p>
+    
+    <div class="space-y-3">
+      <div class="flex gap-3 items-start">
+        <span class="w-6 h-6 rounded-full bg-amber-100 border border-amber-200 text-amber-700 flex items-center justify-center text-xs font-black shrink-0">1</span>
+        <div>
+          <h4 class="text-xs font-bold text-[var(--color-secondary)] uppercase">Conserve la calma</h4>
+          <p class="text-[0.72rem] text-gray-500 mt-0.5">El pánico paraliza. Respire hondo para poder tomar decisiones racionales y ayudar a los demás.</p>
+        </div>
+      </div>
+
+      <div class="flex gap-3 items-start">
+        <span class="w-6 h-6 rounded-full bg-amber-100 border border-amber-200 text-amber-700 flex items-center justify-center text-xs font-black shrink-0">2</span>
+        <div>
+          <h4 class="text-xs font-bold text-[var(--color-secondary)] uppercase">Evalúe el peligro inmediato</h4>
+          <p class="text-[0.72rem] text-gray-500 mt-0.5">Mire a su alrededor para identificar riesgos secundarios (fuego, cables caídos, escombros inestables, etc.).</p>
+        </div>
+      </div>
+
+      <div class="flex gap-3 items-start">
+        <span class="w-6 h-6 rounded-full bg-amber-100 border border-amber-200 text-amber-700 flex items-center justify-center text-xs font-black shrink-0">3</span>
+        <div>
+          <h4 class="text-xs font-bold text-[var(--color-secondary)] uppercase">Protéjase usted y a su familia</h4>
+          <p class="text-[0.72rem] text-gray-500 mt-0.5">Busque refugio inmediato si es necesario (debajo de vigas en un sismo, zonas altas en una inundación).</p>
+        </div>
+      </div>
+
+      <div class="flex gap-3 items-start">
+        <span class="w-6 h-6 rounded-full bg-amber-100 border border-amber-200 text-amber-700 flex items-center justify-center text-xs font-black shrink-0">4</span>
+        <div>
+          <h4 class="text-xs font-bold text-[var(--color-secondary)] uppercase">Evacúe de forma ordenada</h4>
+          <p class="text-[0.72rem] text-gray-500 mt-0.5">Si la edificación o zona es insegura, evacúe usando las rutas establecidas. No use ascensores.</p>
+        </div>
+      </div>
+
+      <div class="flex gap-3 items-start">
+        <span class="w-6 h-6 rounded-full bg-amber-100 border border-amber-200 text-amber-700 flex items-center justify-center text-xs font-black shrink-0">5</span>
+        <div>
+          <h4 class="text-xs font-bold text-[var(--color-secondary)] uppercase">Comuníquese y reporte al 911</h4>
+          <p class="text-[0.72rem] text-gray-500 mt-0.5">Utilice mensajes de texto para no saturar las líneas. Reporte incidentes con datos claros una vez a salvo.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="px-6 py-4 bg-gray-50 border-t border-gray-150 flex justify-end rounded-b-xl">
+    <button class="close-modal px-4 py-2 bg-gray-200 hover:bg-gray-300 text-gray-700 text-xs font-black uppercase tracking-wider rounded transition-colors cursor-pointer" data-target="what-first-modal">
+      Cerrar
+    </button>
+  </div>
+</dialog>
+
+{/* School Brochure Modal Popups */}
+{schoolBrochures.map((brochure) => {
+  return (
+    <dialog 
+      id={`modal-${brochure.slug}`} 
+      class="fixed inset-0 m-auto backdrop:bg-black/60 p-0 rounded-xl max-w-4xl w-[calc(100%-2rem)] h-[85vh] max-h-[85vh] bg-white shadow-2xl border border-gray-150 outline-none overflow-hidden"
+    >
+      <div class="w-full h-full flex flex-col">
+        {/* Modal Header with Banner */}
+        <div class="relative h-44 sm:h-52 w-full overflow-hidden shrink-0">
+          <div class="absolute inset-0 bg-cover bg-center" style={`background-image: url('${resolvePath(brochure.image)}');`}></div>
+          <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/45 to-black/10"></div>
+          <div class="absolute inset-0 pc-dot-grid opacity-30"></div>
+          
+          {/* Close button */}
+          <button 
+            class="close-modal absolute top-4 right-4 bg-black/40 hover:bg-black/60 text-white p-2 rounded-full border border-white/20 transition-colors z-20 cursor-pointer"
+            data-target={`modal-${brochure.slug}`}
+          >
+            <X size={18} strokeWidth={2.5} />
+          </button>
+
+          {/* Header content */}
+          <div class="absolute bottom-4 left-5 right-5 text-white z-10">
+            <div class="flex flex-wrap gap-2 items-center mb-1.5">
+              <span class="pc-tag pc-tag-primary text-[0.62rem]">{brochure.badge}</span>
+              <span class="text-[0.68rem] font-bold uppercase tracking-wider text-white/80">
+                {brochure.topicNumber} &bull; {brochure.topicLabel}
+              </span>
+            </div>
+            <h3 class="text-xl sm:text-3xl font-black uppercase leading-tight tracking-wide">
+              {brochure.title}
+            </h3>
+          </div>
+        </div>
+
+        {/* Modal Scrollable Body */}
+        <div class="flex-1 overflow-y-auto p-5 sm:p-6 space-y-6 bg-[var(--color-bg-light)]">
+          {/* Ribbon */}
+          <div class="pc-ribbon flex items-center justify-center px-4 py-2.5 text-center text-[0.65rem] font-bold uppercase tracking-[0.1em] rounded border border-amber-500/25">
+            <AlertTriangle size={12} strokeWidth={2.5} class="mr-2 shrink-0 text-[var(--color-primary)]" />
+            <span class="text-[var(--color-secondary)]">{brochure.ribbon}</span>
+          </div>
+
+          {/* Summary */}
+          <div class="bg-white border border-gray-150 p-4 rounded-lg shadow-sm border-l-4 border-[var(--color-primary)]">
+            <p class="text-xs sm:text-sm text-gray-500 font-bold uppercase tracking-wider">{brochure.dashboardSummary}</p>
+            <p class="text-[0.8rem] sm:text-xs text-gray-600 mt-1.5 leading-relaxed">{brochure.summary}</p>
+          </div>
+
+          {/* Action Cards */}
+          <div class="space-y-4">
+            <h4 class="text-xs font-black uppercase tracking-wider text-[var(--color-secondary)] border-b border-gray-200 pb-2">Acciones Prioritarias</h4>
+            <div class="grid gap-4 sm:grid-cols-3">
+              {brochure.cards.map((card) => {
+                const IconComponent = iconMap[card.icon as keyof typeof iconMap] || AlertTriangle;
+                return (
+                  <div class="bg-white border border-gray-150 rounded-lg p-4 shadow-sm flex flex-col gap-3">
+                    <div class="w-10 h-10 rounded bg-[var(--color-primary)] flex items-center justify-center shrink-0 shadow-sm">
+                      <IconComponent size={20} strokeWidth={2.5} class="text-white" />
+                    </div>
+                    <div>
+                      <h5 class="text-[0.8rem] font-black uppercase tracking-wide text-[var(--color-secondary)]">{card.title}</h5>
+                      <p class="text-[0.72rem] text-gray-500 leading-relaxed mt-1">{card.description}</p>
+                    </div>
+                  </div>
+                );
+              })}
+            </div>
+          </div>
+
+          {/* Alert Levels if any */}
+          {brochure.alertLevels && (
+            <div class="space-y-3">
+              <h4 class="text-xs font-black uppercase tracking-wider text-[var(--color-secondary)] border-b border-gray-200 pb-2">Niveles de Alerta</h4>
+              <div class="grid gap-3 sm:grid-cols-3">
+                {brochure.alertLevels.map((level) => {
+                  const toneClass = 
+                    level.tone === 'red' ? 'bg-red-50 text-red-700 border-red-200' :
+                    level.tone === 'yellow' ? 'bg-amber-50 text-amber-800 border-amber-200' :
+                    'bg-emerald-50 text-emerald-700 border-emerald-200';
+                  const dotClass = 
+                    level.tone === 'red' ? 'bg-red-600' :
+                    level.tone === 'yellow' ? 'bg-amber-500' :
+                    'bg-emerald-600';
+                  return (
+                    <div class={`p-3 border rounded-lg shadow-xs flex flex-col gap-2 ${toneClass}`}>
+                      <div class="flex items-center gap-1.5">
+                        <span class={`w-2.5 h-2.5 rounded-full ${dotClass}`}></span>
+                        <span class="text-[0.72rem] font-black uppercase tracking-wider">{level.label}</span>
+                      </div>
+                      <p class="text-[0.7rem] leading-relaxed opacity-90">{level.description}</p>
+                    </div>
+                  );
+                })}
+              </div>
+            </div>
+          )}
+
+          {/* Footer if any */}
+          {brochure.footer && (
+            <div class="bg-gray-50 border border-gray-200 rounded-lg p-4 border-l-4 border-[var(--color-secondary)] shadow-sm">
+              <p class="text-[0.65rem] font-black uppercase tracking-wider text-[var(--color-primary)]">Nota Operativa</p>
+              <p class="text-[0.72rem] text-gray-600 mt-1 leading-relaxed">{brochure.footer}</p>
+            </div>
+          )}
+        </div>
+
+        {/* Modal Footer */}
+        <div class="px-5 py-3.5 bg-gray-150 border-t border-gray-200 flex justify-end shrink-0 gap-3">
+          <button 
+            class="close-modal px-4 py-2 bg-gray-200 hover:bg-gray-300 text-gray-700 text-xs font-black uppercase tracking-wider rounded transition-colors cursor-pointer" 
+            data-target={`modal-${brochure.slug}`}
+          >
+            Cerrar
+          </button>
+        </div>
+      </div>
+    </dialog>
+  );
+})}
+
+<script>
+  // Add listeners to open and close dialog modals
+  const openBtns = document.querySelectorAll('.open-modal-btn');
+  openBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      const modalId = btn.getAttribute('data-target');
+      if (modalId) {
+        const dialog = document.getElementById(modalId) as HTMLDialogElement;
+        if (dialog) {
+          dialog.showModal();
+        }
+      }
+    });
+  });
+
+  const closeBtns = document.querySelectorAll('.close-modal');
+  closeBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      const modalId = btn.getAttribute('data-target');
+      if (modalId) {
+        const dialog = document.getElementById(modalId) as HTMLDialogElement;
+        if (dialog) {
+          dialog.close();
+        }
+      }
+    });
+  });
+
+  // Close when clicking backdrop
+  const dialogs = document.querySelectorAll('dialog');
+  dialogs.forEach(dialog => {
+    dialog.addEventListener('click', (e) => {
+      const rect = dialog.getBoundingClientRect();
+      const isInDialog = (rect.top <= e.clientY && e.clientY <= rect.top + rect.height &&
+        rect.left <= e.clientX && e.clientX <= rect.left + rect.width);
+      if (!isInDialog) {
+        dialog.close();
+      }
+    });
+  });
+</script>
+
+<script is:inline>
+  // Handle auto-routing of the school brochures based on browser color-scheme preference
+  (() => {
+    if (!window.matchMedia || !window.matchMedia('(prefers-color-scheme: dark)').matches) return;
+    document.querySelectorAll('a[data-theme-link="auto"]').forEach((link) => {
+      const darkHref = link.getAttribute('data-dark-href');
+      if (darkHref) link.setAttribute('href', darkHref);
+    });
+  })();
+</script>
