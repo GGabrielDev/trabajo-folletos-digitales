@@ -7,7 +7,7 @@ This document lists the public pages currently exposed by the site and the conte
 | Route | Topic | Variant | Notes |
 | --- | --- | --- | --- |
 | `/` | Index | Dashboard | Central panel linking to all topics |
-| `/menu-escolar` | Menú Escolar | Dashboard | Entry menu exposing the 4 school-themed brochures |
+| `/prevencion-escolar` | Prevención Escolar | Dashboard | Entry menu exposing the 6 school-themed emergency submenus and 4 planning brochures |
 | `/prevencion-y-gestion-de-riesgo` | Seguridad y Gestión del Riesgo | Submenús | Landing page with 4 compact buttons to dedicated topic subpages |
 | `/prevencion-y-gestion-de-riesgo/:topic` | Seguridad y Gestión del Riesgo | Subpage | One emergency topic at a time with floating back button |
 | `/nuevo-contenido-completo` | Seguridad y Gestión del Riesgo | Integral | Base page with the same emergency content in one long scroll |
