@@ -1,10 +1,10 @@
 ---
 import EmergencyTopicSection from '../../components/EmergencyTopicSection.astro';
 import Layout from '../../layouts/Layout.astro';
-import { emergencyTopics } from '../../data/emergencyTopics';
+import { schoolEmergencyTopics } from '../../data/schoolEmergencyTopics';
 
 export function getStaticPaths() {
-  return emergencyTopics.map((topic, index) => ({
+  return schoolEmergencyTopics.map((topic, index) => ({
     params: { topic: topic.id },
     props: { topic, index },
   }));

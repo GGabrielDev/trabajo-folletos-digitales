@@ -1,6 +1,6 @@
 ---
 import Layout from '../layouts/Layout.astro';
-import { emergencyTopics } from '../data/emergencyTopics';
+import { schoolEmergencyTopics } from '../data/schoolEmergencyTopics';
 import { brochures } from '../data/brochures';
 import { Phone, Siren, Briefcase, ClipboardList, Shield, ChevronRight, X, ChevronLeft, School, ShieldAlert, Radio, Waves, Zap, Navigation, Home, PackageCheck, Users, Flame, Droplets, Bug, AlertTriangle } from 'lucide-react';
 
@@ -146,7 +146,7 @@ const resolvePath = (path: string) => {
         <!-- 6 Cards Layout (Desktop: Big Cards, Mobile: Slim Cards) -->
         <!-- Desktop Grid -->
         <div class="hidden md:grid md:grid-cols-3 lg:grid-cols-6 gap-4 mb-12">
-          {emergencyTopics.map((topic) => {
+          {schoolEmergencyTopics.map((topic) => {
             const detail = topicDetails[topic.id as keyof typeof topicDetails] || {
               number: '00',
               bgColor: 'bg-gray-600',
@@ -202,7 +202,7 @@ const resolvePath = (path: string) => {
 
         <!-- Mobile Slim Cards List -->
         <div class="grid md:hidden gap-3 mb-10">
-          {emergencyTopics.map((topic) => {
+          {schoolEmergencyTopics.map((topic) => {
             const detail = topicDetails[topic.id as keyof typeof topicDetails] || {
               number: '00',
               bgColor: 'bg-gray-600',
