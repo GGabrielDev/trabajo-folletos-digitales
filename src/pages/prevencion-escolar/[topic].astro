@@ -1,0 +1,20 @@
+---
+import EmergencyTopicSection from '../../components/EmergencyTopicSection.astro';
+import Layout from '../../layouts/Layout.astro';
+import { schoolEmergencyTopics } from '../../data/schoolEmergencyTopics';
+
+export function getStaticPaths() {
+  return schoolEmergencyTopics.map((topic, index) => ({
+    params: { topic: topic.id },
+    props: { topic, index },
+  }));
+}
+
+const { topic, index } = Astro.props;
+---
+
+<Layout title={`Menú Escolar - ${topic.title}`}>
+  <main class="min-h-screen bg-[var(--color-bg-light)]">
+    <EmergencyTopicSection topic={topic} index={index} showFloatingBackButton backHref="/prevencion-escolar" />
+  </main>
+</Layout>

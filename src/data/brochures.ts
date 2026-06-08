@@ -252,7 +252,7 @@ export const brochures: Brochure[] = [
       {
         icon: 'warning',
         title: 'Las 3 Reglas de Oro',
-        description: 'No Corro (evita caídas), No Grito (para escuchar instrucciones), No Empujo (mantiene la fila y evita accidentes).',
+        description: 'No Corro (evita caídas), No Grito (para escuchar instrucciones), No Empujo (manten la fila y evita accidentes).',
       },
       {
         icon: 'radio',
