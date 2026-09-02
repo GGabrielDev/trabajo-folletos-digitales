@@ -10,16 +10,8 @@ const resolvePath = (path: string) => {
 
 const menuOptions = [
   {
-    href: resolvePath('/general'),
-    topicNumber: 'Menú 01',
-    topicLabel: 'Autoprotección General',
-    badge: 'Temario General',
-    image: resolvePath('/assets/civil_safety_illustration_1774910214897.png'),
-    dashboardSummary: 'Acceso a los folletos originales de autoprotección ante sismos, lluvias, orden público y otros riesgos físicos.',
-  },
-  {
     href: resolvePath('/prevencion-escolar'),
-    topicNumber: 'Menú 02',
+    topicNumber: 'Menú 01',
     topicLabel: 'Menú Escolar y Gestión de Riesgo (6 submenús)',
     badge: 'Seguridad Escolar',
     image: resolvePath('/assets/1_classroom_2_students_3_teacher_4.jpg'),
@@ -27,7 +19,7 @@ const menuOptions = [
   },
   {
     href: resolvePath('/prevencion-y-gestion-de-riesgo'),
-    topicNumber: 'Menú 03',
+    topicNumber: 'Menú 02',
     topicLabel: 'Seguridad y Gestión del Riesgo (6 submenús)',
     badge: 'Gestión de Riesgo',
     image: resolvePath('/assets/firefighters_rescue.png'),
@@ -87,7 +79,7 @@ const menuOptions = [
                     </div>
                 </div>
 
-                <div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+                <div class="grid gap-6 sm:grid-cols-2 max-w-4xl">
                     {menuOptions.map((option) => (
                         <a href={option.href} class="pc-card pc-diagonal pc-hard-shadow group relative flex flex-col min-h-[15rem] sm:min-h-[19rem] overflow-hidden transition-transform hover:translate-y-[-4px]">
                             <div class="pc-card-image absolute inset-0" style={`background-image: url('${option.image}'); background-size: cover; background-position: center;`}></div>

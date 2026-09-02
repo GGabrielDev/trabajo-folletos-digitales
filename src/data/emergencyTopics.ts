@@ -46,13 +46,13 @@ export const emergencyTopics: EmergencyTopic[] = [
     image: '/assets/a_pile_of_rubble_with_various_objects_scattered_throughout.jpg',
     ribbon: 'ALERTA | Conserve la calma, protéjase de objetos que caigan y use escaleras',
     summary:
-      'Puede suceder de un momento a otro. Incluso podría pasar mientras estamos en el colegio; por ello, te invitamos a prepararte y saber cómo actuar si esto sucede. Descubre qué hacer en caso de sismo en la escuela: antes, durante, después.',
+      'Puede suceder de un momento a otro. Por ello, te invitamos a prepararte y saber cómo actuar si esto sucede. Descubre qué hacer en caso de sismo: antes, durante y después.',
     phases: [
       {
         label: 'Antes',
         lead: 'Organiza tu kit de emergencias',
         points: [
-          'Elabore un plan de contingencia escolar en caso de desastres y practíquelo regularmente.',
+          'Elabore un plan de contingencia familiar o comunitario en caso de desastres y practíquelo regularmente.',
           'Señalice las rutas de evacuación y el lugar más seguro libre de obstáculos.',
           'Asegure o reubique objetos pesados que puedan caer: lámparas, bibliotecas, ventiladores de techo, entre otros.',
           'Conozca la ubicación de las llaves para cerrar gas/agua y los fusibles de electricidad.',
@@ -76,7 +76,7 @@ export const emergencyTopics: EmergencyTopic[] = [
         lead: 'Corte riesgos inmediatos y proceda con precaución',
         points: [
           'Diríjase a las zonas de protección ya establecidas, sin perder la calma y sin alejarse del grupo.',
-          'Cada profesor debe asegurarse de que se encuentren todos los alumnos del curso a su cargo.',
+          'Asegúrese de que todos los integrantes de su familia, trabajo o comunidad se encuentren a salvo.',
           'Interrumpa los servicios de gas, agua y electricidad hasta tanto no se cerciore de que no haya incendios ni escapes de agua o gas.',
           'Encienda la radio a baterías para escuchar las recomendaciones de las autoridades.',
           'Si queda atrapado, mantenga la calma y pida auxilio usando un pito o generando ruidos con objetos.'
@@ -150,7 +150,7 @@ export const emergencyTopics: EmergencyTopic[] = [
         label: 'Antes',
         lead: 'Conozca su zona y ubique rutas de escape.',
         points: [
-          'Identifique si su zona de vivienda, trabajo o estudio es inundable por tsunami.',
+          'Identifique si su zona de vivienda, trabajo o comunidad es inundable por tsunami.',
           'Ubique y siga las señales oficiales de "Ruta de Evacuación" hacia terrenos elevados.',
           'Aprenda a reconocer las señales naturales: un sismo fuerte o el retiro brusco del agua de la playa.',
           'Mantenga preparado el bolso de emergencia con agua potable, radio y documentos protegidos.'
@@ -207,7 +207,7 @@ export const emergencyTopics: EmergencyTopic[] = [
         points: [
           'Conozca la vulnerabilidad de su sector; evite construir en márgenes o cauces de cursos de agua.',
           'No arroje desechos sólidos al cauce de ríos o desagües para impedir represamientos o inundaciones.',
-          'Elabore y ejecute planes de emergencia en casa, escuela y trabajo; identifique zonas altas y rutas de escape.',
+          'Elabore y ejecute planes de emergencia en casa, comunidad y trabajo; identifique zonas altas y rutas de escape.',
           'Mantenga reservas de agua potable, alimentos, linterna, radio a pilas y botiquín a la mano.'
         ]
       },
@@ -244,7 +244,7 @@ export const emergencyTopics: EmergencyTopic[] = [
       { label: 'Vehículos apagados', detail: 'El agua en movimiento puede flotar y arrastrar vehículos rápidamente.' },
       { label: 'Electricidad', detail: 'Corte el disyuntor principal para evitar descargas letales por conducción de agua.' }
     ],
-    footer: 'Plan de autoprotección escolar y comunitario ante lluvias e inundaciones. Alerta temprana: INAMEH.'
+    footer: 'Plan de autoprotección ciudadana y comunitaria ante lluvias e inundaciones. Alerta temprana: INAMEH.'
   },
   {
     id: 'incendios',
