@@ -294,208 +294,220 @@ const resolvePath = (path: string) => {
       </div>
     </section>
   </main>
+
+  <!-- Modal Dialogs for Acceso Rápido -->
+  <!-- Modal 1: Numbers -->
+  <dialog id="emergency-numbers-modal" class="fixed inset-0 m-auto backdrop:bg-black/60 p-0 rounded-xl max-w-lg w-[calc(100%-2rem)] h-fit bg-white shadow-2xl border border-gray-150 outline-none">
+    <div class="p-5 border-b border-gray-150 flex justify-between items-center bg-gray-50 rounded-t-xl">
+      <div class="flex items-center gap-2.5 text-red-600">
+        <Siren size={18} />
+        <h3 class="text-sm font-black uppercase tracking-wider text-[var(--color-secondary)]">Números de Emergencia</h3>
+      </div>
+      <button class="close-modal text-gray-400 hover:text-gray-600 cursor-pointer" data-target="emergency-numbers-modal">
+        <X size={20} />
+      </button>
+    </div>
+    <div class="p-6 space-y-4">
+      <p class="text-xs text-gray-500 font-medium">Guarda estos números en tu celular y compártelos con tus seres queridos:</p>
+      <div class="space-y-3">
+        <a href="tel:911" class="flex items-center justify-between p-3 bg-red-50/50 hover:bg-red-50 border border-red-100 rounded-lg group transition-colors">
+          <div>
+            <h4 class="text-xs font-black text-red-700 uppercase">Emergencias Nacionales</h4>
+            <p class="text-[0.72rem] text-gray-500">Servicio de atención unificado de emergencias.</p>
+          </div>
+          <span class="text-sm font-black text-red-600 bg-white border border-red-200 px-3 py-1.5 rounded-full group-hover:scale-105 transition-transform">911</span>
+        </a>
+        
+        <a href="tel:08007248451" class="flex items-center justify-between p-3 bg-blue-50/50 hover:bg-blue-50 border border-blue-100 rounded-lg group transition-colors">
+          <div>
+            <h4 class="text-xs font-black text-blue-700 uppercase">Protección Civil</h4>
+            <p class="text-[0.72rem] text-gray-500">Dirección Nacional de Protección Civil y Administración de Desastres.</p>
+          </div>
+          <span class="text-sm font-black text-blue-600 bg-white border border-blue-200 px-3 py-1.5 rounded-full group-hover:scale-105 transition-transform">0800-7248451</span>
+        </a>
+
+        <div class="flex items-center justify-between p-3 bg-gray-50 border border-gray-150 rounded-lg">
+          <div>
+            <h4 class="text-xs font-black text-[var(--color-secondary)] uppercase">Aula Sísmica Funvisis</h4>
+            <p class="text-[0.72rem] text-gray-500">Información de eventos y prevención sísmica.</p>
+          </div>
+          <span class="text-sm font-black text-[var(--color-secondary)] bg-white border border-gray-200 px-3 py-1.5 rounded-full">0800-TEMBLOR</span>
+        </div>
+      </div>
+    </div>
+    <div class="px-6 py-4 bg-gray-50 border-t border-gray-150 flex justify-end rounded-b-xl">
+      <button class="close-modal px-4 py-2 bg-gray-200 hover:bg-gray-300 text-gray-700 text-xs font-black uppercase tracking-wider rounded transition-colors cursor-pointer" data-target="emergency-numbers-modal">
+        Cerrar
+      </button>
+    </div>
+  </dialog>
+
+  <!-- Modal 2: Backpack -->
+  <dialog id="emergency-backpack-modal" class="fixed inset-0 m-auto backdrop:bg-black/60 p-0 rounded-xl max-w-lg w-[calc(100%-2rem)] h-fit bg-white shadow-2xl border border-gray-100 outline-none">
+    <div class="p-5 border-b border-gray-150 flex justify-between items-center bg-gray-50 rounded-t-xl">
+      <div class="flex items-center gap-2.5 text-emerald-600">
+        <Briefcase size={18} />
+        <h3 class="text-sm font-black uppercase tracking-wider text-[var(--color-secondary)]">Mochila de Emergencia</h3>
+      </div>
+      <button class="close-modal text-gray-400 hover:text-gray-600 cursor-pointer" data-target="emergency-backpack-modal">
+        <X size={20} />
+      </button>
+    </div>
+    <div class="p-6 space-y-4">
+      <p class="text-xs text-gray-500 font-medium">Una mochila de emergencia debe estar lista para usar en caso de evacuación inmediata. Debe contener:</p>
+      
+      <div class="grid grid-cols-2 gap-3">
+        <label class="flex items-start gap-2.5 p-2 bg-gray-50 rounded border border-gray-100 cursor-pointer select-none">
+          <input type="checkbox" class="mt-0.5 rounded text-emerald-600 focus:ring-emerald-500" />
+          <span class="text-[0.72rem] text-gray-700 font-medium">Agua embotellada (2 litros por persona al día)</span>
+        </label>
+        <label class="flex items-start gap-2.5 p-2 bg-gray-50 rounded border border-gray-100 cursor-pointer select-none">
+          <input type="checkbox" class="mt-0.5 rounded text-emerald-600 focus:ring-emerald-500" />
+          <span class="text-[0.72rem] text-gray-700 font-medium">Comida enlatada y abrelatas manual</span>
+        </label>
+        <label class="flex items-start gap-2.5 p-2 bg-gray-50 rounded border border-gray-100 cursor-pointer select-none">
+          <input type="checkbox" class="mt-0.5 rounded text-emerald-600 focus:ring-emerald-500" />
+          <span class="text-[0.72rem] text-gray-700 font-medium">Botiquín de primeros auxilios y medicinas</span>
+        </label>
+        <label class="flex items-start gap-2.5 p-2 bg-gray-50 rounded border border-gray-100 cursor-pointer select-none">
+          <input type="checkbox" class="mt-0.5 rounded text-emerald-600 focus:ring-emerald-500" />
+          <span class="text-[0.72rem] text-gray-700 font-medium">Linterna de pilas y pilas de repuesto</span>
+        </label>
+        <label class="flex items-start gap-2.5 p-2 bg-gray-50 rounded border border-gray-100 cursor-pointer select-none">
+          <input type="checkbox" class="mt-0.5 rounded text-emerald-600 focus:ring-emerald-500" />
+          <span class="text-[0.72rem] text-gray-700 font-medium">Radio portátil de pilas</span>
+        </label>
+        <label class="flex items-start gap-2.5 p-2 bg-gray-50 rounded border border-gray-100 cursor-pointer select-none">
+          <input type="checkbox" class="mt-0.5 rounded text-emerald-600 focus:ring-emerald-500" />
+          <span class="text-[0.72rem] text-gray-700 font-medium">Pito (silbato) para pedir auxilio</span>
+        </label>
+        <label class="flex items-start gap-2.5 p-2 bg-gray-50 rounded border border-gray-100 cursor-pointer select-none">
+          <input type="checkbox" class="mt-0.5 rounded text-emerald-600 focus:ring-emerald-500" />
+          <span class="text-[0.72rem] text-gray-700 font-medium">Copia de documentos en bolsa impermeable</span>
+        </label>
+        <label class="flex items-start gap-2.5 p-2 bg-gray-50 rounded border border-gray-100 cursor-pointer select-none">
+          <input type="checkbox" class="mt-0.5 rounded text-emerald-600 focus:ring-emerald-500" />
+          <span class="text-[0.72rem] text-gray-700 font-medium">Manta térmica o ropa de cambio</span>
+        </label>
+      </div>
+    </div>
+    <div class="px-6 py-4 bg-gray-50 border-t border-gray-150 flex justify-end rounded-b-xl">
+      <button class="close-modal px-4 py-2 bg-gray-200 hover:bg-gray-300 text-gray-700 text-xs font-black uppercase tracking-wider rounded transition-colors cursor-pointer" data-target="emergency-backpack-modal">
+        Cerrar
+      </button>
+    </div>
+  </dialog>
+
+  <!-- Modal 3: What to do first -->
+  <dialog id="what-first-modal" class="fixed inset-0 m-auto backdrop:bg-black/60 p-0 rounded-xl max-w-lg w-[calc(100%-2rem)] h-fit bg-white shadow-2xl border border-gray-150 outline-none">
+    <div class="p-5 border-b border-gray-150 flex justify-between items-center bg-gray-50 rounded-t-xl">
+      <div class="flex items-center gap-2.5 text-amber-600">
+        <ClipboardList size={18} />
+        <h3 class="text-sm font-black uppercase tracking-wider text-[var(--color-secondary)]">¿Qué hacer primero?</h3>
+      </div>
+      <button class="close-modal text-gray-400 hover:text-gray-600 cursor-pointer" data-target="what-first-modal">
+        <X size={20} />
+      </button>
+    </div>
+    <div class="p-6 space-y-4">
+      <p class="text-xs text-gray-500 font-medium">Ante cualquier situación de riesgo o emergencia imprevista, sigue estos 5 pasos fundamentales:</p>
+      
+      <div class="space-y-3">
+        <div class="flex gap-3 items-start">
+          <span class="w-6 h-6 rounded-full bg-amber-100 border border-amber-200 text-amber-700 flex items-center justify-center text-xs font-black shrink-0">1</span>
+          <div>
+            <h4 class="text-xs font-bold text-[var(--color-secondary)] uppercase">Conserve la calma</h4>
+            <p class="text-[0.72rem] text-gray-500 mt-0.5">El pánico paraliza. Respire hondo para poder tomar decisiones racionales y ayudar a los demás.</p>
+          </div>
+        </div>
+
+        <div class="flex gap-3 items-start">
+          <span class="w-6 h-6 rounded-full bg-amber-100 border border-amber-200 text-amber-700 flex items-center justify-center text-xs font-black shrink-0">2</span>
+          <div>
+            <h4 class="text-xs font-bold text-[var(--color-secondary)] uppercase">Evalúe el peligro inmediato</h4>
+            <p class="text-[0.72rem] text-gray-500 mt-0.5">Mire a su alrededor para identificar riesgos secundarios (fuego, cables caídos, escombros inestables, etc.).</p>
+          </div>
+        </div>
+
+        <div class="flex gap-3 items-start">
+          <span class="w-6 h-6 rounded-full bg-amber-100 border border-amber-200 text-amber-700 flex items-center justify-center text-xs font-black shrink-0">3</span>
+          <div>
+            <h4 class="text-xs font-bold text-[var(--color-secondary)] uppercase">Protéjase usted y a su familia</h4>
+            <p class="text-[0.72rem] text-gray-500 mt-0.5">Busque refugio inmediato si es necesario (debajo de vigas en un sismo, zonas altas en una inundación).</p>
+          </div>
+        </div>
+
+        <div class="flex gap-3 items-start">
+          <span class="w-6 h-6 rounded-full bg-amber-100 border border-amber-200 text-amber-700 flex items-center justify-center text-xs font-black shrink-0">4</span>
+          <div>
+            <h4 class="text-xs font-bold text-[var(--color-secondary)] uppercase">Evacúe de forma ordenada</h4>
+            <p class="text-[0.72rem] text-gray-500 mt-0.5">Si la edificación o zona es insegura, evacúe usando las rutas establecidas. No use ascensores.</p>
+          </div>
+        </div>
+
+        <div class="flex gap-3 items-start">
+          <span class="w-6 h-6 rounded-full bg-amber-100 border border-amber-200 text-amber-700 flex items-center justify-center text-xs font-black shrink-0">5</span>
+          <div>
+            <h4 class="text-xs font-bold text-[var(--color-secondary)] uppercase">Comuníquese y reporte al 911</h4>
+            <p class="text-[0.72rem] text-gray-500 mt-0.5">Utilice mensajes de texto para no saturar las líneas. Reporte incidentes con datos claros una vez a salvo.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="px-6 py-4 bg-gray-50 border-t border-gray-150 flex justify-end rounded-b-xl">
+      <button class="close-modal px-4 py-2 bg-gray-200 hover:bg-gray-300 text-gray-700 text-xs font-black uppercase tracking-wider rounded transition-colors cursor-pointer" data-target="what-first-modal">
+        Cerrar
+      </button>
+    </div>
+  </dialog>
 </Layout>
 
-<!-- Modal Dialogs for Acceso Rápido -->
-<!-- Modal 1: Numbers -->
-<dialog id="emergency-numbers-modal" class="fixed inset-0 m-auto backdrop:bg-black/60 p-0 rounded-xl max-w-lg w-[calc(100%-2rem)] h-fit bg-white shadow-2xl border border-gray-150 outline-none">
-  <div class="p-5 border-b border-gray-150 flex justify-between items-center bg-gray-50 rounded-t-xl">
-    <div class="flex items-center gap-2.5 text-red-600">
-      <Siren size={18} />
-      <h3 class="text-sm font-black uppercase tracking-wider text-[var(--color-secondary)]">Números de Emergencia</h3>
-    </div>
-    <button class="close-modal text-gray-400 hover:text-gray-600 cursor-pointer" data-target="emergency-numbers-modal">
-      <X size={20} />
-    </button>
-  </div>
-  <div class="p-6 space-y-4">
-    <p class="text-xs text-gray-500 font-medium">Guarda estos números en tu celular y compártelos con tus seres queridos:</p>
-    <div class="space-y-3">
-      <a href="tel:911" class="flex items-center justify-between p-3 bg-red-50/50 hover:bg-red-50 border border-red-100 rounded-lg group transition-colors">
-        <div>
-          <h4 class="text-xs font-black text-red-700 uppercase">Emergencias Nacionales</h4>
-          <p class="text-[0.72rem] text-gray-500">Servicio de atención unificado de emergencias.</p>
-        </div>
-        <span class="text-sm font-black text-red-600 bg-white border border-red-200 px-3 py-1.5 rounded-full group-hover:scale-105 transition-transform">911</span>
-      </a>
-      
-      <a href="tel:08007248451" class="flex items-center justify-between p-3 bg-blue-50/50 hover:bg-blue-50 border border-blue-100 rounded-lg group transition-colors">
-        <div>
-          <h4 class="text-xs font-black text-blue-700 uppercase">Protección Civil</h4>
-          <p class="text-[0.72rem] text-gray-500">Dirección Nacional de Protección Civil y Administración de Desastres.</p>
-        </div>
-        <span class="text-sm font-black text-blue-600 bg-white border border-blue-200 px-3 py-1.5 rounded-full group-hover:scale-105 transition-transform">0800-7248451</span>
-      </a>
+<script is:inline>
+  (() => {
+    document.addEventListener('click', (e) => {
+      const target = e.target;
+      if (!target || !(target instanceof Element)) return;
 
-      <div class="flex items-center justify-between p-3 bg-gray-50 border border-gray-150 rounded-lg">
-        <div>
-          <h4 class="text-xs font-black text-[var(--color-secondary)] uppercase">Aula Sísmica Funvisis</h4>
-          <p class="text-[0.72rem] text-gray-500">Información de eventos y prevención sísmica.</p>
-        </div>
-        <span class="text-sm font-black text-[var(--color-secondary)] bg-white border border-gray-200 px-3 py-1.5 rounded-full">0800-TEMBLOR</span>
-      </div>
-    </div>
-  </div>
-  <div class="px-6 py-4 bg-gray-50 border-t border-gray-150 flex justify-end rounded-b-xl">
-    <button class="close-modal px-4 py-2 bg-gray-200 hover:bg-gray-300 text-gray-700 text-xs font-black uppercase tracking-wider rounded transition-colors cursor-pointer" data-target="emergency-numbers-modal">
-      Cerrar
-    </button>
-  </div>
-</dialog>
+      // Open modal button
+      const openBtn = target.closest('.open-modal-btn');
+      if (openBtn) {
+        e.preventDefault();
+        const modalId = openBtn.getAttribute('data-target');
+        if (modalId) {
+          const dialog = document.getElementById(modalId);
+          if (dialog && typeof dialog.showModal === 'function') {
+            dialog.showModal();
+          }
+        }
+        return;
+      }
 
-<!-- Modal 2: Backpack -->
-<dialog id="emergency-backpack-modal" class="fixed inset-0 m-auto backdrop:bg-black/60 p-0 rounded-xl max-w-lg w-[calc(100%-2rem)] h-fit bg-white shadow-2xl border border-gray-100 outline-none">
-  <div class="p-5 border-b border-gray-150 flex justify-between items-center bg-gray-50 rounded-t-xl">
-    <div class="flex items-center gap-2.5 text-emerald-600">
-      <Briefcase size={18} />
-      <h3 class="text-sm font-black uppercase tracking-wider text-[var(--color-secondary)]">Mochila de Emergencia</h3>
-    </div>
-    <button class="close-modal text-gray-400 hover:text-gray-600 cursor-pointer" data-target="emergency-backpack-modal">
-      <X size={20} />
-    </button>
-  </div>
-  <div class="p-6 space-y-4">
-    <p class="text-xs text-gray-500 font-medium">Una mochila de emergencia debe estar lista para usar en caso de evacuación inmediata. Debe contener:</p>
-    
-    <div class="grid grid-cols-2 gap-3">
-      <label class="flex items-start gap-2.5 p-2 bg-gray-50 rounded border border-gray-100 cursor-pointer select-none">
-        <input type="checkbox" class="mt-0.5 rounded text-emerald-600 focus:ring-emerald-500" />
-        <span class="text-[0.72rem] text-gray-700 font-medium">Agua embotellada (2 litros por persona al día)</span>
-      </label>
-      <label class="flex items-start gap-2.5 p-2 bg-gray-50 rounded border border-gray-100 cursor-pointer select-none">
-        <input type="checkbox" class="mt-0.5 rounded text-emerald-600 focus:ring-emerald-500" />
-        <span class="text-[0.72rem] text-gray-700 font-medium">Comida enlatada y abrelatas manual</span>
-      </label>
-      <label class="flex items-start gap-2.5 p-2 bg-gray-50 rounded border border-gray-100 cursor-pointer select-none">
-        <input type="checkbox" class="mt-0.5 rounded text-emerald-600 focus:ring-emerald-500" />
-        <span class="text-[0.72rem] text-gray-700 font-medium">Botiquín de primeros auxilios y medicinas</span>
-      </label>
-      <label class="flex items-start gap-2.5 p-2 bg-gray-50 rounded border border-gray-100 cursor-pointer select-none">
-        <input type="checkbox" class="mt-0.5 rounded text-emerald-600 focus:ring-emerald-500" />
-        <span class="text-[0.72rem] text-gray-700 font-medium">Linterna de pilas y pilas de repuesto</span>
-      </label>
-      <label class="flex items-start gap-2.5 p-2 bg-gray-50 rounded border border-gray-100 cursor-pointer select-none">
-        <input type="checkbox" class="mt-0.5 rounded text-emerald-600 focus:ring-emerald-500" />
-        <span class="text-[0.72rem] text-gray-700 font-medium">Radio portátil de pilas</span>
-      </label>
-      <label class="flex items-start gap-2.5 p-2 bg-gray-50 rounded border border-gray-100 cursor-pointer select-none">
-        <input type="checkbox" class="mt-0.5 rounded text-emerald-600 focus:ring-emerald-500" />
-        <span class="text-[0.72rem] text-gray-700 font-medium">Pito (silbato) para pedir auxilio</span>
-      </label>
-      <label class="flex items-start gap-2.5 p-2 bg-gray-50 rounded border border-gray-100 cursor-pointer select-none">
-        <input type="checkbox" class="mt-0.5 rounded text-emerald-600 focus:ring-emerald-500" />
-        <span class="text-[0.72rem] text-gray-700 font-medium">Copia de documentos en bolsa impermeable</span>
-      </label>
-      <label class="flex items-start gap-2.5 p-2 bg-gray-50 rounded border border-gray-100 cursor-pointer select-none">
-        <input type="checkbox" class="mt-0.5 rounded text-emerald-600 focus:ring-emerald-500" />
-        <span class="text-[0.72rem] text-gray-700 font-medium">Manta térmica o ropa de cambio</span>
-      </label>
-    </div>
-  </div>
-  <div class="px-6 py-4 bg-gray-50 border-t border-gray-150 flex justify-end rounded-b-xl">
-    <button class="close-modal px-4 py-2 bg-gray-200 hover:bg-gray-300 text-gray-700 text-xs font-black uppercase tracking-wider rounded transition-colors cursor-pointer" data-target="emergency-backpack-modal">
-      Cerrar
-    </button>
-  </div>
-</dialog>
+      // Close modal button
+      const closeBtn = target.closest('.close-modal');
+      if (closeBtn) {
+        e.preventDefault();
+        const modalId = closeBtn.getAttribute('data-target');
+        const dialog = modalId ? document.getElementById(modalId) : closeBtn.closest('dialog');
+        if (dialog && typeof dialog.close === 'function') {
+          dialog.close();
+        }
+        return;
+      }
 
-<!-- Modal 3: What to do first -->
-<dialog id="what-first-modal" class="fixed inset-0 m-auto backdrop:bg-black/60 p-0 rounded-xl max-w-lg w-[calc(100%-2rem)] h-fit bg-white shadow-2xl border border-gray-150 outline-none">
-  <div class="p-5 border-b border-gray-150 flex justify-between items-center bg-gray-50 rounded-t-xl">
-    <div class="flex items-center gap-2.5 text-amber-600">
-      <ClipboardList size={18} />
-      <h3 class="text-sm font-black uppercase tracking-wider text-[var(--color-secondary)]">¿Qué hacer primero?</h3>
-    </div>
-    <button class="close-modal text-gray-400 hover:text-gray-600 cursor-pointer" data-target="what-first-modal">
-      <X size={20} />
-    </button>
-  </div>
-  <div class="p-6 space-y-4">
-    <p class="text-xs text-gray-500 font-medium">Ante cualquier situación de riesgo o emergencia imprevista, sigue estos 5 pasos fundamentales:</p>
-    
-    <div class="space-y-3">
-      <div class="flex gap-3 items-start">
-        <span class="w-6 h-6 rounded-full bg-amber-100 border border-amber-200 text-amber-700 flex items-center justify-center text-xs font-black shrink-0">1</span>
-        <div>
-          <h4 class="text-xs font-bold text-[var(--color-secondary)] uppercase">Conserve la calma</h4>
-          <p class="text-[0.72rem] text-gray-500 mt-0.5">El pánico paraliza. Respire hondo para poder tomar decisiones racionales y ayudar a los demás.</p>
-        </div>
-      </div>
-
-      <div class="flex gap-3 items-start">
-        <span class="w-6 h-6 rounded-full bg-amber-100 border border-amber-200 text-amber-700 flex items-center justify-center text-xs font-black shrink-0">2</span>
-        <div>
-          <h4 class="text-xs font-bold text-[var(--color-secondary)] uppercase">Evalúe el peligro inmediato</h4>
-          <p class="text-[0.72rem] text-gray-500 mt-0.5">Mire a su alrededor para identificar riesgos secundarios (fuego, cables caídos, escombros inestables, etc.).</p>
-        </div>
-      </div>
-
-      <div class="flex gap-3 items-start">
-        <span class="w-6 h-6 rounded-full bg-amber-100 border border-amber-200 text-amber-700 flex items-center justify-center text-xs font-black shrink-0">3</span>
-        <div>
-          <h4 class="text-xs font-bold text-[var(--color-secondary)] uppercase">Protéjase usted y a su familia</h4>
-          <p class="text-[0.72rem] text-gray-500 mt-0.5">Busque refugio inmediato si es necesario (debajo de vigas en un sismo, zonas altas en una inundación).</p>
-        </div>
-      </div>
-
-      <div class="flex gap-3 items-start">
-        <span class="w-6 h-6 rounded-full bg-amber-100 border border-amber-200 text-amber-700 flex items-center justify-center text-xs font-black shrink-0">4</span>
-        <div>
-          <h4 class="text-xs font-bold text-[var(--color-secondary)] uppercase">Evacúe de forma ordenada</h4>
-          <p class="text-[0.72rem] text-gray-500 mt-0.5">Si la edificación o zona es insegura, evacúe usando las rutas establecidas. No use ascensores.</p>
-        </div>
-      </div>
-
-      <div class="flex gap-3 items-start">
-        <span class="w-6 h-6 rounded-full bg-amber-100 border border-amber-200 text-amber-700 flex items-center justify-center text-xs font-black shrink-0">5</span>
-        <div>
-          <h4 class="text-xs font-bold text-[var(--color-secondary)] uppercase">Comuníquese y reporte al 911</h4>
-          <p class="text-[0.72rem] text-gray-500 mt-0.5">Utilice mensajes de texto para no saturar las líneas. Reporte incidentes con datos claros una vez a salvo.</p>
-        </div>
-      </div>
-    </div>
-  </div>
-  <div class="px-6 py-4 bg-gray-50 border-t border-gray-150 flex justify-end rounded-b-xl">
-    <button class="close-modal px-4 py-2 bg-gray-200 hover:bg-gray-300 text-gray-700 text-xs font-black uppercase tracking-wider rounded transition-colors cursor-pointer" data-target="what-first-modal">
-      Cerrar
-    </button>
-  </div>
-</dialog>
-
-<script>
-  // Add listeners to open and close dialog modals
-  const openBtns = document.querySelectorAll('.open-modal-btn');
-  openBtns.forEach(btn => {
-    btn.addEventListener('click', () => {
-      const modalId = btn.getAttribute('data-target');
-      const dialog = document.getElementById(modalId) as HTMLDialogElement;
-      if (dialog) {
-        dialog.showModal();
+      // Backdrop click on dialog
+      if (target.tagName === 'DIALOG') {
+        const dialog = target;
+        const rect = dialog.getBoundingClientRect();
+        const isInDialog = (
+          rect.top <= e.clientY &&
+          e.clientY <= rect.top + rect.height &&
+          rect.left <= e.clientX &&
+          e.clientX <= rect.left + rect.width
+        );
+        if (!isInDialog && typeof dialog.close === 'function') {
+          dialog.close();
+        }
       }
     });
-  });
-
-  const closeBtns = document.querySelectorAll('.close-modal');
-  closeBtns.forEach(btn => {
-    btn.addEventListener('click', () => {
-      const modalId = btn.getAttribute('data-target');
-      const dialog = document.getElementById(modalId) as HTMLDialogElement;
-      if (dialog) {
-        dialog.close();
-      }
-    });
-  });
-
-  // Close when clicking backdrop
-  const dialogs = document.querySelectorAll('dialog');
-  dialogs.forEach(dialog => {
-    dialog.addEventListener('click', (e) => {
-      const rect = dialog.getBoundingClientRect();
-      const isInDialog = (rect.top <= e.clientY && e.clientY <= rect.top + rect.height &&
-        rect.left <= e.clientX && e.clientX <= rect.left + rect.width);
-      if (!isInDialog) {
-        dialog.close();
-      }
-    });
-  });
+  })();
 </script>

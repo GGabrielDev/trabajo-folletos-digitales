@@ -367,7 +367,6 @@ const resolvePath = (path: string) => {
       </div>
     </section>
   </main>
-</Layout>
 
 <!-- Modal Dialogs for Acceso Rápido -->
 <!-- Modal 1: Numbers -->
@@ -656,47 +655,56 @@ const resolvePath = (path: string) => {
     </dialog>
   );
 })}
+</Layout>
 
-<script>
-  // Add listeners to open and close dialog modals
-  const openBtns = document.querySelectorAll('.open-modal-btn');
-  openBtns.forEach(btn => {
-    btn.addEventListener('click', () => {
-      const modalId = btn.getAttribute('data-target');
-      if (modalId) {
-        const dialog = document.getElementById(modalId) as HTMLDialogElement;
-        if (dialog) {
-          dialog.showModal();
+<script is:inline>
+  (() => {
+    document.addEventListener('click', (e) => {
+      const target = e.target;
+      if (!target || !(target instanceof Element)) return;
+
+      // Open modal button
+      const openBtn = target.closest('.open-modal-btn');
+      if (openBtn) {
+        e.preventDefault();
+        const modalId = openBtn.getAttribute('data-target');
+        if (modalId) {
+          const dialog = document.getElementById(modalId);
+          if (dialog && typeof dialog.showModal === 'function') {
+            dialog.showModal();
+          }
         }
+        return;
       }
-    });
-  });
 
-  const closeBtns = document.querySelectorAll('.close-modal');
-  closeBtns.forEach(btn => {
-    btn.addEventListener('click', () => {
-      const modalId = btn.getAttribute('data-target');
-      if (modalId) {
-        const dialog = document.getElementById(modalId) as HTMLDialogElement;
-        if (dialog) {
+      // Close modal button
+      const closeBtn = target.closest('.close-modal');
+      if (closeBtn) {
+        e.preventDefault();
+        const modalId = closeBtn.getAttribute('data-target');
+        const dialog = modalId ? document.getElementById(modalId) : closeBtn.closest('dialog');
+        if (dialog && typeof dialog.close === 'function') {
+          dialog.close();
+        }
+        return;
+      }
+
+      // Backdrop click on dialog
+      if (target.tagName === 'DIALOG') {
+        const dialog = target;
+        const rect = dialog.getBoundingClientRect();
+        const isInDialog = (
+          rect.top <= e.clientY &&
+          e.clientY <= rect.top + rect.height &&
+          rect.left <= e.clientX &&
+          e.clientX <= rect.left + rect.width
+        );
+        if (!isInDialog && typeof dialog.close === 'function') {
           dialog.close();
         }
       }
     });
-  });
-
-  // Close when clicking backdrop
-  const dialogs = document.querySelectorAll('dialog');
-  dialogs.forEach(dialog => {
-    dialog.addEventListener('click', (e) => {
-      const rect = dialog.getBoundingClientRect();
-      const isInDialog = (rect.top <= e.clientY && e.clientY <= rect.top + rect.height &&
-        rect.left <= e.clientX && e.clientX <= rect.left + rect.width);
-      if (!isInDialog) {
-        dialog.close();
-      }
-    });
-  });
+  })();
 </script>
 
 <script is:inline>
