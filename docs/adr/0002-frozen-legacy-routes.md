@@ -8,10 +8,14 @@ Accepted
 
 ## Context
 
-The press team has already printed and distributed QR codes that point directly at specific
-pages of the live site. Those URLs are now out in the physical world and cannot be recalled or
-reprinted at will. Meanwhile the project is formalizing routing, naming, and design standards
-(see `CONTEXT.md`, `docs/routes.md`) that some of these existing pages predate.
+The press team distributed QR codes pointing directly at specific pages of the live site as part
+of the **first QR campaign, deployed September 2026**. Those URLs are now printed and out in the
+physical world; they cannot be recalled or reprinted at will. Meanwhile the project is formalizing
+routing, naming, and design standards (see `CONTEXT.md`, `docs/routes.md`) that some of these
+existing pages predate.
+
+Source: maintainer directive, recorded 2026-09-19. The print artifact lives with the press team,
+outside this repository.
 
 ## Decision
 
