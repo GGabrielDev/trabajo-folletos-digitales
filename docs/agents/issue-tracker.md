@@ -24,9 +24,9 @@ API="$FORGEJO_BASE/api/v1/repos/$FORGEJO_OWNER/$FORGEJO_REPO"
 AUTH="Authorization: token $FORGEJO_TOKEN"
 ```
 
-> The Forgejo repo is **not** a mirror of GitHub; it is an independent forge. This project's
-> PRs currently live on GitHub (`GGabrielDev/trabajo-folletos-digitales`) while issues/specs
-> live here. Git clone (SSH): `git@git.gaboggamer.online:PCivil/folletos-digitales.git`.
+> This Forgejo repo is the **source of truth** for code, issues, and pull requests. GitHub
+> (`GGabrielDev/trabajo-folletos-digitales`) is kept as an **automatic backup mirror** only —
+> do not open PRs or issues there. Git clone (SSH): `git@git.gaboggamer.online:PCivil/folletos-digitales.git`.
 
 ## Conventions
 
