@@ -15,9 +15,9 @@ style variant), see [`../CONTEXT.md`](../CONTEXT.md).
 | `/prevencion-y-gestion-de-riesgo` | `pages/prevencion-y-gestion-de-riesgo.astro` | `emergencyTopics` | 1 | Risk-management menu |
 | `/prevencion-y-gestion-de-riesgo/[topic]` | `pages/prevencion-y-gestion-de-riesgo/[topic].astro` | `emergencyTopics` (`.id`) | 6 | One emergency topic, floating back button to the menu |
 | `/[slug]-[mode]` | `pages/[slug]-[mode].astro` | `brochures` (general slugs) | 8 | General brochure × reading mode; linked from `/general` (only) |
-| `/[slug]-[style]-[mode]` | `pages/[slug]-[style]-[mode].astro` | `brochures` (school slugs) | 24 | School brochure × style variant × reading mode; **not linked from any page** — no `href` in the repo references a `[style]` route (`grep` for `rounded-glass`/`timeline-step` is empty); the school brochures render as in-page `<dialog>` modals instead |
+| `/[slug]-[style]-[mode]` | `pages/[slug]-[style]-[mode].astro` | `brochures` (school slugs) | 24 | School brochure × style variant × reading mode; **no page outside this set links into it**. `href`s to `[style]` routes do exist, but only inside the set: the mode switch (`BrochurePage.astro:36-37`) and the style switch (`StyleSwitch.astro:24`), the latter rendered only when `process.env.VERCEL_ENV === 'preview'` (`BrochurePage.astro:33`), so the style matrix is preview-only. Do not grep for the literal style ids — both `href`s are template literals. The school brochures render as in-page `<dialog>` modals instead |
 
-**Total: 48 routes** (1+1+1+6+1+6+8+24). Reachability: `/`, the two menus, and their 12 `[topic]` children are reachable; the 8 `/[slug]-[mode]` routes are reachable only via `/general`. **Orphaned** (linked from nothing): `/general` itself and the 24 `/[slug]-[style]-[mode]` routes — see the follow-up issue on linking or removing them.
+**Total: 48 routes** (1+1+1+6+1+6+8+24). Reachability: `/`, the two menus, and their 12 `[topic]` children are reachable; the 8 `/[slug]-[mode]` routes are reachable only via `/general`. **Orphaned** (no entry point from outside the set): `/general` itself — which nothing links — and the 24 `/[slug]-[style]-[mode]` routes, whose only inbound `href`s come from within the set and, for the style switch, only in preview builds — see the follow-up issue on linking or removing them.
 
 ## Frozen legacy routes
 
@@ -25,7 +25,8 @@ Some routes are printed on QR codes already distributed and are therefore **immu
 rename, move, or delete them, even if they violate a newer standard. The authoritative list and
 rationale live in [ADR-0002](adr/0002-frozen-legacy-routes.md); it is the single source of truth
 for which routes are frozen. The freeze does not cover the orphaned routes (`/general` and the 24
-`/[slug]-[style]-[mode]` routes), which are on no deployed QR code and remain free to link or remove.
+`/[slug]-[style]-[mode]` routes), which are on no deployed QR code and reachable from no page outside
+themselves; they remain free to link or remove.
 
 Parameter values:
 

@@ -35,6 +35,7 @@ Any non-compliant aspect of these routes (naming, structure, design variant) is 
   not an acceptable substitute, since the QR codes resolve the URL directly.
 - Compliance reviews must treat these routes as grandfathered, not as violations to fix.
 - This constraint does not extend to routes that are not on a deployed QR code. In particular the
-  orphaned routes — `/general` and the 24 `/[slug]-[style]-[mode]` routes, which are linked from no
-  page — remain free to link or remove. (The 8 `/[slug]-[mode]` routes are reachable via `/general`
-  but are likewise not frozen.)
+  orphaned routes — `/general`, which nothing links, and the 24 `/[slug]-[style]-[mode]` routes,
+  which no page outside that set reaches — remain free to link or remove. (The 8 `/[slug]-[mode]`
+  routes are reachable via `/general` but are likewise not frozen.) See `docs/routes.md` for the
+  reachability details.
