@@ -9,28 +9,23 @@ style variant), see [`../CONTEXT.md`](../CONTEXT.md).
 | Route pattern | Source file | Data source | Count | Notes |
 | --- | --- | --- | --- | --- |
 | `/` | `pages/index.astro` | — | 1 | Central dashboard |
-| `/general` | `pages/general.astro` | — | 1 | Single long-scroll page; **not linked from any page** |
+| `/general` | `pages/general.astro` | — | 1 | Single long-scroll page; **not linked from any page** (orphaned). Links the 8 `/[slug]-[mode]` routes (`general.astro:80-83`) |
 | `/prevencion-escolar` | `pages/prevencion-escolar.astro` | `schoolEmergencyTopics` + `brochures` | 1 | School prevention menu; also filters `brochures` for the 4 school planning slugs (`brigadas-escolares`, `plan-escolar-pegir`, `evacuacion-simulacros`, `senales-seguridad`) |
 | `/prevencion-escolar/[topic]` | `pages/prevencion-escolar/[topic].astro` | `schoolEmergencyTopics` (`.id`) | 6 | One school emergency topic, floating back button to `/prevencion-escolar` |
 | `/prevencion-y-gestion-de-riesgo` | `pages/prevencion-y-gestion-de-riesgo.astro` | `emergencyTopics` | 1 | Risk-management menu |
 | `/prevencion-y-gestion-de-riesgo/[topic]` | `pages/prevencion-y-gestion-de-riesgo/[topic].astro` | `emergencyTopics` (`.id`) | 6 | One emergency topic, floating back button to the menu |
-| `/[slug]-[mode]` | `pages/[slug]-[mode].astro` | `brochures` (general slugs) | 8 | General brochure × reading mode; **not linked from any page** |
-| `/[slug]-[style]-[mode]` | `pages/[slug]-[style]-[mode].astro` | `brochures` (school slugs) | 24 | School brochure × style variant × reading mode; reached from `/prevencion-escolar` |
+| `/[slug]-[mode]` | `pages/[slug]-[mode].astro` | `brochures` (general slugs) | 8 | General brochure × reading mode; linked from `/general` (only) |
+| `/[slug]-[style]-[mode]` | `pages/[slug]-[style]-[mode].astro` | `brochures` (school slugs) | 24 | School brochure × style variant × reading mode; **not linked from any page** — no `href` in the repo references a `[style]` route (`grep` for `rounded-glass`/`timeline-step` is empty); the school brochures render as in-page `<dialog>` modals instead |
 
-**Total: 48 routes** (1+1+1+6+1+6+8+24). The 8 `/[slug]-[mode]` routes and `/general` are currently unreachable from any page — see the follow-up issue on linking or removing them.
+**Total: 48 routes** (1+1+1+6+1+6+8+24). Reachability: `/`, the two menus, and their 12 `[topic]` children are reachable; the 8 `/[slug]-[mode]` routes are reachable only via `/general`. **Orphaned** (linked from nothing): `/general` itself and the 24 `/[slug]-[style]-[mode]` routes — see the follow-up issue on linking or removing them.
 
 ## Frozen legacy routes
 
-These routes are printed on QR codes already distributed by the press team, so their URLs are
-**immutable** — never rename, move, or delete them, even if they violate a newer standard. Any
-non-compliant aspect is accepted as legacy. See [ADR-0002](adr/0002-frozen-legacy-routes.md).
-
-- `/` (home)
-- `/prevencion-escolar` and `/prevencion-escolar/[topic]`
-- `/prevencion-y-gestion-de-riesgo` and `/prevencion-y-gestion-de-riesgo/[topic]`
-
-This freeze does **not** cover the orphaned routes (`/general`, `/[slug]-[mode]`), which are on no
-deployed QR code and remain free to link or remove.
+Some routes are printed on QR codes already distributed and are therefore **immutable** — never
+rename, move, or delete them, even if they violate a newer standard. The authoritative list and
+rationale live in [ADR-0002](adr/0002-frozen-legacy-routes.md); it is the single source of truth
+for which routes are frozen. The freeze does not cover the orphaned routes (`/general` and the 24
+`/[slug]-[style]-[mode]` routes), which are on no deployed QR code and remain free to link or remove.
 
 Parameter values:
 

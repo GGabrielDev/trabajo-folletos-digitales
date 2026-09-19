@@ -30,5 +30,7 @@ Any non-compliant aspect of these routes (naming, structure, design variant) is 
 - Refactors, renames, and route-scheme changes must preserve these exact paths. A redirect is
   not an acceptable substitute, since the QR codes resolve the URL directly.
 - Compliance reviews must treat these routes as grandfathered, not as violations to fix.
-- This constraint does not extend to unlinked/orphaned routes (`/general`, `/[slug]-[mode]`),
-  which are not on any deployed QR code and remain free to link or remove.
+- This constraint does not extend to routes that are not on a deployed QR code. In particular the
+  orphaned routes — `/general` and the 24 `/[slug]-[style]-[mode]` routes, which are linked from no
+  page — remain free to link or remove. (The 8 `/[slug]-[mode]` routes are reachable via `/general`
+  but are likewise not frozen.)

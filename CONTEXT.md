@@ -1,62 +1,63 @@
-# CONTEXT.md — Glosario de dominio
+# CONTEXT.md — Domain glossary
 
-Vocabulario canónico del proyecto **Folletos Digitales**: sitio estático (Astro) que publica
-folletos de autoprotección de Protección Civil (Venezuela). Los agentes deben usar estos términos
-tal como se definen aquí y evitar sinónimos que induzcan a confusión. Los identificadores de
-código (en inglés) se listan junto a cada término.
+Canonical vocabulary for the **Folletos Digitales** project: a static Astro site that publishes
+civil-protection self-protection brochures (Protección Civil, Venezuela). Agents must use these
+terms as defined here and avoid confusing synonyms. Code identifiers (in English) are listed
+alongside each term; Spanish product terms (`Brochure` slugs, `Protección Civil`, route names)
+are kept verbatim as identifiers.
 
-> Este repositorio tiene **dos modelos de contenido paralelos** que NO deben confundirse:
-> `Brochure` (folletos tipo tarjeta) y `EmergencyTopic` (temas de emergencia extendidos). Ver abajo.
+> This repository has **two parallel content models** that must NOT be conflated:
+> `Brochure` (card-style brochures) and `EmergencyTopic` (extended emergency topics). See below.
 
-## Términos
+## Terms
 
-### Folleto — `Brochure` (`src/data/brochures.ts`)
-Guía compacta de un solo tema, compuesta por tarjetas (`BrochureCard`) y niveles de alerta
-(`AlertLevel`). Se renderiza con `src/components/BrochurePage.astro`. Cada folleto tiene un `slug`.
-Slugs actuales: `sismos`, `inundaciones`, `orden-publico`, `otros-riesgos` (folletos generales) y
+### Brochure — `Brochure` (`src/data/brochures.ts`)
+A compact single-topic guide made of cards (`BrochureCard`) and alert levels (`AlertLevel`),
+rendered by `src/components/BrochurePage.astro`. Each brochure has a `slug`.
+Current slugs: `sismos`, `inundaciones`, `orden-publico`, `otros-riesgos` (general brochures) and
 `brigadas-escolares`, `plan-escolar-pegir`, `evacuacion-simulacros`, `senales-seguridad`
-(folletos escolares de planificación).
+(school planning brochures).
 
-### Tema de emergencia — `EmergencyTopic` (`src/data/emergencyTopics.ts`, `src/data/schoolEmergencyTopics.ts`)
-Modelo de contenido **extendido y distinto** al de `Brochure`: incluye fases (`EmergencyPhase`),
-nodos de mapa (`EmergencyMapNode`), infografía (`EmergencyInfographicItem`) y pasos visuales
-(`EmergencyVisualStep`). Se renderiza con `src/components/EmergencyTopicSection.astro`. Cada tema
-tiene un `id`. Ids actuales (en ambos archivos): `sismos`, `tsunamis`, `inundaciones`, `incendios`,
-`deslizamientos`, `prevencion-sustancias-quimicas`.
+### Emergency topic — `EmergencyTopic` (`src/data/emergencyTopics.ts`, `src/data/schoolEmergencyTopics.ts`)
+A content model that is **extended and distinct** from `Brochure`: it carries phases
+(`EmergencyPhase`), map nodes (`EmergencyMapNode`), an infographic (`EmergencyInfographicItem`)
+and visual steps (`EmergencyVisualStep`). Rendered by `src/components/EmergencyTopicSection.astro`.
+Each topic has an `id`. Current ids (in both files): `sismos`, `tsunamis`, `inundaciones`,
+`incendios`, `deslizamientos`, `prevencion-sustancias-quimicas`.
 
-- **`emergencyTopics`**: usado por la sección de Seguridad y Gestión de Riesgo.
-- **`schoolEmergencyTopics`**: usado por el menú escolar (mismos ids, contenido adaptado a escuelas).
+- **`emergencyTopics`**: used by the Seguridad y Gestión de Riesgo section.
+- **`schoolEmergencyTopics`**: used by the school menu (same ids, content adapted for schools).
 
-> Nota: el `slug` de un `Brochure` y el `id` de un `EmergencyTopic` pueden coincidir (p. ej.
-> `sismos`) pero son entidades separadas con estructuras distintas. No intercambiarlos.
+> Note: a `Brochure`'s `slug` and an `EmergencyTopic`'s `id` can coincide (e.g. `sismos`) but they
+> are separate entities with different structures. Do not interchange them.
 
-### Modo de lectura — `mode` (`BrochureMode`: `'dark' | 'light'`)
-Superficie de lectura de un folleto. **Solo afecta la superficie visual** (oscuro/claro), no el
-contenido. Se selecciona por ruta (p. ej. `/sismos-dark`, `/sismos-light`).
+### Reading mode — `mode` (`BrochureMode`: `'dark' | 'light'`)
+The reading surface of a brochure. It **only affects the visual surface** (dark/light), not the
+content. Selected by route (e.g. `/sismos-dark`, `/sismos-light`).
 
-### Variante de estilo — `styleVariant` (`'default' | 'rounded-glass' | 'timeline-step'`)
-Tratamiento visual del folleto, ortogonal al modo de lectura. `default` para los folletos
-generales; los folletos escolares se generan en las tres variantes × dos modos.
+### Style variant — `styleVariant` (`'default' | 'rounded-glass' | 'timeline-step'`)
+The brochure's visual treatment, orthogonal to the reading mode. General brochures use `default`;
+school brochures are generated in all three variants × two modes.
 
-### Menú / Submenú
-Páginas de aterrizaje que enlazan a subpáginas:
-- **Prevención Escolar** (`/prevencion-escolar`): expone los temas escolares y folletos de planificación.
-- **Seguridad y Gestión del Riesgo** (`/prevencion-y-gestion-de-riesgo`): enlaza a subpáginas de tema (`/prevencion-y-gestion-de-riesgo/[topic]`).
+### Menu / Submenu
+Landing pages that link to subpages:
+- **Prevención Escolar** (`/prevencion-escolar`): exposes the school topics and planning brochures.
+- **Seguridad y Gestión del Riesgo** (`/prevencion-y-gestion-de-riesgo`): links to topic subpages (`/prevencion-y-gestion-de-riesgo/[topic]`).
 
-### Sistema de diseño PC-VENEZUELA
-Identidad visual institucional documentada en `docs/design_guide.md`: naranja de rescate + azul
-institucional + amarillo de alerta, geometría recta (radios ~0px), sombras duras, cintas de
-peligro (hazard stripes) y diagonales. Tokens y utilidades en `src/styles/global.css`.
+### PC-VENEZUELA design system
+The institutional visual identity documented in `docs/design_guide.md`: rescue orange +
+institutional blue + alert yellow, straight geometry (~0px radii), hard shadows, hazard stripes
+and diagonals. Tokens and utilities live in `src/styles/global.css`.
 
-### Pie de patrocinadores — `SponsorsFooter` (`src/components/SponsorsFooter.astro`)
-Componente que debe estar presente en todas las vistas (regla de diseño del proyecto).
+### Sponsors footer — `SponsorsFooter` (`src/components/SponsorsFooter.astro`)
+A component that must be present in every view (project design rule).
 
-## Convenciones de vocabulario
+## Vocabulary conventions
 
-- Usar **"modo de lectura"** para oscuro/claro y **"variante de estilo"** para
-  `default`/`rounded-glass`/`timeline-step`. No llamar "variante" al modo de lectura.
-- Usar **"folleto"** (`Brochure`) y **"tema de emergencia"** (`EmergencyTopic`) como conceptos
-  distintos; no usar "folleto" para referirse a un `EmergencyTopic`.
+- Use **"reading mode"** for dark/light and **"style variant"** for
+  `default`/`rounded-glass`/`timeline-step`. Do not call the reading mode a "variant".
+- Use **"brochure"** (`Brochure`) and **"emergency topic"** (`EmergencyTopic`) as distinct
+  concepts; do not use "brochure" to refer to an `EmergencyTopic`.
 
-Si un concepto necesario no está en este glosario, es señal de una posible brecha: registrarlo vía
-`/domain-modeling` en lugar de inventar un sinónimo nuevo.
+If a needed concept is not in this glossary, that is a signal of a possible gap: record it via
+`/domain-modeling` rather than inventing a new synonym.

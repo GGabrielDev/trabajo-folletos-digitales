@@ -1,8 +1,7 @@
 # Issue tracker: Forgejo
 
 Issues and specs for this repo live in a **self-hosted Forgejo** instance (Gitea-compatible).
-Agents interact through the REST API at `<base>/api/v1` using `curl`. The instance is
-self-hosted on the project owner's VPS (server-side changes are possible when needed).
+Agents interact through the REST API at `<base>/api/v1` using `curl`.
 
 ## Connection
 
@@ -61,8 +60,5 @@ GET `$API/issues/<index>` (with `/comments`).
 Used by `/wayfinder`. Forgejo supports issue dependencies (`$API/issues/<index>/dependencies`)
 and a `wayfinder:map` label convention as on GitHub.
 
-## Server-side administration
-
-The instance is self-hosted; TLS is managed on the host. Server-side administration (backups,
-monitoring, config) is out of scope for this tracker doc — all issue/label operations go through
-the API above. Host access details live in a local, gitignored operator note, not in this repo.
+Server-side administration of the instance (host access, backups, monitoring, TLS) is out of
+scope for this doc; it lives in a local, gitignored operator note.

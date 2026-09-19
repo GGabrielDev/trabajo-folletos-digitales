@@ -78,6 +78,7 @@ Two topic menus plus their dynamic subpages, the general brochures, and the scho
 │   └── styles/
 │       └── global.css                # Tailwind import, tokens, and guide utilities
 ├── docs/
+│   ├── adr/                          # Architecture decision records (0001, 0002, …)
 │   ├── agents/                       # Per-repo config for the engineering skills
 │   ├── design_guide.md               # PC-VENEZUELA design system
 │   └── routes.md                     # Full route inventory
@@ -100,23 +101,23 @@ npm run build
 npm run preview
 ```
 
-### Configuración de Ruta Base (Despliegue tras Proxy Reverso)
+### Base path configuration (deploying behind a reverse proxy)
 
-Si necesitas desplegar el sitio bajo una subruta o directorio específico (por ejemplo, `/folleto` usando un proxy reverso de Apache/Nginx), puedes configurar la ruta base en tiempo de ejecución utilizando la variable de entorno `BASE_PATH`.
+To serve the site under a subpath or directory (for example `/folleto` behind an Apache/Nginx reverse proxy), set the base path at runtime with the `BASE_PATH` environment variable.
 
-- **Desarrollo local con subruta**:
+- **Local development under a subpath**:
   ```bash
   BASE_PATH=/folleto npm run dev
   ```
-  *(El sitio estará disponible en `http://localhost:4321/folleto/`)*
+  *(The site is served at `http://localhost:4321/folleto/`.)*
 
-- **Compilación para producción con subruta**:
+- **Production build under a subpath**:
   ```bash
   BASE_PATH=/folleto npm run build
   ```
-  *(Todos los recursos, estilos y enlaces internos se compilarán prefijados con `/folleto`)*
+  *(All assets, styles, and internal links are built prefixed with `/folleto`.)*
 
-- **Comportamiento por defecto**: Si no defines la variable de entorno `BASE_PATH`, el sistema utilizará `/` por defecto, sirviendo el contenido desde la raíz del dominio.
+- **Default behavior**: if `BASE_PATH` is not set, it defaults to `/`, serving content from the domain root.
 
 ## Content source
 

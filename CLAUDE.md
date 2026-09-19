@@ -18,9 +18,9 @@ BASE_PATH=/folleto npm run build # Build with a custom base path
 3. **Communication style**: Reply to the user in Caveman Full mode when the prompt asks for it.
 4. **Language policy** (by audience, not by file location):
    - **English** — everything read *in order to work on the repo*: `CLAUDE.md`, `CONTEXT.md`, `README.md`, `docs/agents/*`, `docs/routes.md`, `docs/adr/*`, plus every remote-facing artifact — pull request titles and bodies, issue titles and bodies, review comments, and commit messages. No exceptions.
-   - **Spanish** — everything read *as the product*: page copy, brochure text, UI strings, and `docs/design_guide.md` (a visual reference for the team, not an agent process doc). `docs/design_guide.md` is a deliberate, documented exception.
+   - **Spanish** — everything read *as the product*: page copy, brochure text, UI strings, and `docs/design_guide.md`. The design guide is the team's product/visual style reference and stays Spanish deliberately; note that its §7 and §9 currently address the agent directly, a legacy tension tracked for reconciliation (see the design-guide follow-up issue) rather than resolved here.
    - Spanish domain terms (`Brochure` slugs, `Protección Civil`, route names) are kept verbatim as identifiers inside English prose.
-5. **Frozen legacy routes**: The routes `/`, `/prevencion-escolar` (and `/prevencion-escolar/[topic]`), and `/prevencion-y-gestion-de-riesgo` (and `/prevencion-y-gestion-de-riesgo/[topic]`) are printed on QR codes already distributed by the press team. Their URLs are **immutable**: never rename, move, or delete them, even when they violate a newer standard. Non-compliant aspects of these routes are accepted as legacy. See [ADR-0002](docs/adr/0002-frozen-legacy-routes.md).
+5. **Frozen legacy routes**: Some routes are printed on already-distributed QR codes and are **immutable** — never rename, move, or delete them, even when they violate a newer standard. [ADR-0002](docs/adr/0002-frozen-legacy-routes.md) is the single source of truth for which routes are frozen and why.
 
 ## Agent skills
 
