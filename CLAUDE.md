@@ -16,3 +16,19 @@ BASE_PATH=/folleto npm run build # Compilar con ruta base personalizada
    - Preservar la presencia del pie de patrocinadores (`<SponsorsFooter />`) en todo momento.
    - Utilizar rejillas flexibles (`flex flex-col`, `flex-1`) en las tarjetas para prevenir desbordes o textos cortados.
 3. **Estilo de Comunicación**: Escribir respuestas al usuario en modo Caveman Full si se indica en el prompt.
+
+## Agent skills
+
+Configuración que asumen las skills de ingeniería (`/triage`, `/to-tickets`, `/to-spec`, `/implement`, etc.).
+
+### Issue tracker
+
+Las incidencias viven en Forgejo autoalojado (`PCivil/folletos-digitales` en `https://git.gaboggamer.online`), operado vía API REST con `curl`. Ver `docs/agents/issue-tracker.md`.
+
+### Triage labels
+
+Vocabulario de etiquetas por defecto: `needs-triage`, `needs-info`, `ready-for-agent`, `ready-for-human`, `wontfix`. Ver `docs/agents/triage-labels.md`.
+
+### Domain docs
+
+Repositorio de contexto único: un `CONTEXT.md` + `docs/adr/` en la raíz. Ver `docs/agents/domain.md`.
