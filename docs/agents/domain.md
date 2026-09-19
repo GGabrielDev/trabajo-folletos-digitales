@@ -17,7 +17,8 @@ If a relevant ADR doesn't exist yet, **proceed silently**. Don't flag its absenc
 /
 ├── CONTEXT.md
 └── docs/adr/
-    └── 0001-forgejo-as-source-of-truth.md
+    ├── 0001-forgejo-as-source-of-truth.md
+    └── 0002-frozen-legacy-routes.md
 ```
 
 ## Use the glossary's vocabulary

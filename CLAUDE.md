@@ -1,35 +1,31 @@
-# CLAUDE.md - Pautas del Proyecto
+# CLAUDE.md — Project Guidelines
 
-## Comandos Útiles
+## Useful Commands
 
 ```bash
-npm run dev                      # Iniciar servidor de desarrollo local
-npm run build                    # Compilar sitio estático (genera dist/)
-BASE_PATH=/folleto npm run build # Compilar con ruta base personalizada
+npm run dev                      # Start the local development server
+npm run build                    # Build the static site (generates dist/)
+BASE_PATH=/folleto npm run build # Build with a custom base path
 ```
 
-## Reglas de Desarrollo y Estilo
+## Development and Style Rules
 
-1. **Compromisos de Git**: Realizar un commit descriptivo en git por cada cambio lógico que se realice.
-2. **Sistema de Diseño**:
-   - Respetar los estilos visuales (`default`, `rounded-glass` y `timeline-step`) y asegurar soporte de modo claro/oscuro en todas las vistas.
-   - Preservar la presencia del pie de patrocinadores (`<SponsorsFooter />`) en todo momento.
-   - Utilizar rejillas flexibles (`flex flex-col`, `flex-1`) en las tarjetas para prevenir desbordes o textos cortados.
-3. **Estilo de Comunicación**: Escribir respuestas al usuario en modo Caveman Full si se indica en el prompt.
-4. **Idioma del Repositorio**: El contenido del sitio (texto de páginas, folletos, cadenas de UI) se escribe en español. Todo lo que se escribe *sobre* el repositorio y se publica en el remoto —títulos y cuerpos de pull requests, títulos y cuerpos de incidencias, comentarios de revisión y mensajes de commit— debe estar en inglés, sin excepción. Los términos de dominio en español (slugs de `Brochure`, `Protección Civil`, nombres de rutas) se conservan literalmente como identificadores dentro de la prosa en inglés.
+1. **Git commits**: Make one descriptive git commit per logical change.
+2. **Design system**:
+   - Respect the visual styles (`default`, `rounded-glass`, and `timeline-step`) and ensure light/dark mode support in every view.
+   - Keep the sponsors footer (`<SponsorsFooter />`) present at all times.
+   - Use flexible grids (`flex flex-col`, `flex-1`) in cards to prevent overflow or clipped text.
+3. **Communication style**: Reply to the user in Caveman Full mode when the prompt asks for it.
+4. **Language policy** (by audience, not by file location):
+   - **English** — everything read *in order to work on the repo*: `CLAUDE.md`, `CONTEXT.md`, `README.md`, `docs/agents/*`, `docs/routes.md`, `docs/adr/*`, plus every remote-facing artifact — pull request titles and bodies, issue titles and bodies, review comments, and commit messages. No exceptions.
+   - **Spanish** — everything read *as the product*: page copy, brochure text, UI strings, and `docs/design_guide.md` (a visual reference for the team, not an agent process doc). `docs/design_guide.md` is a deliberate, documented exception.
+   - Spanish domain terms (`Brochure` slugs, `Protección Civil`, route names) are kept verbatim as identifiers inside English prose.
+5. **Frozen legacy routes**: The routes `/`, `/prevencion-escolar` (and `/prevencion-escolar/[topic]`), and `/prevencion-y-gestion-de-riesgo` (and `/prevencion-y-gestion-de-riesgo/[topic]`) are printed on QR codes already distributed by the press team. Their URLs are **immutable**: never rename, move, or delete them, even when they violate a newer standard. Non-compliant aspects of these routes are accepted as legacy. See [ADR-0002](docs/adr/0002-frozen-legacy-routes.md).
 
 ## Agent skills
 
-Configuración que asumen las skills de ingeniería (`/triage`, `/to-tickets`, `/to-spec`, `/implement`, etc.).
+Per-repo configuration the engineering skills (`/triage`, `/to-tickets`, `/to-spec`, `/implement`, etc.) assume. This section is an index; the details live in the linked files.
 
-### Issue tracker
-
-Las incidencias viven en Forgejo autoalojado (`PCivil/folletos-digitales` en `https://git.gaboggamer.online`), operado vía API REST con `curl`. Ver `docs/agents/issue-tracker.md`.
-
-### Triage labels
-
-Vocabulario de etiquetas por defecto: `needs-triage`, `needs-info`, `ready-for-agent`, `ready-for-human`, `wontfix`. Ver `docs/agents/triage-labels.md`.
-
-### Domain docs
-
-Repositorio de contexto único: un `CONTEXT.md` + `docs/adr/` en la raíz. Ver `docs/agents/domain.md`.
+- **Issue tracker** — issues and pull requests live on the self-hosted Forgejo tracker, not GitHub. See `docs/agents/issue-tracker.md`.
+- **Triage labels** — five triage labels drive the workflow. See `docs/agents/triage-labels.md`.
+- **Domain docs** — single-context repo (`CONTEXT.md` + `docs/adr/`). See `docs/agents/domain.md`.

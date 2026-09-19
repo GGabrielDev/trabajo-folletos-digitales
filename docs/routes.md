@@ -19,6 +19,19 @@ style variant), see [`../CONTEXT.md`](../CONTEXT.md).
 
 **Total: 48 routes** (1+1+1+6+1+6+8+24). The 8 `/[slug]-[mode]` routes and `/general` are currently unreachable from any page — see the follow-up issue on linking or removing them.
 
+## Frozen legacy routes
+
+These routes are printed on QR codes already distributed by the press team, so their URLs are
+**immutable** — never rename, move, or delete them, even if they violate a newer standard. Any
+non-compliant aspect is accepted as legacy. See [ADR-0002](adr/0002-frozen-legacy-routes.md).
+
+- `/` (home)
+- `/prevencion-escolar` and `/prevencion-escolar/[topic]`
+- `/prevencion-y-gestion-de-riesgo` and `/prevencion-y-gestion-de-riesgo/[topic]`
+
+This freeze does **not** cover the orphaned routes (`/general`, `/[slug]-[mode]`), which are on no
+deployed QR code and remain free to link or remove.
+
 Parameter values:
 
 - `[mode]` (reading mode): `dark` \| `light`.
