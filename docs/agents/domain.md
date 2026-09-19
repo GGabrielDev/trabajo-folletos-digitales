@@ -2,25 +2,22 @@
 
 How the engineering skills should consume this repo's domain documentation when exploring the codebase.
 
+This is a **single-context** repo.
+
 ## Before exploring, read these
 
-- **`CONTEXT.md`** at the repo root, or
-- **`CONTEXT-MAP.md`** at the repo root if it exists: it points at one `CONTEXT.md` per context. Read each one relevant to the topic.
-- **`docs/adr/`**: read ADRs that touch the area you're about to work in. In multi-context repos, also check `src/<context>/docs/adr/` for context-scoped decisions.
+- **`CONTEXT.md`** at the repo root: the domain glossary.
+- **`docs/adr/`**: read the ADRs that touch the area you're about to work in.
 
-If any of these files don't exist, **proceed silently**. Don't flag their absence; don't suggest creating them upfront. The `/domain-modeling` skill (reached via `/grill-with-docs` and `/improve-codebase-architecture`) creates them lazily when terms or decisions actually get resolved.
+If a relevant ADR doesn't exist yet, **proceed silently**. Don't flag its absence; don't suggest creating one upfront. The `/domain-modeling` skill (reached via `/grill-with-docs` and `/improve-codebase-architecture`) creates ADRs lazily when decisions actually get resolved.
 
 ## File structure
-
-This is a **single-context** repo:
 
 ```
 /
 ├── CONTEXT.md
-├── docs/adr/
-│   ├── 0001-....md
-│   └── 0002-....md
-└── src/
+└── docs/adr/
+    └── 0001-forgejo-as-source-of-truth.md
 ```
 
 ## Use the glossary's vocabulary
@@ -33,4 +30,4 @@ If the concept you need isn't in the glossary yet, that's a signal: either you'r
 
 If your output contradicts an existing ADR, surface it explicitly rather than silently overriding:
 
-> _Contradicts ADR-0002 (...), but worth reopening because…_
+> _Contradicts ADR-0001 (Forgejo as source of truth), but worth reopening because…_

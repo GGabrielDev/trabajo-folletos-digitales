@@ -1,6 +1,6 @@
 # Folletos Digitales
 
-Static Astro site that publishes digital self-protection brochures for civil protection topics in Venezuela. The home page works as a central dashboard that links to the general brochures and to two topic menus (school prevention, and risk management).
+Static Astro site that publishes digital self-protection brochures for civil protection topics in Venezuela. The home page is a central dashboard linking to two topic menus: `/prevencion-escolar` (school prevention) and `/prevencion-y-gestion-de-riesgo` (risk management). The general brochures are reached via `/general`, which is currently not linked from the home page.
 
 ## Purpose
 
@@ -40,20 +40,7 @@ The site follows the **PC-VENEZUELA** style guide documented in [`docs/design_gu
 
 ## Routes
 
-| Route pattern | Source | Count | Description |
-| --- | --- | --- | --- |
-| `/` | `pages/index.astro` | 1 | Main dashboard |
-| `/general` | `pages/general.astro` | 1 | Single long-scroll page (currently hidden from the menu) |
-| `/prevencion-escolar` | `pages/prevencion-escolar.astro` | 1 | School prevention menu |
-| `/prevencion-escolar/[topic]` | `pages/prevencion-escolar/[topic].astro` | 6 | One school emergency topic (from `schoolEmergencyTopics`) |
-| `/prevencion-y-gestion-de-riesgo` | `pages/prevencion-y-gestion-de-riesgo.astro` | 1 | Risk-management menu |
-| `/prevencion-y-gestion-de-riesgo/[topic]` | `pages/prevencion-y-gestion-de-riesgo/[topic].astro` | 6 | One emergency topic (from `emergencyTopics`) |
-| `/[slug]-[mode]` | `pages/[slug]-[mode].astro` | 8 | General brochure × reading mode (e.g. `/sismos-dark`) |
-| `/[slug]-[style]-[mode]` | `pages/[slug]-[style]-[mode].astro` | 24 | School brochure × style variant × reading mode |
-
-`[mode]` = `dark` \| `light`; `[style]` = `default` \| `rounded-glass` \| `timeline-step`.
-
-Detailed route inventory: [`docs/routes.md`](docs/routes.md)
+Two topic menus plus their dynamic subpages, the general brochures, and the school brochure matrix (reading mode × style variant). The single source of truth for the route inventory — patterns, counts, and data sources — is [`docs/routes.md`](docs/routes.md).
 
 ## Project structure
 

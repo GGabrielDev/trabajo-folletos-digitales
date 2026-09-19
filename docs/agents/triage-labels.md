@@ -1,15 +1,15 @@
 # Triage Labels
 
-The skills speak in terms of five canonical triage roles. This file maps those roles to the actual label strings used in this repo's issue tracker.
+The triage workflow uses five labels. Each maps to one canonical role; the label string equals
+the role name.
 
-| Label in mattpocock/skills | Label in our tracker | Meaning                                  |
-| -------------------------- | -------------------- | ---------------------------------------- |
-| `needs-triage`             | `needs-triage`       | Maintainer needs to evaluate this issue  |
-| `needs-info`               | `needs-info`         | Waiting on reporter for more information |
-| `ready-for-agent`          | `ready-for-agent`    | Fully specified, ready for an AFK agent  |
-| `ready-for-human`          | `ready-for-human`    | Requires human implementation            |
-| `wontfix`                  | `wontfix`            | Will not be actioned                     |
+| Label | Applied when | Removed / advanced when |
+| --- | --- | --- |
+| `needs-triage` | An issue arrives unevaluated (default for new incoming reports/requests). | A maintainer has evaluated it and moved it to another state below. |
+| `needs-info` | The issue can't be actioned until the reporter supplies more detail. | The reporter answers; re-triage to `ready-for-*` or `wontfix`. |
+| `ready-for-agent` | Fully specified; an AFK agent can implement it without further decisions. | An agent picks it up and closes it via a PR. |
+| `ready-for-human` | Actionable but requires a human (judgement, access, or design call). | A human implements it and closes it. |
+| `wontfix` | The issue will not be actioned. | Closed. |
 
-When a skill mentions a role (e.g. "apply the AFK-ready triage label"), use the corresponding label string from this table.
-
-Edit the right-hand column to match whatever vocabulary you actually use.
+These labels exist on the Forgejo tracker (`PCivil/folletos-digitales`). When a skill names a
+triage role, apply the matching label string above.

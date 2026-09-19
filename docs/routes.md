@@ -9,13 +9,15 @@ style variant), see [`../CONTEXT.md`](../CONTEXT.md).
 | Route pattern | Source file | Data source | Count | Notes |
 | --- | --- | --- | --- | --- |
 | `/` | `pages/index.astro` | — | 1 | Central dashboard |
-| `/general` | `pages/general.astro` | — | 1 | Single long-scroll page; currently **hidden from the menu** |
-| `/prevencion-escolar` | `pages/prevencion-escolar.astro` | `schoolEmergencyTopics` | 1 | School prevention menu |
+| `/general` | `pages/general.astro` | — | 1 | Single long-scroll page; **not linked from any page** |
+| `/prevencion-escolar` | `pages/prevencion-escolar.astro` | `schoolEmergencyTopics` + `brochures` | 1 | School prevention menu; also filters `brochures` for the 4 school planning slugs (`brigadas-escolares`, `plan-escolar-pegir`, `evacuacion-simulacros`, `senales-seguridad`) |
 | `/prevencion-escolar/[topic]` | `pages/prevencion-escolar/[topic].astro` | `schoolEmergencyTopics` (`.id`) | 6 | One school emergency topic, floating back button to `/prevencion-escolar` |
 | `/prevencion-y-gestion-de-riesgo` | `pages/prevencion-y-gestion-de-riesgo.astro` | `emergencyTopics` | 1 | Risk-management menu |
 | `/prevencion-y-gestion-de-riesgo/[topic]` | `pages/prevencion-y-gestion-de-riesgo/[topic].astro` | `emergencyTopics` (`.id`) | 6 | One emergency topic, floating back button to the menu |
-| `/[slug]-[mode]` | `pages/[slug]-[mode].astro` | `brochures` (general slugs) | 8 | General brochure × reading mode |
-| `/[slug]-[style]-[mode]` | `pages/[slug]-[style]-[mode].astro` | `brochures` (school slugs) | 24 | School brochure × style variant × reading mode |
+| `/[slug]-[mode]` | `pages/[slug]-[mode].astro` | `brochures` (general slugs) | 8 | General brochure × reading mode; **not linked from any page** |
+| `/[slug]-[style]-[mode]` | `pages/[slug]-[style]-[mode].astro` | `brochures` (school slugs) | 24 | School brochure × style variant × reading mode; reached from `/prevencion-escolar` |
+
+**Total: 48 routes** (1+1+1+6+1+6+8+24). The 8 `/[slug]-[mode]` routes and `/general` are currently unreachable from any page — see the follow-up issue on linking or removing them.
 
 Parameter values:
 

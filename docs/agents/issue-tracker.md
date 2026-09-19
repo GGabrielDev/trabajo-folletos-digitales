@@ -63,6 +63,6 @@ and a `wayfinder:map` label convention as on GitHub.
 
 ## Server-side administration
 
-The instance runs on a VPS reachable at `<redacted-operator-host>` (sudo for
-the owner). TLS certificates are managed on that VPS. Reach for SSH only for genuine server-side
-work (backups, monitoring, config); all issue/label operations go through the API above.
+The instance is self-hosted; TLS is managed on the host. Server-side administration (backups,
+monitoring, config) is out of scope for this tracker doc — all issue/label operations go through
+the API above. Host access details live in a local, gitignored operator note, not in this repo.
