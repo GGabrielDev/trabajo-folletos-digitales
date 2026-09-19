@@ -1,19 +1,19 @@
 # Folletos Digitales
 
-Static Astro site that publishes digital self-protection brochures for civil protection topics in Venezuela. The home page works as a central dashboard and links to eight brochure pages: four topics, each available in dark and light variants of the same institutional visual system.
+Static Astro site that publishes digital self-protection brochures for civil protection topics in Venezuela. The home page is a central dashboard linking to two topic menus: `/prevencion-escolar` (school prevention) and `/prevencion-y-gestion-de-riesgo` (risk management). The general brochures are reached via `/general`, which is currently not linked from the home page.
 
 ## Purpose
 
-The project turns summarized emergency guidance into mobile-first brochure pages that are easy to open, review, and compare by reading mode while preserving one consistent Protección Civil visual identity.
+The project turns summarized emergency guidance into mobile-first pages that are easy to open, review, and compare by reading mode while preserving one consistent Protección Civil visual identity.
 
-**Current topics**
+For the canonical domain vocabulary used across the code and docs — in particular the two parallel content models (`Brochure` vs `EmergencyTopic`) and the reading-mode vs style-variant distinction — see [`CONTEXT.md`](CONTEXT.md).
 
-| Topic | Variants |
-| --- | --- |
-| Sismos y terremotos | Dark, Light |
-| Lluvias e inundaciones | Dark, Light |
-| Orden publico y crisis | Dark, Light |
-| Riesgos especificos | Dark, Light |
+**Content overview**
+
+The site has two content models (see `CONTEXT.md`):
+
+- **Brochures** (`src/data/brochures.ts`) — card-based guides. General topics: `sismos`, `inundaciones`, `orden-publico`, `otros-riesgos`. School planning brochures: `brigadas-escolares`, `plan-escolar-pegir`, `evacuacion-simulacros`, `senales-seguridad`.
+- **Emergency topics** (`src/data/emergencyTopics.ts` and `src/data/schoolEmergencyTopics.ts`) — extended topic content (phases, map nodes, infographic, visual steps). Ids: `sismos`, `tsunamis`, `inundaciones`, `incendios`, `deslizamientos`, `prevencion-sustancias-quimicas`.
 
 ## Stack
 
@@ -40,42 +40,50 @@ The site follows the **PC-VENEZUELA** style guide documented in [`docs/design_gu
 
 ## Routes
 
-| Route | Description |
-| --- | --- |
-| `/` | Main dashboard for all brochures |
-| `/sismos-dark` | Earthquake brochure, dark institutional variant |
-| `/sismos-light` | Earthquake brochure, light institutional variant |
-| `/inundaciones-dark` | Flood brochure, dark institutional variant |
-| `/inundaciones-light` | Flood brochure, light institutional variant |
-| `/orden-publico-dark` | Public order brochure, dark institutional variant |
-| `/orden-publico-light` | Public order brochure, light institutional variant |
-| `/otros-riesgos-dark` | Specific risks brochure, dark institutional variant |
-| `/otros-riesgos-light` | Specific risks brochure, light institutional variant |
-
-Detailed route inventory: [`docs/routes.md`](docs/routes.md)
+Two topic menus plus their dynamic subpages, the general brochures, and the school brochure matrix (reading mode × style variant). The single source of truth for the route inventory — patterns, counts, and data sources — is [`docs/routes.md`](docs/routes.md).
 
 ## Project structure
 
 ```text
 .
 ├── public/
-│   ├── assets/            # Logo and brochure illustrations
+│   ├── assets/                       # Logo and brochure illustrations
 │   └── favicon.*
 ├── src/
 │   ├── data/
-│   │   └── brochures.ts    # Shared topic content and per-variant copy
+│   │   ├── brochures.ts              # Card-based Brochure content (general + school planning)
+│   │   ├── emergencyTopics.ts        # Extended EmergencyTopic content (risk management)
+│   │   └── schoolEmergencyTopics.ts  # Extended EmergencyTopic content (school variant)
 │   ├── components/
-│   │   ├── BrochurePage.astro
+│   │   ├── BrochurePage.astro        # Renders a Brochure
+│   │   ├── EmergencyTopicSection.astro  # Renders an EmergencyTopic
+│   │   ├── EmergencyHeader.astro
+│   │   ├── SismosInteractiveInfographic.astro
 │   │   ├── HomeButton.astro
-│   │   └── ModeSwitch.astro
+│   │   ├── ModeSwitch.astro          # dark/light reading mode
+│   │   ├── StyleSwitch.astro         # default/rounded-glass/timeline-step
+│   │   ├── SponsorsFooter.astro      # Required on every view
+│   │   └── Welcome.astro
 │   ├── layouts/
-│   │   └── Layout.astro   # Shared HTML shell and font loading
+│   │   └── Layout.astro              # Shared HTML shell and font loading
 │   ├── pages/
-│   │   ├── index.astro    # Dashboard page
-│   │   └── *-{dark,light}.astro
+│   │   ├── index.astro               # Dashboard
+│   │   ├── general.astro             # Single long-scroll page (hidden from menu)
+│   │   ├── prevencion-escolar.astro  # School menu
+│   │   ├── prevencion-escolar/[topic].astro
+│   │   ├── prevencion-y-gestion-de-riesgo.astro  # Risk-management menu
+│   │   ├── prevencion-y-gestion-de-riesgo/[topic].astro
+│   │   ├── [slug]-[mode].astro       # General brochures (dark/light)
+│   │   └── [slug]-[style]-[mode].astro  # School brochures (style × mode)
 │   └── styles/
-│       └── global.css     # Tailwind import, tokens, and guide utilities
-├── pdf_content.txt        # Source summary extracted from the reference PDF
+│       └── global.css                # Tailwind import, tokens, and guide utilities
+├── docs/
+│   ├── adr/                          # Architecture decision records (0001, 0002, …)
+│   ├── agents/                       # Per-repo config for the engineering skills
+│   ├── design_guide.md               # PC-VENEZUELA design system
+│   └── routes.md                     # Full route inventory
+├── CONTEXT.md                        # Domain glossary
+├── pdf_content.txt                   # Source summary extracted from the reference PDF
 └── astro.config.mjs
 ```
 
@@ -93,23 +101,23 @@ npm run build
 npm run preview
 ```
 
-### Configuración de Ruta Base (Despliegue tras Proxy Reverso)
+### Base path configuration (deploying behind a reverse proxy)
 
-Si necesitas desplegar el sitio bajo una subruta o directorio específico (por ejemplo, `/folleto` usando un proxy reverso de Apache/Nginx), puedes configurar la ruta base en tiempo de ejecución utilizando la variable de entorno `BASE_PATH`.
+To serve the site under a subpath or directory (for example `/folleto` behind an Apache/Nginx reverse proxy), set the base path at runtime with the `BASE_PATH` environment variable.
 
-- **Desarrollo local con subruta**:
+- **Local development under a subpath**:
   ```bash
   BASE_PATH=/folleto npm run dev
   ```
-  *(El sitio estará disponible en `http://localhost:4321/folleto/`)*
+  *(The site is served at `http://localhost:4321/folleto/`.)*
 
-- **Compilación para producción con subruta**:
+- **Production build under a subpath**:
   ```bash
   BASE_PATH=/folleto npm run build
   ```
-  *(Todos los recursos, estilos y enlaces internos se compilarán prefijados con `/folleto`)*
+  *(All assets, styles, and internal links are built prefixed with `/folleto`.)*
 
-- **Comportamiento por defecto**: Si no defines la variable de entorno `BASE_PATH`, el sistema utilizará `/` por defecto, sirviendo el contenido desde la raíz del dominio.
+- **Default behavior**: if `BASE_PATH` is not set, it defaults to `/`, serving content from the domain root.
 
 ## Content source
 
@@ -121,6 +129,8 @@ This repository currently contains curated static copy. There is no CMS, API, da
 
 - Shared page chrome lives in `src/layouts/Layout.astro`.
 - Shared institutional tokens and utilities live in `src/styles/global.css`.
-- Topic content is centralized in `src/data/brochures.ts`.
-- `src/components/BrochurePage.astro` renders the common brochure structure for all routes.
+- Card-based brochure content is centralized in `src/data/brochures.ts` and rendered by `src/components/BrochurePage.astro`.
+- Extended topic content lives in `src/data/emergencyTopics.ts` and `src/data/schoolEmergencyTopics.ts`, rendered by `src/components/EmergencyTopicSection.astro`.
+- The `<SponsorsFooter />` component must remain present on every view.
 - The repository does not define lint or test scripts at the moment; `npm run build` is the main project health check.
+- Engineering-workflow config for AI agents lives in `docs/agents/` and the domain glossary in `CONTEXT.md`.
