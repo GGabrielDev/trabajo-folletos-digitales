@@ -16,6 +16,7 @@ BASE_PATH=/folleto npm run build # Compilar con ruta base personalizada
    - Preservar la presencia del pie de patrocinadores (`<SponsorsFooter />`) en todo momento.
    - Utilizar rejillas flexibles (`flex flex-col`, `flex-1`) en las tarjetas para prevenir desbordes o textos cortados.
 3. **Estilo de Comunicación**: Escribir respuestas al usuario en modo Caveman Full si se indica en el prompt.
+4. **Idioma del Repositorio**: El contenido del sitio (texto de páginas, folletos, cadenas de UI) se escribe en español. Todo lo que se escribe *sobre* el repositorio y se publica en el remoto —títulos y cuerpos de pull requests, títulos y cuerpos de incidencias, comentarios de revisión y mensajes de commit— debe estar en inglés, sin excepción. Los términos de dominio en español (slugs de `Brochure`, `Protección Civil`, nombres de rutas) se conservan literalmente como identificadores dentro de la prosa en inglés.
 
 ## Agent skills
 
