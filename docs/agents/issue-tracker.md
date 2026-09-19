@@ -43,9 +43,11 @@ last resort, `-k` (insecure).
 
 ## Pull requests as a triage surface
 
-**PRs as a request surface: no.** _(Set to `yes` if this repo treats external PRs as feature
-requests; `/triage` reads this flag. Forgejo shares the issue/PR index space, so `#N` may be
-either — resolve with `"$API/pulls/<index>"` then fall back to `"$API/issues/<index>"`.)_
+**PRs as a request surface: no.** External PRs are not treated as feature requests here;
+`/triage` reads this flag and skips them.
+
+Forgejo shares one index space between issues and PRs, so `#N` may be either — resolve with
+`"$API/pulls/<index>"`, then fall back to `"$API/issues/<index>"`.
 
 ## When a skill says "publish to the issue tracker"
 
