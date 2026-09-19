@@ -78,10 +78,16 @@ Usadas para categorizar la información (ej. "CLIMA", "ALERTA", "REPORTE", "PREV
 
 Para el agente de IA al generar el layout:
 
-1.  **Hero Section:** Imagen a pantalla completa con overlay oscuro. Un bloque masivo de texto alineado a la izquierda con el titular de la noticia más reciente. Un patrón de puntos finos (`radial-gradient`) superpuesto sutilmente para darle textura de "equipo de radio/transmisión".
-2.  **Grid de Noticias (Estilo Feed):** Un CSS Grid de 3 columnas (`grid-template-columns: repeat(3, 1fr)`) en escritorio, 1 columna en móvil. Sin espacio (gap) o con un gap muy grueso (ej. `24px`). Cada item del grid es una "Tarjeta de Información" (ver punto 4A).
-3.  **Contraste de Secciones:** Alternar siempre entre fondo Blanco (`#F8F9FA`) y Azul Profundo (`#0F2147`). Nunca colocar dos secciones contiguas del mismo color.
-4.  **Marca de Agua:** Colocar versiones vectoriales tenues (opacidad del 3% al 5%) del logo de Protección Civil (triángulo dentro de círculo) en los fondos de las secciones de texto para mantener el branding institucional.
+1.  **Mobile-first (regla de arquitectura, no de adaptación):** El diseño se concibe, se dibuja y se escribe primero para pantalla de teléfono (ancho de referencia: **390 px**); el escritorio es la ampliación posterior, nunca al revés. Esto es una regla de arquitectura: no basta con que la pieza terminada sea responsive.
+    - **Al diseñar:** la primera maqueta de cualquier pantalla nueva es la vertical de teléfono. Una propuesta que solo existe en versión de escritorio está incompleta y no se revisa.
+    - **Al escribir CSS/Tailwind:** los estilos base son los del teléfono y los *breakpoints* solo **suman** (`sm:`, `md:`, `lg:`). Nunca se escribe un estilo de escritorio que luego se desarma con `max-width`.
+    - **Orden de contenido:** lo que el visitante necesita en una emergencia —el teléfono de emergencias, el título de la sección, el primer acceso a contenido— va primero en el DOM y visible sin desplazamiento en 390 px de ancho.
+    - **Objetivos táctiles:** mínimo **44 × 44 px** en cualquier elemento accionable, con separación suficiente para el dedo.
+    - **La tipografía comprimida de la guía se mide en el teléfono:** un titular en mayúsculas con interlineado `1.1` debe seguir siendo legible y no partirse en más de tres líneas a 390 px.
+2.  **Hero Section:** Imagen a pantalla completa con overlay oscuro. Un bloque masivo de texto alineado a la izquierda con el titular de la noticia más reciente. Un patrón de puntos finos (`radial-gradient`) superpuesto sutilmente para darle textura de "equipo de radio/transmisión".
+3.  **Grid de Noticias (Estilo Feed):** Un CSS Grid de **1 columna** como base en teléfono, que se amplía a 3 columnas (`grid-template-columns: repeat(3, 1fr)`) a partir del *breakpoint* de escritorio. Sin espacio (gap) o con un gap muy grueso (ej. `24px`). Cada item del grid es una "Tarjeta de Información" (ver punto 4A).
+4.  **Contraste de Secciones:** Alternar siempre entre fondo Blanco (`#F8F9FA`) y Azul Profundo (`#0F2147`). Nunca colocar dos secciones contiguas del mismo color.
+5.  **Marca de Agua:** Colocar versiones vectoriales tenues (opacidad del 3% al 5%) del logo de Protección Civil (triángulo dentro de círculo) en los fondos de las secciones de texto para mantener el branding institucional.
 
 ## 7. INSTRUCCIÓN DIRECTA PARA EL AGENTE (Prompt Injection Meta-Rule)
 
@@ -101,6 +107,7 @@ Esta sección complementa la guía anterior sin modificar ninguna de sus reglas.
 
 Checklist práctico para revisar si una pantalla nueva respeta la guía:
 
+0. ¿Existe la maqueta de teléfono (390 px) y se hizo **antes** que la de escritorio? ¿Los estilos base son los del teléfono y los *breakpoints* solo suman? ¿Los elementos accionables miden al menos 44 × 44 px? (ver punto 6.1)
 1. ¿Usa `--color-primary`, `--color-secondary` y `--color-tertiary` como ejes visuales?
 2. ¿Los títulos principales están en mayúsculas y con peso alto?
 3. ¿Se evitaron bordes redondeados suaves fuera del logo?
