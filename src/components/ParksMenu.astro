@@ -19,9 +19,16 @@ import {
 interface Props {
   /** Paleta acotada: `tierra` (propuesta E) o `bosque` (propuesta F). */
   theme: 'tierra' | 'bosque';
+  /**
+   * Ruta base de las páginas de tema de este menú, sin barra final.
+   * Cada opción tiene sus propias páginas hijas para que hereden su paleta:
+   * las de `/prevencion-y-gestion-de-riesgo` son azules y se comparten con
+   * el menú original, que no debe cambiar de color.
+   */
+  topicBase: string;
 }
 
-const { theme } = Astro.props;
+const { theme, topicBase } = Astro.props;
 
 const themeClass = theme === 'bosque' ? 'pc-theme-bosque' : 'pc-theme-tierra';
 
@@ -132,7 +139,7 @@ const resolvePath = (path: string) => {
             const number = topicNumbers[topic.id] ?? '00';
             return (
               <a
-                href={resolvePath(`/prevencion-y-gestion-de-riesgo/${topic.id}`)}
+                href={resolvePath(`${topicBase}/${topic.id}`)}
                 class="group relative flex min-h-[76px] flex-row items-center gap-3 overflow-hidden rounded-[var(--border-radius-lg)] border-l-8 border-[var(--color-primary)] p-3 text-white transition-all duration-300 md:min-h-[17rem] md:flex-col md:items-stretch md:justify-between md:p-5 md:hover:-translate-y-1"
               >
                 <div

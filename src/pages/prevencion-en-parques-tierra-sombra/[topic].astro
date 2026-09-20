@@ -1,0 +1,25 @@
+---
+import EmergencyTopicSection from '../../components/EmergencyTopicSection.astro';
+import Layout from '../../layouts/Layout.astro';
+import { emergencyTopics } from '../../data/emergencyTopics';
+
+export function getStaticPaths() {
+  return emergencyTopics.map((topic, index) => ({
+    params: { topic: topic.id },
+    props: { topic, index },
+  }));
+}
+
+const { topic, index } = Astro.props;
+---
+
+<Layout title={`Seguridad en Parques - ${topic.title}`} mode="light">
+  <main class="pc-theme-tierra min-h-screen bg-[var(--color-bg-light)]">
+    <EmergencyTopicSection
+      topic={topic}
+      index={index}
+      showFloatingBackButton
+      backHref="/prevencion-en-parques-tierra-sombra"
+    />
+  </main>
+</Layout>
