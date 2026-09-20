@@ -19,6 +19,45 @@
   --pc-clip: polygon(0 0, 100% 0, 100% 90%, 0 100%);
 }
 
+/*
+ * Paletas de parques — propuestas en evaluación (ver PR de opciones de estilo).
+ * Redefinen los mismos slots semánticos que :root, acotados a un contenedor,
+ * de modo que el resto del sitio conserva la identidad naranja/azul.
+ */
+.pc-theme-tierra {
+  --color-primary: #2f6b47;
+  --color-secondary: #14452f;
+  --color-tertiary: #9cbf5e;
+  --color-bg-light: #f5f2e9;
+  --color-bg-dark: #0b2a1d;
+  --color-text-dark: #141915;
+  --gradient-overlay: linear-gradient(180deg, rgba(20, 69, 47, 0.35) 0%, rgba(20, 69, 47, 0.95) 100%);
+  --shadow-hard: 4px 4px 0px #dcd5c2;
+  --pc-alert: #d84a00;
+  --pc-card-surface: #ffffff;
+  --pc-card-ink: #14452f;
+  --pc-card-muted: #55605a;
+  --pc-panel: #ffffff;
+  --pc-hairline: rgba(20, 69, 47, 0.14);
+}
+
+.pc-theme-bosque {
+  --color-primary: #9cbf5e;
+  --color-secondary: #0b2a1d;
+  --color-tertiary: #9cbf5e;
+  --color-bg-light: #14452f;
+  --color-bg-dark: #0b2a1d;
+  --color-text-dark: #f1f6ec;
+  --gradient-overlay: linear-gradient(180deg, rgba(11, 42, 29, 0.35) 0%, rgba(11, 42, 29, 0.95) 100%);
+  --shadow-hard: 4px 4px 0px #0b2a1d;
+  --pc-alert: #d84a00;
+  --pc-card-surface: #2f6b47;
+  --pc-card-ink: #ffffff;
+  --pc-card-muted: #e3efd8;
+  --pc-panel: #1b5638;
+  --pc-hairline: rgba(241, 246, 236, 0.16);
+}
+
 @theme {
   --font-inter: "Inter", sans-serif;
   --font-montserrat: "Montserrat", sans-serif;
