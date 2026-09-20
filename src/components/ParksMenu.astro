@@ -1,0 +1,346 @@
+---
+import { emergencyTopics } from '../data/emergencyTopics';
+import { parkModules } from '../data/parkModules';
+import {
+  Phone,
+  ChevronRight,
+  Shield,
+  X,
+  Compass,
+  Users,
+  Flame,
+  Mountain,
+  Waves,
+  CloudRain,
+  Landmark,
+  FlaskConical
+} from 'lucide-react';
+
+interface Props {
+  /** Paleta acotada: `tierra` (propuesta E) o `bosque` (propuesta F). */
+  theme: 'tierra' | 'bosque';
+}
+
+const { theme } = Astro.props;
+
+const themeClass = theme === 'bosque' ? 'pc-theme-bosque' : 'pc-theme-tierra';
+
+const moduleIcons = {
+  compass: Compass,
+  users: Users,
+  flame: Flame
+};
+
+const topicIcons: Record<string, any> = {
+  sismos: Mountain,
+  tsunamis: Waves,
+  inundaciones: CloudRain,
+  incendios: Flame,
+  deslizamientos: Landmark,
+  'prevencion-sustancias-quimicas': FlaskConical
+};
+
+const topicNumbers: Record<string, string> = {
+  sismos: '01',
+  tsunamis: '02',
+  inundaciones: '03',
+  incendios: '04',
+  deslizamientos: '05',
+  'prevencion-sustancias-quimicas': '06'
+};
+
+const resolvePath = (path: string) => {
+  const base = import.meta.env.BASE_URL;
+  const normalizedBase = base.endsWith('/') ? base : `${base}/`;
+  return path.startsWith('/') ? `${normalizedBase}${path.slice(1)}` : path;
+};
+---
+
+<main class:list={[themeClass, 'min-h-screen bg-[var(--color-bg-light)] text-[var(--color-text-dark)]']}>
+  <!-- Barra de emergencia: primer elemento del DOM y visible sin desplazamiento -->
+  <a
+    href="tel:911"
+    class="flex min-h-[48px] items-center justify-center gap-2.5 bg-[var(--pc-alert)] px-4 py-3 text-white"
+  >
+    <Phone size={18} strokeWidth={2.4} class="shrink-0" />
+    <span class="font-montserrat text-[0.8rem] font-black uppercase tracking-[0.04em] sm:text-sm">
+      Emergencias 911 · 0800-7248451
+    </span>
+  </a>
+
+  <!-- Encabezado -->
+  <section class="relative overflow-hidden bg-[var(--color-secondary)] text-white">
+    <div class="pc-dot-grid absolute inset-0 opacity-70"></div>
+    <div class="relative z-10 mx-auto max-w-6xl px-4 py-5 sm:px-6 sm:py-8 lg:px-8">
+      <div class="flex flex-col gap-5 md:flex-row md:items-center md:justify-between">
+        <div class="flex flex-col gap-3 md:flex-row md:items-center md:gap-4">
+          <div class="flex items-center gap-3 md:gap-4">
+            <div class="h-11 w-11 shrink-0 overflow-hidden rounded-full border-2 border-white/30 bg-white p-1.5 shadow-lg sm:h-16 sm:w-16">
+              <img
+                src={resolvePath('/assets/LOGO-PC-NUEVO-e1754668914257.png')}
+                alt="Logo Protección Civil"
+                class="h-full w-full object-contain"
+              />
+            </div>
+            <p class="text-[0.58rem] font-semibold uppercase tracking-[0.14em] text-[var(--color-tertiary)] sm:text-xs">
+              Protección Civil y Administración de Desastres
+            </p>
+          </div>
+          <h1 class="text-[1.9rem] font-black leading-tight tracking-wide sm:text-4xl lg:text-5xl">
+            Seguridad en Parques
+          </h1>
+        </div>
+
+        <div class="hidden w-fit shrink-0 items-center gap-3 rounded border-2 border-[var(--pc-alert)] bg-white px-4 py-3 text-[var(--color-secondary)] shadow-[4px_4px_0px_var(--pc-alert)] md:flex">
+          <div class="rounded-full bg-[var(--pc-alert)] p-2 text-white">
+            <Phone size={18} class="animate-pulse" />
+          </div>
+          <div>
+            <p class="text-[0.65rem] font-black uppercase tracking-wider text-[var(--color-secondary)]/80">
+              En caso de emergencia
+            </p>
+            <p class="text-sm font-black sm:text-base">Llama 911 | 0800-7248451</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <div class="pc-hazard-stripe h-[5px] w-full sm:h-[6px]"></div>
+
+  <!-- Contenido -->
+  <section class="bg-[var(--color-bg-light)] py-6 sm:py-10">
+    <div class="mx-auto flex max-w-6xl flex-col px-4 sm:px-6 lg:px-8">
+      <div class="mb-6 border-l-4 border-[var(--color-primary)] pl-4 sm:mb-8">
+        <h2 class="text-xl font-black tracking-tight text-[var(--color-secondary)] sm:text-3xl">
+          Conoce tu parque
+        </h2>
+        <p class="mt-1 text-[0.8rem] font-bold uppercase tracking-wider text-[var(--color-primary)] sm:text-sm">
+          Plazas, parques urbanos y pequeñas reservas públicas.
+        </p>
+        <p class="mt-2 text-[0.82rem] leading-relaxed text-[var(--pc-card-muted)] sm:text-base">
+          Un espacio abierto concentra familias, deporte, eventos y, en las reservas, fauna y
+          senderos sin señal telefónica. Revisa los riesgos que pueden presentarse y los módulos de
+          preparación antes de tu próxima visita.
+        </p>
+      </div>
+
+      <!-- Riesgos: una sola tarjeta que se reordena, base teléfono -->
+      <div class="mb-8 grid grid-cols-1 gap-3 md:grid-cols-3 md:gap-4 lg:grid-cols-6">
+        {
+          emergencyTopics.map((topic) => {
+            const TopicIcon = topicIcons[topic.id] ?? Shield;
+            const number = topicNumbers[topic.id] ?? '00';
+            return (
+              <a
+                href={resolvePath(`/prevencion-y-gestion-de-riesgo/${topic.id}`)}
+                class="group relative flex min-h-[76px] flex-row items-center gap-3 overflow-hidden rounded-[var(--border-radius-lg)] border-l-8 border-[var(--color-primary)] p-3 text-white transition-all duration-300 md:min-h-[17rem] md:flex-col md:items-stretch md:justify-between md:p-5 md:hover:-translate-y-1"
+              >
+                <div
+                  class="absolute inset-0 bg-cover bg-center transition-transform duration-300 md:group-hover:scale-[1.04]"
+                  style={`background-image: var(--gradient-overlay), url('${resolvePath(topic.image)}');`}
+                />
+
+                <div class="relative z-10 flex flex-1 flex-row items-center gap-3 md:flex-col md:items-center md:gap-0 md:text-center">
+                  <span class="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-[var(--color-primary)] text-[0.7rem] font-black text-[var(--color-secondary)] shadow-md md:mb-3">
+                    {number}
+                  </span>
+                  <TopicIcon
+                    size={24}
+                    strokeWidth={2}
+                    class="hidden shrink-0 text-[var(--color-tertiary)] md:mb-2 md:block"
+                  />
+                  <span class="min-w-0 flex-1 md:flex-none">
+                    <h3 class="font-montserrat text-[0.82rem] font-black uppercase tracking-wider text-white md:mb-2 md:text-sm">
+                      {topic.title}
+                    </h3>
+                    <p class="mt-1 line-clamp-2 text-[0.72rem] font-medium leading-relaxed text-white/80 md:mt-0">
+                      {topic.summary}
+                    </p>
+                  </span>
+                  <ChevronRight
+                    size={18}
+                    strokeWidth={3}
+                    class="shrink-0 text-[var(--color-primary)] md:hidden"
+                  />
+                </div>
+
+                <div class="relative z-10 mt-4 hidden md:block">
+                  <div class="flex w-full items-center justify-center gap-1.5 rounded bg-[var(--color-primary)] px-3 py-2 text-[0.7rem] font-extrabold uppercase tracking-wider text-[var(--color-secondary)] shadow-sm transition-colors">
+                    <span>Ver Información</span>
+                    <ChevronRight size={12} strokeWidth={3} />
+                  </div>
+                </div>
+              </a>
+            );
+          })
+        }
+      </div>
+
+      <!-- Módulos de parques -->
+      <div class="mb-8 rounded-xl border border-[var(--pc-hairline)] bg-[var(--pc-panel)] p-4 sm:p-6">
+        <h3 class="mb-4 text-center font-montserrat text-[0.7rem] font-black uppercase tracking-[0.15em] text-[var(--pc-card-muted)] sm:text-left sm:text-xs">
+          Prepárate para tu visita
+        </h3>
+
+        <div class="grid gap-3 sm:grid-cols-3 sm:gap-4">
+          {
+            parkModules.map((parkModule) => {
+              const ModuleIcon = moduleIcons[parkModule.icon];
+              return (
+                <button
+                  data-target={`${parkModule.id}-modal`}
+                  class="open-modal-btn group flex w-full min-h-[76px] cursor-pointer items-start gap-3 rounded-lg border border-[var(--pc-hairline)] bg-[var(--pc-card-surface)] p-4 text-left shadow-sm transition-all hover:shadow-md sm:gap-4"
+                >
+                  <div class="shrink-0 rounded-lg bg-[var(--color-primary)]/15 p-2.5 text-[var(--color-primary)] transition-transform group-hover:scale-105">
+                    <ModuleIcon size={20} strokeWidth={2.2} />
+                  </div>
+                  <div class="min-w-0">
+                    <h4 class="mb-1 font-montserrat text-[0.72rem] font-black uppercase tracking-wider text-[var(--pc-card-ink)]">
+                      {parkModule.title}
+                    </h4>
+                    <p class="text-[0.72rem] font-medium leading-relaxed text-[var(--pc-card-muted)]">
+                      {parkModule.summary}
+                    </p>
+                  </div>
+                </button>
+              );
+            })
+          }
+        </div>
+      </div>
+
+      <!-- Banner institucional -->
+      <div class="relative flex flex-col items-center justify-between gap-5 overflow-hidden rounded-xl border-l-8 border-[var(--color-primary)] bg-[var(--color-secondary)] p-5 text-white shadow-md sm:flex-row sm:p-8">
+        <div class="pc-dot-grid absolute inset-0 opacity-40"></div>
+        <div class="relative z-10 flex flex-col items-center gap-3 text-center sm:flex-row sm:gap-4 sm:text-left">
+          <div class="shrink-0 rounded-full border border-white/20 bg-white/10 p-3 text-[var(--color-tertiary)] backdrop-blur-md">
+            <Shield size={32} />
+          </div>
+          <div>
+            <h3 class="text-base font-black uppercase tracking-wider text-white sm:text-lg">
+              Disfruta al aire libre, regresa a casa seguro
+            </h3>
+            <p class="mt-1 text-[0.75rem] font-medium text-white/80">
+              Infórmate antes de salir y comparte esta información con quien te acompaña.
+            </p>
+          </div>
+        </div>
+        <div class="relative z-10 hidden shrink-0 opacity-20 lg:block">
+          <img
+            src={resolvePath('/assets/LOGO-PC-NUEVO-e1754668914257.png')}
+            alt="PC Venezuela watermark"
+            class="h-20 w-auto"
+          />
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<!-- Modales de los módulos de parques -->
+{
+  parkModules.map((parkModule) => {
+    const ModuleIcon = moduleIcons[parkModule.icon];
+    return (
+      <dialog
+        id={`${parkModule.id}-modal`}
+        class:list={[
+          themeClass,
+          'fixed inset-0 m-auto h-fit w-[calc(100%-2rem)] max-w-lg rounded-xl border border-[var(--pc-hairline)] bg-[var(--pc-panel)] p-0 text-[var(--pc-card-ink)] shadow-2xl outline-none backdrop:bg-black/60'
+        ]}
+      >
+        <div class="flex items-center justify-between border-b border-[var(--pc-hairline)] p-5">
+          <div class="flex items-center gap-2.5 text-[var(--color-primary)]">
+            <ModuleIcon size={18} strokeWidth={2.2} />
+            <h3 class="font-montserrat text-sm font-black uppercase tracking-wider text-[var(--pc-card-ink)]">
+              {parkModule.title}
+            </h3>
+          </div>
+          <button
+            class="close-modal cursor-pointer text-[var(--pc-card-muted)] hover:text-[var(--pc-card-ink)]"
+            data-target={`${parkModule.id}-modal`}
+            aria-label="Cerrar"
+          >
+            <X size={20} />
+          </button>
+        </div>
+
+        <div class="space-y-4 p-6">
+          <p class="text-xs font-medium text-[var(--pc-card-muted)]">{parkModule.intro}</p>
+          <ul class="space-y-3">
+            {parkModule.items.map((item, index) => (
+              <li class="flex gap-3 rounded-lg border border-[var(--pc-hairline)] bg-[var(--pc-card-surface)] p-3">
+                <span class="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-[var(--color-primary)] text-[0.65rem] font-black text-[var(--color-secondary)]">
+                  {index + 1}
+                </span>
+                <div class="min-w-0">
+                  <h4 class="font-montserrat text-xs font-black uppercase text-[var(--pc-card-ink)]">
+                    {item.title}
+                  </h4>
+                  <p class="mt-1 text-[0.72rem] leading-relaxed text-[var(--pc-card-muted)]">
+                    {item.body}
+                  </p>
+                </div>
+              </li>
+            ))}
+          </ul>
+        </div>
+
+        <div class="flex justify-end border-t border-[var(--pc-hairline)] px-6 py-4">
+          <button
+            class="close-modal cursor-pointer rounded bg-[var(--color-primary)] px-4 py-2 font-montserrat text-xs font-black uppercase tracking-wider text-[var(--color-secondary)] transition-colors"
+            data-target={`${parkModule.id}-modal`}
+          >
+            Cerrar
+          </button>
+        </div>
+      </dialog>
+    );
+  })
+}
+
+<script is:inline>
+  (() => {
+    document.addEventListener('click', (e) => {
+      const target = e.target;
+      if (!target || !(target instanceof Element)) return;
+
+      const openBtn = target.closest('.open-modal-btn');
+      if (openBtn) {
+        e.preventDefault();
+        const modalId = openBtn.getAttribute('data-target');
+        if (modalId) {
+          const dialog = document.getElementById(modalId);
+          if (dialog && typeof dialog.showModal === 'function') {
+            dialog.showModal();
+          }
+        }
+        return;
+      }
+
+      const closeBtn = target.closest('.close-modal');
+      if (closeBtn) {
+        e.preventDefault();
+        const modalId = closeBtn.getAttribute('data-target');
+        const dialog = modalId ? document.getElementById(modalId) : closeBtn.closest('dialog');
+        if (dialog && typeof dialog.close === 'function') {
+          dialog.close();
+        }
+        return;
+      }
+
+      if (target.tagName === 'DIALOG') {
+        const dialog = target;
+        const rect = dialog.getBoundingClientRect();
+        const isInDialog =
+          rect.top <= e.clientY &&
+          e.clientY <= rect.top + rect.height &&
+          rect.left <= e.clientX &&
+          e.clientX <= rect.left + rect.width;
+        if (!isInDialog && typeof dialog.close === 'function') {
+          dialog.close();
+        }
+      }
+    });
+  })();
+</script>
