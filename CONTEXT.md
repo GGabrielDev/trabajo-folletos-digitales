@@ -31,13 +31,28 @@ Each topic has an `id`. Current ids (in both files): `sismos`, `tsunamis`, `inun
 > Note: a `Brochure`'s `slug` and an `EmergencyTopic`'s `id` can coincide (e.g. `sismos`) but they
 > are separate entities with different structures. Do not interchange them.
 
+### Park topic — `ParkTopic` (`src/data/parkTopics.ts`)
+A sibling of `EmergencyTopic`, not a variant of it. It keeps phases and map nodes but replaces the
+infographic and visual steps with two fields the emergency model has no place for: `figures`
+(a cited statistic, its label and its explanation) and `sources` (publisher, document, year, url).
+It also carries its own `styleVariant`, so each topic picks one of the three documented styles.
+Rendered by `src/components/ParkTopicSection.astro`. Current ids: `sismos-en-parques`,
+`incendios-de-vegetacion`, `tormentas-electricas`, `golpe-de-calor`, `crecidas-subitas`.
+
+The distinguishing rule: **a `ParkTopic` asserts no figure without a `sources` entry to back it.**
+The claim-by-claim record is `docs/research/parks-topics-sources.md`.
+
+> Note: `sismos-en-parques` and the `sismos` topic/brochure are different entities. The park topic
+> covers what to do when a quake finds you outdoors; the others cover the household and school cases.
+
 ### Reading mode — `mode` (`BrochureMode`: `'dark' | 'light'`)
 The reading surface of a brochure. It **only affects the visual surface** (dark/light), not the
 content. Selected by route (e.g. `/sismos-dark`, `/sismos-light`).
 
 ### Style variant — `styleVariant` (`'default' | 'rounded-glass' | 'timeline-step'`)
-The brochure's visual treatment, orthogonal to the reading mode. General brochures use `default`;
-school brochures are generated in all three variants × two modes.
+The visual treatment, orthogonal to the reading mode. General brochures use `default`; school
+brochures are generated in all three variants × two modes. `ParkTopic` also uses this vocabulary,
+choosing one variant per topic rather than generating a route per variant.
 
 ### Menu / Submenu
 Landing pages that link to subpages:
