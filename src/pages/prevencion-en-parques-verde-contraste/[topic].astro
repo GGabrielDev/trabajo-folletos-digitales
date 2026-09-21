@@ -13,8 +13,8 @@ export function getStaticPaths() {
 const { topic, index } = Astro.props;
 ---
 
-<Layout title={`GESTION DE RIESGO EN PARQUES - ${topic.title}`} mode="dark">
-  <main class="pc-theme-bosque min-h-screen bg-[var(--color-bg-light)]">
+<Layout title={`GESTION DE RIESGO EN PARQUES - ${topic.title}`} mode="light">
+  <main class="pc-theme-tierra min-h-screen bg-[var(--color-bg-light)]">
     <EmergencyTopicSection
       topic={topic}
       index={index}
