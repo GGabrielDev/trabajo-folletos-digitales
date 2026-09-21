@@ -1,0 +1,73 @@
+# .forgejo/workflows/preview.yml
+name: PR Preview
+
+on:
+  pull_request:
+    types: [opened, synchronize, reopened, closed]
+
+concurrency:
+  group: preview-${{ github.event.number }}
+  cancel-in-progress: true
+
+jobs:
+  build:
+    if: github.event.action != 'closed'
+    runs-on: node
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Install dependencies
+        run: npm ci
+
+      # Non-blocking: 33 pre-existing errors, mostly lucide class/className.
+      # Flip continue-on-error to false once those are cleared.
+      - name: Typecheck
+        run: npm run check
+        continue-on-error: true
+
+      - name: Build
+        run: npm run build
+
+      - name: Publish preview
+        env:
+          DEPLOY_KEY:   ${{ secrets.PREVIEW_DEPLOY_KEY }}
+          DEPLOY_HOST:  ${{ secrets.PREVIEW_DEPLOY_HOST }}
+          KNOWN_HOSTS:  ${{ secrets.PREVIEW_KNOWN_HOSTS }}
+          PR:           ${{ github.event.number }}
+        run: |
+          set -euo pipefail
+          install -d -m 700 ~/.ssh
+          printf '%s\n' "$DEPLOY_KEY"  > ~/.ssh/preview_key
+          printf '%s\n' "$KNOWN_HOSTS" > ~/.ssh/known_hosts
+          chmod 600 ~/.ssh/preview_key ~/.ssh/known_hosts
+          tar czf - -C dist . \
+            | ssh -i ~/.ssh/preview_key \
+                  -o IdentitiesOnly=yes \
+                  -o StrictHostKeyChecking=yes \
+                  "$DEPLOY_HOST" "deploy $PR"
+          rm -f ~/.ssh/preview_key
+
+      - name: Preview URL
+        run: echo "https://pr-${{ github.event.number }}.folletos.gaboggamer.online/" >> "$GITHUB_STEP_SUMMARY"
+
+  teardown:
+    if: github.event.action == 'closed'
+    runs-on: node
+    steps:
+      - name: Remove preview
+        env:
+          DEPLOY_KEY:   ${{ secrets.PREVIEW_DEPLOY_KEY }}
+          DEPLOY_HOST:  ${{ secrets.PREVIEW_DEPLOY_HOST }}
+          KNOWN_HOSTS:  ${{ secrets.PREVIEW_KNOWN_HOSTS }}
+          PR:           ${{ github.event.number }}
+        run: |
+          set -euo pipefail
+          install -d -m 700 ~/.ssh
+          printf '%s\n' "$DEPLOY_KEY"  > ~/.ssh/preview_key
+          printf '%s\n' "$KNOWN_HOSTS" > ~/.ssh/known_hosts
+          chmod 600 ~/.ssh/preview_key ~/.ssh/known_hosts
+          ssh -i ~/.ssh/preview_key \
+              -o IdentitiesOnly=yes \
+              -o StrictHostKeyChecking=yes \
+              "$DEPLOY_HOST" "teardown $PR"
+          rm -f ~/.ssh/preview_key
