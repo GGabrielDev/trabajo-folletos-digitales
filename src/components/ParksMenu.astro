@@ -1,6 +1,7 @@
 ---
 import { emergencyTopics } from '../data/emergencyTopics';
 import { parkModules } from '../data/parkModules';
+import { parkTopics } from '../data/parkTopics';
 import {
   Phone,
   ChevronRight,
@@ -13,7 +14,9 @@ import {
   Waves,
   CloudRain,
   Landmark,
-  FlaskConical
+  FlaskConical,
+  Zap,
+  Thermometer
 } from 'lucide-react';
 
 interface Props {
@@ -26,9 +29,18 @@ interface Props {
    * el menú original, que no debe cambiar de color.
    */
   topicBase: string;
+  /**
+   * Conjunto de temas que lista el menú. `parques` usa los temas
+   * investigados y con fuentes de `parkTopics`; `general` mantiene el
+   * temario compartido del sitio.
+   */
+  topicSet?: 'general' | 'parques';
 }
 
-const { theme, topicBase } = Astro.props;
+const { theme, topicBase, topicSet = 'general' } = Astro.props;
+
+const topics = topicSet === 'parques' ? parkTopics : emergencyTopics;
+const topicGridClass = topics.length === 5 ? 'lg:grid-cols-5' : 'lg:grid-cols-6';
 
 const themeClass = theme === 'bosque' ? 'pc-theme-bosque' : 'pc-theme-tierra';
 
@@ -44,7 +56,12 @@ const topicIcons: Record<string, any> = {
   inundaciones: CloudRain,
   incendios: Flame,
   deslizamientos: Landmark,
-  'prevencion-sustancias-quimicas': FlaskConical
+  'prevencion-sustancias-quimicas': FlaskConical,
+  'sismos-en-parques': Mountain,
+  'incendios-de-vegetacion': Flame,
+  'tormentas-electricas': Zap,
+  'golpe-de-calor': Thermometer,
+  'crecidas-subitas': Waves
 };
 
 const topicNumbers: Record<string, string> = {
@@ -53,7 +70,12 @@ const topicNumbers: Record<string, string> = {
   inundaciones: '03',
   incendios: '04',
   deslizamientos: '05',
-  'prevencion-sustancias-quimicas': '06'
+  'prevencion-sustancias-quimicas': '06',
+  'sismos-en-parques': '01',
+  'incendios-de-vegetacion': '02',
+  'tormentas-electricas': '03',
+  'golpe-de-calor': '04',
+  'crecidas-subitas': '05'
 };
 
 const resolvePath = (path: string) => {
@@ -132,9 +154,9 @@ const resolvePath = (path: string) => {
       </div>
 
       <!-- Riesgos: una sola tarjeta que se reordena, base teléfono -->
-      <div class="mb-8 grid grid-cols-1 gap-3 md:grid-cols-3 md:gap-4 lg:grid-cols-6">
+      <div class:list={['mb-8 grid grid-cols-1 gap-3 md:grid-cols-3 md:gap-4', topicGridClass]}>
         {
-          emergencyTopics.map((topic) => {
+          topics.map((topic) => {
             const TopicIcon = topicIcons[topic.id] ?? Shield;
             const number = topicNumbers[topic.id] ?? '00';
             return (

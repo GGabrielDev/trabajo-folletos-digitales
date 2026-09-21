@@ -1,0 +1,228 @@
+---
+import type { ParkTopic } from '../data/parkTopics';
+import { ChevronLeft, ExternalLink } from 'lucide-react';
+
+interface Props {
+  topic: ParkTopic;
+  index: number;
+  backHref: string;
+}
+
+const { topic, index, backHref } = Astro.props;
+
+const resolvePath = (path: string) => {
+  if (!path) return path;
+  const base = import.meta.env.BASE_URL;
+  const normalizedBase = base.endsWith('/') ? base : `${base}/`;
+  return path.startsWith('/') ? `${normalizedBase}${path.slice(1)}` : path;
+};
+
+const resolvedBackHref = resolvePath(backHref);
+const resolvedTopicImage = resolvePath(topic.image);
+
+/*
+ * Cada tema usa una de las tres variantes documentadas del sistema de diseño.
+ * Aquí solo se traduce la variante a las clases que ya existen en global.css;
+ * no se introduce vocabulario visual nuevo.
+ */
+const isGlass = topic.styleVariant === 'rounded-glass';
+const isTimeline = topic.styleVariant === 'timeline-step';
+
+const cardClass = isGlass
+  ? 'pc-rounded pc-glass-light border border-[var(--pc-hairline)]'
+  : isTimeline
+    ? 'pc-brutalist-card bg-[var(--pc-card-surface)]'
+    : 'pc-card pc-hard-shadow-light border border-[var(--pc-hairline)] bg-[var(--pc-card-surface)]';
+
+const figureClass = isGlass
+  ? 'pc-rounded pc-glass-light border border-[var(--pc-hairline)]'
+  : isTimeline
+    ? 'pc-brutalist-card-light bg-[var(--pc-card-surface)]'
+    : 'pc-card pc-hard-shadow-light border border-[var(--pc-hairline)] bg-[var(--pc-card-surface)]';
+
+const badgeClass = isTimeline ? 'pc-rule-badge bg-[var(--color-primary)] text-white' : '';
+
+const phaseAccent: Record<string, string> = {
+  Antes: 'var(--color-primary)',
+  Durante: 'var(--pc-alert)',
+  'Después': 'var(--color-secondary)'
+};
+---
+
+<section id={topic.id} class="scroll-mt-28">
+  <a
+    href={resolvedBackHref}
+    class="fixed bottom-4 right-4 z-50 inline-flex min-h-11 items-center justify-center gap-1.5 border border-white/10 bg-[var(--color-secondary)] px-3 py-2 text-[0.68rem] font-bold uppercase tracking-[0.12em] text-white shadow-[4px_4px_0px_var(--color-secondary)] transition-transform hover:-translate-y-1 sm:bottom-6 sm:right-6 sm:text-[0.72rem]"
+  >
+    <ChevronLeft size={14} strokeWidth={2.75} />
+    <span>Volver</span>
+  </a>
+
+  <!-- Cabecera -->
+  <div
+    class="relative overflow-hidden bg-[var(--color-secondary)] text-white"
+    style={`background-image: var(--gradient-overlay), url('${resolvedTopicImage}'); background-size: cover; background-position: center;`}
+  >
+    <div class="pc-dot-grid absolute inset-0 opacity-50"></div>
+    <div class="relative z-10 mx-auto flex w-full max-w-6xl flex-col gap-6 px-4 py-8 sm:px-6 sm:py-10 md:flex-row md:items-center md:justify-between lg:px-8">
+      <div class="max-w-3xl">
+        <div class="mb-3 flex flex-wrap items-center gap-2">
+          <span class="pc-tag pc-tag-primary">Tema {index + 1}</span>
+          <span class="pc-tag pc-tag-secondary">{topic.ribbon}</span>
+          <span class="text-sm">{topic.emoji}</span>
+        </div>
+        <h2 class="text-2xl font-black leading-tight sm:text-4xl">{topic.title}</h2>
+        <p class="mt-3 max-w-2xl text-sm leading-6 text-white/88 sm:text-base sm:leading-7">
+          {topic.summary}
+        </p>
+      </div>
+
+      <div class="flex max-w-xl flex-col gap-1 rounded border-2 border-[var(--color-primary)] bg-white px-5 py-3.5 text-sm font-black uppercase tracking-[0.12em] text-[var(--color-primary)] shadow-[4px_4px_0px_var(--color-primary)] sm:text-base">
+        <span>Emergencias: 911</span>
+        <span class="text-[0.7rem] font-bold tracking-normal text-[var(--color-secondary)]/70">
+          Protección Civil · 0800-7248451
+        </span>
+      </div>
+    </div>
+  </div>
+  <div class="pc-hazard-stripe h-[5px] w-full sm:h-[6px]"></div>
+
+  <div class="mx-auto w-full max-w-6xl px-4 py-8 sm:px-6 sm:py-10 lg:px-8">
+    <!-- Cifras con fuente -->
+    <h3 class="mb-4 border-l-4 border-[var(--color-primary)] pl-3 font-montserrat text-base font-black uppercase tracking-wider text-[var(--pc-card-ink)] sm:text-lg">
+      {topic.figuresTitle}
+    </h3>
+    <div class="mb-10 grid gap-3 sm:grid-cols-3 sm:gap-4">
+      {topic.figures.map((figure) => (
+        <div class:list={['flex flex-col p-4 sm:p-5', figureClass]}>
+          <span class="font-montserrat text-2xl font-black leading-none text-[var(--color-primary)] sm:text-3xl">
+            {figure.value}
+          </span>
+          <span class="mt-2 font-montserrat text-[0.7rem] font-black uppercase tracking-wider text-[var(--pc-card-ink)]">
+            {figure.label}
+          </span>
+          <p class="mt-2 flex-1 text-[0.75rem] leading-relaxed text-[var(--pc-card-muted)]">
+            {figure.detail}
+          </p>
+        </div>
+      ))}
+    </div>
+
+    <!-- Fases -->
+    {isTimeline ? (
+      <ol class="mb-10 flex flex-col gap-4">
+        {topic.phases.map((phase, phaseIndex) => (
+          <li class:list={['flex flex-col p-5 sm:p-6', cardClass]}>
+            <div class="mb-3 flex flex-wrap items-center gap-3">
+              <span class:list={[badgeClass, 'shrink-0']}>{`Paso ${phaseIndex + 1}`}</span>
+              <h4
+                class="font-montserrat text-sm font-black uppercase tracking-wider sm:text-base"
+                style={`color: ${phaseAccent[phase.label]};`}
+              >
+                {phase.label}
+              </h4>
+            </div>
+            <p class="mb-4 text-[0.8rem] font-medium leading-relaxed text-[var(--pc-card-muted)] sm:text-sm">
+              {phase.lead}
+            </p>
+            <ul class="flex flex-col gap-2.5">
+              {phase.points.map((point) => (
+                <li class="flex gap-3">
+                  <span
+                    class="mt-[0.45rem] h-2 w-2 shrink-0 rounded-full"
+                    style={`background: ${phaseAccent[phase.label]};`}
+                  ></span>
+                  <span class="min-w-0 flex-1 text-[0.8rem] leading-relaxed text-[var(--pc-card-ink)]">
+                    {point}
+                  </span>
+                </li>
+              ))}
+            </ul>
+          </li>
+        ))}
+      </ol>
+    ) : (
+      <div class="mb-10 grid gap-4 lg:grid-cols-3">
+        {topic.phases.map((phase) => (
+          <div class:list={['flex flex-col p-5 sm:p-6', cardClass]}>
+            <h4
+              class="mb-1 font-montserrat text-sm font-black uppercase tracking-[0.14em] sm:text-base"
+              style={`color: ${phaseAccent[phase.label]};`}
+            >
+              {phase.label}
+            </h4>
+            <p class="mb-4 text-[0.8rem] font-medium leading-relaxed text-[var(--pc-card-muted)]">
+              {phase.lead}
+            </p>
+            <ul class="flex flex-1 flex-col gap-2.5">
+              {phase.points.map((point) => (
+                <li class="flex gap-2.5">
+                  <span
+                    class="mt-[0.45rem] h-1.5 w-1.5 shrink-0 rounded-full"
+                    style={`background: ${phaseAccent[phase.label]};`}
+                  ></span>
+                  <span class="min-w-0 flex-1 text-[0.78rem] leading-relaxed text-[var(--pc-card-ink)]">
+                    {point}
+                  </span>
+                </li>
+              ))}
+            </ul>
+          </div>
+        ))}
+      </div>
+    )}
+
+    <!-- Claves de lectura del entorno -->
+    <h3 class="mb-4 border-l-4 border-[var(--color-primary)] pl-3 font-montserrat text-base font-black uppercase tracking-wider text-[var(--pc-card-ink)] sm:text-lg">
+      {topic.mapTitle}
+    </h3>
+    <div class="mb-10 grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
+      {topic.mapNodes.map((node) => (
+        <div class:list={['flex flex-col p-4', cardClass]}>
+          <h4 class="font-montserrat text-[0.72rem] font-black uppercase tracking-wider text-[var(--pc-card-ink)]">
+            {node.label}
+          </h4>
+          <p class="mt-1.5 flex-1 text-[0.75rem] leading-relaxed text-[var(--pc-card-muted)]">
+            {node.detail}
+          </p>
+        </div>
+      ))}
+    </div>
+
+    <!-- Cierre -->
+    <div class="mb-10 flex items-start gap-3 border-l-8 border-[var(--pc-alert)] bg-[var(--color-secondary)] p-5 text-white">
+      <p class="text-[0.82rem] font-bold leading-relaxed sm:text-sm">{topic.footer}</p>
+    </div>
+
+    <!-- Fuentes: toda cifra de esta página es atribuible -->
+    <section aria-labelledby={`${topic.id}-fuentes`} class="border-t border-[var(--pc-hairline)] pt-6">
+      <h3
+        id={`${topic.id}-fuentes`}
+        class="mb-1 font-montserrat text-[0.72rem] font-black uppercase tracking-[0.15em] text-[var(--pc-card-muted)]"
+      >
+        Fuentes
+      </h3>
+      <p class="mb-4 text-[0.72rem] leading-relaxed text-[var(--pc-card-muted)]">
+        Las cifras y recomendaciones de esta página proceden de los documentos citados a continuación.
+      </p>
+      <ul class="flex flex-col gap-2.5">
+        {topic.sources.map((source) => (
+          <li class="flex flex-col gap-0.5 border-l-2 border-[var(--color-primary)] pl-3">
+            <a
+              href={source.url}
+              target="_blank"
+              rel="noopener noreferrer"
+              class="inline-flex items-center gap-1.5 text-[0.78rem] font-bold leading-snug text-[var(--color-primary)] underline underline-offset-2"
+            >
+              <span class="min-w-0">{source.title}</span>
+              <ExternalLink size={12} strokeWidth={2.5} />
+            </a>
+            <span class="text-[0.7rem] leading-snug text-[var(--pc-card-muted)]">
+              {source.publisher} · {source.year}
+            </span>
+          </li>
+        ))}
+      </ul>
+    </section>
+  </div>
+</section>
